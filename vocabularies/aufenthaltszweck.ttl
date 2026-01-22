@@ -1,0 +1,179 @@
+@prefix : <http://bamf.de/vocabulary/aufenthaltszweck#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix emn: <https://home-affairs.ec.europa.eu/emn/glossary#> .
+
+# ============================================================================
+# AUFENTHALTSZWECK SKOS-VOKABULAR
+# ============================================================================
+
+<http://bamf.de/vocabulary/aufenthaltszweck> a owl:Ontology , skos:ConceptScheme ;
+    dct:title "Aufenthaltszweck Vokabular"@de ,
+              "Purpose of Residence Vocabulary"@en ;
+    dct:description "Kontrolliertes Vokabular für Zwecke des Aufenthalts nach deutschem Aufenthaltsgesetz"@de ,
+                    "Controlled vocabulary for purposes of residence according to German Residence Act"@en ;
+    dct:created "2025-01-19"^^xsd:date ;
+    dct:modified "2025-01-19"^^xsd:date ;
+    dct:creator "BAMF" ;
+    dct:license <https://creativecommons.org/licenses/by/4.0/> ;
+    owl:versionInfo "1.0.0" ;
+    # XRepository-Referenz (XAusländer)
+    :xRepositoryURN <https://www.xrepository.de/api/xrepository/urn:xauslaender-de:xauslaender:codeliste:aufenthaltszweck> ;
+    dct:source <https://www.xrepository.de/details/urn:xauslaender-de:xauslaender:codeliste:aufenthaltszweck> ,
+               <https://www.gesetze-im-internet.de/aufenthg_2004/> ;
+    rdfs:comment "Basiert auf dem XAusländer-Standard Aufenthaltszweck gemäß deutschem Aufenthaltsgesetz (AufenthG)"@de ;
+    rdfs:label "Aufenthaltszweck Konzeptschema"@de ,
+               "Purpose of Residence Concept Scheme"@en .
+
+# Property-Definitionen für XRepository
+:xRepositoryURN a owl:AnnotationProperty ;
+    rdfs:label "XRepository URN"@de ;
+    rdfs:range xsd:anyURI .
+
+:xRepositoryID a owl:DatatypeProperty ;
+    rdfs:label "XRepository ID"@de ;
+    rdfs:range xsd:string .
+
+# ============================================================================
+# AUFENTHALTSZWECK-KONZEPTE
+# ============================================================================
+
+:Erwerbstaetigkeit a skos:Concept ;
+    skos:inScheme <http://bamf.de/vocabulary/aufenthaltszweck> ;
+    skos:prefLabel "Erwerbstätigkeit"@de ,
+                   "Employment"@en ;
+    skos:notation "ERW" ;
+    skos:definition "Aufenthalt zum Zweck der Erwerbstätigkeit nach Kapitel 2 Abschnitt 3 AufenthG (§§ 16a-21)"@de ,
+                    "Residence for the purpose of employment according to Chapter 2 Section 3 AufenthG (§§ 16a-21)"@en ;
+    dct:source <https://www.gesetze-im-internet.de/aufenthg_2004/__18.html> ;
+    :xRepositoryID "TODO_ID" ;
+    skos:related emn:economic-migration ;
+    rdfs:comment "Umfasst qualifizierte Beschäftigung, Fachkräfte, Forschung und selbständige Tätigkeit"@de ;
+    skos:topConceptOf <http://bamf.de/vocabulary/aufenthaltszweck> .
+
+:Ausbildung a skos:Concept ;
+    skos:inScheme <http://bamf.de/vocabulary/aufenthaltszweck> ;
+    skos:prefLabel "Ausbildung"@de ,
+                   "Vocational Training"@en ;
+    skos:notation "AUS" ;
+    skos:definition "Aufenthalt zum Zweck der betrieblichen oder schulischen Berufsausbildung nach § 16a AufenthG"@de ,
+                    "Residence for the purpose of vocational training according to § 16a AufenthG"@en ;
+    dct:source <https://www.gesetze-im-internet.de/aufenthg_2004/__16a.html> ;
+    :xRepositoryID "TODO_ID" ;
+    rdfs:comment "Betrifft duale Ausbildungen und qualifizierte Berufsausbildungen"@de ;
+    skos:topConceptOf <http://bamf.de/vocabulary/aufenthaltszweck> .
+
+:Studium a skos:Concept ;
+    skos:inScheme <http://bamf.de/vocabulary/aufenthaltszweck> ;
+    skos:prefLabel "Studium"@de ,
+                   "Studies"@en ;
+    skos:altLabel "Studienzwecke"@de ;
+    skos:notation "STU" ;
+    skos:definition "Aufenthalt zum Zweck des Studiums an einer deutschen Hochschule nach § 16b AufenthG"@de ,
+                    "Residence for the purpose of studies at a German university according to § 16b AufenthG"@en ;
+    dct:source <https://www.gesetze-im-internet.de/aufenthg_2004/__16b.html> ;
+    :xRepositoryID "TODO_ID" ;
+    rdfs:comment "Umfasst Bachelor-, Master- und Promotionsstudiengänge"@de ;
+    skos:topConceptOf <http://bamf.de/vocabulary/aufenthaltszweck> .
+
+:Sprachkurs a skos:Concept ;
+    skos:inScheme <http://bamf.de/vocabulary/aufenthaltszweck> ;
+    skos:prefLabel "Sprachkurs"@de ,
+                   "Language Course"@en ;
+    skos:notation "SPR" ;
+    skos:definition "Aufenthalt zur Teilnahme an einem Sprachkurs"@de ;
+    :xRepositoryID "TODO_ID" ;
+    skos:broader :Ausbildung ;
+    rdfs:comment "Oft im Zusammenhang mit Studienvorbereitung"@de .
+
+:Familienzusammenfuehrung a skos:Concept ;
+    skos:inScheme <http://bamf.de/vocabulary/aufenthaltszweck> ;
+    skos:prefLabel "Familienzusammenführung"@de ,
+                   "Family Reunification"@en ;
+    skos:altLabel "Familiennachzug"@de ;
+    skos:notation "FAM" ;
+    skos:definition "Aufenthalt zum Zweck der Herstellung und Wahrung der familiären Lebensgemeinschaft nach Kapitel 2 Abschnitt 6 AufenthG (§§ 27-36)"@de ,
+                    "Residence for the purpose of establishing and maintaining family life according to Chapter 2 Section 6 AufenthG (§§ 27-36)"@en ;
+    dct:source <https://www.gesetze-im-internet.de/aufenthg_2004/__27.html> ;
+    :xRepositoryID "TODO_ID" ;
+    skos:related emn:family-reunification ;
+    rdfs:comment "Umfasst Ehegattennachzug, Kindernachzug und Nachzug zu Deutschen"@de ;
+    skos:topConceptOf <http://bamf.de/vocabulary/aufenthaltszweck> .
+
+:HumanitaereGruende a skos:Concept ;
+    skos:inScheme <http://bamf.de/vocabulary/aufenthaltszweck> ;
+    skos:prefLabel "Humanitäre Gründe"@de ,
+                   "Humanitarian Reasons"@en ;
+    skos:altLabel "Völkerrechtliche oder humanitäre Gründe"@de ;
+    skos:notation "HUM" ;
+    skos:definition "Aufenthalt aus völkerrechtlichen, humanitären oder politischen Gründen nach Kapitel 2 Abschnitt 5 AufenthG (§§ 22-26)"@de ,
+                    "Residence for international law, humanitarian or political reasons according to Chapter 2 Section 5 AufenthG (§§ 22-26)"@en ;
+    dct:source <https://www.gesetze-im-internet.de/aufenthg_2004/__25.html> ;
+    :xRepositoryID "TODO_ID" ;
+    skos:related emn:humanitarian-protection ;
+    rdfs:comment "Umfasst u.a. Resettlement, Kontingentflüchtlinge und Abschiebungsverbote"@de ;
+    skos:topConceptOf <http://bamf.de/vocabulary/aufenthaltszweck> .
+
+:Asyl a skos:Concept ;
+    skos:inScheme <http://bamf.de/vocabulary/aufenthaltszweck> ;
+    skos:prefLabel "Asyl"@de ,
+                   "Asylum"@en ;
+    skos:altLabel "Internationaler Schutz"@de ,
+                  "International Protection"@en ;
+    skos:notation "ASY" ;
+    skos:definition "Aufenthalt nach positiver Asylentscheidung gemäß § 25 Abs. 1 oder 2 AufenthG"@de ,
+                    "Residence following positive asylum decision according to § 25 para. 1 or 2 AufenthG"@en ;
+    dct:source <https://www.gesetze-im-internet.de/aufenthg_2004/__25.html> ;
+    :xRepositoryID "TODO_ID" ;
+    skos:related emn:asylum , emn:international-protection ;
+    skos:broader :HumanitaereGruende ;
+    rdfs:comment "Umfasst Asylberechtigte, anerkannte Flüchtlinge und subsidiär Schutzberechtigte"@de ;
+    skos:topConceptOf <http://bamf.de/vocabulary/aufenthaltszweck> .
+
+:BesondereAufenthaltsrechte a skos:Concept ;
+    skos:inScheme <http://bamf.de/vocabulary/aufenthaltszweck> ;
+    skos:prefLabel "Besondere Aufenthaltsrechte"@de ,
+                   "Special Residence Rights"@en ;
+    skos:notation "BES" ;
+    skos:definition "Aufenthalt aufgrund besonderer Rechtsvorschriften nach Kapitel 2 Abschnitt 7 AufenthG (§§ 37-38a)"@de ;
+    dct:source <https://www.gesetze-im-internet.de/aufenthg_2004/__37.html> ;
+    :xRepositoryID "TODO_ID" ;
+    rdfs:comment "Z.B. ehemalige Deutsche oder Opfer von Menschenhandel"@de .
+
+:Forschung a skos:Concept ;
+    skos:inScheme <http://bamf.de/vocabulary/aufenthaltszweck> ;
+    skos:prefLabel "Forschung"@de ,
+                   "Research"@en ;
+    skos:notation "FOR" ;
+    skos:definition "Aufenthalt zum Zweck der Forschung nach § 18d AufenthG"@de ,
+                    "Residence for the purpose of research according to § 18d AufenthG"@en ;
+    dct:source <https://www.gesetze-im-internet.de/aufenthg_2004/__18d.html> ;
+    :xRepositoryID "TODO_ID" ;
+    skos:broader :Erwerbstaetigkeit ;
+    rdfs:comment "Für Forscher mit Aufnahmevereinbarung einer Forschungseinrichtung"@de .
+
+:Selbstaendigkeit a skos:Concept ;
+    skos:inScheme <http://bamf.de/vocabulary/aufenthaltszweck> ;
+    skos:prefLabel "Selbständige Tätigkeit"@de ,
+                   "Self-Employment"@en ;
+    skos:notation "SEL" ;
+    skos:definition "Aufenthalt zur Ausübung einer selbständigen Tätigkeit nach § 21 AufenthG"@de ,
+                    "Residence for self-employment according to § 21 AufenthG"@en ;
+    dct:source <https://www.gesetze-im-internet.de/aufenthg_2004/__21.html> ;
+    :xRepositoryID "TODO_ID" ;
+    skos:broader :Erwerbstaetigkeit ;
+    rdfs:comment "Voraussetzung ist ein übergeordnetes wirtschaftliches Interesse oder besonderes regionales Bedürfnis"@de .
+
+:Sonstiges a skos:Concept ;
+    skos:inScheme <http://bamf.de/vocabulary/aufenthaltszweck> ;
+    skos:prefLabel "Sonstiges"@de ,
+                   "Other"@en ;
+    skos:altLabel "Sonstige Aufenthaltszwecke"@de ;
+    skos:notation "SON" ;
+    skos:definition "Aufenthalt aus sonstigen Gründen, die nicht in andere Kategorien fallen"@de ;
+    :xRepositoryID "TODO_ID" ;
+    rdfs:comment "Auffangkategorie für nicht näher spezifizierte Aufenthaltszwecke"@de .

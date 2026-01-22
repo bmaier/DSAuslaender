@@ -1,0 +1,145 @@
+@prefix : <http://bamf.de/vocabulary/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+
+# ============================================================================
+# DSAUSLÄNDER VOKABULAR-SAMMLUNG
+# ============================================================================
+# Diese Datei importiert alle SKOS-Vokabulare der DSAusländer-Ontologie
+# und dient als zentraler Einstiegspunkt für kontrollierte Wertelisten.
+# ============================================================================
+
+<http://bamf.de/vocabulary/dsauslaender-vocabularies> a owl:Ontology ;
+    dct:title "DSAusländer Vokabular-Sammlung"@de ,
+              "DSAusländer Vocabulary Collection"@en ;
+    dct:description """Sammlung aller kontrollierten Vokabulare (SKOS) für die 
+                       DSAusländer-Ontologie. Diese Ontologie importiert alle 
+                       Einzelvokabulare und bietet einen zentralen Einstiegspunkt 
+                       für Wertelisten."""@de ,
+                    """Collection of all controlled vocabularies (SKOS) for the 
+                       DSAusländer ontology. This ontology imports all individual 
+                       vocabularies and provides a central entry point for value 
+                       lists."""@en ;
+    dct:created "2025-01-19"^^xsd:date ;
+    dct:modified "2025-01-19"^^xsd:date ;
+    dct:creator "BAMF" ;
+    dct:license <https://creativecommons.org/licenses/by/4.0/> ;
+    owl:versionInfo "1.0.0" ;
+    rdfs:comment """Diese Ontologie dient als Container und importiert folgende Vokabulare:
+                    - Geschlecht (Gender)
+                    - Staatsangehörigkeit (Citizenship)
+                    - Familienstand (Marital Status)
+                    - Aufenthaltstitel (Residence Permit Types)
+                    - Aufenthaltszweck (Purpose of Residence)
+                    - Asylentscheidung (Asylum Decision)
+                    - Sensitivität (Sensitivity Levels)
+                    - Feldlängentyp (Field Length Types)"""@de ;
+    
+    # Importe aller Einzelvokabulare
+    owl:imports <http://bamf.de/vocabulary/geschlecht> ,
+                <http://bamf.de/vocabulary/staatsangehoerigkeit> ,
+                <http://bamf.de/vocabulary/familienstand> ,
+                <http://bamf.de/vocabulary/aufenthaltstitel> ,
+                <http://bamf.de/vocabulary/aufenthaltszweck> ,
+                <http://bamf.de/vocabulary/asylentscheidung> ,
+                <http://bamf.de/vocabulary/sensitivitaet> ,
+                <http://bamf.de/vocabulary/feldlaengentyp> ;
+    
+    # Referenzen zu externen Standards und Quellen
+    rdfs:seeAlso <https://www.xrepository.de> ,
+                 <https://www.gesetze-im-internet.de/aufenthg_2004/> ,
+                 <https://www.gesetze-im-internet.de/asylvfg_1992/> ,
+                 <https://home-affairs.ec.europa.eu/networks/european-migration-network-emn/emn-asylum-and-migration-glossary_en> ;
+    
+    dct:conformsTo <http://www.w3.org/2004/02/skos/core#> ;
+    
+    # Versionsverwaltung
+    owl:versionIRI <http://bamf.de/vocabulary/dsauslaender-vocabularies/1.0.0> ;
+    owl:priorVersion <http://bamf.de/vocabulary/dsauslaender-vocabularies/0.9.0> .
+
+# ============================================================================
+# DOKUMENTATION DER VOKABULARE
+# ============================================================================
+
+:geschlecht a owl:NamedIndividual , owl:Ontology ;
+    rdfs:label "Geschlecht Vokabular"@de , "Gender Vocabulary"@en ;
+    rdfs:comment "Kontrollierte Werteliste für Geschlechtsangaben (männlich, weiblich, divers, unbekannt)"@de ;
+    dct:source <https://www.xrepository.de/api/xrepository/urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:geschlecht_2024-08-01> .
+
+:staatsangehoerigkeit a owl:NamedIndividual , owl:Ontology ;
+    rdfs:label "Staatsangehörigkeit Vokabular"@de , "Citizenship Vocabulary"@en ;
+    rdfs:comment "Kontrollierte Werteliste für Staatsangehörigkeiten basierend auf ISO 3166-1 Alpha-3"@de ;
+    dct:source <https://www.xrepository.de/api/xrepository/urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:staatsangehoerigkeit_2024-08-01> .
+
+:familienstand a owl:NamedIndividual , owl:Ontology ;
+    rdfs:label "Familienstand Vokabular"@de , "Marital Status Vocabulary"@en ;
+    rdfs:comment "Kontrollierte Werteliste für Familienstände (ledig, verheiratet, verwitwet, geschieden, etc.)"@de ;
+    dct:source <https://www.xrepository.de/api/xrepository/urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:familienstand_2024-08-01> .
+
+:aufenthaltstitel a owl:NamedIndividual , owl:Ontology ;
+    rdfs:label "Aufenthaltstitel Vokabular"@de , "Residence Permit Types Vocabulary"@en ;
+    rdfs:comment "Kontrollierte Werteliste für Arten von Aufenthaltstiteln nach deutschem Aufenthaltsgesetz"@de ;
+    dct:source <https://www.gesetze-im-internet.de/aufenthg_2004/> .
+
+:aufenthaltszweck a owl:NamedIndividual , owl:Ontology ;
+    rdfs:label "Aufenthaltszweck Vokabular"@de , "Purpose of Residence Vocabulary"@en ;
+    rdfs:comment "Kontrollierte Werteliste für Zwecke des Aufenthalts (Erwerbstätigkeit, Studium, Asyl, etc.)"@de ;
+    dct:source <https://www.gesetze-im-internet.de/aufenthg_2004/> .
+
+:asylentscheidung a owl:NamedIndividual , owl:Ontology ;
+    rdfs:label "Asylentscheidung Vokabular"@de , "Asylum Decision Vocabulary"@en ;
+    rdfs:comment "Kontrollierte Werteliste für Arten von Asylentscheidungen nach deutschem Asylgesetz"@de ;
+    dct:source <https://www.gesetze-im-internet.de/asylvfg_1992/> .
+
+# ============================================================================
+# NUTZUNGSHINWEISE
+# ============================================================================
+
+: rdfs:comment """
+NUTZUNGSHINWEISE / USAGE NOTES:
+
+1. IMPORT: Um alle Vokabulare zu verwenden, importieren Sie nur diese Datei:
+   owl:imports <http://bamf.de/vocabulary/dsauslaender-vocabularies>
+
+2. EINZELIMPORT: Um nur einzelne Vokabulare zu verwenden, importieren Sie direkt:
+   owl:imports <http://bamf.de/vocabulary/geschlecht>
+
+3. XREPOSITORY IDs: Die Platzhalter TODO_ID müssen durch die tatsächlichen 
+   XRepository-Werte ersetzt werden. Diese können über die XRepository-API 
+   abgerufen werden.
+
+4. VERSIONIERUNG: Alle Vokabulare werden synchron versioniert. Die Version 
+   dieser Sammlungsontologie entspricht der Version aller Einzelvokabulare.
+
+5. ERWEITERUNG: Neue Vokabulare sollten als separate Dateien erstellt und 
+   hier importiert werden, um Modularität zu gewährleisten.
+
+6. VALIDIERUNG: Nutzen Sie die dsauslaender-shapes.ttl für SHACL-Validierung 
+   der Werte aus diesen Vokabularen.
+
+---
+
+USAGE NOTES:
+
+1. IMPORT: To use all vocabularies, import only this file:
+   owl:imports <http://bamf.de/vocabulary/dsauslaender-vocabularies>
+
+2. SELECTIVE IMPORT: To use only individual vocabularies, import directly:
+   owl:imports <http://bamf.de/vocabulary/geschlecht>
+
+3. XREPOSITORY IDs: The TODO_ID placeholders must be replaced with actual 
+   XRepository values. These can be retrieved via the XRepository API.
+
+4. VERSIONING: All vocabularies are versioned synchronously. The version of 
+   this collection ontology corresponds to the version of all individual vocabularies.
+
+5. EXTENSION: New vocabularies should be created as separate files and 
+   imported here to ensure modularity.
+
+6. VALIDATION: Use dsauslaender-shapes.ttl for SHACL validation of values 
+   from these vocabularies.
+"""@en .

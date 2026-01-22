@@ -1,0 +1,91 @@
+# Git Ignore für DSAuslaender Ontologie Projekt
+# Erstellt: 22. Januar 2026
+
+# ============================================
+# Archiv und Backups (nicht versioniert)
+# ============================================
+archive/
+backups/
+
+# ============================================
+# Environment und Konfiguration
+# ============================================
+.env
+.env.local
+.env.*.local
+*.env
+
+# ============================================
+# Python
+# ============================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environments
+venv/
+ENV/
+env/
+.venv
+
+# ============================================
+# IDE und Editor
+# ============================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# ============================================
+# Temporäre Dateien
+# ============================================
+*.tmp
+*.temp
+*.log
+*.cache
+
+# ============================================
+# Jupyter Notebooks (Checkpoints)
+# ============================================
+.ipynb_checkpoints
+
+# ============================================
+# Sicherungskopien
+# ============================================
+*_backup_*
+*.bak
+*.backup
+
+# ============================================
+# Generierte Dateien (außer finale Outputs)
+# ============================================
+# Intermediate JSON files werden nicht versioniert
+*_intermediate.json
+*_temp.json
+
+# ============================================
+# OS spezifische Dateien
+# ============================================
+.DS_Store
+Thumbs.db
+desktop.ini

@@ -1,0 +1,227 @@
+@prefix : <http://bamf.de/vocabulary/asylentscheidung#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix emn: <https://home-affairs.ec.europa.eu/emn/glossary#> .
+
+# ============================================================================
+# ASYLENTSCHEIDUNG SKOS-VOKABULAR
+# ============================================================================
+
+<http://bamf.de/vocabulary/asylentscheidung> a owl:Ontology , skos:ConceptScheme ;
+    dct:title "Asylentscheidung Vokabular"@de ,
+              "Asylum Decision Vocabulary"@en ;
+    dct:description "Kontrolliertes Vokabular für Arten von Asylentscheidungen nach deutschem Asylgesetz"@de ,
+                    "Controlled vocabulary for types of asylum decisions according to German Asylum Act"@en ;
+    dct:created "2025-01-19"^^xsd:date ;
+    dct:modified "2025-01-19"^^xsd:date ;
+    dct:creator "BAMF" ;
+    dct:license <https://creativecommons.org/licenses/by/4.0/> ;
+    owl:versionInfo "1.0.0" ;
+    # XRepository-Referenz (XAusländer)
+    :xRepositoryURN <https://www.xrepository.de/api/xrepository/urn:xauslaender-de:xauslaender:codeliste:asylentscheidung> ;
+    dct:source <https://www.xrepository.de/details/urn:xauslaender-de:xauslaender:codeliste:asylentscheidung> ,
+               <https://www.gesetze-im-internet.de/asylvfg_1992/> ;
+    rdfs:comment "Basiert auf dem XAusländer-Standard Asylentscheidung gemäß Asylgesetz (AsylG) und Aufenthaltsgesetz (AufenthG)"@de ;
+    rdfs:label "Asylentscheidung Konzeptschema"@de ,
+               "Asylum Decision Concept Scheme"@en .
+
+# Property-Definitionen für XRepository
+:xRepositoryURN a owl:AnnotationProperty ;
+    rdfs:label "XRepository URN"@de ;
+    rdfs:range xsd:anyURI .
+
+:xRepositoryID a owl:DatatypeProperty ;
+    rdfs:label "XRepository ID"@de ;
+    rdfs:range xsd:string .
+
+# ============================================================================
+# POSITIVE ASYLENTSCHEIDUNGEN
+# ============================================================================
+
+:AnerkennungAsylberechtigter a skos:Concept ;
+    skos:inScheme <http://bamf.de/vocabulary/asylentscheidung> ;
+    skos:prefLabel "Anerkennung als Asylberechtigter"@de ,
+                   "Recognition as Entitled to Asylum"@en ;
+    skos:altLabel "Asylberechtigung"@de ,
+                  "Asylum Entitlement"@en ;
+    skos:notation "ASY" ;
+    skos:definition "Zuerkennung der Asylberechtigung nach Art. 16a Grundgesetz"@de ,
+                    "Granting of asylum entitlement according to Article 16a of the Basic Law"@en ;
+    dct:source <https://www.gesetze-im-internet.de/gg/art_16a.html> ;
+    :xRepositoryID "TODO_ID" ;
+    skos:related emn:refugee-status , emn:asylum ;
+    rdfs:comment "Höchste Form des Schutzes in Deutschland, nur für politisch Verfolgte"@de ;
+    skos:topConceptOf <http://bamf.de/vocabulary/asylentscheidung> .
+
+:Fluechtlingsschutz a skos:Concept ;
+    skos:inScheme <http://bamf.de/vocabulary/asylentscheidung> ;
+    skos:prefLabel "Flüchtlingsschutz"@de ,
+                   "Refugee Protection"@en ;
+    skos:altLabel "Zuerkennung der Flüchtlingseigenschaft"@de ,
+                  "Refugee Status"@en ;
+    skos:notation "FLS" ;
+    skos:definition "Zuerkennung der Flüchtlingseigenschaft nach § 3 AsylG i.V.m. Genfer Flüchtlingskonvention"@de ,
+                    "Granting of refugee status according to § 3 AsylG in connection with Geneva Refugee Convention"@en ;
+    dct:source <https://www.gesetze-im-internet.de/asylvfg_1992/__3.html> ;
+    :xRepositoryID "TODO_ID" ;
+    skos:related emn:refugee-status , emn:geneva-convention ;
+    rdfs:comment "Schutz nach der Genfer Flüchtlingskonvention von 1951"@de ;
+    skos:topConceptOf <http://bamf.de/vocabulary/asylentscheidung> .
+
+:SubsidiaererSchutz a skos:Concept ;
+    skos:inScheme <http://bamf.de/vocabulary/asylentscheidung> ;
+    skos:prefLabel "Subsidiärer Schutz"@de ,
+                   "Subsidiary Protection"@en ;
+    skos:notation "SUB" ;
+    skos:definition "Zuerkennung subsidiären Schutzes nach § 4 AsylG"@de ,
+                    "Granting of subsidiary protection according to § 4 AsylG"@en ;
+    dct:source <https://www.gesetze-im-internet.de/asylvfg_1992/__4.html> ;
+    :xRepositoryID "TODO_ID" ;
+    skos:related emn:subsidiary-protection ;
+    rdfs:comment "Schutz bei Gefahr ernsthaften Schadens im Herkunftsland (Todesstrafe, Folter, unmenschliche Behandlung, ernsthafte individuelle Bedrohung)"@de ;
+    skos:topConceptOf <http://bamf.de/vocabulary/asylentscheidung> .
+
+:Abschiebungsverbot a skos:Concept ;
+    skos:inScheme <http://bamf.de/vocabulary/asylentscheidung> ;
+    skos:prefLabel "Abschiebungsverbot"@de ,
+                   "Ban on Deportation"@en ;
+    skos:altLabel "Nationales Abschiebungsverbot"@de ;
+    skos:notation "ABV" ;
+    skos:definition "Feststellung eines Abschiebungsverbots nach § 60 Abs. 5 oder 7 AufenthG"@de ,
+                    "Determination of ban on deportation according to § 60 para. 5 or 7 AufenthG"@en ;
+    dct:source <https://www.gesetze-im-internet.de/aufenthg_2004/__60.html> ;
+    :xRepositoryID "TODO_ID" ;
+    rdfs:comment "Schutz vor Abschiebung aus gesundheitlichen (Abs. 7) oder völkerrechtlichen (Abs. 5) Gründen"@de ;
+    skos:topConceptOf <http://bamf.de/vocabulary/asylentscheidung> .
+
+# ============================================================================
+# NEGATIVE ASYLENTSCHEIDUNGEN
+# ============================================================================
+
+:Ablehnung a skos:Concept ;
+    skos:inScheme <http://bamf.de/vocabulary/asylentscheidung> ;
+    skos:prefLabel "Ablehnung"@de ,
+                   "Rejection"@en ;
+    skos:altLabel "Einfache Ablehnung"@de ,
+                  "Simple Rejection"@en ;
+    skos:notation "ABL" ;
+    skos:definition "Ablehnung des Asylantrags als unbegründet"@de ,
+                    "Rejection of asylum application as unfounded"@en ;
+    :xRepositoryID "TODO_ID" ;
+    skos:related emn:rejected-application ;
+    rdfs:comment "Keine Schutzgründe festgestellt, einwöchige Ausreisefrist"@de ;
+    skos:topConceptOf <http://bamf.de/vocabulary/asylentscheidung> .
+
+:AblehnungOffensichtlichUnbegruendet a skos:Concept ;
+    skos:inScheme <http://bamf.de/vocabulary/asylentscheidung> ;
+    skos:prefLabel "Ablehnung als offensichtlich unbegründet"@de ,
+                   "Rejection as Manifestly Unfounded"@en ;
+    skos:notation "OUB" ;
+    skos:definition "Ablehnung als offensichtlich unbegründet nach § 29a Abs. 1 AsylG"@de ,
+                    "Rejection as manifestly unfounded according to § 29a para. 1 AsylG"@en ;
+    dct:source <https://www.gesetze-im-internet.de/asylvfg_1992/__29a.html> ;
+    :xRepositoryID "TODO_ID" ;
+    skos:related emn:manifestly-unfounded-application ;
+    skos:broader :Ablehnung ;
+    rdfs:comment "Bei offensichtlich unglaubhaften Angaben oder Herkunft aus sicherem Herkunftsstaat, einwöchige Ausreisefrist"@de .
+
+:AblehnungUnzulaessig a skos:Concept ;
+    skos:inScheme <http://bamf.de/vocabulary/asylentscheidung> ;
+    skos:prefLabel "Ablehnung als unzulässig"@de ,
+                   "Rejection as Inadmissible"@en ;
+    skos:notation "UNZ" ;
+    skos:definition "Ablehnung als unzulässig nach § 29 Abs. 1 AsylG"@de ,
+                    "Rejection as inadmissible according to § 29 para. 1 AsylG"@en ;
+    dct:source <https://www.gesetze-im-internet.de/asylvfg_1992/__29.html> ;
+    :xRepositoryID "TODO_ID" ;
+    skos:related emn:inadmissible-application ;
+    rdfs:comment "Z.B. bei Zuständigkeit eines anderen EU-Staates (Dublin-Verfahren) oder bei Schutz in sicherem Drittstaat"@de ;
+    skos:topConceptOf <http://bamf.de/vocabulary/asylentscheidung> .
+
+# ============================================================================
+# VERFAHRENSENTSCHEIDUNGEN
+# ============================================================================
+
+:Ruecknahme a skos:Concept ;
+    skos:inScheme <http://bamf.de/vocabulary/asylentscheidung> ;
+    skos:prefLabel "Rücknahme"@de ,
+                   "Withdrawal"@en ;
+    skos:altLabel "Antrag zurückgenommen"@de ;
+    skos:notation "RUE" ;
+    skos:definition "Rücknahme des Asylantrags durch den Antragsteller"@de ,
+                    "Withdrawal of asylum application by applicant"@en ;
+    :xRepositoryID "TODO_ID" ;
+    rdfs:comment "Freiwillige Rücknahme des Antrags"@de .
+
+:Einstellung a skos:Concept ;
+    skos:inScheme <http://bamf.de/vocabulary/asylentscheidung> ;
+    skos:prefLabel "Einstellung des Verfahrens"@de ,
+                   "Discontinuation of Proceedings"@en ;
+    skos:notation "EIN" ;
+    skos:definition "Einstellung des Asylverfahrens nach § 32 AsylG"@de ,
+                    "Discontinuation of asylum procedure according to § 32 AsylG"@en ;
+    dct:source <https://www.gesetze-im-internet.de/asylvfg_1992/__32.html> ;
+    :xRepositoryID "TODO_ID" ;
+    rdfs:comment "Z.B. bei Nichtbetreiben des Verfahrens oder Wegfall der Verfahrensvoraussetzungen"@de .
+
+:Widerruf a skos:Concept ;
+    skos:inScheme <http://bamf.de/vocabulary/asylentscheidung> ;
+    skos:prefLabel "Widerruf"@de ,
+                   "Revocation"@en ;
+    skos:notation "WID" ;
+    skos:definition "Widerruf einer positiven Schutzentscheidung nach § 73 AsylG"@de ,
+                    "Revocation of positive protection decision according to § 73 AsylG"@en ;
+    dct:source <https://www.gesetze-im-internet.de/asylvfg_1992/__73.html> ;
+    :xRepositoryID "TODO_ID" ;
+    rdfs:comment "Bei Wegfall der Schutzgründe oder nachträglichem Bekanntwerden von Ausschlussgründen"@de .
+
+:Ruecknahmeentscheidung a skos:Concept ;
+    skos:inScheme <http://bamf.de/vocabulary/asylentscheidung> ;
+    skos:prefLabel "Rücknahme der Entscheidung"@de ,
+                   "Withdrawal of Decision"@en ;
+    skos:notation "RED" ;
+    skos:definition "Rücknahme einer behördlichen Entscheidung nach § 73b AsylG"@de ;
+    dct:source <https://www.gesetze-im-internet.de/asylvfg_1992/__73b.html> ;
+    :xRepositoryID "TODO_ID" ;
+    rdfs:comment "Bei rechtswidrigen Entscheidungen"@de .
+
+# ============================================================================
+# BESONDERE FÄLLE
+# ============================================================================
+
+:DublinVerfahren a skos:Concept ;
+    skos:inScheme <http://bamf.de/vocabulary/asylentscheidung> ;
+    skos:prefLabel "Dublin-Verfahren"@de ,
+                   "Dublin Procedure"@en ;
+    skos:notation "DUB" ;
+    skos:definition "Zuständigkeit eines anderen EU-Mitgliedstaates nach Dublin-Verordnung"@de ,
+                    "Responsibility of another EU member state according to Dublin Regulation"@en ;
+    :xRepositoryID "TODO_ID" ;
+    skos:broader :AblehnungUnzulaessig ;
+    skos:related emn:dublin-regulation ;
+    rdfs:comment "Überstellung in den zuständigen Dublin-Staat"@de .
+
+:Folgeantra g a skos:Concept ;
+    skos:inScheme <http://bamf.de/vocabulary/asylentscheidung> ;
+    skos:prefLabel "Folgeantrag"@de ,
+                   "Subsequent Application"@en ;
+    skos:notation "FOL" ;
+    skos:definition "Erneuter Asylantrag nach bestandskräftiger Ablehnung nach § 71 AsylG"@de ;
+    dct:source <https://www.gesetze-im-internet.de/asylvfg_1992/__71.html> ;
+    :xRepositoryID "TODO_ID" ;
+    skos:related emn:subsequent-application ;
+    rdfs:comment "Wiederaufgreifen nur bei neuen Tatsachen oder Beweismitteln"@de .
+
+:Zweitantrag a skos:Concept ;
+    skos:inScheme <http://bamf.de/vocabulary/asylentscheidung> ;
+    skos:prefLabel "Zweitantrag"@de ,
+                   "Second Application"@en ;
+    skos:notation "ZWE" ;
+    skos:definition "Asylantrag nach Rücknahme oder Einstellung des ersten Verfahrens nach § 71a AsylG"@de ;
+    dct:source <https://www.gesetze-im-internet.de/asylvfg_1992/__71a.html> ;
+    :xRepositoryID "TODO_ID" ;
+    rdfs:comment "Unterscheidet sich vom Folgeantrag dadurch, dass kein bestandskräftiger Bescheid vorliegt"@de .

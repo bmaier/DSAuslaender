@@ -1,0 +1,204 @@
+{
+  "001": {
+    "feldlaenge": 6,
+    "typ": "fest",
+    "pattern": "^[0-9]{6}$",
+    "format": "Behördenkennzeichen"
+  },
+  "002": {
+    "feldlaenge": 50,
+    "typ": "variabel"
+  },
+  "003": {
+    "feldlaenge": 20,
+    "typ": "variabel"
+  },
+  "016": {
+    "feldlaenge": 2,
+    "typ": "fest",
+    "pattern": "^[A-Z]{2}$",
+    "format": "Code"
+  },
+  "019": {
+    "feldlaenge": 3,
+    "typ": "fest",
+    "pattern": "^[A-Z]{3}$",
+    "format": "ISO 3166-1 alpha-3"
+  },
+  "027": {
+    "feldlaenge": 10,
+    "typ": "variabel"
+  },
+  "065": {
+    "feldlaenge": 11,
+    "typ": "fest",
+    "pattern": "^[0-9]{11}$",
+    "format": "Identifikationsnummer"
+  },
+  "004.01": {
+    "feldlaenge": 100,
+    "typ": "variabel"
+  },
+  "004.02": {
+    "feldlaenge": 100,
+    "typ": "variabel"
+  },
+  "004.03": {
+    "feldlaenge": 100,
+    "typ": "variabel"
+  },
+  "004.07": {
+    "feldlaenge": 10,
+    "typ": "fest",
+    "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+    "format": "YYYY-MM-DD"
+  },
+  "004.08": {
+    "feldlaenge": 100,
+    "typ": "variabel"
+  },
+  "004.11": {
+    "feldlaenge": 1,
+    "typ": "fest",
+    "pattern": "^[MFX]$",
+    "format": "M/F/X"
+  },
+  "006.04": {
+    "feldlaenge": 5,
+    "typ": "fest",
+    "pattern": "^[0-9]{5}$",
+    "format": "5-stellige Zahl"
+  },
+  "006.06": {
+    "feldlaenge": 100,
+    "typ": "variabel"
+  },
+  "004.04": {
+    "feldlaenge": 100,
+    "typ": "variabel"
+  },
+  "004.05": {
+    "feldlaenge": 100,
+    "typ": "variabel"
+  },
+  "004.06": {
+    "feldlaenge": 100,
+    "typ": "variabel"
+  },
+  "004.09": {
+    "feldlaenge": 100,
+    "typ": "variabel"
+  },
+  "004.10": {
+    "feldlaenge": 3,
+    "typ": "fest",
+    "pattern": "^[A-Z]{3}$"
+  },
+  "006.01": {
+    "feldlaenge": 100,
+    "typ": "variabel"
+  },
+  "006.02": {
+    "feldlaenge": 100,
+    "typ": "variabel"
+  },
+  "006.03": {
+    "feldlaenge": 100,
+    "typ": "variabel"
+  },
+  "006.05": {
+    "feldlaenge": 100,
+    "typ": "variabel"
+  },
+  "006.07": {
+    "feldlaenge": 100,
+    "typ": "variabel"
+  },
+  "007": {
+    "feldlaenge": 10,
+    "typ": "fest",
+    "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+  },
+  "008": {
+    "feldlaenge": 10,
+    "typ": "fest",
+    "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+  },
+  "009": {
+    "feldlaenge": 10,
+    "typ": "fest",
+    "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+  },
+  "010": {
+    "feldlaenge": 10,
+    "typ": "fest",
+    "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+  },
+  "011": {
+    "feldlaenge": 1,
+    "typ": "fest",
+    "pattern": "^[JN]$",
+    "format": "J/N"
+  },
+  "012": {
+    "feldlaenge": 1,
+    "typ": "fest",
+    "pattern": "^[JN]$"
+  },
+  "013": {
+    "feldlaenge": 1,
+    "typ": "fest",
+    "pattern": "^[JN]$"
+  },
+  "017": {
+    "feldlaenge": 2,
+    "typ": "fest",
+    "pattern": "^[A-Z0-9]{2}$"
+  },
+  "018": {
+    "feldlaenge": 3,
+    "typ": "fest",
+    "pattern": "^[A-Z]{3}$"
+  },
+  "020": {
+    "feldlaenge": 3,
+    "typ": "fest",
+    "pattern": "^[A-Z]{3}$"
+  },
+  "021": {
+    "feldlaenge": 20,
+    "typ": "variabel"
+  },
+  "022": {
+    "feldlaenge": 20,
+    "typ": "variabel"
+  },
+  "023": {
+    "feldlaenge": 30,
+    "typ": "variabel"
+  },
+  "024": {
+    "feldlaenge": 200,
+    "typ": "variabel"
+  },
+  "025": {
+    "feldlaenge": 200,
+    "typ": "variabel"
+  },
+  "026": {
+    "feldlaenge": 100,
+    "typ": "variabel"
+  },
+  "028": {
+    "feldlaenge": 100,
+    "typ": "variabel"
+  },
+  "029": {
+    "feldlaenge": 100,
+    "typ": "variabel"
+  },
+  "030": {
+    "feldlaenge": 100,
+    "typ": "variabel"
+  }
+}

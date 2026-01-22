@@ -1,0 +1,2684 @@
+@prefix : <http://bamf.de/ontology/dsauslaender#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix cpov: <http://data.europa.eu/m8g/> .
+@prefix cv: <http://data.europa.eu/m8g/> .
+@prefix cvb: <http://data.europa.eu/m8g/> .
+@prefix locn: <http://www.w3.org/ns/locn#> .
+@prefix cpsv: <http://purl.org/vocab/cpsv#> .
+@prefix cpev: <http://data.europa.eu/m8g/> .
+@prefix emn: <https://home-affairs.ec.europa.eu/emn/glossary#> .
+@prefix euauth: <http://publications.europa.eu/resource/authority/> .
+
+<http://bamf.de/ontology/dsauslaender> a owl:Ontology ;
+    dct:title "DSAusländer Ontologie"@de ,
+              "Foreigners Data Ontology"@en ;
+    dct:description "W3C-Ontologie für das DSAusländer-Register des Bundesamts für Migration und Flüchtlinge (BAMF)"@de ,
+                    "W3C ontology for the DSAusländer (Foreigners Data) register of the Federal Office for Migration and Refugees (BAMF)"@en ;
+    dct:created "2025-01-19"^^xsd:date ;
+    dct:modified "2025-01-19"^^xsd:date ;
+    dct:creator "BAMF" ;
+    dct:license <https://creativecommons.org/licenses/by/4.0/> ;
+    owl:versionInfo "1.0.0" ;
+    rdfs:comment "Diese Ontologie basiert auf den EU Core Vocabularies (Person, Location, Business, Public Event, CPSV-AP, CPOV) und referenziert das EMN Asylum and Migration Glossary sowie EU Authority Tables. SKOS-Vokabulare sind in separaten Dateien definiert."@de ;
+    owl:imports <http://data.europa.eu/m8g> ,
+                <http://www.w3.org/ns/locn> ,
+                <http://purl.org/vocab/cpsv> ;
+    # Referenzen zu SKOS-Vokabularen
+    rdfs:seeAlso <http://bamf.de/vocabulary/geschlecht> ,
+                 <http://bamf.de/vocabulary/staatsangehoerigkeit> ,
+                 <http://bamf.de/vocabulary/aufenthaltstitel> ,
+                 <http://bamf.de/vocabulary/familienstand> ,
+                 <http://bamf.de/vocabulary/asylentscheidung> ,
+                 <http://bamf.de/vocabulary/aufenthaltszweck> ,
+                 <http://bamf.de/vocabulary/sensitivitaet> .
+
+# ============================================================================
+# KLASSEN (Classes)
+# ============================================================================
+
+# Hauptklasse für ausländische Person
+:AuslaendischePerson a owl:Class ;
+    rdfs:subClassOf cpov:Person ;
+    rdfs:label "Ausländische Person"@de ,
+               "Foreign Person"@en ;
+    rdfs:comment "Eine Person, die nicht die deutsche Staatsangehörigkeit besitzt und im DSAusländer-Register erfasst ist. Basiert auf dem EMN-Glossar für Drittstaatsangehörige."@de ,
+                 "A person who does not hold German citizenship and is registered in the DSAusländer register. Based on the EMN glossary for third-country nationals."@en ;
+    skos:related emn:third-country-national .
+
+# Aufenthaltsstatus
+:Aufenthaltsstatus a owl:Class ;
+    rdfs:label "Aufenthaltsstatus"@de ,
+               "Residence Status"@en ;
+    rdfs:comment "Der rechtliche Status des Aufenthalts einer ausländischen Person in Deutschland"@de ,
+                 "The legal status of a foreign person's residence in Germany"@en ;
+    skos:related emn:residence-permit , emn:immigration-status .
+
+# Aufenthaltstitel
+:Aufenthaltstitel a owl:Class ;
+    rdfs:label "Aufenthaltstitel"@de ,
+               "Residence Permit"@en ;
+    rdfs:comment "Offizielles Dokument, das einer ausländischen Person das Recht gewährt, sich in Deutschland aufzuhalten"@de ,
+                 "Official document granting a foreign person the right to reside in Germany"@en ;
+    skos:related emn:residence-permit .
+
+# Asylverfahren
+:Asylverfahren a owl:Class ;
+    rdfs:subClassOf cpev:PublicEvent ;
+    rdfs:label "Asylverfahren"@de ,
+               "Asylum Procedure"@en ;
+    rdfs:comment "Verwaltungsverfahren zur Prüfung eines Asylantrags gemäß EMN-Glossar"@de ,
+                 "Administrative procedure for examining an asylum application according to EMN glossary"@en ;
+    skos:related emn:asylum-procedure , emn:asylum-application .
+
+# Asylantrag
+:Asylantrag a owl:Class ;
+    rdfs:label "Asylantrag"@de ,
+               "Asylum Application"@en ;
+    rdfs:comment "Förmlicher Antrag auf internationalen Schutz gemäß EMN-Glossar"@de ,
+                 "Formal application for international protection according to EMN glossary"@en ;
+    skos:related emn:asylum-application , emn:international-protection .
+
+# Entscheidung im Asylverfahren
+:Asylentscheidung a owl:Class ;
+    rdfs:label "Asylentscheidung"@de ,
+               "Asylum Decision"@en ;
+    rdfs:comment "Behördliche Entscheidung über einen Asylantrag"@de ,
+                 "Official decision on an asylum application"@en ;
+    skos:related emn:asylum-decision , emn:final-decision .
+
+# Staatsangehörigkeit
+:Staatsangehoerigkeit a owl:Class ;
+    rdfs:label "Staatsangehörigkeit"@de ,
+               "Citizenship"@en ;
+    rdfs:comment "Die rechtliche Zugehörigkeit einer Person zu einem Staat"@de ,
+                 "The legal belonging of a person to a state"@en ;
+    skos:related emn:citizenship , emn:nationality .
+
+# Adresse
+:Adresse a owl:Class ;
+    rdfs:subClassOf locn:Address ;
+    rdfs:label "Adresse"@de ,
+               "Address"@en ;
+    rdfs:comment "Postanschrift einer Person in Deutschland"@de ,
+                 "Postal address of a person in Germany"@en .
+
+# Dokument
+:Dokument a owl:Class ;
+    rdfs:subClassOf foaf:Document ;
+    rdfs:label "Dokument"@de ,
+               "Document"@en ;
+    rdfs:comment "Offizielles Dokument im Zusammenhang mit dem Aufenthalt"@de ,
+                 "Official document related to residence"@en .
+
+# Reisedokument
+:Reisedokument a owl:Class ;
+    rdfs:subClassOf :Dokument ;
+    rdfs:label "Reisedokument"@de ,
+               "Travel Document"@en ;
+    rdfs:comment "Pass oder anderes Dokument zur Identifizierung und Reise"@de ,
+                 "Passport or other document for identification and travel"@en ;
+    skos:related emn:travel-document .
+
+# Behörde
+:Behoerde a owl:Class ;
+    rdfs:subClassOf cvb:PublicOrganisation ;
+    rdfs:label "Behörde"@de ,
+               "Public Authority"@en ;
+    rdfs:comment "Öffentliche Behörde, die im Ausländerwesen tätig ist"@de ,
+                 "Public authority active in immigration matters"@en .
+
+# Visa
+:Visum a owl:Class ;
+    rdfs:subClassOf :Dokument ;
+    rdfs:label "Visum"@de ,
+               "Visa"@en ;
+    rdfs:comment "Erlaubnis zur Einreise und zum Aufenthalt für einen bestimmten Zeitraum"@de ,
+                 "Permission to enter and stay for a specific period"@en ;
+    skos:related emn:visa .
+
+# Abschiebung
+:Abschiebung a owl:Class ;
+    rdfs:subClassOf cpev:PublicEvent ;
+    rdfs:label "Abschiebung"@de ,
+               "Deportation"@en ;
+    rdfs:comment "Zwangsweise Rückführung einer ausländischen Person gemäß EMN-Glossar"@de ,
+                 "Forced return of a foreign person according to EMN glossary"@en ;
+    skos:related emn:deportation , emn:forced-return .
+
+# Duldung
+:Duldung a owl:Class ;
+    rdfs:subClassOf :Aufenthaltsstatus ;
+    rdfs:label "Duldung"@de ,
+               "Toleration"@en ;
+    rdfs:comment "Vorübergehende Aussetzung der Abschiebung gemäß EMN-Glossar"@de ,
+                 "Temporary suspension of deportation according to EMN glossary"@en ;
+    skos:related emn:tolerated-stay .
+
+# Erwerbstätigkeit
+:Erwerbstaetigkeit a owl:Class ;
+    rdfs:label "Erwerbstätigkeit"@de ,
+               "Employment"@en ;
+    rdfs:comment "Berufliche Tätigkeit einer ausländischen Person in Deutschland"@de ,
+                 "Professional activity of a foreign person in Germany"@en ;
+    skos:related emn:employment .
+
+# Familienangehöriger
+:Familienangehoeriger a owl:Class ;
+    rdfs:subClassOf cpov:Person ;
+    rdfs:label "Familienangehöriger"@de ,
+               "Family Member"@en ;
+    rdfs:comment "Familienangehöriger einer ausländischen Person gemäß EMN-Glossar zum Familiennachzug"@de ,
+                 "Family member of a foreign person according to EMN glossary on family reunification"@en ;
+    skos:related emn:family-member , emn:family-reunification .
+
+# Integrationskurs
+:Integrationskurs a owl:Class ;
+    rdfs:subClassOf cpsv:PublicService ;
+    rdfs:label "Integrationskurs"@de ,
+               "Integration Course"@en ;
+    rdfs:comment "Staatlich geförderter Kurs zur Integration in Deutschland"@de ,
+                 "State-funded course for integration in Germany"@en ;
+    skos:related emn:integration .
+
+# ============================================================================
+# OBJECT PROPERTIES (Beziehungen)
+# ============================================================================
+
+# Aufenthaltstitel-Beziehungen
+:hatAufenthaltstitel a owl:ObjectProperty ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range :Aufenthaltstitel ;
+    rdfs:label "hat Aufenthaltstitel"@de ,
+               "has residence permit"@en ;
+    rdfs:comment "Verknüpft eine Person mit ihrem Aufenthaltstitel"@de .
+
+:hatAufenthaltsstatus a owl:ObjectProperty ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range :Aufenthaltsstatus ;
+    rdfs:label "hat Aufenthaltsstatus"@de ,
+               "has residence status"@en .
+
+# Staatsangehörigkeit
+:hatStaatsangehoerigkeit a owl:ObjectProperty ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range :Staatsangehoerigkeit ;
+    rdfs:label "hat Staatsangehörigkeit"@de ,
+               "has citizenship"@en ;
+    rdfs:comment "Verknüpft eine Person mit ihrer Staatsangehörigkeit"@de .
+
+# Adresse
+:hatAdresse a owl:ObjectProperty ;
+    rdfs:subPropertyOf locn:address ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range :Adresse ;
+    rdfs:label "hat Adresse"@de ,
+               "has address"@en .
+
+# Asylverfahren
+:hatAsylverfahren a owl:ObjectProperty ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range :Asylverfahren ;
+    rdfs:label "hat Asylverfahren"@de ,
+               "has asylum procedure"@en .
+
+:hatAsylantrag a owl:ObjectProperty ;
+    rdfs:domain :Asylverfahren ;
+    rdfs:range :Asylantrag ;
+    rdfs:label "hat Asylantrag"@de ,
+               "has asylum application"@en .
+
+:hatEntscheidung a owl:ObjectProperty ;
+    rdfs:domain :Asylverfahren ;
+    rdfs:range :Asylentscheidung ;
+    rdfs:label "hat Entscheidung"@de ,
+               "has decision"@en .
+
+# Dokumente
+:hatReisedokument a owl:ObjectProperty ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range :Reisedokument ;
+    rdfs:label "hat Reisedokument"@de ,
+               "has travel document"@en .
+
+:hatVisum a owl:ObjectProperty ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range :Visum ;
+    rdfs:label "hat Visum"@de ,
+               "has visa"@en .
+
+# Behörden
+:bearbeitetVon a owl:ObjectProperty ;
+    rdfs:domain :Asylverfahren ;
+    rdfs:range :Behoerde ;
+    rdfs:label "bearbeitet von"@de ,
+               "processed by"@en .
+
+:zustaendigeBehoerde a owl:ObjectProperty ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range :Behoerde ;
+    rdfs:label "zuständige Behörde"@de ,
+               "responsible authority"@en .
+
+# Abschiebung
+:hatAbschiebung a owl:ObjectProperty ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range :Abschiebung ;
+    rdfs:label "hat Abschiebung"@de ,
+               "has deportation"@en .
+
+# Duldung
+:hatDuldung a owl:ObjectProperty ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range :Duldung ;
+    rdfs:label "hat Duldung"@de ,
+               "has toleration"@en .
+
+# Erwerbstätigkeit
+:hatErwerbstaetigkeit a owl:ObjectProperty ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range :Erwerbstaetigkeit ;
+    rdfs:label "hat Erwerbstätigkeit"@de ,
+               "has employment"@en .
+
+# Familie
+:hatFamilienangeh oeriger a owl:ObjectProperty ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range :Familienangeh oeriger ;
+    rdfs:label "hat Familienangehöriger"@de ,
+               "has family member"@en .
+
+# Integration
+:nimmtTeilAn a owl:ObjectProperty ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range :Integrationskurs ;
+    rdfs:label "nimmt teil an"@de ,
+               "participates in"@en .
+
+# Verweist auf EU Authority Tables
+:euAuthority a owl:ObjectProperty ;
+    rdfs:label "EU Authority"@de ,
+               "EU Authority"@en ;
+    rdfs:comment "Referenz auf EU Authority Tables (z.B. EUAA)"@de ;
+    rdfs:range euauth:CorporateBody .
+
+# ============================================================================
+# DATATYPE PROPERTIES (Attribute)
+# ============================================================================
+
+# --- Behörden-Attribute ---
+
+:aktenfuehrendeBehoerde a owl:DatatypeProperty ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range xsd:string ;
+    rdfs:label "Aktenführende Behörde"@de ,
+               "File-Managing Authority"@en ;
+    rdfs:comment "Die Behörde, die die Ausländerakte führt (Datenelement 001)"@de .
+
+
+:registerbeh oerde a owl:DatatypeProperty ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range xsd:string ;
+    rdfs:label "Registerbehörde"@de ,
+               "Registration Authority"@en ;
+    rdfs:comment "Die das Ausländerzentralregister führende Behörde (Datenelement 003)"@de .
+
+:auslaendernummer a owl:DatatypeProperty ;
+    rdfs:subPropertyOf dct:identifier ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range xsd:string ;
+    rdfs:label "Ausländernummer"@de ,
+               "Foreigner Number"@en ;
+    rdfs:comment "Eindeutige Ausländernummer (Datenelement 004)"@de .
+
+# Personendaten (basierend auf cpov:Person)
+:personenID a owl:DatatypeProperty ;
+    rdfs:subPropertyOf dct:identifier ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range xsd:string ;
+    rdfs:label "Personen-ID"@de ,
+               "Person ID"@en ;
+    rdfs:comment "Eindeutige Identifikationsnummer im DSAusländer-Register"@de .
+
+
+:vorname a owl:DatatypeProperty ;
+    rdfs:subPropertyOf foaf:givenName ;
+    rdfs:domain cpov:Person ;
+    rdfs:range xsd:string ;
+    rdfs:label "Vorname"@de ,
+               "Given Name"@en .
+
+
+
+
+
+:fruehererName a owl:DatatypeProperty ;
+    rdfs:domain cpov:Person ;
+    rdfs:range xsd:string ;
+    rdfs:label "Früherer Name"@de ,
+               "Former Name"@en ;
+    rdfs:comment "Frühere(r) Name(n) (Datenelement 012)"@de .
+
+:aliasnamen a owl:DatatypeProperty ;
+    rdfs:domain cpov:Person ;
+    rdfs:range xsd:string ;
+    rdfs:label "Aliasnamen"@de ,
+               "Alias Names"@en ;
+    rdfs:comment "Aliasnamen (Datenelement 013)"@de .
+
+:schriftzeichen a owl:DatatypeProperty ;
+    rdfs:domain cpov:Person ;
+    rdfs:range xsd:string ;
+    rdfs:label "Schriftzeichen"@de ,
+               "Characters/Script"@en ;
+    rdfs:comment "Namenswiedergabe in Originalschrift (z.B. arabisch, kyrillisch) (Datenelement 014)"@de .
+
+:geschlechtlicheIdentitaet a owl:DatatypeProperty ;
+    rdfs:domain cpov:Person ;
+    rdfs:range xsd:string ;
+    rdfs:label "Geschlechtliche Identität"@de ,
+               "Gender Identity"@en ;
+    rdfs:comment "Geschlechtliche Identität gemäß PStG §45b (Datenelement 015)"@de .
+
+:religionszugehoerigkeit a owl:DatatypeProperty ;
+    rdfs:domain cpov:Person ;
+    rdfs:range xsd:string ;
+    rdfs:label "Religionszugehörigkeit"@de ,
+               "Religious Affiliation"@en ;
+    rdfs:comment "Religionszugehörigkeit (Datenelement 016)"@de .
+
+:groesse a owl:DatatypeProperty ;
+    rdfs:domain cpov:Person ;
+    rdfs:range xsd:integer ;
+    rdfs:label "Größe"@de ,
+               "Height"@en ;
+    rdfs:comment "Körpergröße in cm (Datenelement 017)"@de .
+
+
+:besondereMerkmale a owl:DatatypeProperty ;
+    rdfs:domain cpov:Person ;
+    rdfs:range xsd:string ;
+    rdfs:label "Besondere Merkmale"@de ,
+               "Special Characteristics"@en ;
+    rdfs:comment "Besondere körperliche Merkmale (Datenelement 019)"@de .
+
+:lichtbild a owl:DatatypeProperty ;
+    rdfs:domain cpov:Person ;
+    rdfs:range xsd:anyURI ;
+    rdfs:label "Lichtbild"@de ,
+               "Photograph"@en ;
+    rdfs:comment "Referenz zum Lichtbild/Foto (Datenelement 020)"@de .
+
+
+:familienstand a owl:DatatypeProperty ;
+    rdfs:subPropertyOf cpov:civilStatus ;
+    rdfs:domain cpov:Person ;
+    rdfs:range xsd:string ;
+    rdfs:label "Familienstand"@de ,
+               "Marital Status"@en ;
+    rdfs:comment "Siehe http://bamf.de/vocabulary/familienstand für Werteliste"@de .
+
+# Aufenthaltstitel-Attribute
+:aufenthaltstitelArt a owl:DatatypeProperty ;
+    rdfs:domain :Aufenthaltstitel ;
+    rdfs:range xsd:string ;
+    rdfs:label "Art des Aufenthaltstitels"@de ,
+               "Type of Residence Permit"@en ;
+    rdfs:comment "Art des Aufenthaltstitels (Datenelement 026). Siehe http://bamf.de/vocabulary/aufenthaltstitel für Werteliste"@de .
+
+:rechtsgrundlage a owl:DatatypeProperty ;
+    rdfs:domain :Aufenthaltstitel ;
+    rdfs:range xsd:string ;
+    rdfs:label "Rechtsgrundlage"@de ,
+               "Legal Basis"@en ;
+    rdfs:comment "Rechtsgrundlage des Aufenthaltstitels (z.B. § 25 Abs. 1 AufenthG) (Datenelement 027)"@de .
+
+:befristetBisUnbefristet a owl:DatatypeProperty ;
+    rdfs:domain :Aufenthaltstitel ;
+    rdfs:range xsd:string ;
+    rdfs:label "Befristet/Unbefristet"@de ,
+               "Limited/Unlimited"@en ;
+    rdfs:comment "Kennzeichen ob befristet oder unbefristet (Datenelement 028)"@de .
+
+:ersteinreisedatum a owl:DatatypeProperty ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range xsd:date ;
+    rdfs:label "Ersteinreisedatum"@de ,
+               "Date of First Entry"@en ;
+    rdfs:comment "Datum der Ersteinreise nach Deutschland (Datenelement 029)"@de .
+
+:letzteEinreisedatum a owl:DatatypeProperty ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range xsd:date ;
+    rdfs:label "Letztes Einreisedatum"@de ,
+               "Date of Last Entry"@en ;
+    rdfs:comment "Datum der letzten Einreise (Datenelement 030)"@de .
+
+:einreiseort a owl:DatatypeProperty ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range xsd:string ;
+    rdfs:label "Einreiseort"@de ,
+               "Place of Entry"@en ;
+    rdfs:comment "Ort/Grenzübergangsstelle der Einreise (Datenelement 031)"@de .
+
+:einreiseart a owl:DatatypeProperty ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range xsd:string ;
+    rdfs:label "Einreiseart"@de ,
+               "Type of Entry"@en ;
+    rdfs:comment "Art der Einreise (legal/illegal) (Datenelement 032)"@de .
+
+:aufenthaltstitelNummer a owl:DatatypeProperty ;
+    rdfs:domain :Aufenthaltstitel ;
+    rdfs:range xsd:string ;
+    rdfs:label "Aufenthaltstitel-Nummer"@de ,
+               "Residence Permit Number"@en .
+
+:gueltigVon a owl:DatatypeProperty ;
+    rdfs:domain :Aufenthaltstitel ;
+    rdfs:range xsd:date ;
+    rdfs:label "gültig von"@de ,
+               "valid from"@en .
+
+
+:aufenthaltszweck a owl:DatatypeProperty ;
+    rdfs:domain :Aufenthaltstitel ;
+    rdfs:range xsd:string ;
+    rdfs:label "Aufenthaltszweck"@de ,
+               "Purpose of Residence"@en ;
+    rdfs:comment "Siehe http://bamf.de/vocabulary/aufenthaltszweck für Werteliste"@de .
+
+# Asylverfahren-Attribute
+:verfahrensnummer a owl:DatatypeProperty ;
+    rdfs:domain :Asylverfahren ;
+    rdfs:range xsd:string ;
+    rdfs:label "Verfahrensnummer"@de ,
+               "Procedure Number"@en ;
+    rdfs:comment "Geschäftszeichen/Verfahrensnummer (Datenelement 040)"@de .
+
+:bamfEntscheidungsz eichen a owl:DatatypeProperty ;
+    rdfs:domain :Asylverfahren ;
+    rdfs:range xsd:string ;
+    rdfs:label "BAMF-Entscheidungszeichen"@de ,
+               "BAMF Decision Reference"@en ;
+    rdfs:comment "Entscheidungszeichen des BAMF (Datenelement 041)"@de .
+
+:dublinfallKennzeichen a owl:DatatypeProperty ;
+    rdfs:domain :Asylverfahren ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "Dublin-Fall"@de ,
+               "Dublin Case"@en ;
+    rdfs:comment "Kennzeichen für Dublin-Verfahren (Datenelement 042)"@de .
+
+:zustaendigerDublinst aat a owl:DatatypeProperty ;
+    rdfs:domain :Asylverfahren ;
+    rdfs:range xsd:string ;
+    rdfs:label "Zuständiger Dublin-Staat"@de ,
+               "Responsible Dublin State"@en ;
+    rdfs:comment "Zuständiger Mitgliedstaat nach Dublin-Verordnung (Datenelement 043)"@de .
+
+:herkunftsland a owl:DatatypeProperty ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range xsd:string ;
+    rdfs:label "Herkunftsland"@de ,
+               "Country of Origin"@en ;
+    rdfs:comment "Herkunftsland/Heimatland (Datenelement 044)"@de .
+
+:herkunftsregion a owl:DatatypeProperty ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range xsd:string ;
+    rdfs:label "Herkunftsregion"@de ,
+               "Region of Origin"@en ;
+    rdfs:comment "Spezifische Region/Provinz im Herkunftsland (Datenelement 045)"@de .
+
+:antragsdatum a owl:DatatypeProperty ;
+    rdfs:domain :Asylantrag ;
+    rdfs:range xsd:date ;
+    rdfs:label "Antragsdatum"@de ,
+               "Application Date"@en .
+
+:antragsstatus a owl:DatatypeProperty ;
+    rdfs:domain :Asylantrag ;
+    rdfs:range xsd:string ;
+    rdfs:label "Antragsstatus"@de ,
+               "Application Status"@en ;
+    rdfs:comment "Z.B. anhängig, entschieden, zurückgezogen"@de .
+
+:entscheidungsdatum a owl:DatatypeProperty ;
+    rdfs:domain :Asylentscheidung ;
+    rdfs:range xsd:date ;
+    rdfs:label "Entscheidungsdatum"@de ,
+               "Decision Date"@en .
+
+:entscheidungsart a owl:DatatypeProperty ;
+    rdfs:domain :Asylentscheidung ;
+    rdfs:range xsd:string ;
+    rdfs:label "Entscheidungsart"@de ,
+               "Decision Type"@en ;
+    rdfs:comment "Art der Asylentscheidung (Datenelement 046). Siehe http://bamf.de/vocabulary/asylentscheidung für Werteliste"@de .
+
+:rechtsmittel a owl:DatatypeProperty ;
+    rdfs:domain :Asylverfahren ;
+    rdfs:range xsd:string ;
+    rdfs:label "Rechtsmittel"@de ,
+               "Legal Remedy"@en ;
+    rdfs:comment "Eingelegtes Rechtsmittel (Klage, Berufung, Revision) (Datenelement 047)"@de .
+
+:rechtsmittelstatus a owl:DatatypeProperty ;
+    rdfs:domain :Asylverfahren ;
+    rdfs:range xsd:string ;
+    rdfs:label "Rechtsmittelstatus"@de ,
+               "Legal Remedy Status"@en ;
+    rdfs:comment "Status des Rechtsmittelverfahrens (Datenelement 048)"@de .
+
+:gerichtsentscheidung a owl:DatatypeProperty ;
+    rdfs:domain :Asylverfahren ;
+    rdfs:range xsd:string ;
+    rdfs:label "Gerichtsentscheidung"@de ,
+               "Court Decision"@en ;
+    rdfs:comment "Entscheidung des Verwaltungsgerichts (Datenelement 049)"@de .
+
+# Staatsangehörigkeit-Attribute
+:staatsangehoerigkeitCode a owl:DatatypeProperty ;
+    rdfs:domain :Staatsangehoerigkeit ;
+    rdfs:range xsd:string ;
+    rdfs:label "Staatsangehörigkeitscode"@de ,
+               "Citizenship Code"@en ;
+    rdfs:comment "ISO 3166-1 Alpha-3 Ländercode (Datenelement 021). Siehe http://bamf.de/vocabulary/staatsangehoerigkeit"@de .
+
+:fruehereStaatsangeh oerigkeit a owl:DatatypeProperty ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range xsd:string ;
+    rdfs:label "Frühere Staatsangehörigkeit"@de ,
+               "Former Citizenship"@en ;
+    rdfs:comment "Frühere Staatsangehörigkeit(en) (Datenelement 022)"@de .
+
+:weitereStaatsangeh oerigkeit a owl:DatatypeProperty ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range xsd:string ;
+    rdfs:label "Weitere Staatsangehörigkeit"@de ,
+               "Additional Citizenship"@en ;
+    rdfs:comment "Weitere/mehrfache Staatsangehörigkeiten (Datenelement 023)"@de .
+
+:staatenlos a owl:DatatypeProperty ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "Staatenlos"@de ,
+               "Stateless"@en ;
+    rdfs:comment "Kennzeichen für Staatenlosigkeit (Datenelement 024)"@de .
+
+:staatsangehoerigkeitUngeklaert a owl:DatatypeProperty ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "Staatsangehörigkeit ungeklärt"@de ,
+               "Citizenship Unclear"@en ;
+    rdfs:comment "Kennzeichen für ungeklärte Staatsangehörigkeit (Datenelement 025)"@de .
+
+:staatsangehoerigkeitName a owl:DatatypeProperty ;
+    rdfs:domain :Staatsangehoerigkeit ;
+    rdfs:range xsd:string ;
+    rdfs:label "Staatsangehörigkeit"@de ,
+               "Citizenship"@en .
+
+# Adress-Attribute (basierend auf locn:Address)
+:postleitzahl a owl:DatatypeProperty ;
+    rdfs:subPropertyOf locn:postCode ;
+    rdfs:domain :Adresse ;
+    rdfs:range xsd:string ;
+    rdfs:label "Postleitzahl"@de ,
+               "Postal Code"@en ;
+    rdfs:comment "Postleitzahl (Datenelement 050)"@de .
+
+:wohnortSchluessel a owl:DatatypeProperty ;
+    rdfs:domain :Adresse ;
+    rdfs:range xsd:string ;
+    rdfs:label "Wohnortschlüssel"@de ,
+               "Residence Location Code"@en ;
+    rdfs:comment "Amtlicher Gemeindeschlüssel (AGS) (Datenelement 051)"@de .
+
+:melderegisteradress e a owl:DatatypeProperty ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range xsd:string ;
+    rdfs:label "Melderegisteradresse"@de ,
+               "Registration Office Address"@en ;
+    rdfs:comment "Adresse laut Melderegister (Datenelement 052)"@de .
+
+:zustelladresse a owl:DatatypeProperty ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range xsd:string ;
+    rdfs:label "Zustelladresse"@de ,
+               "Postal Address"@en ;
+    rdfs:comment "Abweichende Zustelladresse (Datenelement 053)"@de .
+
+:wohnsitzauflage a owl:DatatypeProperty ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range xsd:string ;
+    rdfs:label "Wohnsitzauflage"@de ,
+               "Residence Obligation"@en ;
+    rdfs:comment "Wohnsitzauflage gemäß § 12a AufenthG (Datenelement 054)"@de .
+
+:verteilungsentscheid ung a owl:DatatypeProperty ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range xsd:string ;
+    rdfs:label "Verteilungsentscheidung"@de ,
+               "Distribution Decision"@en ;
+    rdfs:comment "Verteilung nach AsylG/Königsteiner Schlüssel (Datenelement 055)"@de .
+
+
+:strasse a owl:DatatypeProperty ;
+    rdfs:subPropertyOf locn:thoroughfare ;
+    rdfs:domain :Adresse ;
+    rdfs:range xsd:string ;
+    rdfs:label "Straße"@de ,
+               "Street"@en .
+
+:hausnummer a owl:DatatypeProperty ;
+    rdfs:subPropertyOf locn:locatorDesignator ;
+    rdfs:domain :Adresse ;
+    rdfs:range xsd:string ;
+    rdfs:label "Hausnummer"@de ,
+               "House Number"@en .
+
+
+# Reisedokument-Attribute
+:dokumentenart a owl:DatatypeProperty ;
+    rdfs:domain :Reisedokument ;
+    rdfs:range xsd:string ;
+    rdfs:label "Dokumentenart"@de ,
+               "Document Type"@en ;
+    rdfs:comment "Z.B. Reisepass, Personalausweis, Reiseausweis"@de .
+
+:dokumentennummer a owl:DatatypeProperty ;
+    rdfs:domain :Reisedokument ;
+    rdfs:range xsd:string ;
+    rdfs:label "Dokumentennummer"@de ,
+               "Document Number"@en .
+
+:ausstellungsbehoerde a owl:DatatypeProperty ;
+    rdfs:domain :Reisedokument ;
+    rdfs:range xsd:string ;
+    rdfs:label "Ausstellungsbehörde"@de ,
+               "Issuing Authority"@en .
+
+
+:ablaufdatum a owl:DatatypeProperty ;
+    rdfs:domain :Reisedokument ;
+    rdfs:range xsd:date ;
+    rdfs:label "Ablaufdatum"@de ,
+               "Expiry Date"@en ;
+    rdfs:comment "Ablaufdatum des Dokuments (Datenelement 105)"@de .
+
+:fingerabdruecke a owl:DatatypeProperty ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "Fingerabdrücke"@de ,
+               "Fingerprints"@en ;
+    rdfs:comment "Fingerabdrücke erfasst (Datenelement 106)"@de .
+
+:eurodacTreffer a owl:DatatypeProperty ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "Eurodac-Treffer"@de ,
+               "Eurodac Hit"@en ;
+    rdfs:comment "Treffer in Eurodac-Datenbank (Datenelement 107)"@de .
+
+:passersatzpapier a owl:DatatypeProperty ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range xsd:string ;
+    rdfs:label "Passersatzpapier"@de ,
+               "Passport Substitute"@en ;
+    rdfs:comment "Art des Passersatzpapiers (Reiseausweis für Ausländer, etc.) (Datenelement 108)"@de .
+
+:ausweisdokumentNummer a owl:DatatypeProperty ;
+    rdfs:domain :Reisedokument ;
+    rdfs:range xsd:string ;
+    rdfs:label "Ausweisdokument-Nummer"@de ,
+               "ID Document Number"@en ;
+    rdfs:comment "Nummer des Ausweisdokuments/eAT (Datenelement 109)"@de .
+
+# Visa-Attribute
+:visumArt a owl:DatatypeProperty ;
+    rdfs:domain :Visum ;
+    rdfs:range xsd:string ;
+    rdfs:label "Visumart"@de ,
+               "Visa Type"@en ;
+    rdfs:comment "Z.B. Schengen-Visum, nationales Visum"@de .
+
+:visumNummer a owl:DatatypeProperty ;
+    rdfs:domain :Visum ;
+    rdfs:range xsd:string ;
+    rdfs:label "Visumnummer"@de ,
+               "Visa Number"@en .
+
+# Abschiebungs-Attribute
+:abschiebungsdatum a owl:DatatypeProperty ;
+    rdfs:domain :Abschiebung ;
+    rdfs:range xsd:date ;
+    rdfs:label "Abschiebungsdatum"@de ,
+               "Deportation Date"@en .
+
+:zielland a owl:DatatypeProperty ;
+    rdfs:domain :Abschiebung ;
+    rdfs:range xsd:string ;
+    rdfs:label "Zielland"@de ,
+               "Destination Country"@en .
+
+:abschiebungsgrund a owl:DatatypeProperty ;
+    rdfs:domain :Abschiebung ;
+    rdfs:range xsd:string ;
+    rdfs:label "Abschiebungsgrund"@de ,
+               "Reason for Deportation"@en ;
+    rdfs:comment "Grund der Abschiebung (Datenelement 110)"@de .
+
+:abschiebungshindernis a owl:DatatypeProperty ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range xsd:string ;
+    rdfs:label "Abschiebungshindernis"@de ,
+               "Deportation Obstacle"@en ;
+    rdfs:comment "Vorliegendes Abschiebungshindernis (Datenelement 111)"@de .
+
+:gesundheitlicheEins chraenkung a owl:DatatypeProperty ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range xsd:string ;
+    rdfs:label "Gesundheitliche Einschränkung"@de ,
+               "Health Restriction"@en ;
+    rdfs:comment "Gesundheitliche Einschränkungen/Behinderungen (Datenelement 112)"@de .
+
+:reisefaehigkeit a owl:DatatypeProperty ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "Reisefähigkeit"@de ,
+               "Fitness to Travel"@en ;
+    rdfs:comment "Reisefähigkeit attestiert (Datenelement 113)"@de .
+
+:besondereSchutzbedue rftigkeit a owl:DatatypeProperty ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range xsd:string ;
+    rdfs:label "Besondere Schutzbedürftigkeit"@de ,
+               "Special Vulnerability"@en ;
+    rdfs:comment "Besondere Schutzbedürftigkeit (Opfer von Gewalt, Traumatisierung, etc.) (Datenelement 114)"@de .
+
+:minderjahrigerUngele iteter a owl:DatatypeProperty ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "Minderjähriger Ungeleiteter"@de ,
+               "Unaccompanied Minor"@en ;
+    rdfs:comment "Kennzeichen für unbegleitete/ungeleitete Minderjährige (UMA) (Datenelement 115)"@de .
+
+:vormundGesetzlicherV ertreter a owl:DatatypeProperty ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range xsd:string ;
+    rdfs:label "Vormund/Gesetzlicher Vertreter"@de ,
+               "Guardian/Legal Representative"@en ;
+    rdfs:comment "Name und Kontakt des Vormunds oder gesetzlichen Vertreters (Datenelement 116)"@de .
+
+# Duldungs-Attribute
+:duldungsart a owl:DatatypeProperty ;
+    rdfs:domain :Duldung ;
+    rdfs:range xsd:string ;
+    rdfs:label "Duldungsart"@de ,
+               "Type of Toleration"@en .
+
+:duldungsgrund a owl:DatatypeProperty ;
+    rdfs:domain :Duldung ;
+    rdfs:range xsd:string ;
+    rdfs:label "Duldungsgrund"@de ,
+               "Reason for Toleration"@en .
+
+# Erwerbstätigkeits-Attribute
+:beruf a owl:DatatypeProperty ;
+    rdfs:domain :Erwerbstaetigkeit ;
+    rdfs:range xsd:string ;
+    rdfs:label "Beruf"@de ,
+               "Occupation"@en ;
+    rdfs:comment "Ausgeübter Beruf (Datenelement 070)"@de .
+
+:berufsausbildung a owl:DatatypeProperty ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range xsd:string ;
+    rdfs:label "Berufsausbildung"@de ,
+               "Vocational Training"@en ;
+    rdfs:comment "Abgeschlossene Berufsausbildung (Datenelement 071)"@de .
+
+:hochschulabschluss a owl:DatatypeProperty ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range xsd:string ;
+    rdfs:label "Hochschulabschluss"@de ,
+               "University Degree"@en ;
+    rdfs:comment "Hochschulabschluss/akademischer Grad (Datenelement 072)"@de .
+
+:arbeitserlaubnis a owl:DatatypeProperty ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range xsd:string ;
+    rdfs:label "Arbeitserlaubnis"@de ,
+               "Work Permit"@en ;
+    rdfs:comment "Art der Arbeitserlaubnis (Datenelement 073)"@de .
+
+:beschaeftigungsverbot a owl:DatatypeProperty ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "Beschäftigungsverbot"@de ,
+               "Employment Ban"@en ;
+    rdfs:comment "Beschäftigungsverbot besteht (Datenelement 074)"@de .
+
+:arbeitgeber a owl:DatatypeProperty ;
+    rdfs:domain :Erwerbstaetigkeit ;
+    rdfs:range xsd:string ;
+    rdfs:label "Arbeitgeber"@de ,
+               "Employer"@en .
+
+:erwerbstaetigSeit a owl:DatatypeProperty ;
+    rdfs:domain :Erwerbstaetigkeit ;
+    rdfs:range xsd:date ;
+    rdfs:label "erwerbstätig seit"@de ,
+               "employed since"@en .
+
+# Familien-Attribute
+:verwandtschaftsverhaeltnis a owl:DatatypeProperty ;
+    rdfs:domain :Familienangehoeriger oeriger ;
+    rdfs:range xsd:string ;
+    rdfs:label "Verwandtschaftsverhältnis"@de ,
+               "Family Relationship"@en ;
+    rdfs:comment "Z.B. Ehepartner, Kind, Elternteil, Geschwister"@de .
+
+# Integrationskurs-Attribute
+:kursart a owl:DatatypeProperty ;
+    rdfs:domain :Integrationskurs ;
+    rdfs:range xsd:string ;
+    rdfs:label "Kursart"@de ,
+               "Course Type"@en ;
+    rdfs:comment "Art des Integrationskurses (Datenelement 080)"@de .
+
+
+:sprachzertifikat a owl:DatatypeProperty ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range xsd:string ;
+    rdfs:label "Sprachzertifikat"@de ,
+               "Language Certificate"@en ;
+    rdfs:comment "Erworbene Sprachzertifikate (Datenelement 082)"@de .
+
+:integrationskursverp flichtung a owl:DatatypeProperty ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "Integrationskursverpflichtung"@de ,
+               "Integration Course Obligation"@en ;
+    rdfs:comment "Verpflichtung zur Teilnahme am Integrationskurs (Datenelement 083)"@de .
+
+:orientierungskursTei lnahme a owl:DatatypeProperty ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "Orientierungskursteilnahme"@de ,
+               "Orientation Course Participation"@en ;
+    rdfs:comment "Teilnahme am Orientierungskurs (Datenelement 084)"@de .
+
+:kursbegin a owl:DatatypeProperty ;
+    rdfs:domain :Integrationskurs ;
+    rdfs:range xsd:date ;
+    rdfs:label "Kursbeginn"@de ,
+               "Course Start"@en .
+
+:kursende a owl:DatatypeProperty ;
+    rdfs:domain :Integrationskurs ;
+    rdfs:range xsd:date ;
+    rdfs:label "Kursende"@de ,
+               "Course End"@en .
+
+:kursteilnahmeStatus a owl:DatatypeProperty ;
+    rdfs:domain :Integrationskurs ;
+    rdfs:range xsd:string ;
+    rdfs:label "Teilnahmestatus"@de ,
+               "Participation Status"@en ;
+    rdfs:comment "Status der Kursteilnahme (z.B. laufend, abgeschlossen, abgebrochen) (Datenelement 085)"@de .
+
+:sozialleistungen a owl:DatatypeProperty ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range xsd:string ;
+    rdfs:label "Sozialleistungen"@de ,
+               "Social Benefits"@en ;
+    rdfs:comment "Bezogene Sozialleistungen (AsylbLG, SGB II, SGB XII) (Datenelement 090)"@de .
+
+:unterbringungsart a owl:DatatypeProperty ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range xsd:string ;
+    rdfs:label "Unterbringungsart"@de ,
+               "Type of Accommodation"@en ;
+    rdfs:comment "Art der Unterbringung (Aufnahmeeinrichtung, Gemeinschaftsunterkunft, privat) (Datenelement 091)"@de .
+
+:aufnahmeeinrichtung a owl:DatatypeProperty ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range xsd:string ;
+    rdfs:label "Aufnahmeeinrichtung"@de ,
+               "Reception Center"@en ;
+    rdfs:comment "Bezeichnung der Aufnahmeeinrichtung (Datenelement 092)"@de .
+
+:kostentraeger a owl:DatatypeProperty ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range xsd:string ;
+    rdfs:label "Kostenträger"@de ,
+               "Cost Bearer"@en ;
+    rdfs:comment "Zuständiger Kostenträger (Datenelement 093)"@de .
+
+# Allgemeine Attribute
+:freizuegigkeitsberec htigt a owl:DatatypeProperty ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "Freizügigkeitsberechtigt"@de ,
+               "Free Movement Rights"@en ;
+    rdfs:comment "Freizügigkeitsberechtigung nach EU-Recht (Datenelement 060)"@de .
+
+:euBuerger a owl:DatatypeProperty ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "EU-Bürger"@de ,
+               "EU Citizen"@en ;
+    rdfs:comment "Staatsangehörigkeit eines EU-Mitgliedstaats (Datenelement 061)"@de .
+
+:ewr a owl:DatatypeProperty ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "EWR-Angehöriger"@de ,
+               "EEA National"@en ;
+    rdfs:comment "Angehöriger eines EWR-Staates (Datenelement 062)"@de .
+
+:schengenStaat a owl:DatatypeProperty ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "Schengen-Staat"@de ,
+               "Schengen State"@en ;
+    rdfs:comment "Angehöriger eines Schengen-Staates (Datenelement 063)"@de .
+
+:bemerkung a owl:DatatypeProperty ;
+    rdfs:range xsd:string ;
+    rdfs:label "Bemerkung"@de ,
+               "Remark"@en ;
+    rdfs:comment "Freitextfeld für zusätzliche Informationen (Datenelement 120)"@de .
+
+:telefonnummer a owl:DatatypeProperty ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range xsd:string ;
+    rdfs:label "Telefonnummer"@de ,
+               "Phone Number"@en ;
+    rdfs:comment "Telefonnummer/Mobilnummer (Datenelement 121)"@de .
+
+:emailAdresse a owl:DatatypeProperty ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range xsd:string ;
+    rdfs:label "E-Mail-Adresse"@de ,
+               "Email Address"@en ;
+    rdfs:comment "E-Mail-Adresse für Kontakt (Datenelement 122)"@de .
+
+:kommunikationssprache a owl:DatatypeProperty ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range xsd:string ;
+    rdfs:label "Kommunikationssprache"@de ,
+               "Communication Language"@en ;
+    rdfs:comment "Bevorzugte Sprache für die Kommunikation (Datenelement 123)"@de .
+
+:dolmetscherErforderli ch a owl:DatatypeProperty ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "Dolmetscher erforderlich"@de ,
+               "Interpreter Required"@en ;
+    rdfs:comment "Kennzeichen ob Dolmetscher benötigt wird (Datenelement 124)"@de .
+
+:erfassungsdatum a owl:DatatypeProperty ;
+    rdfs:range xsd:dateTime ;
+    rdfs:label "Erfassungsdatum"@de ,
+               "Registration Date"@en ;
+    rdfs:comment "Zeitpunkt der Erfassung im System (Datenelement 125)"@de .
+
+:letzterAufenthaltsstatusWechsel a owl:DatatypeProperty ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range xsd:dateTime ;
+    rdfs:label "Letzter Aufenthaltsstatuswechsel"@de ,
+               "Last Residence Status Change"@en ;
+    rdfs:comment "Datum der letzten Änderung des Aufenthaltsstatus (Datenelement 126)"@de .
+
+:statusHistorie a owl:DatatypeProperty ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range xsd:string ;
+    rdfs:label "Status-Historie"@de ,
+               "Status History"@en ;
+    rdfs:comment "Chronologie der Aufenthaltsstatus-Änderungen (Datenelement 127)"@de .
+
+:verfahrensstand a owl:DatatypeProperty ;
+    rdfs:domain :Asylverfahren ;
+    rdfs:range xsd:string ;
+    rdfs:label "Verfahrensstand"@de ,
+               "Procedure Status"@en ;
+    rdfs:comment "Aktueller Stand des Asylverfahrens (Datenelement 128)"@de .
+
+:aktiv a owl:DatatypeProperty ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "Aktiv"@de ,
+               "Active"@en ;
+    rdfs:comment "Datensatz ist aktiv (nicht archiviert) (Datenelement 129)"@de .
+
+:archiviert a owl:DatatypeProperty ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "Archiviert"@de ,
+               "Archived"@en ;
+    rdfs:comment "Datensatz ist archiviert (Datenelement 130)"@de .
+
+
+# Referenzen zu EU Authority Tables
+
+# Beispiel-Referenz zur EUAA (European Union Agency for Asylum)
+
+# ============================================================================
+# PROPERTIES AUS SHACL SHAPES
+# Automatisch generiert aus dsauslaender-shapes.ttl PropertyShapes
+# Enthält nur fachliche Informationen (Label, Domain, Range)
+# ============================================================================
+
+# Automatisch generierte Property-Definitionen für DSAusländer-Ontologie
+# Quelle: SHACL PropertyShapes
+# HINWEIS: Diese Definitionen enthalten NUR fachliche Informationen
+# (Label, Beschreibung, Domain, Range) - KEINE Shape-Metadaten (Blatt, Stand, etc.)
+
+@prefix : <http://bamf.de/ontology/dsauslaender#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ================================================
+# Properties (alphabetisch sortiert)
+# Anzahl: 199
+# ================================================
+
+:aenderungsdatum
+    a owl:DatatypeProperty ;
+    rdfs:label "Änderungsdatum"@de ;
+    rdfs:domain :Aufenthaltstitel ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Das Datum, an dem sich eine Wohnsitzauflage, räumliche Beschränkung, Wohnsitzregelung oder Wohnsitzverpflichtung geändert hat. Rechtliche Grundlagen AsylG: § 56, §§ 59 ff AufenthG: § 12 Abs. 2, § 12a, § 46 Abs. 1, § 61 Abs. 1c Darstellungsform Bestandteil der Gruppe 031 - Wohnsitzauflage, räumliche Beschränkung, Wohnsitzregelung und Wohnsitzverpflichtung 7. Fassung Seite 188"@de  .
+    # Feld 031.10 | SHACL: DE031.10: Änderungsdatum
+
+:aktenzeichenMeldendeBehoerde
+    a owl:DatatypeProperty ;
+    rdfs:label "Aktenzeichen meldende Behörde"@de ;
+    rdfs:domain :Adresse, :AktenzeichenAsyl, :Asylentscheidung, :Aufenthaltstitel, :Entscheidungsdatum, :GueltigkeitAufenthaltstitel, :Land, :Postleitzahl, :Strasse, :aufenthaltserlaubnis, :ausUndDurchlieferung, :ausreisefoerderungReintegrationsfoerderung, :aussiedlerangelegenheiten, :meldestatus, :sicherheitsleistung, :suchvermerk, :ueberwachungsmassnahmen, :unerlaubteEinreiseUndAufenthalt, :verpflichtungserklaerung, :vorabzustimmung ;
+    rdfs:range xsd:string .
+    # SHACL: Aktenzeichenmeldendebehoerde
+
+:amtlicherGemeindeschluesselAgs
+    a owl:DatatypeProperty ;
+    rdfs:label "Amtlicher Gemeindeschlüssel (AGS)"@de ;
+    rdfs:domain :Aufenthaltstitel ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Die Gemeinde (anhand des AGS), auf die sich eine Wohnsitzauflage, räumliche Beschränkung, Wohn- sitzregelung oder Wohnsitzverpflichtung bezieht. Rechtliche Grundlagen AsylG: § 7, § 8, § 56, §§ 59 ff, § 60 AufenthG: § 12 Abs. 2, § 12a, § 23 Abs. 2 S. 4, § 46 Abs. 1, § 61 Abs. 1c Darstellungsform urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:ags Bestandteil der Gruppe 031 - Wohnsitzauflage, räumliche Beschränkung, Wohnsitzregelung und Wohnsitzverpflichtung"@de  .
+    # Feld 031.09 | SHACL: DE031.09: Amtlicher Gemeindeschlüssel (AGS)
+
+:andererName
+    a owl:DatatypeProperty ;
+    rdfs:label "Anderer Name"@de ;
+    rdfs:domain :andereNamen ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Hier wird der andere Name erfasst. "@de  .
+    # Feld 013.02 | SHACL: DE013.02: Anderer Name
+
+:anerkennung
+    a owl:DatatypeProperty ;
+    rdfs:label "Anerkennung"@de ;
+    rdfs:domain :Erwerbstaetigkeit ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Angaben zur Anerkennung ausländischer Schulabschlüsse inklusive Berufsschulabschlüsse. "@de  .
+    # Feld 072.02 | SHACL: DE072.02: Anerkennung
+
+:anschriftGemeindeschluessel
+    a owl:DatatypeProperty ;
+    rdfs:label "Anschrift - Gemeindeschlüssel"@de ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Es ist der vom Statistischen Bundesamt herausgegebene bundeseinheitliche Gemeindeschlüssel der Gemeinde anzugeben, in der die Wohnung liegt. In Abhängigkeit von Datenblatt Nr. 006.12 ist dies entweder die aktuelle oder zuletzt bekannte Anschrift in Deutschland. Rechtliche Grundlagen Darstellungsform urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:ags Bestandteil der Gruppe 006 - Anschrift im Bundesgebiet"@de  .
+    # Feld 006.01 | SHACL: DE006.01: Anschrift - Gemeindeschlüssel
+
+:anschriftHausnummer
+    a owl:DatatypeProperty ;
+    rdfs:label "Anschrift - Hausnummer"@de ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Es sind nur die Ziffern einer Hausnummer anzugeben. In Abhängigkeit von Datenblatt Nr. 006.12 ist dies entweder die aktuelle oder zuletzt bekannte Anschrift in Deutschland. Rechtliche Grundlagen Darstellungsform [0-9]* Bestandteil der Gruppe 006 - Anschrift im Bundesgebiet 7. Fassung Seite 58"@de  .
+    # Feld 006.02 | SHACL: DE006.02: Anschrift - Hausnummer
+
+:anschriftHausnummerBuchstabeZusatzziffer
+    a owl:DatatypeProperty ;
+    rdfs:label "Anschrift - Hausnummer Buchstabe Zusatzziffer"@de ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Es sind die Buchstaben oder die Zusatzziffern zur Hausnummer gemäß der amtlichen Festlegung der Gemeinde zur Hausnummer anzugeben."@de  .
+    # Feld 006.03 | SHACL: DE006.03: Anschrift - Hausnummer Buchstabe Zusatzziffer
+
+:anschriftPostleitzahl
+    a owl:DatatypeProperty ;
+    rdfs:label "Anschrift - Postleitzahl"@de ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Es ist die Postleitzahl anzugeben."@de  .
+    # Feld 006.04 | SHACL: DE006.04: Anschrift - Postleitzahl
+
+:anschriftStrasse
+    a owl:DatatypeProperty ;
+    rdfs:label "Anschrift - Straße"@de ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Es ist die Bezeichnung der Straße anzugeben. Die Feldlänge ist auf 55 Zeichen beschränkt. Bei Über- schreitung einer Länge von 25 Zeichen darf sinnvoll abgekürzt werden. Ist keine Straßenbezeichnung – wohl aber eine Hausnummer – vorhanden, so ist die Zeichenkette „Hausnummer“ anzugeben. Sind weder Straßenbezeichnung noch Hausnummer vorhanden, so ist die Zeichenkette „ohne Hausnummer“ anzugeben. In Abhängigkeit von Datenblatt Nr. 006.12 ist dies entweder die aktuelle oder zuletzt bekannte Anschrift in Deutschland. Rechtliche Grundlagen Darstellungsform"@de  .
+    # Feld 006.06 | SHACL: DE006.06: Anschrift - Straße
+
+:anschriftTeilnummerDerHausnummer
+    a owl:DatatypeProperty ;
+    rdfs:label "Anschrift - Teilnummer der Hausnummer"@de ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Es sind Teilnummern zur Hausnummer anzugeben."@de  .
+    # Feld 006.07 | SHACL: DE006.07: Anschrift - Teilnummer der Hausnummer
+
+:anschriftWohnort
+    a owl:DatatypeProperty ;
+    rdfs:label "Anschrift - Wohnort"@de ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "In Abhängigkeit von Datenblatt Nr. 006.12 ist dies entweder die aktuelle oder zuletzt bekannte Anschrift in Deutschland. "@de  .
+    # Feld 006.08 | SHACL: DE006.08: Anschrift - Wohnort
+
+:anschriftWohnortFruehererGemeindename
+    a owl:DatatypeProperty ;
+    rdfs:label "Anschrift - Wohnort früherer Gemeindename"@de ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Es ist der frühere Gemeindename anzugeben, der als Stadt- bzw. Ortsteilname dem jetzigen Gemein- denamen hinzugefügt werden kann. Der frühere Gemeindename (jetziger Ortsteil- oder Stadtteilname) ist bei Adressierungen unterhalb des Namens (oberhalb der Straßenbezeichnung) anzugeben"@de  .
+    # Feld 006.09 | SHACL: DE006.09: Anschrift - Wohnort früherer Gemeindename
+
+:anschriftWohnungsinhaber
+    a owl:DatatypeProperty ;
+    rdfs:label "Anschrift - Wohnungsinhaber"@de ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "In diesem Element ist der Hauptmieter oder Eigentümer der Wohnung anzugeben, soweit dies für die Adressierung erforderlich ist. Bei Überschreitung einer Länge von 26 Zeichen darf sinnvoll abgekürzt werden. In Abhängigkeit von Datenblatt Nr. 006.12 ist dies entweder die aktuelle oder zuletzt bekannte Anschrift in Deutschland. Rechtliche Grundlagen Darstellungsform Bestandteil der Gruppe 006 - Anschrift im Bundesgebiet"@de  .
+    # Feld 006.10 | SHACL: DE006.10: Anschrift - Wohnungsinhaber
+
+:anschriftZusatzangaben
+    a owl:DatatypeProperty ;
+    rdfs:label "Anschrift - Zusatzangaben"@de ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Es sind Zusatzangaben zur Anschrift anzugeben. Beispiele: Hinterhaus, Gartenhaus. Bei Überschreitung einer Länge von 21 Zeichen darf sinnvoll abgekürzt werden. In Abhängigkeit von Datenblatt Nr.Datenblatt Nr. 006.12 ist dies entweder die aktuelle oder zuletzt bekannte Anschrift in Deutschland. Rechtliche Grundlagen Darstellungsform Bestandteil der Gruppe 006 - Anschrift im Bundesgebiet 7. Fassung Seite 67"@de  .
+    # Feld 006.11 | SHACL: DE006.11: Anschrift - Zusatzangaben
+
+:anummerAliaspersonalie
+    a owl:DatatypeProperty ;
+    rdfs:label "ANummer - Aliaspersonalie"@de ;
+    rdfs:domain :aliaspersonalie ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Die Ordnungsnummer beim BKA als Kennzeichnung einer Aliaspersonalie. Rechtliche Grundlagen AsylG: § 7, § 8, § 16 Darstellungsform Bestandteil der Gruppe 015 - Aliaspersonalie 7. Fassung Seite 112"@de  .
+    # Feld 015.10 | SHACL: DE015.10: ANummer - Aliaspersonalie
+
+:arbeitgeberbindung
+    a owl:DatatypeProperty ;
+    rdfs:label "Arbeitgeberbindung"@de ;
+    rdfs:domain :entscheidungDerBundesagenturFuerArbeit, :nebenbestimmungenZurErwerbstaetigkeit ;
+    rdfs:range xsd:string .
+    # SHACL: Arbeitgeberbindung
+
+:artDerAblehnungDerFeststellungDerDeutschenStaatsangehoerigkeit
+    a owl:DatatypeProperty ;
+    rdfs:label "Art der Ablehnung der Feststellung der deutschen Staatsangehörigkeit"@de ;
+    rdfs:domain :Adresse ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Informationen über die Art der Ablehnung der Feststellung der deutschen Staatsangehörigkeit. "@de  .
+    # Feld 055.01 | SHACL: DE055.01: Art der Ablehnung der Feststellung der deutschen Staatsangehörigkeit
+
+:artDerAbschiebungUndHinweisAufBegruendungstextAktuell
+    a owl:DatatypeProperty ;
+    rdfs:label "Art der Abschiebung und Hinweis auf Begründungstext - aktuell"@de ;
+    rdfs:domain :Asylentscheidung ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Abschiebung ist die zwangsweise Durchsetzung der Ausreisepflicht einer ausländischen Person aus dem Bundesgebiet. Sie ist durchzuführen, wenn die Ausreisepflicht vollziehbar ist, eine Ausreisefrist nicht gewährt wurde oder diese abgelaufen ist, und die freiwillige Erfüllung der Ausreisepflicht nicht gesichert ist oder aus Gründen der öffentlichen Sicherheit und Ordnung eine Überwachung der Aus- reise erforderlich erscheint. "@de  .
+    # Feld 043.01 | SHACL: DE043.01: Art der Abschiebung und Hinweis auf Begründungstext - aktuell
+
+:artDerAbschiebungsverbote
+    a owl:DatatypeProperty ;
+    rdfs:label "Art der Abschiebungsverbote"@de ;
+    rdfs:domain :Aufenthaltstitel ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Enthält Angaben zur Feststellung, zum Widerruf oder zur Rücknahme von zielstaatsbezogenen Abschiebungsverboten. Rechtliche Grundlagen AsylG: § 7, § 8, §§ 34 - 43, § 73c AufenthG: § 60 Abs. 5, § 60 Abs. 7 Darstellungsform urn:de:xauslaender:codelist:azr:artdesabschiebungsverbots Bestandteil der Gruppe 029 - Abschiebungsverbote"@de  .
+    # Feld 029.01 | SHACL: DE029.01: Art der Abschiebungsverbote
+
+:artDerAngabenZumDuldungsgrund
+    a owl:DatatypeProperty ;
+    rdfs:label "Art der Angaben zum Duldungsgrund"@de ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Angaben zum Grund der Aussetzung der Abschiebung. Rechtliche Grundlagen AufenthG: § 60a, § 60b, § 60c, § 60d Darstellungsform urn:de:xauslaender:codelist:azr:artderduldung Bestandteil der Gruppe 047 - Duldung 7. Fassung Seite 304"@de  .
+    # Feld 047.01 | SHACL: DE047.01: Art der Angaben zum Duldungsgrund
+
+:artDerAnlaufbescheinigung
+    a owl:DatatypeProperty ;
+    rdfs:label "Art der Anlaufbescheinigung"@de ;
+    rdfs:domain :anlaufbescheinigung ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Informationen über die Art der Anlaufbescheinigung. Rechtliche Grundlagen Darstellungsform urn:xoev-de:bva:codeliste:azr.artanlaufbescheinigung Bestandteil der Gruppe 063 - Anlaufbescheinigung 7. Fassung Seite 395"@de  .
+    # Feld 063.01 | SHACL: DE063.01: Art der Anlaufbescheinigung
+
+:artDerAufenthaltserlaubnis
+    a owl:DatatypeProperty ;
+    rdfs:label "Art der Aufenthaltserlaubnis"@de ;
+    rdfs:domain :aufenthaltserlaubnis ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Angaben zur Art der Aufenthaltserlaubnis. "@de  .
+    # Feld 038.01 | SHACL: DE038.01: Art der Aufenthaltserlaubnis
+
+:artDerAufenthaltsgestattung
+    a owl:DatatypeProperty ;
+    rdfs:label "Art der Aufenthaltsgestattung"@de ;
+    rdfs:domain :Aufenthaltstitel ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Enthält Informationen zu einer ausgestellten Aufenthaltsgestattung bzw. zu deren Erlöschen oder wie- der Inkrafttretens. "@de  .
+    # Feld 030.01 | SHACL: DE030.01: Art der Aufenthaltsgestattung
+
+:artDerAusUndDurchlieferung
+    a owl:DatatypeProperty ;
+    rdfs:label "Art der Aus- und Durchlieferung"@de ;
+    rdfs:domain :ausUndDurchlieferung ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Die Art der Überstellung der ausländischen Person. "@de  .
+    # Feld 054.01 | SHACL: DE054.01: Art der Aus- und Durchlieferung
+
+:artDerAusreisefoerderungArtDerReintegrationsfoerderung
+    a owl:DatatypeProperty ;
+    rdfs:label "Art der Ausreiseförderung, Art der Reintegrationsförderung"@de ;
+    rdfs:domain :ausreisefoerderungReintegrationsfoerderung ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Enthält Angaben, durch welche Mittel (Bund / Länder / Kommunal / Sonstige) die Ausreise bzw. Reinte- gration gefördert wurde. "@de  .
+    # Feld 025.01 | SHACL: DE025.01: Art der Ausreiseförderung, Art der Reintegrationsförderung
+
+:artDerAusschreibung
+    a owl:DatatypeProperty ;
+    rdfs:label "Art der Ausschreibung"@de ;
+    rdfs:domain :Adresse ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Die Art einer Ausschreibung zur Fahndung bezeichnet das Ziel der gemeldeten Ausschreibung (z. B. Festnahme, Aufenthaltsermittlung, Zurückweisung). "@de  .
+    # Feld 052.01 | SHACL: DE052.01: Art der Ausschreibung
+
+:artDerAussiedlerangelegenheiten
+    a owl:DatatypeProperty ;
+    rdfs:label "Art der Aussiedlerangelegenheiten"@de ;
+    rdfs:domain :aussiedlerangelegenheiten ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Informationen über die Art der Ablehnung der Aussiedler-, Spätaussiedlereigenschaft. "@de  .
+    # Feld 056.01 | SHACL: DE056.01: Art der Aussiedlerangelegenheiten
+
+:artDerAusweisung
+    a owl:DatatypeProperty ;
+    rdfs:label "Art der Ausweisung"@de ;
+    rdfs:domain :Asylentscheidung ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Enthält Angaben zur Ausweisung bzw. bei Personen, auf die das FreizügG/EU anwendbar ist, zum Verlust oder Nichtbestehen des Rechts auf Einreise und Aufenthalt. Rechtliche Grundlagen AufenthG: § 53, § 54, § 55 FreizügG/EU: § 2, § 5, § 6, § 7 Darstellungsform urn:de:xauslaender:codelist:azr:artderausweisung Bestandteil der Gruppe 042 - Ausweisung"@de  .
+    # Feld 042.01 | SHACL: DE042.01: Art der Ausweisung
+
+:artDerBerechtigungOderVerpflichtung
+    a owl:DatatypeProperty ;
+    rdfs:label "Art der Berechtigung oder Verpflichtung"@de ;
+    rdfs:domain :integrationskurs ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Angaben zur Art der Berechtigung oder Verpflichtung im Zusammenhang mit Integrationskursen. Rechtliche Grundlagen AufenthG: §§ 43 - 45a Darstellungsform urn:xoev-de:bva:codeliste:azr.artberechtigungoderverpflichtung Bestandteil der Gruppe 039 - Integrationskurs 7. Fassung Seite 235"@de  .
+    # Feld 039.01 | SHACL: DE039.01: Art der Berechtigung oder Verpflichtung
+
+:artDerBetretenserlaubnis
+    a owl:DatatypeProperty ;
+    rdfs:label "Art der Betretenserlaubnis"@de ;
+    rdfs:domain :betretenserlaubnis ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Informationen über die Art der Betretenserlaubnis. Rechtliche Grundlagen AufenthG: § 11 Darstellungsform urn:xoev-de:bva:codeliste:azr.artbetretenserlaubnis Bestandteil der Gruppe 064 - Betretenserlaubnis 7. Fassung Seite 400"@de  .
+    # Feld 064.01 | SHACL: DE064.01: Art der Betretenserlaubnis
+
+:artDerDatenZurArbeitsUndAusbildungsvermittlung
+    a owl:DatatypeProperty ;
+    rdfs:label "Art der Daten zur Arbeits- und Ausbildungsvermittlung"@de ;
+    rdfs:domain :Erwerbstaetigkeit ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Dieses Feld enthält Angaben zum Zweck der Arbeits- und Ausbildungsvermittlung. "@de  .
+    # Feld 072.01 | SHACL: DE072.01: Art der Daten zur Arbeits- und Ausbildungsvermittlung
+
+:artDerDeutschsprachfoerderung
+    a owl:DatatypeProperty ;
+    rdfs:label "Art der Deutschsprachförderung"@de ;
+    rdfs:domain :deutschsprachfoerderung ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Informationen über die Art der Deutschsprachförderung. Rechtliche Grundlagen Darstellungsform urn:xoev-de:bva:codeliste:azr.artdeutschsprachfoerderung Bestandteil der Gruppe 067 - Deutschsprachförderung 7. Fassung Seite 412"@de  .
+    # Feld 067.01 | SHACL: DE067.01: Art der Deutschsprachförderung
+
+:artDerEinreisbedenken
+    a owl:DatatypeProperty ;
+    rdfs:label "Art der Einreisbedenken"@de ;
+    rdfs:domain :Adresse ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Angabe, ob ein Einreisebedenken besteht und dieses befristet oder unbefristet ausgesprochen wurde. Rechtliche Grundlagen AufenthG: § 5 AufenthV: § 65 Darstellungsform urn:de:xauslaender:codelist:azr:artdereinreisebedenken Bestandteil der Gruppe 051 - Einreisebedenken 7. Fassung Seite 332"@de  .
+    # Feld 051.01 | SHACL: DE051.01: Art der Einreisbedenken
+
+:artDerEinschraenkungUntersagungDerPolitischenBetaetigung
+    a owl:DatatypeProperty ;
+    rdfs:label "Art der Einschränkung/Untersagung der politischen Betätigung"@de ;
+    rdfs:domain :einschraenkungUntersagungDerPolitischenBetaetigung ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Information über die Art der befristeten oder unbefristeten Beschränkung oder Untersagung der politi- schen Betätigung einer drittstaatsangehörigen Person. "@de  .
+    # Feld 045.01 | SHACL: DE045.01: Art der Einschränkung/Untersagung der politischen Betätigung
+
+:artDerEntscheidungZurErwerbstaetigkeit
+    a owl:DatatypeProperty ;
+    rdfs:label "Art der Entscheidung zur Erwerbstätigkeit"@de ;
+    rdfs:domain :entscheidungDerBundesagenturFuerArbeit ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Enthält die Entscheidung der Bundesagentur für Arbeit betreffend die Zustimmung zur Ausübung einer Erwerbstätigkeit. Rechtliche Grundlagen AsylG: § 7, § 8, § 56, §§ 59 ff, § 60 AufenthG: §§ 18 - 21, §§ 39 - 42 BeschV: §§ 34 - 37 Darstellungsform urn:de:xauslaender:codelist:azr:entscheidungba Bestandteil der Gruppe"@de  .
+    # Feld 035.01 | SHACL: DE035.01: Art der Entscheidung zur Erwerbstätigkeit
+
+:artDerGesundheitsdaten
+    a owl:DatatypeProperty ;
+    rdfs:label "Art der Gesundheitsdaten"@de ;
+    rdfs:domain :gesundheitsdaten ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Art der Untersuchungen und/oder Impfungen im Rahmen der Unterbringung in Aufnahme- bzw. Gemeinschaftseinrichtungen. "@de  .
+    # Feld 011.01 | SHACL: DE011.01: Art der Gesundheitsdaten
+
+:artDerGrenzuebertrittsbescheinigung
+    a owl:DatatypeProperty ;
+    rdfs:label "Art der Grenzübertrittsbescheinigung"@de ;
+    rdfs:domain :grenzuebertrittsbescheinigung ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Informationen über die Art der Grenzübertrittsbescheinigung. "@de  .
+    # Feld 068.01 | SHACL: DE068.01: Art der Grenzübertrittsbescheinigung
+
+:artDerNebenbestimmungenZurErwerbstaetigkeit
+    a owl:DatatypeProperty ;
+    rdfs:label "Art der Nebenbestimmungen zur Erwerbstätigkeit"@de ;
+    rdfs:domain :nebenbestimmungenZurErwerbstaetigkeit ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Dieses Feld enthält die Art der Nebenbestimmungen betreffend die Ausübung einer Erwerbstätigkeit einer ausländischen Person. "@de  .
+    # Feld 036.01 | SHACL: DE036.01: Art der Nebenbestimmungen zur Erwerbstätigkeit
+
+:artDerNiederlassungserlaubnisDesUnbefristetenAufenthaltstitels
+    a owl:DatatypeProperty ;
+    rdfs:label "Art der Niederlassungserlaubnis / des unbefristeten Aufenthaltstitels"@de ;
+    rdfs:domain :Asylantrag ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Angaben zur Art des erteilten Aufenthaltstitels, welcher einen zeitlich unbeschränkten Aufenthalt in der Bundesrepublik ermöglicht. "@de  .
+    # Feld 040.01 | SHACL: DE040.01: Art der Niederlassungserlaubnis / des unbefristeten Aufenthaltstitels
+
+:artDerPassrechtlichenMassnahmen
+    a owl:DatatypeProperty ;
+    rdfs:label "Art der passrechtlichen Massnahmen"@de ;
+    rdfs:domain :passrechtlicheMassnahmen ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Die Art der durch die Bundesrepublik Deutschland ausgestellten Passersatzpapiere. "@de  .
+    # Feld 049.01 | SHACL: DE049.01: Art der passrechtlichen Massnahmen
+
+:artDerSicherheitsleistung
+    a owl:DatatypeProperty ;
+    rdfs:label "Art der Sicherheitsleistung"@de ;
+    rdfs:domain :sicherheitsleistung ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Informationen über die Art der Sicherheitsleistung. "@de  .
+    # Feld 059.01 | SHACL: DE059.01: Art der Sicherheitsleistung
+
+:artDerSicherheitsrechtlichenBefragung
+    a owl:DatatypeProperty ;
+    rdfs:label "Art der sicherheitsrechtlichen Befragung"@de ;
+    rdfs:domain :sicherheitsrechtlicheBefragung ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Informationen über die Art der sicherheitsrechtlichen Befragung. "@de  .
+    # Feld 058.01 | SHACL: DE058.01: Art der sicherheitsrechtlichen Befragung
+
+:artDerStrafeDieDerAusschreibungZugrundeLiegt
+    a owl:DatatypeProperty ;
+    rdfs:label "Art der Strafe, die der Ausschreibung zugrunde liegt"@de ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Hier wird die Art der der Ausschreibung zugrundeliegenden Strafe dokumentiert. "@de  .
+    # Feld 074.01 | SHACL: DE074.01: Art der Strafe, die der Ausschreibung zugrunde liegt
+
+:artDerUebermittlungssperre
+    a owl:DatatypeProperty ;
+    rdfs:label "Art der Übermittlungssperre"@de ;
+    rdfs:domain :uebermittlungssperre ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Informationen über die Art der Übermittlungssperre. "@de  .
+    # Feld 061.01 | SHACL: DE061.01: Art der Übermittlungssperre
+
+:artDerUeberwachungsmassnahmenBeiAusgewiesenenAuslaendernNach56Aufen
+    a owl:DatatypeProperty ;
+    rdfs:label "Art der Überwachungsmaßnahmen bei ausgewiesenen Ausländern nach § 56 Aufen-"@de ;
+    rdfs:domain :ueberwachungsmassnahmen ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Die Art der gemeldeten Überwachungsmaßnahme bei ausgewiesenen ausländischen Personen nach § 56 AufenthG. "@de  .
+    # Feld 046.01 | SHACL: DE046.01: Art der Überwachungsmaßnahmen bei ausgewiesenen Ausländern nach § 56 Aufen-
+
+:artDerUnerlaubteEinreiseUndAufenthalt
+    a owl:DatatypeProperty ;
+    rdfs:label "Art der Unerlaubte Einreise und Aufenthalt"@de ;
+    rdfs:domain :unerlaubteEinreiseUndAufenthalt ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Information, ob eine Einreise oder ein Aufenthalt entgegen der gesetzlichen Vorgaben erfolgte bzw. vorliegt. "@de  .
+    # Feld 033.01 | SHACL: DE033.01: Art der Unerlaubte Einreise und Aufenthalt
+
+:artDerVerpflichtungserklaerung
+    a owl:DatatypeProperty ;
+    rdfs:label "Art der Verpflichtungserklärung"@de ;
+    rdfs:domain :verpflichtungserklaerung ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Informationen über die Art der Verpflichtungserklärung. "@de  .
+    # Feld 060.01 | SHACL: DE060.01: Art der Verpflichtungserklärung
+
+:artDerVerurteilungWegenStraftaten
+    a owl:DatatypeProperty ;
+    rdfs:label "Art der Verurteilung wegen Straftaten"@de ;
+    rdfs:domain :verurteilungWegenStraftaten ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Die Informationen zur Verurteilung einer ausländischen Person wegen unerlaubter Einreise oder uner- laubtem Aufenthalt. "@de  .
+    # Feld 057.01 | SHACL: DE057.01: Art der Verurteilung wegen Straftaten
+
+:artDerVorabzustimmung
+    a owl:DatatypeProperty ;
+    rdfs:label "Art der Vorabzustimmung"@de ;
+    rdfs:domain :vorabzustimmung ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Informationen über die Art der Vorabzustimmung. Rechtliche Grundlagen AufenthG: § 81a BeschV: § 36 Darstellungsform urn:de:xauslaender:codelist:azr:artdervorabzustimmung Bestandteil der Gruppe 066 - Vorabzustimmung 7. Fassung Seite 405"@de  .
+    # Feld 066.01 | SHACL: DE066.01: Art der Vorabzustimmung
+
+:artDerWohnsitzauflageRaeumlichenBeschraenkungWohnsitzregelungOderWohnsitzver
+    a owl:DatatypeProperty ;
+    rdfs:label "Art der Wohnsitzauflage, räumlichen Beschränkung, Wohnsitzregelung oder Wohnsitzver-"@de ;
+    rdfs:domain :Aufenthaltstitel ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Dieses Feld enthält Informationen über die Art einer Wohnsitzauflage, räumlichen Beschränkung, Wohnsitzregelung oder Wohnsitzverpflichtung gemäß den rechtlichen Vorgaben. "@de  .
+    # Feld 031.01 | SHACL: DE031.01: Art der Wohnsitzauflage, räumlichen Beschränkung, Wohnsitzregelung oder Wohnsitzver-
+
+:artDerZurueckweisungZurueckschiebungUndAbschiebung
+    a owl:DatatypeProperty ;
+    rdfs:label "Art der Zurückweisung, Zurückschiebung und Abschiebung"@de ;
+    rdfs:domain :Adresse ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Angaben zur Art der Zurückweisung, Zurückschiebung und Abschiebung. "@de  .
+    # Feld 050.01 | SHACL: DE050.01: Art der Zurückweisung, Zurückschiebung und Abschiebung
+
+:artDerZustimmungsfreienBeschaeftigung
+    a owl:DatatypeProperty ;
+    rdfs:label "Art der zustimmungsfreien Beschäftigung"@de ;
+    rdfs:domain :zustimmungsfreieBeschaeftigung ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Dieses Feld enthält Informationen über die Art der Feststellung der zustimmungsfreien Beschäftigung. Auch können Gründe für diese Zustimmung angegeben werden. Rechtliche Grundlagen AsylG: § 7, § 8, § 61 AufenthG: § 4a, § 18b, § 18c, §§ 39 - 42 BeschV: § 5, § 9, §§ 14 - 24, § 24b, § 31 Darstellungsform urn:de:xauslaender:codelist:azr:zustimmungsfreiebeschaeftigung Bestandteil der Gruppe"@de  .
+    # Feld 037.01 | SHACL: DE037.01: Art der zustimmungsfreien Beschäftigung
+
+:artDesAufenthaltsrechtsEu
+    a owl:DatatypeProperty ;
+    rdfs:label "Art des Aufenthaltsrechts EU"@de ;
+    rdfs:domain :Asylverfahren ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Enthält Angaben zur Art des Aufenthaltsrechts gemäß Freizügigkeitsgesetz/EU. "@de  .
+    # Feld 041.01 | SHACL: DE041.01: Art des Aufenthaltsrechts EU
+
+:artDesAufenthaltsstatus
+    a owl:DatatypeProperty ;
+    rdfs:label "Art des Aufenthaltsstatus"@de ;
+    rdfs:domain :weitereAufenthaltsstatus ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Enthält Angaben zum aufenthaltsrechtlichen Status, die nicht in speziellen Kapiteln erfasst werden. Dies sind Angaben wie z. B. Erteilung, Ablehnung, Widerruf. Rechtliche Grundlagen Darstellungsform urn:de:xauslaender:codelist:azr:aufenthaltsstatus Bestandteil der Gruppe 034 - Weitere Aufenthaltsstatus 7. Fassung Seite 200"@de  .
+    # Feld 034.01 | SHACL: DE034.01: Art des Aufenthaltsstatus
+
+:artDesAusreisenachweis
+    a owl:DatatypeProperty ;
+    rdfs:label "Art des Ausreisenachweis"@de ;
+    rdfs:domain :ausreisenachweis ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Es handelt sich um einen Ausreisenachweis, der im Rahmen der geförderten Ausreise bzw. Reinte- gration gespeichert wird. Der Nachweis der Ausreise in den Zielstaat muss der für die Maßnahme zuständigen Ausländerbehörde zugesandt werden. "@de  .
+    # Feld 026.01 | SHACL: DE026.01: Art des Ausreisenachweis
+
+:artDesAusreiseverbots
+    a owl:DatatypeProperty ;
+    rdfs:label "Art des Ausreiseverbots"@de ;
+    rdfs:domain :ausreiseverbot ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Das Datenfeld enthält Informationen zur Art des Ausreiseverbots. Rechtliche Grundlagen Darstellungsform urn:de:xauslaender:codelist:azr:artdesausreiseverbots Bestandteil der Gruppe 048 - Ausreiseverbot 7. Fassung Seite 311"@de  .
+    # Feld 048.01 | SHACL: DE048.01: Art des Ausreiseverbots
+
+:artDesAusweisdokuments
+    a owl:DatatypeProperty ;
+    rdfs:label "Art des Ausweisdokuments"@de ;
+    rdfs:domain :ausweisdokument ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Die Art eines amtlichen Ausweisdokuments (Reisepass, Passersatz, ID-Card, sonstiges Reisedoku- ment). Rechtliche Grundlagen AsylG: § 7, § 8, § 16 Darstellungsform urn:de:xauslaender:codelist:azr:ausweisart Bestandteil der Gruppe 017 - Ausweisdokument 7. Fassung Seite 114"@de  .
+    # Feld 017.01 | SHACL: DE017.01: Art des Ausweisdokuments
+
+:artDesEinreiseUndAufenthaltsverbots
+    a owl:DatatypeProperty ;
+    rdfs:label "Art des Einreise- und Aufenthaltsverbots"@de ;
+    rdfs:domain :Asylverfahren ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Hier ist die Art des verhängten Einreise- und Aufenthaltsverbots spezifiziert. "@de  .
+    # Feld 044.01 | SHACL: DE044.01: Art des Einreise- und Aufenthaltsverbots
+
+:artDesIntegrationskurses
+    a owl:DatatypeProperty ;
+    rdfs:label "Art des Integrationskurses"@de ;
+    rdfs:domain :integrationskurs ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Dieses Feld enthält Angaben zur Art des Integrationskurses. "@de  .
+    # Feld 039.05 | SHACL: DE039.05: Art des Integrationskurses
+
+:artDesKursabschlusses
+    a owl:DatatypeProperty ;
+    rdfs:label "Art des Kursabschlusses"@de ;
+    rdfs:domain :integrationskurs ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Art des erzielten Ergebnisses (erfolgreich / nicht erfolgreich) des Integrationskurses. Rechtliche Grundlagen AufenthG: §§ 43 - 45a Darstellungsform urn:de:xauslaender:codelist:azr:artdeskursabschlusses Bestandteil der Gruppe 039 - Integrationskurs 7. Fassung Seite 241"@de  .
+    # Feld 039.07 | SHACL: DE039.07: Art des Kursabschlusses
+
+:artDesMeldestatus
+    a owl:DatatypeProperty ;
+    rdfs:label "Art des Meldestatus"@de ;
+    rdfs:domain :meldestatus ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Enthält den aktuellen Meldestatus einer ausländischen Person. Wenn die ausländische Person in der Bundesrepublik aufhältig ist, ist die letzte Behörde, die einen aufhältigen Meldestatus gemeldet hat im AZR aktenführend (Ausnahme: Meldung der Ersteinreise der Person durch die mit grenzpolizeili- chen Aufgaben betrauten Behörden). Bei einem Fortzug der Person (bei "Fortzug nach unbekannt", "Fortzug ins Ausland" und "hält sich nicht mehr im Bundesgebiet auf") bleibt die zuletzt gespeicherte Ausländerbehörde bzw. Aufnahmeeinrichtung aktenführend. "@de  .
+    # Feld 024.01 | SHACL: DE024.01: Art des Meldestatus
+
+:artDesStraftatverdachts
+    a owl:DatatypeProperty ;
+    rdfs:label "Art des Straftatverdachts"@de ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Informationen über die Art des Straftatverdachts. Rechtliche Grundlagen AufenthG: § 50, § 62 Darstellungsform urn:de:xauslaender:codelist:azr:artdesstraftatverdachts Bestandteil der Gruppe 053 - Verdacht auf Straftaten 7. Fassung Seite 348"@de  .
+    # Feld 053.01 | SHACL: DE053.01: Art des Straftatverdachts
+
+:artDesSuchvermerks
+    a owl:DatatypeProperty ;
+    rdfs:label "Art des Suchvermerks"@de ;
+    rdfs:domain :suchvermerk ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Informationen über die Art des Suchvermerks. "@de  .
+    # Feld 062.01 | SHACL: DE062.01: Art des Suchvermerks
+
+:artDesVisums
+    a owl:DatatypeProperty ;
+    rdfs:label "Art des Visums"@de ;
+    rdfs:domain :Erwerbstaetigkeit ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Informationen zur Art des Visums. Rechtliche Grundlagen Darstellungsform urn:xoev-de:bva:codeliste:azr.artvisum Bestandteil der Gruppe 070 - Visum 7. Fassung Seite 425"@de  .
+    # Feld 070.01 | SHACL: DE070.01: Art des Visums
+
+:artEinesAnderenNamens
+    a owl:DatatypeProperty ;
+    rdfs:label "Art eines anderen Namens"@de ;
+    rdfs:domain :andereNamen ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Die Art eines anderen Namens aus Datenblatt Nr. 013.02. Rechtliche Grundlagen AsylG: § 7, § 8, § 16 Darstellungsform urn:de:xauslaender:codelist:azr:anderername Bestandteil der Gruppe 013 - Andere Namen 7. Fassung Seite 97"@de  .
+    # Feld 013.01 | SHACL: DE013.01: Art eines anderen Namens
+
+:aufbewahrendeStelle
+    a owl:DatatypeProperty ;
+    rdfs:label "Aufbewahrende Stelle"@de ;
+    rdfs:domain :ausweisdokument ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Das Behördenkennzeichen der Stelle, die ein Ausweisdokument aufbewahrt, welches zuvor sicherge- stellt wurde. Rechtliche Grundlagen AsylG: § 7, § 8, § 16 Darstellungsform Bestandteil der Gruppe 017 - Ausweisdokument 7. Fassung Seite 119"@de  .
+    # Feld 017.06 | SHACL: DE017.06: Aufbewahrende Stelle
+
+:aufbewahrendeStelleFreitext
+    a owl:DatatypeProperty ;
+    rdfs:label "Aufbewahrende Stelle Freitext"@de ;
+    rdfs:domain :ausweisdokument ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Die Bezeichnung der aufbewahrenden Behörde, falls kein Behördenkennzeichen für diese Behörde vorhanden ist. Rechtliche Grundlagen AsylG: § 7, § 8, § 16 Darstellungsform Bestandteil der Gruppe 017 - Ausweisdokument 7. Fassung Seite 120"@de  .
+    # Feld 017.07 | SHACL: DE017.07: Aufbewahrende Stelle Freitext
+
+:augenfarbe
+    a owl:DatatypeProperty ;
+    rdfs:label "Augenfarbe"@de ;
+    rdfs:domain :personenbeschreibung ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Es handelt sich um die Angabe zur Augenfarbe einer ausländischen Person. "@de  .
+    # Feld 069.02 | SHACL: DE069.02: Augenfarbe
+
+:ausgestelltAm
+    a owl:DatatypeProperty ;
+    rdfs:label "Ausgestellt am"@de ;
+    rdfs:domain :anlaufbescheinigung, :grenzuebertrittsbescheinigung ;
+    rdfs:range xsd:string .
+    # SHACL: Ausgestelltam
+
+:ausreisedatum
+    a owl:DatatypeProperty ;
+    rdfs:label "Ausreisedatum"@de ;
+    rdfs:domain :ausreisefoerderungReintegrationsfoerderung ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Hier ist das Datum des Fortzugs der Person einzutragen (Datum deckungsgleich Meldestatus). Dies verknüpft eine Fördermaßnahme mit einer konkreten Ausreise. Rechtliche Grundlagen AsylG: § 7, § 8 AufenthG: §§ 50 - 56a Darstellungsform Bestandteil der Gruppe 025 - Ausreiseförderung, Reintegrationsförderung 7. Fassung Seite 151"@de  .
+    # Feld 025.08 | SHACL: DE025.08: Ausreisedatum
+
+:ausreisestaat
+    a owl:DatatypeProperty ;
+    rdfs:label "Ausreisestaat"@de ;
+    rdfs:domain :ausreisenachweis ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Der jeweilige Ausreisestaat ist der Mitgliedstaat des Schengenraums, aus dem heraus die jeweilige Person den Schengenraum verlässt. "@de  .
+    # Feld 026.03 | SHACL: DE026.03: Ausreisestaat
+
+:ausschreibendeBehoerde
+    a owl:DatatypeProperty ;
+    rdfs:label "Ausschreibende Behörde"@de ;
+    rdfs:domain :Adresse ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Das Behördenkennzeichen der ausschreibenden Behörde. Rechtliche Grundlagen AsylG: § 66 AufenthG: § 50 Darstellungsform Bestandteil der Gruppe 052 - Ausschreibung zur Fahndung 7. Fassung Seite 342"@de  .
+    # Feld 052.04 | SHACL: DE052.04: Ausschreibende Behörde
+
+:ausschreibendeBehoerdeAktenzeichen
+    a owl:DatatypeProperty ;
+    rdfs:label "Ausschreibende Behörde Aktenzeichen"@de ;
+    rdfs:domain :Adresse ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Das Aktenzeichen der ausschreibenden Behörde. Rechtliche Grundlagen AsylG: § 66 AufenthG: § 50 Darstellungsform Bestandteil der Gruppe 052 - Ausschreibung zur Fahndung 7. Fassung Seite 344"@de  .
+    # Feld 052.06 | SHACL: DE052.06: Ausschreibende Behörde Aktenzeichen
+
+:ausschreibendeBehoerdeFreitext
+    a owl:DatatypeProperty ;
+    rdfs:label "Ausschreibende Behörde Freitext"@de ;
+    rdfs:domain :Adresse ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Die Bezeichnung der ausschreibenden Behörde, falls kein Behördenkennzeichen für diese Behörde vorhanden ist. Rechtliche Grundlagen AsylG: § 66 AufenthG: § 50 Darstellungsform Bestandteil der Gruppe 052 - Ausschreibung zur Fahndung 7. Fassung Seite 343"@de  .
+    # Feld 052.05 | SHACL: DE052.05: Ausschreibende Behörde Freitext
+
+:ausschreibungAnlass
+    a owl:DatatypeProperty ;
+    rdfs:label "Ausschreibung Anlass"@de ;
+    rdfs:domain :Adresse ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Der Anlass einer Ausschreibung zur Fahndung bezeichnet den auslösenden Grund für die Ausschrei- bung. "@de  .
+    # Feld 052.08 | SHACL: DE052.08: Ausschreibung Anlass
+
+:ausstellendeBehoerde
+    a owl:DatatypeProperty ;
+    rdfs:label "Ausstellende Behörde"@de ;
+    rdfs:domain :anlaufbescheinigung, :grenzuebertrittsbescheinigung ;
+    rdfs:range xsd:string .
+    # SHACL: Ausstellendebehoerde
+
+:ausstellendeBehoerdeFreitext
+    a owl:DatatypeProperty ;
+    rdfs:label "Ausstellende Behörde Freitext"@de ;
+    rdfs:domain :ausweisdokument ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Die Bezeichnung der Behörde, die das Ausweisdokument ausgestellt hat. Rechtliche Grundlagen Darstellungsform Bestandteil der Gruppe 017 - Ausweisdokument 7. Fassung Seite 118"@de  .
+    # Feld 017.05 | SHACL: DE017.05: Ausstellende Behörde Freitext
+
+:ausstellenderStaat
+    a owl:DatatypeProperty ;
+    rdfs:label "Ausstellender Staat"@de ;
+    rdfs:domain :ausweisdokument ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Der Staat, der das Ausweisdokument ausgestellt hat. Rechtliche Grundlagen AsylG: § 7, § 8, § 16 Darstellungsform Bestandteil der Gruppe 017 - Ausweisdokument 7. Fassung Seite 117"@de  .
+    # Feld 017.04 | SHACL: DE017.04: Ausstellender Staat
+
+:ausstellungsdatum
+    a owl:DatatypeProperty ;
+    rdfs:label "Ausstellungsdatum"@de ;
+    rdfs:domain :ankunftsnachweis ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Das Datum, an dem der Ankunftsnachweis ausgestellt wurde. Rechtliche Grundlagen AsylG: § 7, § 8, § 63a Darstellungsform Bestandteil der Gruppe 032 - Ankunftsnachweis 7. Fassung Seite 190"@de  .
+    # Feld 032.01 | SHACL: DE032.01: Ausstellungsdatum
+
+:auszugsdatum
+    a owl:DatatypeProperty ;
+    rdfs:label "Auszugsdatum"@de ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Das Datum des Auszugs zu der in Datenblatt Nr. 006.01 bis Datenblatt Nr. 006.11 genannten Adresse. Rechtliche Grundlagen Darstellungsform Bestandteil der Gruppe 006 - Anschrift im Bundesgebiet 7. Fassung Seite 70"@de  .
+    # Feld 006.14 | SHACL: DE006.14: Auszugsdatum
+
+:azrNummer
+    a owl:DatatypeProperty ;
+    rdfs:label "AZR-Nummer"@de ;
+    rdfs:domain :familienverband ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "12-stellige eindeutige Identifikationsnummer im Ausländerzentralregister"@de ;
+    skos:example "199012345678" ;
+    ex:wertebereich "12-stellige Zahl"@de .
+    # Feld 005.04
+
+:befragendeBehoerde
+    a owl:DatatypeProperty ;
+    rdfs:label "Befragende Behörde"@de ;
+    rdfs:domain :sicherheitsrechtlicheBefragung ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Das Behördenkennzeichen der befragenden Behörde. Rechtliche Grundlagen AufenthG: § 54 Abs. 2 Nr. 7 Darstellungsform Bestandteil der Gruppe 058 - Sicherheitsrechtliche Befragung 7. Fassung Seite 373"@de  .
+    # Feld 058.03 | SHACL: DE058.03: Befragende Behörde
+
+:befristungsdatum
+    a owl:DatatypeProperty ;
+    rdfs:label "Befristungsdatum"@de ;
+    rdfs:domain :Adresse, :AktenzeichenAsyl, :Asylentscheidung, :Asylverfahrensart, :Entscheidungsdatum, :Erwerbstaetig, :GueltigkeitAufenthaltstitel, :Strasse, :aufenthaltserlaubnis, :ausreiseverbot, :einschraenkungUntersagungDerPolitischenBetaetigung, :entscheidungDerBundesagenturFuerArbeit, :grenzuebertrittsbescheinigung, :nebenbestimmungenZurErwerbstaetigkeit, :passrechtlicheMassnahmen, :suchvermerk, :vorabzustimmung, :weitereAufenthaltsstatus, :zustimmungsfreieBeschaeftigung ;
+    rdfs:range xsd:string .
+    # SHACL: Befristungsdatum
+
+:bescheinigungsnummer
+    a owl:DatatypeProperty ;
+    rdfs:label "Bescheinigungsnummer"@de ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Die Nummer der Duldungsbescheinigung, d. h. des Klebeetiketts. Rechtliche Grundlagen AufenthG: § 60a, § 60b, § 60c, § 60d Darstellungsform T\d{7}|V\d{8} Bestandteil der Gruppe 047 - Duldung 7. Fassung Seite 307"@de  .
+    # Feld 047.04 | SHACL: DE047.04: Bescheinigungsnummer
+
+:bestandskraft
+    a owl:DatatypeProperty ;
+    rdfs:label "Bestandskraft"@de ;
+    rdfs:domain :Aufenthaltsstatus, :Aufenthaltstitel ;
+    rdfs:range xsd:string .
+    # SHACL: Bestandskraft
+
+:bezirkDerAuslaenderbehoerde
+    a owl:DatatypeProperty ;
+    rdfs:label "Bezirk der Ausländerbehörde"@de ;
+    rdfs:domain :Aufenthaltstitel ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Der Bezirk der Ausländerbehörde, auf den sich eine Wohnsitzauflage, räumliche Beschränkung, Wohn- sitzregelung oder Wohnsitzverpflichtung bezieht. Rechtliche Grundlagen AsylG: § 7, § 8, § 56, §§ 59 ff, § 60 AufenthG: § 12 Abs. 2, § 12a, § 23 Abs. 2 S. 4, § 46 Abs. 1, § 61 Abs. 1c Darstellungsform urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:kreis Bestandteil der Gruppe 031 - Wohnsitzauflage, räumliche Beschränkung, Wohnsitzregelung und Wohnsitzverpflichtung"@de  .
+    # Feld 031.05 | SHACL: DE031.05: Bezirk der Ausländerbehörde
+
+:bezirkDerAuslaenderbehoerdeFreitext
+    a owl:DatatypeProperty ;
+    rdfs:label "Bezirk der Ausländerbehörde (Freitext)"@de ;
+    rdfs:domain :Aufenthaltstitel ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Bezirk der Ausländerbehörde, auf den sich eine Wohnsitzauflage, räumliche Beschränkung, Wohn- sitzregelung oder Wohnsitzverpflichtung bezieht, wenn die Angabe in Datenblatt Nr. 031.05 nicht vor- handen ist. Rechtliche Grundlagen AsylG: § 7, § 8, § 56, §§ 59 ff, § 60 AufenthG: § 12 Abs. 2, § 12a, § 23 Abs. 2 S. 4, § 46 Abs. 1, § 61 Abs. 1c Darstellungsform Bestandteil der Gruppe 031 - Wohnsitzauflage, räumliche Beschränkung, Wohnsitzregelung und Wohnsitzverpflichtung"@de  .
+    # Feld 031.06 | SHACL: DE031.06: Bezirk der Ausländerbehörde (Freitext)
+
+:bkaDNummer
+    a owl:DatatypeProperty ;
+    rdfs:label "BKA D-Nummer"@de ;
+    rdfs:domain :fingerabdruck ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Die D-Nummer ist die Identifikation der Daktyloskopischen Datengruppe (D-Gruppe). "@de  .
+    # Feld 023.03 | SHACL: DE023.03: BKA D-Nummer
+
+:bkaENummer
+    a owl:DatatypeProperty ;
+    rdfs:label "BKA E-Nummer"@de ;
+    rdfs:domain :fingerabdruck ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Die E-Nummer ist die Gruppenidentifikation einer E-Gruppe (erkennungsdienstlichen Maßnahme). "@de  .
+    # Feld 023.02 | SHACL: DE023.02: BKA E-Nummer
+
+:bundesland
+    a owl:DatatypeProperty ;
+    rdfs:label "Bundesland"@de ;
+    rdfs:domain :Aufenthaltstitel ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Das Bundesland, auf das sich eine Wohnsitzauflage, eine räumliche Beschränkung, eine Wohnsitzre- gelung oder eine Wohnsitzverpflichtung bezieht. Rechtliche Grundlagen AsylG: § 7, § 8, § 56, §§ 59 ff, § 60 AufenthG: § 12 Abs. 2, § 12a, § 23 Abs. 2 S. 4, § 46 Abs. 1, § 61 Abs. 1c Darstellungsform urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:bundesland Bestandteil der Gruppe 031 - Wohnsitzauflage, räumliche Beschränkung, Wohnsitzregelung und Wohnsitzverpflichtung"@de  .
+    # Feld 031.04 | SHACL: DE031.04: Bundesland
+
+:deutschkenntnisse
+    a owl:DatatypeProperty ;
+    rdfs:label "Grad der Sprachkenntnis"@de ;
+    rdfs:domain :Erwerbstaetigkeit ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Deutschkenntnisse nach Gemeinsamen Europäischen Referenzrahmen (GER)"@de ;
+    skos:example "B2" ;
+    ex:wertebereich "A1, A2, B1, B2, C1, C2, Muttersprache, Keine Kenntnisse"@de .
+    # Feld 072.10
+
+:doktorgrad
+    a owl:DatatypeProperty ;
+    rdfs:label "Doktorgrad"@de ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Der oder die Doktorgrade einer Person, wie sie in Nr. 4.1.3 der VwV zum PassG definiert sind. "@de  .
+    # Feld 004.12 | SHACL: DE004.12: Doktorgrad
+
+
+:dublinstaat
+    a owl:DatatypeProperty ;
+    rdfs:label "Dublinstaat"@de ;
+    rdfs:domain :Aufenthaltsstatus ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Es handelt sich um den Staat, mit dem das Verfahren zur Bestimmung des Mitgliedstaats durchgeführt wird und der für die Prüfung eines Antrags auf internationalen Schutz zuständig ist, den ein Drittstaats- angehöriger oder Staatenloser in einem Mitgliedstaat gestellt hat. Dublin Staaten sind alle Mitgliedstaa- ten sowie die vier assoziierten Staaten Schweiz, Norwegen, Island und das Fürstentum Liechtenstein. Rechtliche Grundlagen AsylG: §§ 2 - 4, § 7, § 8 Dublin III VO: Darstellungsform Bestandteil der Gruppe"@de  .
+    # Feld 028.05 | SHACL: DE028.05: Dublinstaat
+
+:einreisestaat
+    a owl:DatatypeProperty ;
+    rdfs:label "Einreisestaat"@de ;
+    rdfs:domain :Aufenthaltsstatus, :unerlaubteEinreiseUndAufenthalt ;
+    rdfs:range xsd:string .
+    # SHACL: Einreisestaat
+
+:einzugsdatum
+    a owl:DatatypeProperty ;
+    rdfs:label "Einzugsdatum"@de ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Dies ist das Datum des Einzugs zu der in Datenblatt Nr. 006.01 bis Datenblatt Nr. 006.11 genannten Adresse. Rechtliche Grundlagen Darstellungsform Bestandteil der Gruppe 006 - Anschrift im Bundesgebiet 7. Fassung Seite 69"@de  .
+    # Feld 006.13 | SHACL: DE006.13: Einzugsdatum
+
+:endgueltigZustaendigesJugendamt
+    a owl:DatatypeProperty ;
+    rdfs:label "Endgültig zuständiges Jugendamt"@de ;
+    rdfs:domain :zustaendigkeit ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Das Behördenkennzeichen des endgültig zuständigen Jugendamtes. Rechtliche Grundlagen Darstellungsform Bestandteil der Gruppe 010 - Zuständigkeit 7. Fassung Seite 84"@de  .
+    # Feld 010.09 | SHACL: DE010.09: Endgültig zuständiges Jugendamt
+
+:endgueltigZustaendigesJugendamtFreitext
+    a owl:DatatypeProperty ;
+    rdfs:label "Endgültig zuständiges Jugendamt (Freitext)"@de ;
+    rdfs:domain :zustaendigkeit ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Die Bezeichnung der zuständigen Behörde, falls kein Behördenkennzeichen für diese Behörde vor- handen ist. Rechtliche Grundlagen Darstellungsform Bestandteil der Gruppe 010 - Zuständigkeit 7. Fassung Seite 85"@de  .
+    # Feld 010.10 | SHACL: DE010.10: Endgültig zuständiges Jugendamt (Freitext)
+
+:entschiedenAm
+    a owl:DatatypeProperty ;
+    rdfs:label "Entschieden am"@de ;
+    rdfs:domain :ausreisefoerderungReintegrationsfoerderung ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Das Datum der Entscheidung über Mittel zur Förderung einer Ausreise bzw. Reintegration. Rechtliche Grundlagen AsylG: § 7, § 8 AufenthG: §§ 50 - 56a Darstellungsform Bestandteil der Gruppe 025 - Ausreiseförderung, Reintegrationsförderung 7. Fassung Seite 145"@de  .
+    # Feld 025.02 | SHACL: DE025.02: Entschieden am
+
+:entschiedenDurch
+    a owl:DatatypeProperty ;
+    rdfs:label "Entschieden durch"@de ;
+    rdfs:domain :ausreisefoerderungReintegrationsfoerderung ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Das Behördenkennzeichen der Stelle, die über die Mittel zur Förderung einer Ausreise bzw. Reinte- gration entschieden hat. "@de  .
+    # Feld 025.03 | SHACL: DE025.03: Entschieden durch
+
+:entschiedenDurchFreitext
+    a owl:DatatypeProperty ;
+    rdfs:label "Entschieden durch (Freitext)"@de ;
+    rdfs:domain :ausreisefoerderungReintegrationsfoerderung ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Die Bezeichnung der Behörde, falls kein Behördenkennzeichen für diese Behörde vorhanden ist. "@de  .
+    # Feld 025.04 | SHACL: DE025.04: Entschieden durch (Freitext)
+
+:ereignisdatum
+    a owl:DatatypeProperty ;
+    rdfs:label "Ereignisdatum"@de ;
+    rdfs:domain :Adresse, :AktenzeichenAsyl, :AsylantragDatum, :Asylentscheidung, :Asylverfahrensart, :Aufenthaltsstatus, :Aufenthaltstitel, :Aufenthaltszweck, :Entscheidungsdatum, :Erwerbstaetig, :GueltigkeitAufenthaltstitel, :Land, :Strasse, :aufenthaltserlaubnis, :ausUndDurchlieferung, :ausreisenachweis, :ausreiseverbot, :aussiedlerangelegenheiten, :einschraenkungUntersagungDerPolitischenBetaetigung, :entscheidungDerBundesagenturFuerArbeit, :gesundheitsdaten, :meldestatus, :nebenbestimmungenZurErwerbstaetigkeit, :passrechtlicheMassnahmen, :sicherheitsleistung, :sicherheitsrechtlicheBefragung, :ueberwachungsmassnahmen, :unerlaubteEinreiseUndAufenthalt, :verpflichtungserklaerung, :vorabzustimmung, :weitereAufenthaltsstatus, :zustimmungsfreieBeschaeftigung ;
+    rdfs:range xsd:string .
+    # SHACL: Ereignisdatum
+
+:ergebnisDerPruefung
+    a owl:DatatypeProperty ;
+    rdfs:label "Ergebnis der Prüfung"@de ;
+    rdfs:domain :ausweisdokument ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Ergebnis der Prüfung des Ausweisdokuments auf mögliche Manipulationen. Rechtliche Grundlagen AsylG: § 7, § 8, § 16 Darstellungsform urn:de:xauslaender:codelist:azr:artdesausweispruefungsergebnis Bestandteil der Gruppe 017 - Ausweisdokument 7. Fassung Seite 124"@de  .
+    # Feld 017.11 | SHACL: DE017.11: Ergebnis der Prüfung
+
+:erlassendeBehoerde
+    a owl:DatatypeProperty ;
+    rdfs:label "Erlassende Behörde"@de ;
+    rdfs:domain :Asylentscheidung ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Das Behördenkennzeichen der erlassenden Behörde. Das Datenfeld wird nur genutzt, wenn meldende und erlassende Behörde voneinander abweichen. Rechtliche Grundlagen AsylG: § 7, § 8, §§ 34 - 43 AufenthG: § 58, § 58a, § 59 Darstellungsform Bestandteil der Gruppe 043 - Abschiebung 7. Fassung Seite 275"@de  .
+    # Feld 043.08 | SHACL: DE043.08: Erlassende Behörde
+
+:ermittelndeBehoerde
+    a owl:DatatypeProperty ;
+    rdfs:label "Ermittelnde Behörde"@de ;
+    rdfs:domain :Asylentscheidung ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Dieses Element beinhaltet das Behördenkennzeichen der ermittelnden Behörde. Dieses Datenblatt ist nur in einer Auskunft aus dem AZR relevant und wird nur im Zuge der Feststellung eines Terrorver- dachts genutzt. Rechtliche Grundlagen AufenthG: § 53, § 54, § 55 FreizügG/EU: § 2, § 5, § 6, § 7 Darstellungsform Bestandteil der Gruppe 042 - Ausweisung"@de  .
+    # Feld 042.06 | SHACL: DE042.06: Ermittelnde Behörde
+
+:erstellungszeitpunkt
+    a owl:DatatypeProperty ;
+    rdfs:label "Erstellungszeitpunkt"@de ;
+    rdfs:domain :integrationskurs ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Das Datum, an dem die Berechtigung oder Verpflichtung erteilt wurde. Hiermit ist das Datum gemeint, welches das BAMF der berechtigenden/verpflichtenden Stelle im Rahmen der Kommunikation hin- sichtlich der Erteilung einer Berechtigung/Verpflichtung zum Integrationskurs mitgeteilt hat. Rechtliche Grundlagen AufenthG: §§ 43 - 45a Darstellungsform Bestandteil der Gruppe 039 - Integrationskurs 7. Fassung Seite 236"@de  .
+    # Feld 039.02 | SHACL: DE039.02: Erstellungszeitpunkt
+
+:erteilendeStelle
+    a owl:DatatypeProperty ;
+    rdfs:label "Erteilende Stelle"@de ;
+    rdfs:domain :integrationskurs ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Das Behördenkennzeichen der Stelle, die eine Berechtigung oder Verpflichtung zum Integrationskurs erteilt hat. Rechtliche Grundlagen AufenthG: §§ 43 - 45a Darstellungsform Bestandteil der Gruppe 039 - Integrationskurs 7. Fassung Seite 237"@de  .
+    # Feld 039.03 | SHACL: DE039.03: Erteilende Stelle
+
+:erteilendeStelleFreitext
+    a owl:DatatypeProperty ;
+    rdfs:label "Erteilende Stelle (Freitext)"@de ;
+    rdfs:domain :integrationskurs ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Amtliche Bezeichnung der erteilenden Stelle, falls kein Behördenkennzeichen für diese Behörde vor- handen ist. Rechtliche Grundlagen AufenthG: §§ 43 - 45a Darstellungsform Bestandteil der Gruppe 039 - Integrationskurs 7. Fassung Seite 238"@de  .
+    # Feld 039.04 | SHACL: DE039.04: Erteilende Stelle (Freitext)
+
+:erteiltAm
+    a owl:DatatypeProperty ;
+    rdfs:label "Erteilt am"@de ;
+    rdfs:domain :betretenserlaubnis ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Das Datum, an dem die Betretenserlaubnis erteilt wurde. Rechtliche Grundlagen AufenthG: § 11 Darstellungsform Bestandteil der Gruppe 064 - Betretenserlaubnis 7. Fassung Seite 401"@de  .
+    # Feld 064.02 | SHACL: DE064.02: Erteilt am
+
+:externeNotizZuMetadatenVerfuegungstext
+    a owl:DatatypeProperty ;
+    rdfs:label "Externe Notiz (zu Metadaten Verfügungstext)"@de ;
+    rdfs:domain :Adresse, :AktenzeichenAsyl, :Asylentscheidung, :Entscheidungsdatum, :Strasse, :einschraenkungUntersagungDerPolitischenBetaetigung, :ueberwachungsmassnahmen ;
+    rdfs:range xsd:string .
+    # SHACL: Externenotizzumetadatenverfuegungstext
+
+:fahndungsnummer
+    a owl:DatatypeProperty ;
+    rdfs:label "Fahndungsnummer"@de ;
+    rdfs:domain :Adresse ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Die Fahndungsnummer (F-Nr.) ist im INPOL-Fahndungsbestand der eindeutige Identifier. "@de  .
+    # Feld 052.03 | SHACL: DE052.03: Fahndungsnummer
+
+:familienmitglied
+    a owl:DatatypeProperty ;
+    rdfs:label "Familienmitglied"@de ;
+    rdfs:domain :familienverband ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Familienmitglieder können nur sein: Kinder, Eltern, Ehegatten oder Lebenspartner. "@de  .
+    # Feld 005.01 | SHACL: DE005.01: Familienmitglied
+
+:familienname
+    a owl:DatatypeProperty ;
+    rdfs:label "Familienname"@de ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Aktueller Nachname der Person gemäß Ausweisdokument"@de ;
+    skos:example "Müller" ;
+    ex:wertebereich "Freitext (Unicode-Zeichen)"@de .
+    # Feld 004.01
+
+:familiennameAbweichendeSchreibweise
+    a owl:DatatypeProperty ;
+    rdfs:label "Familienname - abweichende Schreibweise"@de ;
+    rdfs:domain :abweichendeSchreibweiseBeiNamen ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Die abweichende Schreibweise eines Familiennamens. "@de  .
+    # Feld 012.01 | SHACL: DE012.01: Familienname - abweichende Schreibweise
+
+:familiennameAliaspersonalie
+    a owl:DatatypeProperty ;
+    rdfs:label "Familienname - Aliaspersonalie"@de ;
+    rdfs:domain :aliaspersonalie ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Der in einer Aliaspersonalie verwendete Familienname. "@de  .
+    # Feld 015.01 | SHACL: DE015.01: Familienname - Aliaspersonalie
+
+:familiennameFamilienmitglied
+    a owl:DatatypeProperty ;
+    rdfs:label "Familienname Familienmitglied"@de ;
+    rdfs:domain :familienverband ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Der Familienname eines Familienmitglieds. "@de  .
+    # Feld 005.03 | SHACL: DE005.03: Familienname Familienmitglied
+
+:familiennameNachDeutschemRecht
+    a owl:DatatypeProperty ;
+    rdfs:label "Familienname nach deutschem Recht"@de ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Führt die ausländische Person nach deutschem Recht einen anderen als den im ausländischen Pass angegebenen Familiennamen und kann eine Änderung des Passes aus rechtlichen oder tatsächlichen Gründen nicht vorgenommen werden, so wird im Familiennamen nach deutschem Recht dieser ange- geben. "@de  .
+    # Feld 004.04 | SHACL: DE004.04: Familienname nach deutschem Recht
+
+:feldlaengenTyp
+    a owl:DatatypeProperty ;
+    rdfs:label "Feldlängentyp"@de ;
+    rdfs:range xsd:string .
+
+:fingerabdruckid
+    a owl:DatatypeProperty ;
+    rdfs:label "FingerabdruckID"@de ;
+    rdfs:domain :fingerabdruck ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Die technische Identifikationsnummer (ID) zum Fingerabdruck einer Person. "@de  .
+    # Feld 023.01 | SHACL: DE023.01: FingerabdruckID
+
+:fruehereAnschrift
+    a owl:DatatypeProperty ;
+    rdfs:label "Frühere Anschrift"@de ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Hier wird dokumentiert, ob die Anschrift in Datenblatt Nr. 006.01 bis Datenblatt Nr. 006.11 die letzte frühere Anschrift ist oder nicht. Rechtliche Grundlagen Darstellungsform Bestandteil der Gruppe 006 - Anschrift im Bundesgebiet 7. Fassung Seite 68"@de  .
+    # Feld 006.12 | SHACL: DE006.12: Frühere Anschrift
+
+:fruehereVornamen
+    a owl:DatatypeProperty ;
+    rdfs:label "Frühere Vornamen"@de ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Frühere Vornamen sind solche Namen, die der Betroffene rechtmäßig geführt hat und die aufgrund einer offiziellen Änderung durch einen neuen Namen ersetzt worden sind. Frühere Namen entstehen im Register, wenn eine Namensänderung gemeldet wird. "@de  .
+    # Feld 014.02 | SHACL: DE014.02: Frühere Vornamen
+
+:fruehererFamilienname
+    a owl:DatatypeProperty ;
+    rdfs:label "Früherer Familienname"@de ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Frühere Familiennamen sind solche Namen, die der Betroffene rechtmäßig geführt hat und die auf- grund einer offiziellen Änderung durch einen neuen Namen ersetzt worden sind. Frühere Namen ent- stehen im Register, wenn eine Namensänderung gemeldet wird. Nicht anzugeben ist der Geburtsna- me, welcher in Datenblatt Nr. 004.02 angegeben wird. "@de  .
+    # Feld 014.01 | SHACL: DE014.01: Früherer Familienname
+
+:geburtsbezirk
+    a owl:DatatypeProperty ;
+    rdfs:label "Geburtsbezirk"@de ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Der Geburtsbezirk bezeichnet das Gebiet, in dem sich der Geburtsort befindet. "@de  .
+    # Feld 004.09 | SHACL: DE004.09: Geburtsbezirk
+
+:geburtsbezirkAliaspersonalie
+    a owl:DatatypeProperty ;
+    rdfs:label "Geburtsbezirk - Aliaspersonalie"@de ;
+    rdfs:domain :aliaspersonalie ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Der in einer Aliaspersonalie verwendete Geburtsbezirk."@de  .
+    # Feld 015.06 | SHACL: DE015.06: Geburtsbezirk - Aliaspersonalie
+
+:geburtsdatum
+    a owl:DatatypeProperty ;
+    rdfs:label "Geburtsdatum"@de ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range xsd:date  ;
+    rdfs:comment "Geburtsdatum der Person im Format TT.MM.JJJJ"@de ;
+    skos:example "1990-05-15" ;
+    ex:wertebereich "Datum (Vergangenheit)"@de .
+    # Feld 004.07
+
+:geburtsdatumAliaspersonalie
+    a owl:DatatypeProperty ;
+    rdfs:label "Geburtsdatum - Aliaspersonalie"@de ;
+    rdfs:domain :aliaspersonalie ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Das in einer Aliaspersonalie verwendete Geburtsdatum."@de  .
+    # Feld 015.04 | SHACL: DE015.04: Geburtsdatum - Aliaspersonalie
+
+:geburtsland
+    a owl:DatatypeProperty ;
+    rdfs:label "Geburtsland"@de ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Land der Geburt gemäß ISO 3166-1 Alpha-3"@de ;
+    skos:example "SYR" ;
+    ex:wertebereich "ISO 3166-1 Alpha-3 Ländercode"@de .
+    # Feld 004.10
+
+:geburtsname
+    a owl:DatatypeProperty ;
+    rdfs:label "Geburtsname"@de ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Familienname bei Geburt, falls abweichend vom aktuellen Familiennamen"@de ;
+    skos:example "Schmidt" ;
+    ex:wertebereich "Freitext (Unicode-Zeichen)"@de .
+    # Feld 004.02
+
+:geburtsnameAbweichendeSchreibweise
+    a owl:DatatypeProperty ;
+    rdfs:label "Geburtsname - abweichende Schreibweise"@de ;
+    rdfs:domain :abweichendeSchreibweiseBeiNamen ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Die abweichende Schreibweise eines Geburtsnamens. "@de  .
+    # Feld 012.02 | SHACL: DE012.02: Geburtsname - abweichende Schreibweise
+
+:geburtsnameAliaspersonalie
+    a owl:DatatypeProperty ;
+    rdfs:label "Geburtsname - Aliaspersonalie"@de ;
+    rdfs:domain :aliaspersonalie ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Der in einer Aliaspersonalie verwendete Geburtsname. "@de  .
+    # Feld 015.02 | SHACL: DE015.02: Geburtsname - Aliaspersonalie
+
+:geburtsnameNachDeutschemRecht
+    a owl:DatatypeProperty ;
+    rdfs:label "Geburtsname nach deutschem Recht"@de ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Führt die ausländische Person nach deutschem Recht einen anderen als den im ausländischen Pass angegebenen Geburtsnamen und kann eine Änderung des Passes aus rechtlichen oder tatsächlichen Gründen nicht vorgenommen werden, so wird im Geburtsnamen nach deutschem Recht dieser ange- geben. "@de  .
+    # Feld 004.06 | SHACL: DE004.06: Geburtsname nach deutschem Recht
+
+:geburtsort
+    a owl:DatatypeProperty ;
+    rdfs:label "Geburtsort"@de ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Stadt/Ort der Geburt"@de ;
+    skos:example "Damaskus" ;
+    ex:wertebereich "Freitext (Ortsname)"@de .
+    # Feld 004.08
+
+:geburtsortAliaspersonalie
+    a owl:DatatypeProperty ;
+    rdfs:label "Geburtsort - Aliaspersonalie"@de ;
+    rdfs:domain :aliaspersonalie ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Der in einer Aliaspersonalie verwendete Geburtsort. Rechtliche Grundlagen AsylG: § 7, § 8, § 16 Darstellungsform Bestandteil der Gruppe 015 - Aliaspersonalie 7. Fassung Seite 107"@de  .
+    # Feld 015.05 | SHACL: DE015.05: Geburtsort - Aliaspersonalie
+
+:gemeldeteFehlzeiten
+    a owl:DatatypeProperty ;
+    rdfs:label "Gemeldete Fehlzeiten"@de ;
+    rdfs:domain :integrationskurs ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Die Angabe der insgesamt gemeldeten Fehlzeiten in Bezug auf die Teilnahme an einem Integrations- kurs. "@de  .
+    # Feld 039.09 | SHACL: DE039.09: Gemeldete Fehlzeiten
+
+:geprueftAm
+    a owl:DatatypeProperty ;
+    rdfs:label "Geprüft am"@de ;
+    rdfs:domain :ausweisdokument ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Das Datum, an dem die Prüfung des Ausweisdokuments auf mögliche Manipulationen durchgeführt und dokumentiert wurde. Rechtliche Grundlagen AsylG: § 7, § 8, § 16 Darstellungsform Bestandteil der Gruppe 017 - Ausweisdokument 7. Fassung Seite 123"@de  .
+    # Feld 017.10 | SHACL: DE017.10: Geprüft am
+
+:geprueftDurch
+    a owl:DatatypeProperty ;
+    rdfs:label "Geprüft durch"@de ;
+    rdfs:domain :ausweisdokument ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Das Behördenkennzeichen der Stelle, die das Ausweisdokument auf mögliche Manipulationen geprüft hat. Rechtliche Grundlagen AsylG: § 7, § 8, § 16 Darstellungsform Bestandteil der Gruppe 017 - Ausweisdokument 7. Fassung Seite 121"@de  .
+    # Feld 017.08 | SHACL: DE017.08: Geprüft durch
+
+:geprueftDurchFreitext
+    a owl:DatatypeProperty ;
+    rdfs:label "Geprüft durch Freitext"@de ;
+    rdfs:domain :ausweisdokument ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Die Bezeichnung der prüfenden Behörde, falls kein Behördenkennzeichen für diese Behörde vorhan- den ist. Rechtliche Grundlagen AsylG: § 7, § 8, § 16 Darstellungsform Bestandteil der Gruppe 017 - Ausweisdokument 7. Fassung Seite 122"@de  .
+    # Feld 017.09 | SHACL: DE017.09: Geprüft durch Freitext
+
+:geschaeftszeichen
+    a owl:DatatypeProperty ;
+    rdfs:label "Geschäftszeichen"@de ;
+    rdfs:domain :Aufenthaltsstatus ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Es handelt sich um das Aktenzeichen des BAMF zum jeweiligen Asylverfahren. Rechtliche Grundlagen AsylG: §§ 2 - 4, § 7, § 8 Darstellungsform Bestandteil der Gruppe 028 - Asylstatus 7. Fassung Seite 162"@de  .
+    # Feld 028.04 | SHACL: DE028.04: Geschäftszeichen
+
+:geschlecht
+    a owl:DatatypeProperty ;
+    rdfs:label "Geschlecht"@de ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Geschlecht der Person gemäß Personenstandsregister"@de ;
+    skos:example "M" ;
+    ex:wertebereich "M=männlich, W=weiblich, D=divers, X=ohne Angabe"@de .
+    # Feld 004.11
+
+:geschlechtAliaspersonalie
+    a owl:DatatypeProperty ;
+    rdfs:label "Geschlecht - Aliaspersonalie"@de ;
+    rdfs:domain :aliaspersonalie ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Das in einer Aliaspersonalie verwendete Geschlecht. Rechtliche Grundlagen AsylG: § 7, § 8, § 16 Darstellungsform urn:xoev-de:xinneres:codeliste:geschlecht Bestandteil der Gruppe 015 - Aliaspersonalie 7. Fassung Seite 110"@de  .
+    # Feld 015.08 | SHACL: DE015.08: Geschlecht - Aliaspersonalie
+
+:gueltigAb
+    a owl:DatatypeProperty ;
+    rdfs:label "Gültig ab"@de ;
+    rdfs:domain :betretenserlaubnis ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Das Datum, ab dem die Betretenserlaubnis Gültigkeit hat. Rechtliche Grundlagen AufenthG: § 11 Darstellungsform Bestandteil der Gruppe 064 - Betretenserlaubnis 7. Fassung Seite 402"@de  .
+    # Feld 064.03 | SHACL: DE064.03: Gültig ab
+
+:gueltigBis
+    a owl:DatatypeProperty ;
+    rdfs:label "Gültig bis"@de ;
+    rdfs:domain :ankunftsnachweis, :anlaufbescheinigung, :ausweisdokument, :betretenserlaubnis ;
+    rdfs:range xsd:string .
+    # SHACL: Gueltigbis
+
+:hinweisAufBegruendungstext
+    a owl:DatatypeProperty ;
+    rdfs:label "Hinweis auf Begründungstext"@de ;
+    rdfs:domain :Adresse, :AktenzeichenAsyl, :Asylentscheidung, :Entscheidungsdatum, :Strasse, :einschraenkungUntersagungDerPolitischenBetaetigung, :ueberwachungsmassnahmen ;
+    rdfs:range xsd:string .
+    # SHACL: Hinweisaufbegruendungstext
+
+:hoeheDerStrafeAnzahlTagessaetze
+    a owl:DatatypeProperty ;
+    rdfs:label "Höhe der Strafe (Anzahl Tagessätze)"@de ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Hier wird die Anzahl der Tagessätze einer Geldstrafe dokumentiert, sofern eine Straftat zu einer Rück- kehrentscheidung und damit zu einer Ausschreibung im Schengener Informationssystem geführt hat. "@de  .
+    # Feld 074.08 | SHACL: DE074.08: Höhe der Strafe (Anzahl Tagessätze)
+
+:hoeheDerStrafeHoeheTagessatz
+    a owl:DatatypeProperty ;
+    rdfs:label "Höhe der Strafe (Höhe Tagessatz)"@de ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Hier wird die individuelle Höhe des Tagessatzes einer Geldstrafe dokumentiert, sofern eine Straftat zu einer Rückkehrentscheidung und damit zu einer Ausschreibung im Schengener Informationssystem geführt hat. "@de  .
+    # Feld 074.09 | SHACL: DE074.09: Höhe der Strafe (Höhe Tagessatz)
+
+:hoeheDerStrafeJahre
+    a owl:DatatypeProperty ;
+    rdfs:label "Höhe der Strafe (Jahre)"@de ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Hier wird die Höhe der Strafe in Jahren dokumentiert, sofern eine Straftat zu einer Rückkehrentschei- dung und damit zu einer Ausschreibung im Schengener Informationssystem geführt hat. Darüber hin- ausgehende Monate (oder Wochen, Tage) sind im entsprechenden Feld zu erfassen. "@de  .
+    # Feld 074.04 | SHACL: DE074.04: Höhe der Strafe (Jahre)
+
+:hoeheDerStrafeMonate
+    a owl:DatatypeProperty ;
+    rdfs:label "Höhe der Strafe (Monate)"@de ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Hier werden die Höhe der Strafe in Monaten, bzw. die die ganzen Jahre einer Strafe übersteigenden Monate (z. B. 3 Jahre, 3 Monate) dokumentiert, sofern eine Straftat zu einer Rückkehrentscheidung und damit zu einer Ausschreibung im Schengener Informationssystem geführt hat. Darüber hinausgehende Wochen oder Tage sind im entsprechenden Feld zu erfassen. "@de  .
+    # Feld 074.05 | SHACL: DE074.05: Höhe der Strafe (Monate)
+
+:hoeheDerStrafeTage
+    a owl:DatatypeProperty ;
+    rdfs:label "Höhe der Strafe (Tage)"@de ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Hier werden die Höhe der Strafe in Tagen, bzw. die die ganzen Jahre, Monate und Wochen einer Strafe übersteigenden Tage (z. B. 3 Wochen, 2 Tage) dokumentiert, sofern eine Straftat zu einer Rückkehr- entscheidung und damit zu einer Ausschreibung im Schengener Informationssystem geführt hat. "@de  .
+    # Feld 074.07 | SHACL: DE074.07: Höhe der Strafe (Tage)
+
+:hoeheDerStrafeWochen
+    a owl:DatatypeProperty ;
+    rdfs:label "Höhe der Strafe (Wochen)"@de ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Hier werden die Höhe der Strafe in Wochen, bzw. die die ganzen Jahre und Monate einer Strafe über- steigenden Wochen (z. B. 3 Monate, 2 Wochen) dokumentiert, sofern eine Straftat zu einer Rückkehr- entscheidung und damit zu einer Ausschreibung im Schengener Informationssystem geführt hat. Dar- über hinausgehende Tage sind im entsprechenden Feld zu erfassen. "@de  .
+    # Feld 074.06 | SHACL: DE074.06: Höhe der Strafe (Wochen)
+
+:integrationskursbeginn
+    a owl:DatatypeProperty ;
+    rdfs:label "Integrationskursbeginn"@de ;
+    rdfs:domain :integrationskurs ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Das Datum, an dem die Teilnahme am Integrationskurs begonnen hat. Rechtliche Grundlagen AufenthG: §§ 43 - 45a Darstellungsform Bestandteil der Gruppe 039 - Integrationskurs 7. Fassung Seite 240"@de  .
+    # Feld 039.06 | SHACL: DE039.06: Integrationskursbeginn
+
+:jugendamtDerVorlaeufigenInobhutnahme
+    a owl:DatatypeProperty ;
+    rdfs:label "Jugendamt der vorläufigen Inobhutnahme"@de ;
+    rdfs:domain :zustaendigkeit ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Das Behördenkennzeichen des vorläufig zuständigen Jugendamtes. Rechtliche Grundlagen Darstellungsform Bestandteil der Gruppe 010 - Zuständigkeit 7. Fassung Seite 82"@de  .
+    # Feld 010.07 | SHACL: DE010.07: Jugendamt der vorläufigen Inobhutnahme
+
+:jugendamtDerVorlaeufigenInobhutnahmeFreitext
+    a owl:DatatypeProperty ;
+    rdfs:label "Jugendamt der vorläufigen Inobhutnahme (Freitext)"@de ;
+    rdfs:domain :zustaendigkeit ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Die Bezeichnung der zuständigen Behörde, falls kein Behördenkennzeichen für diese Behörde vor- handen ist. Rechtliche Grundlagen Darstellungsform Bestandteil der Gruppe 010 - Zuständigkeit 7. Fassung Seite 83"@de  .
+    # Feld 010.08 | SHACL: DE010.08: Jugendamt der vorläufigen Inobhutnahme (Freitext)
+
+:konsequenzenNichtteilnahme
+    a owl:DatatypeProperty ;
+    rdfs:label "Konsequenzen Nichtteilnahme"@de ;
+    rdfs:domain :integrationskurs ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Hier wird dokumentiert, dass die ABH die ausländische Person nach § 44a Abs. 3 Satz 1 AufenthG auf mögliche Auswirkungen hingewiesen hat für den Fall, dass sie ihrer Teilnahmepflicht aus von ihr zu vertretenden Gründen nicht nachkommt oder den Abschlusstest nicht erfolgreich ablegt. Rechtliche Grundlagen AufenthG: §§ 43 - 45a Darstellungsform Bestandteil der Gruppe 039 - Integrationskurs 7. Fassung Seite 242"@de  .
+    # Feld 039.08 | SHACL: DE039.08: Konsequenzen Nichtteilnahme
+
+:loeschdatum
+    a owl:DatatypeProperty ;
+    rdfs:label "Löschdatum"@de ;
+    rdfs:domain :Adresse, :Arbeitgeber, :Asylentscheidung, :Entscheidungsdatum, :Hausnummer, :Land, :Postleitzahl, :ankunftsnachweis, :ausUndDurchlieferung, :ausreisefoerderungReintegrationsfoerderung, :ausreisenachweis, :ausreiseverbot, :aussiedlerangelegenheiten, :deutschsprachfoerderung, :entscheidungDerBundesagenturFuerArbeit, :fingerabdruck, :gesundheitsdaten, :integrationskurs, :passrechtlicheMassnahmen, :sicherheitsleistung, :sicherheitsrechtlicheBefragung, :ueberwachungsmassnahmen, :unerlaubteEinreiseUndAufenthalt, :verpflichtungserklaerung, :verurteilungWegenStraftaten, :vorabzustimmung, :zustimmungsfreieBeschaeftigung ;
+    rdfs:range xsd:string .
+    # SHACL: Loeschdatum
+
+:nummerDerAufenthaltserlaubnis
+    a owl:DatatypeProperty ;
+    rdfs:label "Nummer der Aufenthaltserlaubnis"@de ;
+    rdfs:domain :aufenthaltserlaubnis ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Die Nummer der Aufenthaltserlaubnis. Rechtliche Grundlagen AsylG: § 7, § 8, §§ 55 - 67 AufenthG: § 4, § 7, §§ 60 - 62c Darstellungsform Bestandteil der Gruppe 038 - Aufenthaltserlaubnis 7. Fassung Seite 231"@de  .
+    # Feld 038.04 | SHACL: DE038.04: Nummer der Aufenthaltserlaubnis
+
+:nummerDerAufenthaltsgestattung
+    a owl:DatatypeProperty ;
+    rdfs:label "Nummer der Aufenthaltsgestattung"@de ;
+    rdfs:domain :Aufenthaltstitel ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Es handelt sich um die Nummer des von der Bundesdruckerei zur Verfügung gestellten Aufklebers. Rechtliche Grundlagen AsylG: § 7, § 8, § 55, § 63 Darstellungsform V\d{7}|V\d{8} Bestandteil der Gruppe 030 - Aufenthaltsgestattung 7. Fassung Seite 176"@de  .
+    # Feld 030.03 | SHACL: DE030.03: Nummer der Aufenthaltsgestattung
+
+:nummerDesAufenthaltsdokuments
+    a owl:DatatypeProperty ;
+    rdfs:label "Nummer des Aufenthaltsdokuments"@de ;
+    rdfs:domain :weitereAufenthaltsstatus ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Die Nummer des Aufenthaltsdokuments, auf den sich der aufenthaltsrechtliche Status bezieht. Es han- delt sich um die Nummer des von der Bundesdruckerei zur Verfügung gestellten Vordrucks (wenn kein Aufkleber verwendet wird) oder Aufklebers. Rechtliche Grundlagen Darstellungsform F\d{7}|V\d{8} Bestandteil der Gruppe 034 - Weitere Aufenthaltsstatus 7. Fassung Seite 202"@de  .
+    # Feld 034.03 | SHACL: DE034.03: Nummer des Aufenthaltsdokuments
+
+:nummerDesAufenthaltstitels
+    a owl:DatatypeProperty ;
+    rdfs:label "Nummer des Aufenthaltstitels"@de ;
+    rdfs:domain :Asylantrag, :Asylverfahrensart ;
+    rdfs:range xsd:string .
+    # SHACL: Nummerdesaufenthaltstitels
+
+:nummerDesVisums
+    a owl:DatatypeProperty ;
+    rdfs:label "Nummer des Visums"@de ;
+    rdfs:domain :Erwerbstaetigkeit ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Die alphanumerische Seriennummer eines Visums einer Person. Rechtliche Grundlagen Darstellungsform D\.{15} Bestandteil der Gruppe 070 - Visum 7. Fassung Seite 426"@de  .
+    # Feld 070.02 | SHACL: DE070.02: Nummer des Visums
+
+:nummerTraegervordruck
+    a owl:DatatypeProperty ;
+    rdfs:label "Nummer Trägervordruck"@de ;
+    rdfs:domain :Aufenthaltstitel, :weitereAufenthaltsstatus ;
+    rdfs:range xsd:string .
+    # SHACL: Nummertraegervordruck
+
+:originaerSpeicherndeBehoerde
+    a owl:DatatypeProperty ;
+    rdfs:label "Originär speichernde Behörde"@de ;
+    rdfs:domain :integrationskurs ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Das Behördenkennzeichen der Behörde, die einen Sachverhalt originär zugespeichert hat. "@de  .
+    # Feld 039.11 | SHACL: DE039.11: Originär speichernde Behörde
+
+:ort
+    a owl:DatatypeProperty ;
+    rdfs:label "Ort"@de ;
+    rdfs:domain :Aufenthaltstitel ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Ortsname der Wohnanschrift"@de ;
+    skos:example "Nürnberg" ;
+    ex:wertebereich "Freitext (deutscher Ortsname)"@de .
+    # Feld 031.07
+
+:ppkNummer
+    a owl:DatatypeProperty ;
+    rdfs:label "PPK-Nummer"@de ;
+    rdfs:domain :Adresse ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Die PPK-Nummer identifiziert eine Person im INPOL-Verfahren des BKA und dient auch im AZR als eindeutiger Zugriffsschlüssel. Rechtliche Grundlagen AsylG: § 66 AufenthG: § 50 Darstellungsform Bestandteil der Gruppe 052 - Ausschreibung zur Fahndung 7. Fassung Seite 340"@de  .
+    # Feld 052.02 | SHACL: DE052.02: PPK-Nummer
+
+:raeumlicheBeschraenkung
+    a owl:DatatypeProperty ;
+    rdfs:label "Räumliche Beschränkung"@de ;
+    rdfs:domain :entscheidungDerBundesagenturFuerArbeit, :nebenbestimmungenZurErwerbstaetigkeit ;
+    rdfs:range xsd:string .
+    # SHACL: Raeumlichebeschraenkung
+
+:raeumlicheBeschraenkungBehoerde
+    a owl:DatatypeProperty ;
+    rdfs:label "Räumliche Beschränkung (Behörde)"@de ;
+    rdfs:domain :ueberwachungsmassnahmen ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Das Behördenkennzeichen der Ausländerbehörde, auf deren Bezirk der Aufenthalt beschränkt ist. "@de  .
+    # Feld 046.04 | SHACL: DE046.04: Räumliche Beschränkung (Behörde)
+
+:rechtlicheBezeichnungDerTat
+    a owl:DatatypeProperty ;
+    rdfs:label "Rechtliche Bezeichnung der Tat"@de ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Hier ist die rechtliche Bezeichnung der (Straf-)Tat einzutragen, die ggf. zu einer Rückkehrentscheidung und damit zu einer Ausschreibung im Schengener Informationssystem (SIS) geführt hat. Beispiel: § 226 StGB = Strafvorschrift Schwere Körperverletzung = rechtliche Bezeichnung der Tat "@de  .
+    # Feld 074.02 | SHACL: DE074.02: Rechtliche Bezeichnung der Tat
+
+:rechtskraftdatum
+    a owl:DatatypeProperty ;
+    rdfs:label "Rechtskraftdatum"@de ;
+    rdfs:domain :Asylentscheidung, :Entscheidungsdatum ;
+    rdfs:range xsd:string .
+    # SHACL: Rechtskraftdatum
+
+:referenzAufAliaspersonalie
+    a owl:DatatypeProperty ;
+    rdfs:label "Referenz auf Aliaspersonalie"@de ;
+    rdfs:domain :ausweisdokument ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Bezug zu einer vorhandenen Aliaspersonalie. Grundsätzlich ist ein Ausweisdokument der Grundper- sonalie zugeordnet. "@de  .
+    # Feld 017.12 | SHACL: DE017.12: Referenz auf Aliaspersonalie
+
+:referenzAufSachverhalt
+    a owl:DatatypeProperty ;
+    rdfs:label "Referenz auf Sachverhalt"@de ;
+    rdfs:domain :sisAusschreibungshintergrund ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Bezug auf einen Sachverhalt, auf die sich der SIS-Ausschreibungshintergrund bezieht. Referenzierte Sachverhalte können folgende sein: Abschiebung (Datenblatt Nr. 043); Abschiebungsverbote (Daten- blatt Nr. 029); Asylstatus (Datenblatt Nr. 028 ); Weitere Aufenthaltsstatus (Datenblatt Nr. 034); Aus- weisung (Datenblatt Nr. 042); Einreise- und Aufenthaltsverbot (Datenblatt Nr. 044); Zurückweisung, Zurückschiebung und Abschiebung (Datenblatt Nr. 050). Rechtliche Grundlagen Darstellungsform Bestandteil der Gruppe 073 - SIS-Ausschreibungshintergrund"@de  .
+    # Feld 073.02 | SHACL: DE073.02: Referenz auf Sachverhalt
+
+:referenzAufStraftat
+    a owl:DatatypeProperty ;
+    rdfs:label "Referenz auf Straftat"@de ;
+    rdfs:domain :sisAusschreibungshintergrund ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Bezug auf die der SIS-Ausschreibung zugrundeliegenden Straftaten (Datenblatt Nr. 074). Rechtliche Grundlagen Darstellungsform Bestandteil der Gruppe 073 - SIS-Ausschreibungshintergrund 7. Fassung Seite 448"@de  .
+    # Feld 073.03 | SHACL: DE073.03: Referenz auf Straftat
+
+:reisedokumentnummer
+    a owl:DatatypeProperty ;
+    rdfs:label "Dokumentnummer"@de ;
+    rdfs:domain :passrechtlicheMassnahmen ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Nummer des Reisedokuments"@de ;
+    skos:example "C12345678" ;
+    ex:wertebereich "Alphanumerisch"@de .
+    # Feld 049.05
+
+:schengenIdentifikationsnummerSchengenId
+    a owl:DatatypeProperty ;
+    rdfs:label "Schengen-Identifikationsnummer (Schengen-ID)"@de ;
+    rdfs:domain :sisAusschreibungshintergrund ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Schengen-Identifikationsnummer (Schengen-ID) ist die Ordnungsnummer der SIS-Ausschreibung im Schengener Informationssystem (SIS). "@de  .
+    # Feld 073.01 | SHACL: DE073.01: Schengen-Identifikationsnummer (Schengen-ID)
+
+:schulabschluss
+    a owl:DatatypeProperty ;
+    rdfs:label "Schulabschluss"@de ;
+    rdfs:domain :Erwerbstaetigkeit ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Die Art des Schulabschlusses im Ausland. Rechtliche Grundlagen AufenthG: §§ 43 - 45a Darstellungsform urn:de:xauslaender:codelist:azr:artdesschulabschlusses Bestandteil der Gruppe 072 - Daten zum Zwecke der Arbeits- und Ausbildungsvermittlung 7. Fassung Seite 440"@de  .
+    # Feld 072.08 | SHACL: DE072.08: Schulabschluss
+
+:sensitivitaet
+    a owl:DatatypeProperty ;
+    rdfs:label "Sensitivitätsstufe"@de ;
+    rdfs:range xsd:string .
+
+:seriennummer
+    a owl:DatatypeProperty ;
+    rdfs:label "Seriennummer"@de ;
+    rdfs:domain :ausweisdokument ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Die alphanumerische Seriennummer eines amtlichen Ausweisdokuments einer Person. "@de  .
+    # Feld 017.02 | SHACL: DE017.02: Seriennummer
+
+:sichtbarkeitDesSuchvermerks
+    a owl:DatatypeProperty ;
+    rdfs:label "Sichtbarkeit des Suchvermerks"@de ;
+    rdfs:domain :suchvermerk ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Gibt an, inwieweit der Suchvermerk für eine andere als die meldende Behörde oder den Fachbereich sichtbar sein darf bzw. ob dieser bei jeder Anfrage zu übermitteln ist. Rechtliche Grundlagen AsylG: § 66 AufenthG: § 50 Abs. 4 AZRG: § 5 Darstellungsform urn:de:xauslaender:codelist:azr:sichtbarkeitdessuchvermerks Bestandteil der Gruppe"@de  .
+    # Feld 062.02 | SHACL: DE062.02: Sichtbarkeit des Suchvermerks
+
+:staatGeburtsortAliaspersonalie
+    a owl:DatatypeProperty ;
+    rdfs:label "Staat Geburtsort - Aliaspersonalie"@de ;
+    rdfs:domain :aliaspersonalie ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Der in einer Aliaspersonalie verwendete Staat des Geburtsorts. Rechtliche Grundlagen AsylG: § 7, § 8, § 16 Darstellungsform Bestandteil der Gruppe 015 - Aliaspersonalie 7. Fassung Seite 109"@de  .
+    # Feld 015.07 | SHACL: DE015.07: Staat Geburtsort - Aliaspersonalie
+
+:staatsangehoerigkeit
+    a owl:DatatypeProperty ;
+    rdfs:label "Staatsangehörigkeit"@de ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Staatsangehörigkeit(en) der Person gemäß ISO 3166-1 Alpha-3"@de ;
+    skos:example "SYR" ;
+    ex:wertebereich "ISO 3166-1 Alpha-3 Ländercode"@de .
+    # Feld 004.13
+
+:staatsangehoerigkeitAliaspersonalie
+    a owl:DatatypeProperty ;
+    rdfs:label "Staatsangehörigkeit - Aliaspersonalie"@de ;
+    rdfs:domain :aliaspersonalie ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Die in einer Aliaspersonalie verwendete Staatsangehörigkeit. Rechtliche Grundlagen AsylG: § 7, § 8, § 16 Darstellungsform urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:staatsangehoerigkeit Bestandteil der Gruppe 015 - Aliaspersonalie 7. Fassung Seite 111"@de  .
+    # Feld 015.09 | SHACL: DE015.09: Staatsangehörigkeit - Aliaspersonalie
+
+:standDesAsylverfahrens
+    a owl:DatatypeProperty ;
+    rdfs:label "Stand des Asylverfahrens"@de ;
+    rdfs:domain :Aufenthaltsstatus ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Hier wird dokumentiert, in welchem Verfahrensabschnitt sich das Asylverfahren befindet. Rechtliche Grundlagen AsylG: §§ 2 - 4, § 7, § 8, §§ 12 - 17, §§ 23 - 33 Darstellungsform urn:de:xauslaender:codelist:azr:asylstatus Bestandteil der Gruppe 028 - Asylstatus 7. Fassung Seite 159"@de  .
+    # Feld 028.01 | SHACL: DE028.01: Stand des Asylverfahrens
+
+:strafvorschriftFreitext
+    a owl:DatatypeProperty ;
+    rdfs:label "Strafvorschrift (Freitext)"@de ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Hier ist die Rechtsgrundlage der jeweiligen (Straf-)Tat einzutragen, die ggf. zu einer Rückkehrentschei- dung und damit zu einer Ausschreibung im Schengener Informationssystem (SIS) geführt hat. Beispiel: § 226 StGB = Strafvorschrift Schwere Körperverletzung = rechtliche Bezeichnung der Tat "@de  .
+    # Feld 074.03 | SHACL: DE074.03: Strafvorschrift (Freitext)
+
+:unanfechtbarkeitsdatum
+    a owl:DatatypeProperty ;
+    rdfs:label "Unanfechtbarkeitsdatum"@de ;
+    rdfs:domain :Adresse, :AktenzeichenAsyl, :weitereAufenthaltsstatus ;
+    rdfs:range xsd:string .
+    # SHACL: Unanfechtbarkeitsdatum
+
+:vorhaltendeBehoerde
+    a owl:DatatypeProperty ;
+    rdfs:label "Vorhaltende Behörde"@de ;
+    rdfs:domain :sicherheitsleistung, :verpflichtungserklaerung ;
+    rdfs:range xsd:string .
+    # SHACL: Vorhaltendebehoerde
+
+:vorherAktenfuehrendeBehoerde
+    a owl:DatatypeProperty ;
+    rdfs:label "Vorher aktenführende Behörde"@de ;
+    rdfs:domain :meldestatus ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Es handelt sich um die Bezeichnung der unmittelbar vor einem Umzug einer ausländischen Person innerhalb Deutschlands aktenführenden Behörde. "@de  .
+    # Feld 024.03 | SHACL: DE024.03: Vorher aktenführende Behörde
+
+:vornameAbweichendeSchreibweise
+    a owl:DatatypeProperty ;
+    rdfs:label "Vorname - abweichende Schreibweise"@de ;
+    rdfs:domain :abweichendeSchreibweiseBeiNamen ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Die abweichende Schreibweise eines Vornamens. "@de  .
+    # Feld 012.03 | SHACL: DE012.03: Vorname - abweichende Schreibweise
+
+:vornameAliaspersonalie
+    a owl:DatatypeProperty ;
+    rdfs:label "Vorname - Aliaspersonalie"@de ;
+    rdfs:domain :aliaspersonalie ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Der in einer Aliaspersonalie verwendete Vorname. "@de  .
+    # Feld 015.03 | SHACL: DE015.03: Vorname - Aliaspersonalie
+
+:vornameFamilienmitglied
+    a owl:DatatypeProperty ;
+    rdfs:label "Vorname Familienmitglied"@de ;
+    rdfs:domain :familienverband ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Der Vorname eines Familienmitglieds. "@de  .
+    # Feld 005.02 | SHACL: DE005.02: Vorname Familienmitglied
+
+:vornameNachDeutschemRecht
+    a owl:DatatypeProperty ;
+    rdfs:label "Vorname nach deutschem Recht"@de ;
+    rdfs:domain :AuslaendischePerson ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Führt die ausländische Person nach deutschem Recht einen anderen als den im ausländischen Pass angegebenen Vornamen und kann eine Änderung des Passes aus rechtlichen oder tatsächlichen Gründen nicht vorgenommen werden, so wird im Vornamen nach deutschem Recht dieser angegeben. "@de  .
+    # Feld 004.05 | SHACL: DE004.05: Vorname nach deutschem Recht
+
+:weitereNebenbestimmungen
+    a owl:DatatypeProperty ;
+    rdfs:label "Weitere Nebenbestimmungen"@de ;
+    rdfs:domain :entscheidungDerBundesagenturFuerArbeit, :nebenbestimmungenZurErwerbstaetigkeit ;
+    rdfs:range xsd:string .
+    # SHACL: Weiterenebenbestimmungen
+
+:zusatzangaben
+    a owl:DatatypeProperty ;
+    rdfs:label "Zusatzangaben"@de ;
+    rdfs:domain :freiwilligGemachteAngabenZurReligionszugehoerigkeit ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Zusätzliche Informationen der ausländischen Person zu ihrer Religionszugehörigkeit, die nicht durch Datenblatt Nr. 020.01 erfasst werden können. Auch diese Informationen müssen auf freiwillige Anga- ben beruhen. "@de  .
+    # Feld 020.02 | SHACL: DE020.02: Zusatzangaben
+
+:zustaendigeAsylbewerberleistungsbehoerde
+    a owl:DatatypeProperty ;
+    rdfs:label "Zuständige Asylbewerberleistungsbehörde"@de ;
+    rdfs:domain :zustaendigkeit ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Das Behördenkennzeichen der Behörde, die gem. § 10 Asylbewerberleistungsgesetz für Leistungen nach diesem Gesetz örtlich zuständig ist. Die für die Durchführung dieses Gesetzes zuständigen Behörden werden durch die Landesregierungen oder die von ihnen beauftragten obersten Landesbe- hörden bestimmt. Rechtliche Grundlagen AsylbLG: § 10 Darstellungsform Bestandteil der Gruppe 010 - Zuständigkeit"@de  .
+    # Feld 010.05 | SHACL: DE010.05: Zuständige Asylbewerberleistungsbehörde
+
+:zustaendigeAsylbewerberleistungsbehoerdeFreitext
+    a owl:DatatypeProperty ;
+    rdfs:label "Zuständige Asylbewerberleistungsbehörde (Freitext)"@de ;
+    rdfs:domain :zustaendigkeit ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Die Bezeichnung der zuständigen Behörde, falls kein Behördenkennzeichen für diese Behörde vor- handen ist. Rechtliche Grundlagen AsylbLG: § 10 Darstellungsform Bestandteil der Gruppe 010 - Zuständigkeit 7. Fassung Seite 81"@de  .
+    # Feld 010.06 | SHACL: DE010.06: Zuständige Asylbewerberleistungsbehörde (Freitext)
+
+:zustaendigeAufnahmeeinrichtung
+    a owl:DatatypeProperty ;
+    rdfs:label "Zuständige Aufnahmeeinrichtung"@de ;
+    rdfs:domain :zustaendigkeit ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Das Behördenkennzeichen der Aufnahmeeinrichtung, die für die Unterbringung einer asylsuchenden Person zuständig ist. "@de  .
+    # Feld 010.01 | SHACL: DE010.01: Zuständige Aufnahmeeinrichtung
+
+:zustaendigeAufnahmeeinrichtungFreitext
+    a owl:DatatypeProperty ;
+    rdfs:label "Zuständige Aufnahmeeinrichtung (Freitext)"@de ;
+    rdfs:domain :zustaendigkeit ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Die Bezeichnung der zuständigen Behörde, falls kein Behördenkennzeichen für diese Behörde vor- handen ist. Rechtliche Grundlagen AsylG: § 7, § 8, § 45, § 46, §§ 50 - 54 Darstellungsform Bestandteil der Gruppe 010 - Zuständigkeit 7. Fassung Seite 77"@de  .
+    # Feld 010.02 | SHACL: DE010.02: Zuständige Aufnahmeeinrichtung (Freitext)
+
+:zustaendigeAuslaenderbehoerde
+    a owl:DatatypeProperty ;
+    rdfs:label "Zuständige Ausländerbehörde"@de ;
+    rdfs:domain :zustaendigkeit ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Das Behördenkennzeichen der Ausländerbehörde, die für den Aufenthalt einer ausländische Person zuständig ist. "@de  .
+    # Feld 010.03 | SHACL: DE010.03: Zuständige Ausländerbehörde
+
+:zustaendigeAuslaenderbehoerdeFreitext
+    a owl:DatatypeProperty ;
+    rdfs:label "Zuständige Ausländerbehörde (Freitext)"@de ;
+    rdfs:domain :zustaendigkeit ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Die Bezeichnung der zuständigen Behörde, falls kein Behördenkennzeichen für diese Behörde vor- handen ist. Rechtliche Grundlagen AufenthG: § 71 Abs. 1 Darstellungsform Bestandteil der Gruppe 010 - Zuständigkeit 7. Fassung Seite 79"@de  .
+    # Feld 010.04 | SHACL: DE010.04: Zuständige Ausländerbehörde (Freitext)
+
+:zustaendigeAuslandsvertretung
+    a owl:DatatypeProperty ;
+    rdfs:label "Zuständige Auslandsvertretung"@de ;
+    rdfs:domain :vorabzustimmung ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Das Behördenkennzeichen der zuständigen Auslandsvertretung. Rechtliche Grundlagen AufenthG: § 81a BeschV: § 36 Darstellungsform Bestandteil der Gruppe 066 - Vorabzustimmung 7. Fassung Seite 409"@de  .
+    # Feld 066.05 | SHACL: DE066.05: Zuständige Auslandsvertretung
+
+:zustaendigesBundesland
+    a owl:DatatypeProperty ;
+    rdfs:label "Zuständiges Bundesland"@de ;
+    rdfs:domain :zustaendigkeit ;
+    rdfs:range xsd:string  ;
+    rdfs:comment "Das Bundesland, in dem sich die zuständige Ausländerbehörde oder Aufnahmeeinrichtung befindet. Rechtliche Grundlagen Darstellungsform urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:bundesland Bestandteil der Gruppe 010 - Zuständigkeit 7. Fassung Seite 86"@de  .
+    # Feld 010.11 | SHACL: DE010.11: Zuständiges Bundesland
+
+:zustellungsdatum
+    a owl:DatatypeProperty ;
+    rdfs:label "Zustellungsdatum"@de ;
+    rdfs:domain :Adresse, :AktenzeichenAsyl, :Asylentscheidung, :Aufenthaltsstatus, :Aufenthaltstitel, :Entscheidungsdatum, :weitereAufenthaltsstatus ;
+    rdfs:range xsd:string .
+    # SHACL: Zustellungsdatum
+
+# ============================================================================
+# REFERENZEN
+# ============================================================================
+
+:RefEUAA a owl:NamedIndividual ;
+    a euauth:CorporateBody ;
+    rdfs:label "European Union Agency for Asylum (EUAA)"@en ,
+               "Asylagentur der Europäischen Union (EUAA)"@de ;
+    rdfs:seeAlso <http://publications.europa.eu/resource/authority/corporate-body/EUAA> ;
+    rdfs:comment "Referenz zur EU Authority Table für die EUAA"@de .

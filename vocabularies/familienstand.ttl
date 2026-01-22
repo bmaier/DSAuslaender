@@ -1,0 +1,129 @@
+@prefix : <http://bamf.de/vocabulary/familienstand#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+
+# ============================================================================
+# FAMILIENSTAND SKOS-VOKABULAR
+# ============================================================================
+
+<http://bamf.de/vocabulary/familienstand> a owl:Ontology , skos:ConceptScheme ;
+    dct:title "Familienstand Vokabular"@de ,
+              "Marital Status Vocabulary"@en ;
+    dct:description "Kontrolliertes Vokabular für Familienstandsangaben basierend auf XRepository-Standards"@de ,
+                    "Controlled vocabulary for marital status based on XRepository standards"@en ;
+    dct:created "2025-01-19"^^xsd:date ;
+    dct:modified "2025-01-19"^^xsd:date ;
+    dct:creator "BAMF" ;
+    dct:license <https://creativecommons.org/licenses/by/4.0/> ;
+    owl:versionInfo "1.0.0" ;
+    # XRepository-Referenz (XÖV-Kernkomponente)
+    :xRepositoryURN <https://www.xrepository.de/api/xrepository/urn:xoev-de:kosit:xoev:kernkomponente:familienstand> ;
+    dct:source <https://www.xrepository.de/details/urn:xoev-de:kosit:xoev:kernkomponente:familienstand> ;
+    rdfs:comment "Basiert auf der XÖV-Kernkomponente Familienstand (Code.Familienstand)"@de ;
+    rdfs:label "Familienstand Konzeptschema"@de ,
+               "Marital Status Concept Scheme"@en .
+
+# Property-Definitionen für XRepository
+:xRepositoryURN a owl:AnnotationProperty ;
+    rdfs:label "XRepository URN"@de ;
+    rdfs:range xsd:anyURI .
+
+:xRepositoryID a owl:DatatypeProperty ;
+    rdfs:label "XRepository ID"@de ;
+    rdfs:range xsd:string .
+
+# ============================================================================
+# FAMILIENSTAND-KONZEPTE
+# ============================================================================
+
+:Ledig a skos:Concept ;
+    skos:inScheme <http://bamf.de/vocabulary/familienstand> ;
+    skos:prefLabel "Ledig"@de ,
+                   "Single"@en ;
+    skos:notation "LE" ;
+    skos:definition "Noch nie verheiratet gewesen und keine eingetragene Lebenspartnerschaft begründet"@de ,
+                    "Never been married and no registered partnership established"@en ;
+    :xRepositoryID "TODO_ID" ;
+    rdfs:comment "XRepository-ID muss aus Codeliste ergänzt werden"@de ;
+    skos:topConceptOf <http://bamf.de/vocabulary/familienstand> .
+
+:Verheiratet a skos:Concept ;
+    skos:inScheme <http://bamf.de/vocabulary/familienstand> ;
+    skos:prefLabel "Verheiratet"@de ,
+                   "Married"@en ;
+    skos:notation "VH" ;
+    skos:definition "In gültiger Ehe lebend"@de ,
+                    "Living in valid marriage"@en ;
+    :xRepositoryID "TODO_ID" ;
+    rdfs:comment "XRepository-ID muss aus Codeliste ergänzt werden"@de ;
+    skos:topConceptOf <http://bamf.de/vocabulary/familienstand> .
+
+:Verwitwet a skos:Concept ;
+    skos:inScheme <http://bamf.de/vocabulary/familienstand> ;
+    skos:prefLabel "Verwitwet"@de ,
+                   "Widowed"@en ;
+    skos:notation "VW" ;
+    skos:definition "Ehe durch Tod des Ehepartners aufgelöst"@de ,
+                    "Marriage dissolved by death of spouse"@en ;
+    :xRepositoryID "TODO_ID" ;
+    rdfs:comment "XRepository-ID muss aus Codeliste ergänzt werden"@de ;
+    skos:topConceptOf <http://bamf.de/vocabulary/familienstand> .
+
+:Geschieden a skos:Concept ;
+    skos:inScheme <http://bamf.de/vocabulary/familienstand> ;
+    skos:prefLabel "Geschieden"@de ,
+                   "Divorced"@en ;
+    skos:notation "GS" ;
+    skos:definition "Ehe rechtskräftig geschieden"@de ,
+                    "Marriage legally divorced"@en ;
+    :xRepositoryID "TODO_ID" ;
+    rdfs:comment "XRepository-ID muss aus Codeliste ergänzt werden"@de ;
+    skos:topConceptOf <http://bamf.de/vocabulary/familienstand> .
+
+:EingetragenePartnerschaft a skos:Concept ;
+    skos:inScheme <http://bamf.de/vocabulary/familienstand> ;
+    skos:prefLabel "Eingetragene Lebenspartnerschaft"@de ,
+                   "Registered Partnership"@en ;
+    skos:altLabel "Eingetragene Partnerschaft"@de ;
+    skos:notation "EP" ;
+    skos:definition "In eingetragener Lebenspartnerschaft lebend gemäß Lebenspartnerschaftsgesetz"@de ,
+                    "Living in registered partnership according to Life Partnership Act"@en ;
+    :xRepositoryID "TODO_ID" ;
+    rdfs:comment "XRepository-ID muss aus Codeliste ergänzt werden. Gilt für vor 2017 begründete Lebenspartnerschaften."@de ;
+    skos:topConceptOf <http://bamf.de/vocabulary/familienstand> .
+
+:AufgehobenePartnerschaft a skos:Concept ;
+    skos:inScheme <http://bamf.de/vocabulary/familienstand> ;
+    skos:prefLabel "Aufgehobene Lebenspartnerschaft"@de ,
+                   "Dissolved Partnership"@en ;
+    skos:notation "LP" ;
+    skos:definition "Lebenspartnerschaft rechtskräftig aufgehoben"@de ,
+                    "Partnership legally dissolved"@en ;
+    :xRepositoryID "TODO_ID" ;
+    rdfs:comment "XRepository-ID muss aus Codeliste ergänzt werden"@de .
+
+:DurchTodAufgehobenePartnerschaft a skos:Concept ;
+    skos:inScheme <http://bamf.de/vocabulary/familienstand> ;
+    skos:prefLabel "Durch Tod aufgehobene Lebenspartnerschaft"@de ,
+                   "Partnership Dissolved by Death"@en ;
+    skos:notation "LV" ;
+    skos:definition "Lebenspartnerschaft durch Tod des Partners aufgelöst"@de ,
+                    "Partnership dissolved by death of partner"@en ;
+    :xRepositoryID "TODO_ID" ;
+    rdfs:comment "XRepository-ID muss aus Codeliste ergänzt werden"@de .
+
+:Unbekannt a skos:Concept ;
+    skos:inScheme <http://bamf.de/vocabulary/familienstand> ;
+    skos:prefLabel "Unbekannt"@de ,
+                   "Unknown"@en ;
+    skos:altLabel "Ohne Angabe"@de ,
+                  "Not specified"@en ;
+    skos:notation "XX" ;
+    skos:definition "Familienstand unbekannt oder keine Angabe"@de ,
+                    "Marital status unknown or not specified"@en ;
+    :xRepositoryID "TODO_ID" ;
+    rdfs:comment "XRepository-ID muss aus Codeliste ergänzt werden"@de .
