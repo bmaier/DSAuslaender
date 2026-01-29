@@ -1,10 +1,11 @@
-@prefix : <http://bamf.de/vocabulary/geschlecht#> .
+@prefix : <https://bamf.bund.de/vocab/geschlecht#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix dct: <http://purl.org/dc/terms/> .
+@prefix base: <https://bamf.bund.de/vocab/base#> .
 
 # ============================================================================
 # GESCHLECHT SKOS-VOKABULAR
@@ -21,82 +22,75 @@
 # Durch SKOS werden Vokabulare maschinenlesbar, wiederverwendbar und interoperabel zwischen Organisationen und IT-Systemen.
 # ============================================================================
 
-<http://bamf.de/vocabulary/geschlecht> a owl:Ontology , skos:ConceptScheme ;
+<https://bamf.bund.de/vocab/geschlecht> a owl:Ontology , skos:ConceptScheme ;
+    owl:imports <https://bamf.bund.de/vocab/base> ;
     dct:title "Geschlecht Vokabular"@de ,
               "Gender Vocabulary"@en ;
-    dct:description "Kontrolliertes Vokabular für Geschlechtsangaben gemäß deutscher Rechtslage und XRepository-Standards"@de ,
-                    "Controlled vocabulary for gender information according to German law and XRepository standards"@en ;
+    dct:description "Kontrolliertes Vokabular für Geschlechtsangaben gemäß deutscher Rechtslage (§§ 22 und 45 b PStG) und XInneres-Standard"@de ,
+                    "Controlled vocabulary for gender information according to German law (§§ 22 and 45 b PStG) and XInneres standards"@en ;
     dct:created "2025-01-19"^^xsd:date ;
-    dct:modified "2025-01-19"^^xsd:date ;
+    dct:modified "2026-01-29"^^xsd:date ;
     dct:creator "BAMF" ;
+    dct:publisher "KoSIT" ;
     dct:license <https://creativecommons.org/licenses/by/4.0/> ;
-    owl:versionInfo "1.0.0" ;
-    # XRepository-Referenz (XÖV-Kernkomponente)
-    :xRepositoryURN <https://www.xrepository.de/api/xrepository/urn:xoev-de:kosit:xoev:kernkomponente:geschlecht> ;
-    dct:source <https://www.xrepository.de/details/urn:xoev-de:kosit:xoev:kernkomponente:geschlecht> ;
-    rdfs:comment "Basiert auf der XÖV-Kernkomponente Geschlecht (Code.Geschlecht)"@de ;
+    dct:source <https://www.xrepository.de/details/urn:xoev-de:xinneres:codeliste:geschlecht> ;
+    owl:versionInfo "1.2.2" ;
+    # XRepository-Referenz (XInneres)
+    base:xRepositoryURN "urn:xoev-de:xinneres:codeliste:geschlecht"^^xsd:anyURI ;
+    base:xRepositoryVersion "1" ;
+    rdfs:comment "Basiert auf der XInneres-Codeliste Geschlecht (Version 1, gültig ab 01.11.2022). Geschlechtsangaben gemäß §§ 22 und 45 b PStG. Herausgeber: Koordinierungsstelle für IT-Standards (KoSIT)"@de ;
     rdfs:label "Geschlecht Konzeptschema"@de ,
                "Gender Concept Scheme"@en .
-
-# Property-Definitionen für XRepository
-:xRepositoryURN a owl:AnnotationProperty ;
-    rdfs:label "XRepository URN"@de ,
-               "XRepository URN"@en ;
-    rdfs:comment "Verweist auf eine Codeliste im XRepository über deren URN"@de ;
-    rdfs:range xsd:anyURI .
-
-:xRepositoryID a owl:DatatypeProperty ;
-    rdfs:label "XRepository ID"@de ,
-               "XRepository ID"@en ;
-    rdfs:comment "ID des Werts innerhalb der XRepository-Codeliste"@de ;
-    rdfs:range xsd:string .
 
 # ============================================================================
 # GESCHLECHT-KONZEPTE
 # ============================================================================
 
 :Maennlich a skos:Concept ;
-    skos:inScheme <http://bamf.de/vocabulary/geschlecht> ;
+    skos:inScheme <https://bamf.bund.de/vocab/geschlecht> ;
     skos:prefLabel "Männlich"@de ,
                    "Male"@en ;
-    skos:notation "M" ;
+    skos:notation "m" ;
     skos:definition "Männliches Geschlecht"@de ,
                     "Male gender"@en ;
-    :xRepositoryID "TODO_ID" ;
-    rdfs:comment "XRepository-ID muss aus Codeliste ergänzt werden"@de ;
-    skos:topConceptOf <http://bamf.de/vocabulary/geschlecht> .
+    base:xRepositoryID "m" ;
+    skos:exactMatch <urn:xoev-de:xinneres:codeliste:geschlecht:m> ;
+    skos:topConceptOf <https://bamf.bund.de/vocab/geschlecht> .
 
 :Weiblich a skos:Concept ;
-    skos:inScheme <http://bamf.de/vocabulary/geschlecht> ;
+    skos:inScheme <https://bamf.bund.de/vocab/geschlecht> ;
     skos:prefLabel "Weiblich"@de ,
                    "Female"@en ;
-    skos:notation "F" ;
+    skos:notation "w" ;
     skos:definition "Weibliches Geschlecht"@de ,
                     "Female gender"@en ;
-    :xRepositoryID "TODO_ID" ;
-    rdfs:comment "XRepository-ID muss aus Codeliste ergänzt werden"@de ;
-    skos:topConceptOf <http://bamf.de/vocabulary/geschlecht> .
+    base:xRepositoryID "w" ;
+    skos:exactMatch <urn:xoev-de:xinneres:codeliste:geschlecht:w> ;
+    skos:topConceptOf <https://bamf.bund.de/vocab/geschlecht> .
 
 :Divers a skos:Concept ;
-    skos:inScheme <http://bamf.de/vocabulary/geschlecht> ;
+    skos:inScheme <https://bamf.bund.de/vocab/geschlecht> ;
     skos:prefLabel "Divers"@de ,
                    "Diverse"@en ;
-    skos:notation "D" ;
+    skos:notation "d" ;
     skos:definition "Drittes Geschlecht gemäß § 22 Abs. 3 PStG"@de ,
                     "Third gender according to § 22 para. 3 PStG"@en ;
-    :xRepositoryID "TODO_ID" ;
-    rdfs:comment "XRepository-ID muss aus Codeliste ergänzt werden. Eingeführt durch Gesetz zur Änderung der in das Geburtenregister einzutragenden Angaben (2018)"@de ;
-    skos:topConceptOf <http://bamf.de/vocabulary/geschlecht> .
+    base:xRepositoryID "d" ;
+    skos:exactMatch <urn:xoev-de:xinneres:codeliste:geschlecht:d> ;
+    rdfs:comment "Eingeführt durch Gesetz zur Änderung der in das Geburtenregister einzutragenden Angaben (2018). Aufgrund gesetzlicher Vorgaben hinzugefügt."@de ;
+    skos:topConceptOf <https://bamf.bund.de/vocab/geschlecht> .
 
-:Unbekannt a skos:Concept ;
-    skos:inScheme <http://bamf.de/vocabulary/geschlecht> ;
-    skos:prefLabel "Unbekannt"@de ,
-                   "Unknown"@en ;
-    skos:altLabel "Ohne Angabe"@de ,
-                  "Not specified"@en ;
-    skos:notation "U" ;
-    skos:definition "Geschlecht unbekannt oder keine Angabe"@de ,
-                    "Gender unknown or not specified"@en ;
-    :xRepositoryID "TODO_ID" ;
-    rdfs:comment "XRepository-ID muss aus Codeliste ergänzt werden"@de ;
-    skos:topConceptOf <http://bamf.de/vocabulary/geschlecht> .
+:KeineAngabe a skos:Concept ;
+    skos:inScheme <https://bamf.bund.de/vocab/geschlecht> ;
+    skos:prefLabel "Keine Angabe"@de ,
+                   "Not specified"@en ;
+    skos:altLabel "Unbekannt"@de ,
+                  "Unknown"@en ,
+                  "Ohne Angabe"@de ;
+    skos:notation "x" ;
+    skos:definition "Geschlecht keine Angabe oder unbekannt"@de ,
+                    "Gender not specified or unknown"@en ;
+    base:xRepositoryID "x" ;
+    skos:exactMatch <urn:xoev-de:xinneres:codeliste:geschlecht:x> ;
+    rdfs:comment "Keine Angabe zum Geschlecht (XInneres-Codeliste Version 1)"@de ;
+    skos:topConceptOf <https://bamf.bund.de/vocab/geschlecht> .

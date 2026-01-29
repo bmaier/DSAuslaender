@@ -39,8 +39,7 @@ dsa:grundpersonalienNodeShape
     a sh:NodeShape ;
     sh:targetClass dsa:grundpersonalien ;
     rdfs:label "Grundpersonalien" ;
-    dsa:blattnummer "004" ;
-    dsa:pdfPage 48 ;
+    dsa:blatt "004" ;
     sh:property dsa:familienname004grundpersonalienPropertyShape ;
     sh:property dsa:geburtsname004grundpersonalienPropertyShape ;
     sh:property dsa:vorname004grundpersonalienPropertyShape ;
@@ -62,8 +61,7 @@ dsa:familienverbandNodeShape
     a sh:NodeShape ;
     sh:targetClass dsa:familienverband ;
     rdfs:label "Familienverband" ;
-    dsa:blattnummer "005" ;
-    dsa:pdfPage 62 ;
+    dsa:blatt "005" ;
     sh:property dsa:familienmitglied005familienverbandPropertyShape ;
     sh:property dsa:vornameFamilienmitgliedfamilienverbandPropertyShape ;
     sh:property dsa:familiennameFamilienmitgliedfamilienverbandPropertyShape ;
@@ -76,8 +74,7 @@ dsa:anschriftImBundesgebietNodeShape
     a sh:NodeShape ;
     sh:targetClass dsa:anschriftImBundesgebiet ;
     rdfs:label "Anschrift im Bundesgebiet" ;
-    dsa:blattnummer "006" ;
-    dsa:pdfPage 67 ;
+    dsa:blatt "006" ;
     sh:property dsa:anschriftanschriftImBundesgebietPropertyShape ;
     sh:property dsa:anschriftanschriftImBundesgebietPropertyShape ;
     sh:property dsa:anschriftanschriftImBundesgebietPropertyShape ;
@@ -100,11 +97,32 @@ dsa:entscheidungZurVerteilungNodeShape
     a sh:NodeShape ;
     sh:targetClass dsa:entscheidungZurVerteilung ;
     rdfs:label "Entscheidung zur Verteilung" ;
-    dsa:blattnummer "007" ;
-    dsa:pdfPage 82 ;
+    dsa:blatt "007" ;
     sh:property dsa:00701entscheidungZurVerteilungPropertyShape ;
     sh:property dsa:00702entscheidungZurVerteilungPropertyShape ;
     sh:property dsa:00703entscheidungZurVerteilungPropertyShape .
+
+# Gruppe 008: Telefonnummern
+# Beinhaltet 1 PropertyShape
+# PDF-Seite: 24
+dsa:telefonnummernNodeShape
+    a sh:NodeShape ;
+    sh:targetClass dsa:AuslaendischePerson ;
+    rdfs:label "Telefonnummern" ;
+    dsa:blatt "008" ;
+    dsa:haeufigkeit "n" ;
+    sh:property dsa:telefonnummernPropertyShape .
+
+# Gruppe 009: E-Mail Adressen
+# Beinhaltet 1 PropertyShape
+# PDF-Seite: 25
+dsa:eMailAdressenNodeShape
+    a sh:NodeShape ;
+    sh:targetClass dsa:AuslaendischePerson ;
+    rdfs:label "E-Mail Adressen" ;
+    dsa:blatt "009" ;
+    dsa:haeufigkeit "n" ;
+    sh:property dsa:eMailAdressenPropertyShape .
 
 # Gruppe 010: Zuständigkeit
 # Beinhaltet 11 PropertyShapes
@@ -113,8 +131,7 @@ dsa:zustaendigkeitNodeShape
     a sh:NodeShape ;
     sh:targetClass dsa:zustaendigkeit ;
     rdfs:label "Zuständigkeit" ;
-    dsa:blattnummer "010" ;
-    dsa:pdfPage 86 ;
+    dsa:blatt "010" ;
     sh:property dsa:zustaendigeAufnahmeeinrichtungzustaendigkeitPropertyShape ;
     sh:property dsa:zustaendigeAufnahmeeinrichtungzustaendigkeitPropertyShape ;
     sh:property dsa:zustaendigeAuslaenderbehoerdezustaendigkeitPropertyShape ;
@@ -134,8 +151,7 @@ dsa:gesundheitsdatenNodeShape
     a sh:NodeShape ;
     sh:targetClass dsa:gesundheitsdaten ;
     rdfs:label "Gesundheitsdaten" ;
-    dsa:blattnummer "011" ;
-    dsa:pdfPage 98 ;
+    dsa:blatt "011" ;
     sh:property dsa:artDergesundheitsdatenPropertyShape ;
     sh:property dsa:ereignisdatum011gesundheitsdatenPropertyShape ;
     sh:property dsa:ort011gesundheitsdatenPropertyShape ;
@@ -148,8 +164,7 @@ dsa:abweichendeSchreibweiseBeiNamenNodeShape
     a sh:NodeShape ;
     sh:targetClass dsa:abweichendeSchreibweiseBeiNamen ;
     rdfs:label "Abweichende Schreibweise bei Namen" ;
-    dsa:blattnummer "012" ;
-    dsa:pdfPage 103 ;
+    dsa:blatt "012" ;
     sh:property dsa:familiennameabweichendeSchreibweiseBeiNamenPropertyShape ;
     sh:property dsa:geburtsnameabweichendeSchreibweiseBeiNamenPropertyShape ;
     sh:property dsa:vornameabweichendeSchreibweiseBeiNamenPropertyShape .
@@ -161,8 +176,7 @@ dsa:andereNamenNodeShape
     a sh:NodeShape ;
     sh:targetClass dsa:andereNamen ;
     rdfs:label "Andere Namen" ;
-    dsa:blattnummer "013" ;
-    dsa:pdfPage 107 ;
+    dsa:blatt "013" ;
     sh:property dsa:artEinesandereNamenPropertyShape ;
     sh:property dsa:andererNameandereNamenPropertyShape .
 
@@ -173,8 +187,7 @@ dsa:fruehererNameNodeShape
     a sh:NodeShape ;
     sh:targetClass dsa:fruehererName ;
     rdfs:label "Früherer Name" ;
-    dsa:blattnummer "014" ;
-    dsa:pdfPage 110 ;
+    dsa:blatt "014" ;
     sh:property dsa:fruehererFamiliennamefruehererNamePropertyShape ;
     sh:property dsa:fruehereVornamenfruehererNamePropertyShape .
 
@@ -185,8 +198,7 @@ dsa:aliaspersonalieNodeShape
     a sh:NodeShape ;
     sh:targetClass dsa:aliaspersonalie ;
     rdfs:label "Aliaspersonalie" ;
-    dsa:blattnummer "015" ;
-    dsa:pdfPage 113 ;
+    dsa:blatt "015" ;
     sh:property dsa:familiennamealiaspersonaliePropertyShape ;
     sh:property dsa:geburtsnamealiaspersonaliePropertyShape ;
     sh:property dsa:vornamealiaspersonaliePropertyShape ;
@@ -198,6 +210,19 @@ dsa:aliaspersonalieNodeShape
     sh:property dsa:staatsangehoerigkeitaliaspersonaliePropertyShape ;
     sh:property dsa:anummeraliaspersonaliePropertyShape .
 
+# Gruppe 016: Familienstand
+# Beinhaltet 1 PropertyShape
+# PDF-Seite: 31
+dsa:familienstandNodeShape
+    a sh:NodeShape ;
+    sh:targetClass dsa:AuslaendischePerson ;
+    rdfs:label "Familienstand" ;
+    dsa:blatt "016" ;
+    dsa:haeufigkeit "1" ;
+    dsa:vorgaben "code" ;
+    dsa:darstellungsform "urn:de:xauslaender:codelist:familienstand" ;
+    sh:property dsa:familienstandPropertyShape .
+
 # Gruppe 017: Ausweisdokument
 # Beinhaltet 12 PropertyShapes
 # PDF-Seite: 124
@@ -205,8 +230,7 @@ dsa:ausweisdokumentNodeShape
     a sh:NodeShape ;
     sh:targetClass dsa:ausweisdokument ;
     rdfs:label "Ausweisdokument" ;
-    dsa:blattnummer "017" ;
-    dsa:pdfPage 124 ;
+    dsa:blatt "017" ;
     sh:property dsa:artDesausweisdokumentPropertyShape ;
     sh:property dsa:seriennummer017ausweisdokumentPropertyShape ;
     sh:property dsa:gueltigBisausweisdokumentPropertyShape ;
@@ -220,6 +244,30 @@ dsa:ausweisdokumentNodeShape
     sh:property dsa:ergebnisDerausweisdokumentPropertyShape ;
     sh:property dsa:referenzAufausweisdokumentPropertyShape .
 
+# Gruppe 018: Letzter Wohnort im Herkunftsland
+# Beinhaltet 1 PropertyShape
+# PDF-Seite: 33
+dsa:letzterWohnortImHerkunftslandNodeShape
+    a sh:NodeShape ;
+    sh:targetClass dsa:AuslaendischePerson ;
+    rdfs:label "Letzter Wohnort im Herkunftsland" ;
+    dsa:blatt "018" ;
+    dsa:haeufigkeit "1" ;
+    sh:property dsa:letzterWohnortImHerkunftslandPropertyShape .
+
+# Gruppe 019: Staat Herkunftsland
+# Beinhaltet 1 PropertyShape
+# PDF-Seite: 34
+dsa:staatHerkunftslandNodeShape
+    a sh:NodeShape ;
+    sh:targetClass dsa:AuslaendischePerson ;
+    rdfs:label "Staat Herkunftsland" ;
+    dsa:blatt "019" ;
+    dsa:haeufigkeit "1" ;
+    dsa:vorgaben "code" ;
+    dsa:darstellungsform "urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:staatsangehoerigkeit" ;
+    sh:property dsa:staatHerkunftslandPropertyShape .
+
 # Gruppe 020: Freiwillig gemachte Angaben zur Religionszugehörigkeit
 # Beinhaltet 2 PropertyShapes
 # PDF-Seite: 137
@@ -227,10 +275,22 @@ dsa:freiwilligGemachteAngabenZurReligionszugehoerigkeitNodeShape
     a sh:NodeShape ;
     sh:targetClass dsa:freiwilligGemachteAngabenZurReligionszugehoerigkeit ;
     rdfs:label "Freiwillig gemachte Angaben zur Religionszugehörigkeit" ;
-    dsa:blattnummer "020" ;
-    dsa:pdfPage 137 ;
+    dsa:blatt "020" ;
     sh:property dsa:religion020freiwilligGemachteAngabenZurReligionszugehoerigkeitPropertyShape ;
     sh:property dsa:zusatzangaben020freiwilligGemachteAngabenZurReligionszugehoerigkeitPropertyShape .
+
+# Gruppe 021: Staatsangehörigkeiten des Ehegatten oder des Lebenspartners
+# Beinhaltet 1 PropertyShape
+# PDF-Seite: 37
+dsa:staatsangehoerigkeitenDesEhegattenOderDesLebenspartnersNodeShape
+    a sh:NodeShape ;
+    sh:targetClass dsa:AuslaendischePerson ;
+    rdfs:label "Staatsangehörigkeiten des Ehegatten oder des Lebenspartners" ;
+    dsa:blatt "021" ;
+    dsa:haeufigkeit "n" ;
+    dsa:vorgaben "code" ;
+    dsa:darstellungsform "urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:staatsangehoerigkeit" ;
+    sh:property dsa:staatsangehoerigkeitenDesEhegattenOderDesLebenspartnersPropertyShape .
 
 # Gruppe 022: Lichtbild
 # Beinhaltet 0 PropertyShapes
@@ -239,8 +299,7 @@ dsa:lichtbildNodeShape
     a sh:NodeShape ;
     sh:targetClass dsa:lichtbild ;
     rdfs:label "Lichtbild" ;
-    dsa:blattnummer "022" ;
-    dsa:pdfPage 140 .
+    dsa:blatt "022" .
 
 # Gruppe 023: Fingerabdruck
 # Beinhaltet 4 PropertyShapes
@@ -249,8 +308,7 @@ dsa:fingerabdruckNodeShape
     a sh:NodeShape ;
     sh:targetClass dsa:fingerabdruck ;
     rdfs:label "Fingerabdruck" ;
-    dsa:blattnummer "023" ;
-    dsa:pdfPage 144 ;
+    dsa:blatt "023" ;
     sh:property dsa:fingerabdruckid023fingerabdruckPropertyShape ;
     sh:property dsa:bkaEfingerabdruckPropertyShape ;
     sh:property dsa:bkaDfingerabdruckPropertyShape ;
@@ -263,8 +321,7 @@ dsa:meldestatusNodeShape
     a sh:NodeShape ;
     sh:targetClass dsa:meldestatus ;
     rdfs:label "Meldestatus" ;
-    dsa:blattnummer "024" ;
-    dsa:pdfPage 149 ;
+    dsa:blatt "024" ;
     sh:property dsa:artDesmeldestatusPropertyShape ;
     sh:property dsa:ereignisdatum024meldestatusPropertyShape ;
     sh:property dsa:vorherAktenfuehrendemeldestatusPropertyShape ;
@@ -277,8 +334,7 @@ dsa:ausreisefoerderungReintegrationsfoerderungNodeShape
     a sh:NodeShape ;
     sh:targetClass dsa:ausreisefoerderungReintegrationsfoerderung ;
     rdfs:label "Ausreiseförderung, Reintegrationsförderung" ;
-    dsa:blattnummer "025" ;
-    dsa:pdfPage 154 ;
+    dsa:blatt "025" ;
     sh:property dsa:artDerausreisefoerderungReintegrationsfoerderungPropertyShape ;
     sh:property dsa:entschiedenAmausreisefoerderungReintegrationsfoerderungPropertyShape ;
     sh:property dsa:entschiedenDurchausreisefoerderungReintegrationsfoerderungPropertyShape ;
@@ -295,13 +351,24 @@ dsa:ausreisenachweisNodeShape
     a sh:NodeShape ;
     sh:targetClass dsa:ausreisenachweis ;
     rdfs:label "Ausreisenachweis" ;
-    dsa:blattnummer "026" ;
-    dsa:pdfPage 163 ;
+    dsa:blatt "026" ;
     sh:property dsa:artDesausreisenachweisPropertyShape ;
     sh:property dsa:ereignisdatum026ausreisenachweisPropertyShape ;
     sh:property dsa:ausreisestaat026ausreisenachweisPropertyShape ;
     sh:property dsa:loeschdatum026ausreisenachweisPropertyShape ;
     sh:property dsa:zielstaat026ausreisenachweisPropertyShape .
+
+# Gruppe 027: Art der Rechtsstellung
+# Beinhaltet 1 PropertyShape
+# PDF-Seite: 46
+dsa:artDerRechtsstellungNodeShape
+    a sh:NodeShape ;
+    sh:targetClass dsa:Aufenthaltsstatus ;
+    rdfs:label "Art der Rechtsstellung" ;
+    dsa:blatt "027" ;
+    dsa:haeufigkeit "1" ;
+    dsa:vorgaben "code" ;
+    sh:property dsa:artDerRechtsstellungPropertyShape .
 
 # Gruppe 028: Asylstatus
 # Beinhaltet 7 PropertyShapes
@@ -310,8 +377,7 @@ dsa:asylstatusNodeShape
     a sh:NodeShape ;
     sh:targetClass dsa:asylstatus ;
     rdfs:label "Asylstatus" ;
-    dsa:blattnummer "028" ;
-    dsa:pdfPage 169 ;
+    dsa:blatt "028" ;
     sh:property dsa:standDesasylstatusPropertyShape ;
     sh:property dsa:ereignisdatum028asylstatusPropertyShape ;
     sh:property dsa:einreisestaat028asylstatusPropertyShape ;
@@ -327,8 +393,7 @@ dsa:abschiebungsverboteNodeShape
     a sh:NodeShape ;
     sh:targetClass dsa:abschiebungsverbote ;
     rdfs:label "Abschiebungsverbote" ;
-    dsa:blattnummer "029" ;
-    dsa:pdfPage 177 ;
+    dsa:blatt "029" ;
     sh:property dsa:artDerabschiebungsverbotePropertyShape ;
     sh:property dsa:ereignisdatum029abschiebungsverbotePropertyShape ;
     sh:property dsa:zielstaat029abschiebungsverbotePropertyShape ;
@@ -343,8 +408,7 @@ dsa:aufenthaltsgestattungNodeShape
     a sh:NodeShape ;
     sh:targetClass dsa:aufenthaltsgestattung ;
     rdfs:label "Aufenthaltsgestattung" ;
-    dsa:blattnummer "030" ;
-    dsa:pdfPage 184 ;
+    dsa:blatt "030" ;
     sh:property dsa:artDeraufenthaltsgestattungPropertyShape ;
     sh:property dsa:ereignisdatum030aufenthaltsgestattungPropertyShape ;
     sh:property dsa:nummerDeraufenthaltsgestattungPropertyShape ;
@@ -357,8 +421,7 @@ dsa:wohnsitzauflageRaeumlicheBeschraenkungWohnsitzregelungNodeShape
     a sh:NodeShape ;
     sh:targetClass dsa:wohnsitzauflageRaeumlicheBeschraenkungWohnsitzregelung ;
     rdfs:label "Wohnsitzauflage, räumliche Beschränkung, Wohnsitzregelung" ;
-    dsa:blattnummer "031" ;
-    dsa:pdfPage 189 ;
+    dsa:blatt "031" ;
     sh:property dsa:artDerwohnsitzauflageRaeumlicheBeschraenkungWohnsitzregelungPropertyShape ;
     sh:property dsa:ereignisdatum031wohnsitzauflageRaeumlicheBeschraenkungWohnsitzregelungPropertyShape ;
     sh:property dsa:befristungsdatum031wohnsitzauflageRaeumlicheBeschraenkungWohnsitzregelungPropertyShape ;
@@ -377,8 +440,7 @@ dsa:ankunftsnachweisNodeShape
     a sh:NodeShape ;
     sh:targetClass dsa:ankunftsnachweis ;
     rdfs:label "Ankunftsnachweis" ;
-    dsa:blattnummer "032" ;
-    dsa:pdfPage 200 ;
+    dsa:blatt "032" ;
     sh:property dsa:ausstellungsdatum032ankunftsnachweisPropertyShape ;
     sh:property dsa:gueltigBisankunftsnachweisPropertyShape ;
     sh:property dsa:loeschdatum032ankunftsnachweisPropertyShape .
@@ -390,8 +452,7 @@ dsa:unerlaubteEinreiseUndAufenthaltNodeShape
     a sh:NodeShape ;
     sh:targetClass dsa:unerlaubteEinreiseUndAufenthalt ;
     rdfs:label "Unerlaubte Einreise und Aufenthalt" ;
-    dsa:blattnummer "033" ;
-    dsa:pdfPage 204 ;
+    dsa:blatt "033" ;
     sh:property dsa:artDerunerlaubteEinreiseUndAufenthaltPropertyShape ;
     sh:property dsa:ereignisdatum033unerlaubteEinreiseUndAufenthaltPropertyShape ;
     sh:property dsa:loeschdatum033unerlaubteEinreiseUndAufenthaltPropertyShape ;
@@ -405,8 +466,7 @@ dsa:weitereAufenthaltsstatusNodeShape
     a sh:NodeShape ;
     sh:targetClass dsa:weitereAufenthaltsstatus ;
     rdfs:label "Weitere Aufenthaltsstatus" ;
-    dsa:blattnummer "034" ;
-    dsa:pdfPage 210 ;
+    dsa:blatt "034" ;
     sh:property dsa:artDesweitereAufenthaltsstatusPropertyShape ;
     sh:property dsa:ereignisdatum034weitereAufenthaltsstatusPropertyShape ;
     sh:property dsa:nummerDesweitereAufenthaltsstatusPropertyShape ;
@@ -422,8 +482,7 @@ dsa:entscheidungDerBundesagenturFuerArbeitNodeShape
     a sh:NodeShape ;
     sh:targetClass dsa:entscheidungDerBundesagenturFuerArbeit ;
     rdfs:label "Entscheidung der Bundesagentur für Arbeit" ;
-    dsa:blattnummer "035" ;
-    dsa:pdfPage 218 ;
+    dsa:blatt "035" ;
     sh:property dsa:artDerentscheidungDerBundesagenturFuerArbeitPropertyShape ;
     sh:property dsa:ereignisdatum035entscheidungDerBundesagenturFuerArbeitPropertyShape ;
     sh:property dsa:befristungsdatum035entscheidungDerBundesagenturFuerArbeitPropertyShape ;
@@ -439,8 +498,7 @@ dsa:nebenbestimmungenZurErwerbstaetigkeitNodeShape
     a sh:NodeShape ;
     sh:targetClass dsa:nebenbestimmungenZurErwerbstaetigkeit ;
     rdfs:label "Nebenbestimmungen zur Erwerbstätigkeit" ;
-    dsa:blattnummer "036" ;
-    dsa:pdfPage 226 ;
+    dsa:blatt "036" ;
     sh:property dsa:artDernebenbestimmungenZurErwerbstaetigkeitPropertyShape ;
     sh:property dsa:ereignisdatum036nebenbestimmungenZurErwerbstaetigkeitPropertyShape ;
     sh:property dsa:befristungsdatum036nebenbestimmungenZurErwerbstaetigkeitPropertyShape ;
@@ -455,8 +513,7 @@ dsa:zustimmungsfreieBeschaeftigungNodeShape
     a sh:NodeShape ;
     sh:targetClass dsa:zustimmungsfreieBeschaeftigung ;
     rdfs:label "Zustimmungsfreie Beschäftigung" ;
-    dsa:blattnummer "037" ;
-    dsa:pdfPage 233 ;
+    dsa:blatt "037" ;
     sh:property dsa:artDerzustimmungsfreieBeschaeftigungPropertyShape ;
     sh:property dsa:ereignisdatum037zustimmungsfreieBeschaeftigungPropertyShape ;
     sh:property dsa:befristungsdatum037zustimmungsfreieBeschaeftigungPropertyShape ;
@@ -469,8 +526,7 @@ dsa:aufenthaltserlaubnisNodeShape
     a sh:NodeShape ;
     sh:targetClass dsa:aufenthaltserlaubnis ;
     rdfs:label "Aufenthaltserlaubnis" ;
-    dsa:blattnummer "038" ;
-    dsa:pdfPage 238 ;
+    dsa:blatt "038" ;
     sh:property dsa:artDeraufenthaltserlaubnisPropertyShape ;
     sh:property dsa:ereignisdatum038aufenthaltserlaubnisPropertyShape ;
     sh:property dsa:befristungsdatum038aufenthaltserlaubnisPropertyShape ;
@@ -485,8 +541,7 @@ dsa:integrationskursNodeShape
     a sh:NodeShape ;
     sh:targetClass dsa:integrationskurs ;
     rdfs:label "Integrationskurs" ;
-    dsa:blattnummer "039" ;
-    dsa:pdfPage 245 ;
+    dsa:blatt "039" ;
     sh:property dsa:artDerintegrationskursPropertyShape ;
     sh:property dsa:erstellungszeitpunkt039integrationskursPropertyShape ;
     sh:property dsa:erteilendeStelleintegrationskursPropertyShape ;
@@ -506,8 +561,7 @@ dsa:niederlassungserlaubnisNodeShape
     a sh:NodeShape ;
     sh:targetClass dsa:niederlassungserlaubnis ;
     rdfs:label "Niederlassungserlaubnis" ;
-    dsa:blattnummer "040" ;
-    dsa:pdfPage 257 ;
+    dsa:blatt "040" ;
     sh:property dsa:artDerniederlassungserlaubnisPropertyShape ;
     sh:property dsa:ereignisdatum040niederlassungserlaubnisPropertyShape ;
     sh:property dsa:nummerDesniederlassungserlaubnisPropertyShape .
@@ -519,8 +573,7 @@ dsa:aufenthaltsrechtEuNodeShape
     a sh:NodeShape ;
     sh:targetClass dsa:aufenthaltsrechtEu ;
     rdfs:label "Aufenthaltsrecht EU" ;
-    dsa:blattnummer "041" ;
-    dsa:pdfPage 261 ;
+    dsa:blatt "041" ;
     sh:property dsa:artDesaufenthaltsrechtEuPropertyShape ;
     sh:property dsa:ereignisdatum041aufenthaltsrechtEuPropertyShape ;
     sh:property dsa:befristungsdatum041aufenthaltsrechtEuPropertyShape ;
@@ -533,8 +586,7 @@ dsa:ausweisungNodeShape
     a sh:NodeShape ;
     sh:targetClass dsa:ausweisung ;
     rdfs:label "Ausweisung" ;
-    dsa:blattnummer "042" ;
-    dsa:pdfPage 266 ;
+    dsa:blatt "042" ;
     sh:property dsa:artDerausweisungPropertyShape ;
     sh:property dsa:ereignisdatum042ausweisungPropertyShape ;
     sh:property dsa:befristungsdatum042ausweisungPropertyShape ;
@@ -554,8 +606,7 @@ dsa:abschiebungNodeShape
     a sh:NodeShape ;
     sh:targetClass dsa:abschiebung ;
     rdfs:label "Abschiebung" ;
-    dsa:blattnummer "043" ;
-    dsa:pdfPage 279 ;
+    dsa:blatt "043" ;
     sh:property dsa:artDerabschiebungPropertyShape ;
     sh:property dsa:ereignisdatum043abschiebungPropertyShape ;
     sh:property dsa:befristungsdatum043abschiebungPropertyShape ;
@@ -574,8 +625,7 @@ dsa:einreiseUndAufenthaltsverbotNodeShape
     a sh:NodeShape ;
     sh:targetClass dsa:einreiseUndAufenthaltsverbot ;
     rdfs:label "Einreise- und Aufenthaltsverbot" ;
-    dsa:blattnummer "044" ;
-    dsa:pdfPage 290 ;
+    dsa:blatt "044" ;
     sh:property dsa:artDeseinreiseUndAufenthaltsverbotPropertyShape ;
     sh:property dsa:ereignisdatum044einreiseUndAufenthaltsverbotPropertyShape ;
     sh:property dsa:befristungsdatum044einreiseUndAufenthaltsverbotPropertyShape ;
@@ -593,8 +643,7 @@ dsa:einschraenkungUntersagungDerPolitischenBetaetigungNodeShape
     a sh:NodeShape ;
     sh:targetClass dsa:einschraenkungUntersagungDerPolitischenBetaetigung ;
     rdfs:label "Einschränkung / Untersagung der politischen Betätigung" ;
-    dsa:blattnummer "045" ;
-    dsa:pdfPage 300 ;
+    dsa:blatt "045" ;
     sh:property dsa:artDereinschraenkungUntersagungDerPolitischenBetaetigungPropertyShape ;
     sh:property dsa:ereignisdatum045einschraenkungUntersagungDerPolitischenBetaetigungPropertyShape ;
     sh:property dsa:befristungsdatum045einschraenkungUntersagungDerPolitischenBetaetigungPropertyShape ;
@@ -608,8 +657,7 @@ dsa:duldungNodeShape
     a sh:NodeShape ;
     sh:targetClass dsa:duldung ;
     rdfs:label "Duldung" ;
-    dsa:blattnummer "047" ;
-    dsa:pdfPage 314 ;
+    dsa:blatt "047" ;
     sh:property dsa:artDerduldungPropertyShape ;
     sh:property dsa:ereignisdatum047duldungPropertyShape ;
     sh:property dsa:befristungsdatum047duldungPropertyShape ;
@@ -624,8 +672,7 @@ dsa:ausreiseverbotNodeShape
     a sh:NodeShape ;
     sh:targetClass dsa:ausreiseverbot ;
     rdfs:label "Ausreiseverbot" ;
-    dsa:blattnummer "048" ;
-    dsa:pdfPage 321 ;
+    dsa:blatt "048" ;
     sh:property dsa:artDesausreiseverbotPropertyShape ;
     sh:property dsa:ereignisdatum048ausreiseverbotPropertyShape ;
     sh:property dsa:befristungsdatum048ausreiseverbotPropertyShape ;
@@ -638,8 +685,7 @@ dsa:passrechtlicheMassnahmenNodeShape
     a sh:NodeShape ;
     sh:targetClass dsa:passrechtlicheMassnahmen ;
     rdfs:label "Passrechtliche Massnahmen" ;
-    dsa:blattnummer "049" ;
-    dsa:pdfPage 326 ;
+    dsa:blatt "049" ;
     sh:property dsa:artDerpassrechtlicheMassnahmenPropertyShape ;
     sh:property dsa:ereignisdatum049passrechtlicheMassnahmenPropertyShape ;
     sh:property dsa:befristungsdatum049passrechtlicheMassnahmenPropertyShape ;
@@ -653,8 +699,7 @@ dsa:zurueckweisungZurueckschiebungUndAbschiebungNodeShape
     a sh:NodeShape ;
     sh:targetClass dsa:zurueckweisungZurueckschiebungUndAbschiebung ;
     rdfs:label "Zurückweisung, Zurückschiebung und Abschiebung" ;
-    dsa:blattnummer "050" ;
-    dsa:pdfPage 332 ;
+    dsa:blatt "050" ;
     sh:property dsa:artDerzurueckweisungZurueckschiebungUndAbschiebungPropertyShape ;
     sh:property dsa:ereignisdatum050zurueckweisungZurueckschiebungUndAbschiebungPropertyShape ;
     sh:property dsa:befristungsdatum050zurueckweisungZurueckschiebungUndAbschiebungPropertyShape ;
@@ -672,8 +717,7 @@ dsa:einreisebedenkenNodeShape
     a sh:NodeShape ;
     sh:targetClass dsa:einreisebedenken ;
     rdfs:label "Einreisebedenken" ;
-    dsa:blattnummer "051" ;
-    dsa:pdfPage 342 ;
+    dsa:blatt "051" ;
     sh:property dsa:artDereinreisebedenkenPropertyShape ;
     sh:property dsa:ereignisdatum051einreisebedenkenPropertyShape ;
     sh:property dsa:befristungsdatum051einreisebedenkenPropertyShape ;
@@ -688,8 +732,7 @@ dsa:ausschreibungZurFahndungNodeShape
     a sh:NodeShape ;
     sh:targetClass dsa:ausschreibungZurFahndung ;
     rdfs:label "Ausschreibung zur Fahndung" ;
-    dsa:blattnummer "052" ;
-    dsa:pdfPage 349 ;
+    dsa:blatt "052" ;
     sh:property dsa:artDerausschreibungZurFahndungPropertyShape ;
     sh:property dsa:ppkausschreibungZurFahndungPropertyShape ;
     sh:property dsa:fahndungsnummer052ausschreibungZurFahndungPropertyShape ;
@@ -706,8 +749,7 @@ dsa:verdachtAufStraftatenNodeShape
     a sh:NodeShape ;
     sh:targetClass dsa:verdachtAufStraftaten ;
     rdfs:label "Verdacht auf Straftaten" ;
-    dsa:blattnummer "053" ;
-    dsa:pdfPage 358 ;
+    dsa:blatt "053" ;
     sh:property dsa:artDesverdachtAufStraftatenPropertyShape ;
     sh:property dsa:loeschdatum053verdachtAufStraftatenPropertyShape ;
     sh:property dsa:aktenzeichenMeldendeverdachtAufStraftatenPropertyShape .
@@ -719,8 +761,7 @@ dsa:ausUndDurchlieferungNodeShape
     a sh:NodeShape ;
     sh:targetClass dsa:ausUndDurchlieferung ;
     rdfs:label "Aus- und Durchlieferung" ;
-    dsa:blattnummer "054" ;
-    dsa:pdfPage 362 ;
+    dsa:blatt "054" ;
     sh:property dsa:artDerausUndDurchlieferungPropertyShape ;
     sh:property dsa:ereignisdatum054ausUndDurchlieferungPropertyShape ;
     sh:property dsa:zielstaat054ausUndDurchlieferungPropertyShape ;
@@ -734,8 +775,7 @@ dsa:ablehnungDerFeststellungDerDeutschenStaatsangehoerigkeitNodeShape
     a sh:NodeShape ;
     sh:targetClass dsa:ablehnungDerFeststellungDerDeutschenStaatsangehoerigkeit ;
     rdfs:label "Ablehnung der Feststellung der deutschen Staatsangehörigkeit" ;
-    dsa:blattnummer "055" ;
-    dsa:pdfPage 368 ;
+    dsa:blatt "055" ;
     sh:property dsa:artDerablehnungDerFeststellungDerDeutschenStaatsangehoerigkeitPropertyShape ;
     sh:property dsa:ereignisdatum055ablehnungDerFeststellungDerDeutschenStaatsangehoerigkeitPropertyShape ;
     sh:property dsa:loeschdatum055ablehnungDerFeststellungDerDeutschenStaatsangehoerigkeitPropertyShape ;
@@ -748,8 +788,7 @@ dsa:aussiedlerangelegenheitenNodeShape
     a sh:NodeShape ;
     sh:targetClass dsa:aussiedlerangelegenheiten ;
     rdfs:label "Aussiedlerangelegenheiten" ;
-    dsa:blattnummer "056" ;
-    dsa:pdfPage 373 ;
+    dsa:blatt "056" ;
     sh:property dsa:artDeraussiedlerangelegenheitenPropertyShape ;
     sh:property dsa:ereignisdatum056aussiedlerangelegenheitenPropertyShape ;
     sh:property dsa:loeschdatum056aussiedlerangelegenheitenPropertyShape ;
@@ -762,8 +801,7 @@ dsa:verurteilungWegenStraftatenNodeShape
     a sh:NodeShape ;
     sh:targetClass dsa:verurteilungWegenStraftaten ;
     rdfs:label "Verurteilung wegen Straftaten" ;
-    dsa:blattnummer "057" ;
-    dsa:pdfPage 378 ;
+    dsa:blatt "057" ;
     sh:property dsa:artDerverurteilungWegenStraftatenPropertyShape ;
     sh:property dsa:loeschdatum057verurteilungWegenStraftatenPropertyShape .
 
@@ -774,8 +812,7 @@ dsa:sicherheitsrechtlicheBefragungNodeShape
     a sh:NodeShape ;
     sh:targetClass dsa:sicherheitsrechtlicheBefragung ;
     rdfs:label "Sicherheitsrechtliche Befragung" ;
-    dsa:blattnummer "058" ;
-    dsa:pdfPage 381 ;
+    dsa:blatt "058" ;
     sh:property dsa:artDersicherheitsrechtlicheBefragungPropertyShape ;
     sh:property dsa:ereignisdatum058sicherheitsrechtlicheBefragungPropertyShape ;
     sh:property dsa:befragendeBehoerdesicherheitsrechtlicheBefragungPropertyShape ;
@@ -788,8 +825,7 @@ dsa:sicherheitsleistungNodeShape
     a sh:NodeShape ;
     sh:targetClass dsa:sicherheitsleistung ;
     rdfs:label "Sicherheitsleistung" ;
-    dsa:blattnummer "059" ;
-    dsa:pdfPage 386 ;
+    dsa:blatt "059" ;
     sh:property dsa:artDersicherheitsleistungPropertyShape ;
     sh:property dsa:ereignisdatum059sicherheitsleistungPropertyShape ;
     sh:property dsa:loeschdatum059sicherheitsleistungPropertyShape ;
@@ -803,8 +839,7 @@ dsa:verpflichtungserklaerungNodeShape
     a sh:NodeShape ;
     sh:targetClass dsa:verpflichtungserklaerung ;
     rdfs:label "Verpflichtungserklärung" ;
-    dsa:blattnummer "060" ;
-    dsa:pdfPage 392 ;
+    dsa:blatt "060" ;
     sh:property dsa:artDerverpflichtungserklaerungPropertyShape ;
     sh:property dsa:ereignisdatum060verpflichtungserklaerungPropertyShape ;
     sh:property dsa:loeschdatum060verpflichtungserklaerungPropertyShape ;
@@ -818,8 +853,7 @@ dsa:suchvermerkNodeShape
     a sh:NodeShape ;
     sh:targetClass dsa:suchvermerk ;
     rdfs:label "Suchvermerk" ;
-    dsa:blattnummer "062" ;
-    dsa:pdfPage 400 ;
+    dsa:blatt "062" ;
     sh:property dsa:artDessuchvermerkPropertyShape ;
     sh:property dsa:sichtbarkeitDessuchvermerkPropertyShape ;
     sh:property dsa:befristungsdatum062suchvermerkPropertyShape ;
@@ -832,8 +866,7 @@ dsa:anlaufbescheinigungNodeShape
     a sh:NodeShape ;
     sh:targetClass dsa:anlaufbescheinigung ;
     rdfs:label "Anlaufbescheinigung" ;
-    dsa:blattnummer "063" ;
-    dsa:pdfPage 405 ;
+    dsa:blatt "063" ;
     sh:property dsa:artDeranlaufbescheinigungPropertyShape ;
     sh:property dsa:ausgestelltAmanlaufbescheinigungPropertyShape ;
     sh:property dsa:gueltigBisanlaufbescheinigungPropertyShape ;
@@ -846,8 +879,7 @@ dsa:betretenserlaubnisNodeShape
     a sh:NodeShape ;
     sh:targetClass dsa:betretenserlaubnis ;
     rdfs:label "Betretenserlaubnis" ;
-    dsa:blattnummer "064" ;
-    dsa:pdfPage 410 ;
+    dsa:blatt "064" ;
     sh:property dsa:artDerbetretenserlaubnisPropertyShape ;
     sh:property dsa:erteiltAmbetretenserlaubnisPropertyShape ;
     sh:property dsa:gueltigAbbetretenserlaubnisPropertyShape ;
@@ -860,8 +892,7 @@ dsa:vorabzustimmungNodeShape
     a sh:NodeShape ;
     sh:targetClass dsa:vorabzustimmung ;
     rdfs:label "Vorabzustimmung" ;
-    dsa:blattnummer "066" ;
-    dsa:pdfPage 415 ;
+    dsa:blatt "066" ;
     sh:property dsa:artDervorabzustimmungPropertyShape ;
     sh:property dsa:ereignisdatum066vorabzustimmungPropertyShape ;
     sh:property dsa:befristungsdatum066vorabzustimmungPropertyShape ;
@@ -876,8 +907,7 @@ dsa:deutschsprachfoerderungNodeShape
     a sh:NodeShape ;
     sh:targetClass dsa:deutschsprachfoerderung ;
     rdfs:label "Deutschsprachförderung" ;
-    dsa:blattnummer "067" ;
-    dsa:pdfPage 422 ;
+    dsa:blatt "067" ;
     sh:property dsa:artDerdeutschsprachfoerderungPropertyShape ;
     sh:property dsa:beginn067deutschsprachfoerderungPropertyShape ;
     sh:property dsa:ende067deutschsprachfoerderungPropertyShape ;
@@ -890,8 +920,7 @@ dsa:grenzuebertrittsbescheinigungNodeShape
     a sh:NodeShape ;
     sh:targetClass dsa:grenzuebertrittsbescheinigung ;
     rdfs:label "Grenzübertrittsbescheinigung" ;
-    dsa:blattnummer "068" ;
-    dsa:pdfPage 427 ;
+    dsa:blatt "068" ;
     sh:property dsa:artDergrenzuebertrittsbescheinigungPropertyShape ;
     sh:property dsa:ausgestelltAmgrenzuebertrittsbescheinigungPropertyShape ;
     sh:property dsa:befristungsdatum068grenzuebertrittsbescheinigungPropertyShape ;
@@ -904,8 +933,7 @@ dsa:personenbeschreibungNodeShape
     a sh:NodeShape ;
     sh:targetClass dsa:personenbeschreibung ;
     rdfs:label "Personenbeschreibung" ;
-    dsa:blattnummer "069" ;
-    dsa:pdfPage 432 ;
+    dsa:blatt "069" ;
     sh:property dsa:groesse069personenbeschreibungPropertyShape ;
     sh:property dsa:augenfarbe069personenbeschreibungPropertyShape .
 
@@ -916,8 +944,7 @@ dsa:auslaendischePersonenidentitaetsnummerNodeShape
     a sh:NodeShape ;
     sh:targetClass dsa:auslaendischePersonenidentitaetsnummer ;
     rdfs:label "Ausländische Personenidentitätsnummer" ;
-    dsa:blattnummer "071" ;
-    dsa:pdfPage 440 ;
+    dsa:blatt "071" ;
     sh:property dsa:idauslaendischePersonenidentitaetsnummerPropertyShape ;
     sh:property dsa:staat071auslaendischePersonenidentitaetsnummerPropertyShape .
 
@@ -928,8 +955,7 @@ dsa:datenZumZweckeDerArbeitsUndAusbildungsvermittlungNodeShape
     a sh:NodeShape ;
     sh:targetClass dsa:datenZumZweckeDerArbeitsUndAusbildungsvermittlung ;
     rdfs:label "Daten zum Zwecke der Arbeits- und Ausbildungsvermittlung" ;
-    dsa:blattnummer "072" ;
-    dsa:pdfPage 443 ;
+    dsa:blatt "072" ;
     sh:property dsa:artDerdatenZumZweckeDerArbeitsUndAusbildungsvermittlungPropertyShape ;
     sh:property dsa:anerkennung072datenZumZweckeDerArbeitsUndAusbildungsvermittlungPropertyShape ;
     sh:property dsa:beginn072datenZumZweckeDerArbeitsUndAusbildungsvermittlungPropertyShape ;
@@ -950,8 +976,7 @@ dsa:sisausschreibungshintergrundNodeShape
     a sh:NodeShape ;
     sh:targetClass dsa:sisausschreibungshintergrund ;
     rdfs:label "SIS-Ausschreibungshintergrund" ;
-    dsa:blattnummer "073" ;
-    dsa:pdfPage 456 ;
+    dsa:blatt "073" ;
     sh:property dsa:schengensisausschreibungshintergrundPropertyShape ;
     sh:property dsa:referenzAufsisausschreibungshintergrundPropertyShape ;
     sh:property dsa:referenzAufsisausschreibungshintergrundPropertyShape .
@@ -963,8 +988,7 @@ dsa:straftatNodeShape
     a sh:NodeShape ;
     sh:targetClass dsa:straftat ;
     rdfs:label "Straftat" ;
-    dsa:blattnummer "074" ;
-    dsa:pdfPage 460 ;
+    dsa:blatt "074" ;
     sh:property dsa:artDerstraftatPropertyShape ;
     sh:property dsa:rechtlicheBezeichnungstraftatPropertyShape ;
     sh:property dsa:strafvorschriftstraftatPropertyShape ;
@@ -992,8 +1016,7 @@ dsa:familienname004grundpersonalienPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:familienname004 ;
     rdfs:label "Familienname" ;
-    dsa:blattnummer "004.01" ;
-    dsa:pdfPage 49 ;
+    dsa:blatt "004.01" ;
     sh:datatype xsd:string ;
     sh:maxLength 90 ;
     sh:minCount 1 ;
@@ -1007,11 +1030,10 @@ dsa:geburtsname004grundpersonalienPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:geburtsname004 ;
     rdfs:label "Geburtsname" ;
-    dsa:blattnummer "004.02" ;
-    dsa:pdfPage 50 ;
+    dsa:blatt "004.02" ;
     sh:datatype xsd:string ;
     sh:maxLength 90 ;
-    sh:minCount 0 ;
+    sh:minCount 1 ;
     sh:maxCount 1 ;
     dsa:bestandteilDerGruppe "004 - Grundpersonalien" .
 
@@ -1022,8 +1044,7 @@ dsa:vorname004grundpersonalienPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:vorname004 ;
     rdfs:label "Vorname" ;
-    dsa:blattnummer "004.03" ;
-    dsa:pdfPage 51 ;
+    dsa:blatt "004.03" ;
     sh:datatype xsd:string ;
     sh:maxLength 60 ;
     sh:minCount 1 ;
@@ -1037,8 +1058,7 @@ dsa:familiennameNachgrundpersonalienPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:familiennameNach ;
     rdfs:label "Familienname nach deutschem Recht" ;
-    dsa:blattnummer "004.04" ;
-    dsa:pdfPage 52 ;
+    dsa:blatt "004.04" ;
     sh:datatype xsd:string ;
     sh:maxLength 90 ;
     sh:minCount 0 ;
@@ -1052,8 +1072,7 @@ dsa:vornameNachgrundpersonalienPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:vornameNach ;
     rdfs:label "Vorname nach deutschem Recht" ;
-    dsa:blattnummer "004.05" ;
-    dsa:pdfPage 53 ;
+    dsa:blatt "004.05" ;
     sh:datatype xsd:string ;
     sh:maxLength 60 ;
     sh:minCount 0 ;
@@ -1067,8 +1086,7 @@ dsa:geburtsnameNachgrundpersonalienPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:geburtsnameNach ;
     rdfs:label "Geburtsname nach deutschem Recht" ;
-    dsa:blattnummer "004.06" ;
-    dsa:pdfPage 54 ;
+    dsa:blatt "004.06" ;
     sh:datatype xsd:string ;
     sh:maxLength 90 ;
     sh:minCount 0 ;
@@ -1082,8 +1100,7 @@ dsa:geburtsdatum004grundpersonalienPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:geburtsdatum004 ;
     rdfs:label "Geburtsdatum" ;
-    dsa:blattnummer "004.07" ;
-    dsa:pdfPage 55 ;
+    dsa:blatt "004.07" ;
     sh:datatype xsd:string ;
     sh:minCount 1 ;
     sh:maxCount 1 ;
@@ -1096,8 +1113,7 @@ dsa:geburtsort004grundpersonalienPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:geburtsort004 ;
     rdfs:label "Geburtsort" ;
-    dsa:blattnummer "004.08" ;
-    dsa:pdfPage 56 ;
+    dsa:blatt "004.08" ;
     sh:datatype xsd:string ;
     sh:maxLength 40 ;
     sh:minCount 1 ;
@@ -1111,8 +1127,7 @@ dsa:geburtsbezirk004grundpersonalienPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:geburtsbezirk004 ;
     rdfs:label "Geburtsbezirk" ;
-    dsa:blattnummer "004.09" ;
-    dsa:pdfPage 57 ;
+    dsa:blatt "004.09" ;
     sh:datatype xsd:string ;
     sh:maxLength 40 ;
     sh:minCount 0 ;
@@ -1126,8 +1141,7 @@ dsa:geburtsland004grundpersonalienPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:geburtsland004 ;
     rdfs:label "Geburtsland" ;
-    dsa:blattnummer "004.10" ;
-    dsa:pdfPage 58 ;
+    dsa:blatt "004.10" ;
     sh:datatype xsd:string ;
     sh:minCount 1 ;
     sh:maxCount 1 ;
@@ -1140,8 +1154,7 @@ dsa:geschlecht004grundpersonalienPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:geschlecht004 ;
     rdfs:label "Geschlecht" ;
-    dsa:blattnummer "004.11" ;
-    dsa:pdfPage 59 ;
+    dsa:blatt "004.11" ;
     sh:datatype xsd:string ;
     sh:minCount 1 ;
     sh:maxCount 1 ;
@@ -1154,8 +1167,7 @@ dsa:doktorgrad004grundpersonalienPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:doktorgrad004 ;
     rdfs:label "Doktorgrad" ;
-    dsa:blattnummer "004.12" ;
-    dsa:pdfPage 60 ;
+    dsa:blatt "004.12" ;
     sh:datatype xsd:string ;
     sh:maxLength 25 ;
     sh:minCount 0 ;
@@ -1169,8 +1181,7 @@ dsa:staatsangehoerigkeit004grundpersonalienPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:staatsangehoerigkeit004 ;
     rdfs:label "Staatsangehörigkeit" ;
-    dsa:blattnummer "004.13" ;
-    dsa:pdfPage 61 ;
+    dsa:blatt "004.13" ;
     sh:datatype xsd:string ;
     sh:minCount 1 ;
     sh:maxCount 4 ;
@@ -1185,8 +1196,7 @@ dsa:familienmitglied005familienverbandPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:familienmitglied005 ;
     rdfs:label "Familienmitglied" ;
-    dsa:blattnummer "005.01" ;
-    dsa:pdfPage 63 ;
+    dsa:blatt "005.01" ;
     sh:nodeKind sh:IRI ;
     sh:class skos:Concept ;
     dsa:codelist <urn:de:xauslaender:codelist:azr:familienbeziehung> ;
@@ -1201,8 +1211,7 @@ dsa:vornameFamilienmitgliedfamilienverbandPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:vornameFamilienmitglied ;
     rdfs:label "Vorname Familienmitglied" ;
-    dsa:blattnummer "005.02" ;
-    dsa:pdfPage 64 ;
+    dsa:blatt "005.02" ;
     sh:datatype xsd:string ;
     sh:maxLength 60 ;
     sh:minCount 0 ;
@@ -1216,8 +1225,7 @@ dsa:familiennameFamilienmitgliedfamilienverbandPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:familiennameFamilienmitglied ;
     rdfs:label "Familienname Familienmitglied" ;
-    dsa:blattnummer "005.03" ;
-    dsa:pdfPage 65 ;
+    dsa:blatt "005.03" ;
     sh:datatype xsd:string ;
     sh:maxLength 90 ;
     sh:minCount 0 ;
@@ -1231,8 +1239,7 @@ dsa:azrfamilienverbandPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:azr ;
     rdfs:label "AZR-Nummer" ;
-    dsa:blattnummer "005.04" ;
-    dsa:pdfPage 66 ;
+    dsa:blatt "005.04" ;
     sh:datatype xsd:string ;
     sh:maxLength 12 ;
     sh:minCount 1 ;
@@ -1248,8 +1255,7 @@ dsa:anschriftanschriftImBundesgebietPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:anschrift ;
     rdfs:label "Anschrift - Gemeindeschlüssel" ;
-    dsa:blattnummer "006.01" ;
-    dsa:pdfPage 68 ;
+    dsa:blatt "006.01" ;
     sh:datatype xsd:string ;
     sh:maxLength 8 ;
     sh:minCount 0 ;
@@ -1263,8 +1269,7 @@ dsa:anschriftanschriftImBundesgebietPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:anschrift ;
     rdfs:label "Anschrift - Hausnummer" ;
-    dsa:blattnummer "006.02" ;
-    dsa:pdfPage 69 ;
+    dsa:blatt "006.02" ;
     sh:datatype xsd:integer ;
     sh:maxLength 4 ;
     sh:pattern "^0-9$" ;
@@ -1279,8 +1284,7 @@ dsa:anschriftanschriftImBundesgebietPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:anschrift ;
     rdfs:label "Anschrift - Hausnummer Buchstabe Zusatzziffer" ;
-    dsa:blattnummer "006.03" ;
-    dsa:pdfPage 70 ;
+    dsa:blatt "006.03" ;
     sh:datatype xsd:string ;
     sh:maxLength 4 ;
     sh:pattern "^\\p{L}0-9./ $" ;
@@ -1295,8 +1299,7 @@ dsa:anschriftanschriftImBundesgebietPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:anschrift ;
     rdfs:label "Anschrift - Postleitzahl" ;
-    dsa:blattnummer "006.04" ;
-    dsa:pdfPage 71 ;
+    dsa:blatt "006.04" ;
     sh:datatype xsd:integer ;
     sh:maxLength 5 ;
     sh:pattern "^0-9$" ;
@@ -1311,8 +1314,7 @@ dsa:anschriftanschriftImBundesgebietPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:anschrift ;
     rdfs:label "Anschrift - Stockwerks- bzw. Wohnungsnummer" ;
-    dsa:blattnummer "006.05" ;
-    dsa:pdfPage 72 ;
+    dsa:blatt "006.05" ;
     sh:datatype xsd:string ;
     sh:maxLength 4 ;
     sh:pattern "^\\p{L}0-9./ $" ;
@@ -1327,8 +1329,7 @@ dsa:anschriftanschriftImBundesgebietPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:anschrift ;
     rdfs:label "Anschrift - Straße" ;
-    dsa:blattnummer "006.06" ;
-    dsa:pdfPage 73 ;
+    dsa:blatt "006.06" ;
     sh:datatype xsd:string ;
     sh:maxLength 50 ;
     sh:minCount 0 ;
@@ -1342,8 +1343,7 @@ dsa:anschriftanschriftImBundesgebietPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:anschrift ;
     rdfs:label "Anschrift - Teilnummer der Hausnummer" ;
-    dsa:blattnummer "006.07" ;
-    dsa:pdfPage 74 ;
+    dsa:blatt "006.07" ;
     sh:datatype xsd:string ;
     sh:maxLength 5 ;
     sh:minCount 0 ;
@@ -1357,8 +1357,7 @@ dsa:anschriftanschriftImBundesgebietPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:anschrift ;
     rdfs:label "Anschrift - Wohnort" ;
-    dsa:blattnummer "006.08" ;
-    dsa:pdfPage 75 ;
+    dsa:blatt "006.08" ;
     sh:datatype xsd:string ;
     sh:maxLength 50 ;
     sh:minCount 0 ;
@@ -1372,8 +1371,7 @@ dsa:anschriftanschriftImBundesgebietPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:anschrift ;
     rdfs:label "Anschrift - Wohnort früherer Gemeindename" ;
-    dsa:blattnummer "006.09" ;
-    dsa:pdfPage 76 ;
+    dsa:blatt "006.09" ;
     sh:datatype xsd:string ;
     sh:maxLength 50 ;
     sh:minCount 0 ;
@@ -1387,8 +1385,7 @@ dsa:anschriftanschriftImBundesgebietPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:anschrift ;
     rdfs:label "Anschrift - Wohnungsinhaber" ;
-    dsa:blattnummer "006.10" ;
-    dsa:pdfPage 77 ;
+    dsa:blatt "006.10" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -1401,8 +1398,7 @@ dsa:anschriftanschriftImBundesgebietPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:anschrift ;
     rdfs:label "Anschrift - Zusatzangaben" ;
-    dsa:blattnummer "006.11" ;
-    dsa:pdfPage 78 ;
+    dsa:blatt "006.11" ;
     sh:datatype xsd:string ;
     sh:maxLength 50 ;
     sh:minCount 0 ;
@@ -1416,8 +1412,7 @@ dsa:fruehereAnschriftanschriftImBundesgebietPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:fruehereAnschrift ;
     rdfs:label "Frühere Anschrift" ;
-    dsa:blattnummer "006.12" ;
-    dsa:pdfPage 79 ;
+    dsa:blatt "006.12" ;
     sh:datatype xsd:string ;
     sh:maxLength 1 ;
     sh:minCount 1 ;
@@ -1431,8 +1426,7 @@ dsa:einzugsdatum006anschriftImBundesgebietPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:einzugsdatum006 ;
     rdfs:label "Einzugsdatum" ;
-    dsa:blattnummer "006.13" ;
-    dsa:pdfPage 80 ;
+    dsa:blatt "006.13" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -1445,8 +1439,7 @@ dsa:auszugsdatum006anschriftImBundesgebietPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:auszugsdatum006 ;
     rdfs:label "Auszugsdatum" ;
-    dsa:blattnummer "006.14" ;
-    dsa:pdfPage 81 ;
+    dsa:blatt "006.14" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -1460,7 +1453,7 @@ dsa:feld00701entscheidungZurVerteilungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:feld00701 ;
     rdfs:label "Feld007.01" ;
-    dsa:blattnummer "007.01" ;
+    dsa:blatt "007.01" ;
     sh:datatype xsd:string .
 
 # 007.02 - Feld007.02
@@ -1469,7 +1462,7 @@ dsa:feld00702entscheidungZurVerteilungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:feld00702 ;
     rdfs:label "Feld007.02" ;
-    dsa:blattnummer "007.02" ;
+    dsa:blatt "007.02" ;
     sh:datatype xsd:string .
 
 # 007.03 - Feld007.03
@@ -1478,7 +1471,7 @@ dsa:feld00703entscheidungZurVerteilungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:feld00703 ;
     rdfs:label "Feld007.03" ;
-    dsa:blattnummer "007.03" ;
+    dsa:blatt "007.03" ;
     sh:datatype xsd:string .
 
 # --- PropertyShapes für Zuständigkeit (Blatt 010) ---
@@ -1490,8 +1483,7 @@ dsa:zustaendigeAufnahmeeinrichtungzustaendigkeitPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:zustaendigeAufnahmeeinrichtung ;
     rdfs:label "Zuständige Aufnahmeeinrichtung" ;
-    dsa:blattnummer "010.01" ;
-    dsa:pdfPage 87 ;
+    dsa:blatt "010.01" ;
     sh:datatype xsd:string ;
     sh:maxLength 6 ;
     sh:minCount 0 ;
@@ -1505,8 +1497,7 @@ dsa:zustaendigeAufnahmeeinrichtungzustaendigkeitPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:zustaendigeAufnahmeeinrichtung ;
     rdfs:label "Zuständige Aufnahmeeinrichtung (Freitext)" ;
-    dsa:blattnummer "010.02" ;
-    dsa:pdfPage 88 ;
+    dsa:blatt "010.02" ;
     sh:datatype xsd:string ;
     sh:maxLength 25 ;
     sh:minCount 0 ;
@@ -1520,8 +1511,7 @@ dsa:zustaendigeAuslaenderbehoerdezustaendigkeitPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:zustaendigeAuslaenderbehoerde ;
     rdfs:label "Zuständige Ausländerbehörde" ;
-    dsa:blattnummer "010.03" ;
-    dsa:pdfPage 89 ;
+    dsa:blatt "010.03" ;
     sh:datatype xsd:string ;
     sh:maxLength 6 ;
     sh:minCount 0 ;
@@ -1535,8 +1525,7 @@ dsa:zustaendigeAuslaenderbehoerdezustaendigkeitPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:zustaendigeAuslaenderbehoerde ;
     rdfs:label "Zuständige Ausländerbehörde (Freitext)" ;
-    dsa:blattnummer "010.04" ;
-    dsa:pdfPage 90 ;
+    dsa:blatt "010.04" ;
     sh:datatype xsd:string ;
     sh:maxLength 25 ;
     sh:minCount 0 ;
@@ -1550,8 +1539,7 @@ dsa:zustaendigeAsylbewerberleistungsbehoerdezustaendigkeitPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:zustaendigeAsylbewerberleistungsbehoerde ;
     rdfs:label "Zuständige Asylbewerberleistungsbehörde" ;
-    dsa:blattnummer "010.05" ;
-    dsa:pdfPage 91 ;
+    dsa:blatt "010.05" ;
     sh:datatype xsd:string ;
     sh:maxLength 6 ;
     sh:minCount 0 ;
@@ -1565,8 +1553,7 @@ dsa:zustaendigeAsylbewerberleistungsbehoerdezustaendigkeitPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:zustaendigeAsylbewerberleistungsbehoerde ;
     rdfs:label "Zuständige Asylbewerberleistungsbehörde (Freitext)" ;
-    dsa:blattnummer "010.06" ;
-    dsa:pdfPage 92 ;
+    dsa:blatt "010.06" ;
     sh:datatype xsd:string ;
     sh:maxLength 25 ;
     sh:minCount 0 ;
@@ -1580,8 +1567,7 @@ dsa:jugendamtDerzustaendigkeitPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:jugendamtDer ;
     rdfs:label "Jugendamt der vorläufigen Inobhutnahme" ;
-    dsa:blattnummer "010.07" ;
-    dsa:pdfPage 93 ;
+    dsa:blatt "010.07" ;
     sh:datatype xsd:string ;
     sh:maxLength 6 ;
     sh:minCount 0 ;
@@ -1595,8 +1581,7 @@ dsa:jugendamtDerzustaendigkeitPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:jugendamtDer ;
     rdfs:label "Jugendamt der vorläufigen Inobhutnahme (Freitext)" ;
-    dsa:blattnummer "010.08" ;
-    dsa:pdfPage 94 ;
+    dsa:blatt "010.08" ;
     sh:datatype xsd:string ;
     sh:maxLength 25 ;
     sh:minCount 0 ;
@@ -1610,8 +1595,7 @@ dsa:endgueltigZustaendigeszustaendigkeitPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:endgueltigZustaendiges ;
     rdfs:label "Endgültig zuständiges Jugendamt" ;
-    dsa:blattnummer "010.09" ;
-    dsa:pdfPage 95 ;
+    dsa:blatt "010.09" ;
     sh:datatype xsd:string ;
     sh:maxLength 6 ;
     sh:minCount 0 ;
@@ -1625,8 +1609,7 @@ dsa:endgueltigZustaendigeszustaendigkeitPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:endgueltigZustaendiges ;
     rdfs:label "Endgültig zuständiges Jugendamt (Freitext)" ;
-    dsa:blattnummer "010.10" ;
-    dsa:pdfPage 96 ;
+    dsa:blatt "010.10" ;
     sh:datatype xsd:string ;
     sh:maxLength 25 ;
     sh:minCount 0 ;
@@ -1640,8 +1623,7 @@ dsa:zustaendigesBundeslandzustaendigkeitPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:zustaendigesBundesland ;
     rdfs:label "Zuständiges Bundesland" ;
-    dsa:blattnummer "010.11" ;
-    dsa:pdfPage 97 ;
+    dsa:blatt "010.11" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -1656,8 +1638,7 @@ dsa:artDergesundheitsdatenPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:artDer ;
     rdfs:label "Art der Gesundheitsdaten" ;
-    dsa:blattnummer "011.01" ;
-    dsa:pdfPage 99 ;
+    dsa:blatt "011.01" ;
     sh:nodeKind sh:IRI ;
     sh:class skos:Concept ;
     dsa:codelist <urn:de:xauslaender:codelist:azr:gesundheitsdatenart> ;
@@ -1672,8 +1653,7 @@ dsa:ereignisdatum011gesundheitsdatenPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:ereignisdatum011 ;
     rdfs:label "Ereignisdatum" ;
-    dsa:blattnummer "011.02" ;
-    dsa:pdfPage 100 ;
+    dsa:blatt "011.02" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -1686,8 +1666,7 @@ dsa:ort011gesundheitsdatenPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:ort011 ;
     rdfs:label "Ort" ;
-    dsa:blattnummer "011.03" ;
-    dsa:pdfPage 101 ;
+    dsa:blatt "011.03" ;
     sh:datatype xsd:string ;
     sh:maxLength 40 ;
     sh:minCount 0 ;
@@ -1701,8 +1680,7 @@ dsa:loeschdatum011gesundheitsdatenPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:loeschdatum011 ;
     rdfs:label "Löschdatum" ;
-    dsa:blattnummer "011.04" ;
-    dsa:pdfPage 102 ;
+    dsa:blatt "011.04" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -1717,8 +1695,7 @@ dsa:familiennameabweichendeSchreibweiseBeiNamenPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:familienname ;
     rdfs:label "Familienname - abweichende Schreibweise" ;
-    dsa:blattnummer "012.01" ;
-    dsa:pdfPage 104 ;
+    dsa:blatt "012.01" ;
     sh:datatype xsd:string ;
     sh:maxLength 90 ;
     sh:minCount 1 ;
@@ -1732,8 +1709,7 @@ dsa:geburtsnameabweichendeSchreibweiseBeiNamenPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:geburtsname ;
     rdfs:label "Geburtsname - abweichende Schreibweise" ;
-    dsa:blattnummer "012.02" ;
-    dsa:pdfPage 105 ;
+    dsa:blatt "012.02" ;
     sh:datatype xsd:string ;
     sh:minCount 1 ;
     sh:maxCount 1 ;
@@ -1746,8 +1722,7 @@ dsa:vornameabweichendeSchreibweiseBeiNamenPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:vorname ;
     rdfs:label "Vorname - abweichende Schreibweise" ;
-    dsa:blattnummer "012.03" ;
-    dsa:pdfPage 106 ;
+    dsa:blatt "012.03" ;
     sh:datatype xsd:string ;
     sh:maxLength 60 ;
     sh:minCount 1 ;
@@ -1763,8 +1738,7 @@ dsa:artEinesandereNamenPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:artEines ;
     rdfs:label "Art eines anderen Namens" ;
-    dsa:blattnummer "013.01" ;
-    dsa:pdfPage 108 ;
+    dsa:blatt "013.01" ;
     sh:nodeKind sh:IRI ;
     sh:class skos:Concept ;
     dsa:codelist <urn:de:xauslaender:codelist:azr:anderername> ;
@@ -1779,8 +1753,7 @@ dsa:andererNameandereNamenPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:andererName ;
     rdfs:label "Anderer Name" ;
-    dsa:blattnummer "013.02" ;
-    dsa:pdfPage 109 ;
+    dsa:blatt "013.02" ;
     sh:datatype xsd:string ;
     sh:maxLength 90 ;
     sh:minCount 1 ;
@@ -1796,8 +1769,7 @@ dsa:fruehererFamiliennamefruehererNamePropertyShape
     a sh:PropertyShape ;
     sh:path dsa:fruehererFamilienname ;
     rdfs:label "Früherer Familienname" ;
-    dsa:blattnummer "014.01" ;
-    dsa:pdfPage 111 ;
+    dsa:blatt "014.01" ;
     sh:datatype xsd:string ;
     sh:minCount 1 ;
     sh:maxCount 1 ;
@@ -1810,8 +1782,7 @@ dsa:fruehereVornamenfruehererNamePropertyShape
     a sh:PropertyShape ;
     sh:path dsa:fruehereVornamen ;
     rdfs:label "Frühere Vornamen" ;
-    dsa:blattnummer "014.02" ;
-    dsa:pdfPage 112 ;
+    dsa:blatt "014.02" ;
     sh:datatype xsd:string ;
     sh:minCount 1 ;
     sh:maxCount 1 ;
@@ -1826,8 +1797,7 @@ dsa:familiennamealiaspersonaliePropertyShape
     a sh:PropertyShape ;
     sh:path dsa:familienname ;
     rdfs:label "Familienname - Aliaspersonalie" ;
-    dsa:blattnummer "015.01" ;
-    dsa:pdfPage 114 ;
+    dsa:blatt "015.01" ;
     sh:datatype xsd:string ;
     sh:maxLength 90 ;
     sh:minCount 1 ;
@@ -1841,8 +1811,7 @@ dsa:geburtsnamealiaspersonaliePropertyShape
     a sh:PropertyShape ;
     sh:path dsa:geburtsname ;
     rdfs:label "Geburtsname - Aliaspersonalie" ;
-    dsa:blattnummer "015.02" ;
-    dsa:pdfPage 115 ;
+    dsa:blatt "015.02" ;
     sh:datatype xsd:string ;
     sh:maxLength 90 ;
     sh:minCount 1 ;
@@ -1856,8 +1825,7 @@ dsa:vornamealiaspersonaliePropertyShape
     a sh:PropertyShape ;
     sh:path dsa:vorname ;
     rdfs:label "Vorname - Aliaspersonalie" ;
-    dsa:blattnummer "015.03" ;
-    dsa:pdfPage 116 ;
+    dsa:blatt "015.03" ;
     sh:datatype xsd:string ;
     sh:maxLength 60 ;
     sh:minCount 1 ;
@@ -1871,8 +1839,7 @@ dsa:geburtsdatumaliaspersonaliePropertyShape
     a sh:PropertyShape ;
     sh:path dsa:geburtsdatum ;
     rdfs:label "Geburtsdatum - Aliaspersonalie" ;
-    dsa:blattnummer "015.04" ;
-    dsa:pdfPage 117 ;
+    dsa:blatt "015.04" ;
     sh:datatype xsd:string ;
     sh:minCount 1 ;
     sh:maxCount 1 ;
@@ -1885,8 +1852,7 @@ dsa:geburtsortaliaspersonaliePropertyShape
     a sh:PropertyShape ;
     sh:path dsa:geburtsort ;
     rdfs:label "Geburtsort - Aliaspersonalie" ;
-    dsa:blattnummer "015.05" ;
-    dsa:pdfPage 118 ;
+    dsa:blatt "015.05" ;
     sh:datatype xsd:string ;
     sh:maxLength 40 ;
     sh:minCount 1 ;
@@ -1900,8 +1866,7 @@ dsa:geburtsbezirkaliaspersonaliePropertyShape
     a sh:PropertyShape ;
     sh:path dsa:geburtsbezirk ;
     rdfs:label "Geburtsbezirk - Aliaspersonalie" ;
-    dsa:blattnummer "015.06" ;
-    dsa:pdfPage 119 ;
+    dsa:blatt "015.06" ;
     sh:datatype xsd:string ;
     sh:maxLength 40 ;
     sh:minCount 1 ;
@@ -1915,8 +1880,7 @@ dsa:staatGeburtsortaliaspersonaliePropertyShape
     a sh:PropertyShape ;
     sh:path dsa:staatGeburtsort ;
     rdfs:label "Staat Geburtsort - Aliaspersonalie" ;
-    dsa:blattnummer "015.07" ;
-    dsa:pdfPage 120 ;
+    dsa:blatt "015.07" ;
     sh:datatype xsd:string ;
     sh:minCount 1 ;
     sh:maxCount 1 ;
@@ -1929,8 +1893,7 @@ dsa:geschlechtaliaspersonaliePropertyShape
     a sh:PropertyShape ;
     sh:path dsa:geschlecht ;
     rdfs:label "Geschlecht - Aliaspersonalie" ;
-    dsa:blattnummer "015.08" ;
-    dsa:pdfPage 121 ;
+    dsa:blatt "015.08" ;
     sh:datatype xsd:string ;
     sh:minCount 1 ;
     sh:maxCount 1 ;
@@ -1943,8 +1906,7 @@ dsa:staatsangehoerigkeitaliaspersonaliePropertyShape
     a sh:PropertyShape ;
     sh:path dsa:staatsangehoerigkeit ;
     rdfs:label "Staatsangehörigkeit - Aliaspersonalie" ;
-    dsa:blattnummer "015.09" ;
-    dsa:pdfPage 122 ;
+    dsa:blatt "015.09" ;
     sh:datatype xsd:string ;
     sh:minCount 1 ;
     sh:maxCount 1 ;
@@ -1957,8 +1919,7 @@ dsa:anummeraliaspersonaliePropertyShape
     a sh:PropertyShape ;
     sh:path dsa:anummer ;
     rdfs:label "ANummer - Aliaspersonalie" ;
-    dsa:blattnummer "015.10" ;
-    dsa:pdfPage 123 ;
+    dsa:blatt "015.10" ;
     sh:datatype xsd:string ;
     sh:maxLength 13 ;
     sh:minCount 1 ;
@@ -1974,8 +1935,7 @@ dsa:artDesausweisdokumentPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:artDes ;
     rdfs:label "Art des Ausweisdokuments" ;
-    dsa:blattnummer "017.01" ;
-    dsa:pdfPage 125 ;
+    dsa:blatt "017.01" ;
     sh:nodeKind sh:IRI ;
     sh:class skos:Concept ;
     dsa:codelist <urn:de:xauslaender:codelist:azr:ausweisart> ;
@@ -1990,8 +1950,7 @@ dsa:seriennummer017ausweisdokumentPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:seriennummer017 ;
     rdfs:label "Seriennummer" ;
-    dsa:blattnummer "017.02" ;
-    dsa:pdfPage 126 ;
+    dsa:blatt "017.02" ;
     sh:datatype xsd:string ;
     sh:maxLength 20 ;
     sh:minCount 0 ;
@@ -2005,8 +1964,7 @@ dsa:gueltigBisausweisdokumentPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:gueltigBis ;
     rdfs:label "Gültig bis" ;
-    dsa:blattnummer "017.03" ;
-    dsa:pdfPage 127 ;
+    dsa:blatt "017.03" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -2019,8 +1977,7 @@ dsa:ausstellenderStaatausweisdokumentPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:ausstellenderStaat ;
     rdfs:label "Ausstellender Staat" ;
-    dsa:blattnummer "017.04" ;
-    dsa:pdfPage 128 ;
+    dsa:blatt "017.04" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -2033,8 +1990,7 @@ dsa:ausstellendeBehoerdeausweisdokumentPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:ausstellendeBehoerde ;
     rdfs:label "Ausstellende Behörde Freitext" ;
-    dsa:blattnummer "017.05" ;
-    dsa:pdfPage 129 ;
+    dsa:blatt "017.05" ;
     sh:datatype xsd:string ;
     sh:maxLength 100 ;
     sh:minCount 0 ;
@@ -2048,8 +2004,7 @@ dsa:aufbewahrendeStelleausweisdokumentPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:aufbewahrendeStelle ;
     rdfs:label "Aufbewahrende Stelle" ;
-    dsa:blattnummer "017.06" ;
-    dsa:pdfPage 130 ;
+    dsa:blatt "017.06" ;
     sh:datatype xsd:string ;
     sh:maxLength 6 ;
     sh:minCount 0 ;
@@ -2063,8 +2018,7 @@ dsa:aufbewahrendeStelleausweisdokumentPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:aufbewahrendeStelle ;
     rdfs:label "Aufbewahrende Stelle Freitext" ;
-    dsa:blattnummer "017.07" ;
-    dsa:pdfPage 131 ;
+    dsa:blatt "017.07" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -2077,8 +2031,7 @@ dsa:geprueftDurchausweisdokumentPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:geprueftDurch ;
     rdfs:label "Geprüft durch" ;
-    dsa:blattnummer "017.08" ;
-    dsa:pdfPage 132 ;
+    dsa:blatt "017.08" ;
     sh:datatype xsd:string ;
     sh:maxLength 6 ;
     sh:minCount 0 ;
@@ -2092,8 +2045,7 @@ dsa:geprueftDurchausweisdokumentPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:geprueftDurch ;
     rdfs:label "Geprüft durch Freitext" ;
-    dsa:blattnummer "017.09" ;
-    dsa:pdfPage 133 ;
+    dsa:blatt "017.09" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -2106,8 +2058,7 @@ dsa:geprueftAmausweisdokumentPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:geprueftAm ;
     rdfs:label "Geprüft am" ;
-    dsa:blattnummer "017.10" ;
-    dsa:pdfPage 134 ;
+    dsa:blatt "017.10" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -2120,8 +2071,7 @@ dsa:ergebnisDerausweisdokumentPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:ergebnisDer ;
     rdfs:label "Ergebnis der Prüfung" ;
-    dsa:blattnummer "017.11" ;
-    dsa:pdfPage 135 ;
+    dsa:blatt "017.11" ;
     sh:nodeKind sh:IRI ;
     sh:class skos:Concept ;
     dsa:codelist <urn:de:xauslaender:codelist:azr:artdesausweispruefungsergebnis> ;
@@ -2136,8 +2086,7 @@ dsa:referenzAufausweisdokumentPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:referenzAuf ;
     rdfs:label "Referenz auf Aliaspersonalie" ;
-    dsa:blattnummer "017.12" ;
-    dsa:pdfPage 136 ;
+    dsa:blatt "017.12" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -2152,8 +2101,7 @@ dsa:religion020freiwilligGemachteAngabenZurReligionszugehoerigkeitPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:religion020 ;
     rdfs:label "Religion" ;
-    dsa:blattnummer "020.01" ;
-    dsa:pdfPage 138 ;
+    dsa:blatt "020.01" ;
     sh:nodeKind sh:IRI ;
     sh:class skos:Concept ;
     dsa:codelist <urn:de:xauslaender:codelist:religion> ;
@@ -2168,8 +2116,7 @@ dsa:zusatzangaben020freiwilligGemachteAngabenZurReligionszugehoerigkeitPropertyS
     a sh:PropertyShape ;
     sh:path dsa:zusatzangaben020 ;
     rdfs:label "Zusatzangaben" ;
-    dsa:blattnummer "020.02" ;
-    dsa:pdfPage 139 ;
+    dsa:blatt "020.02" ;
     sh:datatype xsd:string ;
     sh:maxLength 30 ;
     sh:minCount 0 ;
@@ -2185,8 +2132,7 @@ dsa:fingerabdruckid023fingerabdruckPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:fingerabdruckid023 ;
     rdfs:label "FingerabdruckID" ;
-    dsa:blattnummer "023.01" ;
-    dsa:pdfPage 145 ;
+    dsa:blatt "023.01" ;
     sh:datatype xsd:string ;
     sh:maxLength 36 ;
     sh:minCount 0 ;
@@ -2200,8 +2146,7 @@ dsa:bkaEfingerabdruckPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:bkaE ;
     rdfs:label "BKA E-Nummer" ;
-    dsa:blattnummer "023.02" ;
-    dsa:pdfPage 146 ;
+    dsa:blatt "023.02" ;
     sh:datatype xsd:string ;
     sh:maxLength 12 ;
     sh:minCount 0 ;
@@ -2215,8 +2160,7 @@ dsa:bkaDfingerabdruckPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:bkaD ;
     rdfs:label "BKA D-Nummer" ;
-    dsa:blattnummer "023.03" ;
-    dsa:pdfPage 147 ;
+    dsa:blatt "023.03" ;
     sh:datatype xsd:string ;
     sh:maxLength 12 ;
     sh:minCount 0 ;
@@ -2230,8 +2174,7 @@ dsa:loeschdatum023fingerabdruckPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:loeschdatum023 ;
     rdfs:label "Löschdatum" ;
-    dsa:blattnummer "023.04" ;
-    dsa:pdfPage 148 ;
+    dsa:blatt "023.04" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -2246,8 +2189,7 @@ dsa:artDesmeldestatusPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:artDes ;
     rdfs:label "Art des Meldestatus" ;
-    dsa:blattnummer "024.01" ;
-    dsa:pdfPage 150 ;
+    dsa:blatt "024.01" ;
     sh:nodeKind sh:IRI ;
     sh:class skos:Concept ;
     dsa:codelist <urn:de:xauslaender:codelist:azr:meldestatusart> ;
@@ -2262,8 +2204,7 @@ dsa:ereignisdatum024meldestatusPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:ereignisdatum024 ;
     rdfs:label "Ereignisdatum" ;
-    dsa:blattnummer "024.02" ;
-    dsa:pdfPage 151 ;
+    dsa:blatt "024.02" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -2276,8 +2217,7 @@ dsa:vorherAktenfuehrendemeldestatusPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:vorherAktenfuehrende ;
     rdfs:label "Vorher aktenführende Behörde" ;
-    dsa:blattnummer "024.03" ;
-    dsa:pdfPage 152 ;
+    dsa:blatt "024.03" ;
     sh:datatype xsd:string ;
     sh:maxLength 6 ;
     sh:minCount 0 ;
@@ -2291,8 +2231,7 @@ dsa:aktenzeichenMeldendemeldestatusPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:aktenzeichenMeldende ;
     rdfs:label "Aktenzeichen meldende Behörde" ;
-    dsa:blattnummer "024.04" ;
-    dsa:pdfPage 153 ;
+    dsa:blatt "024.04" ;
     sh:datatype xsd:string ;
     sh:maxLength 25 ;
     sh:minCount 0 ;
@@ -2308,8 +2247,7 @@ dsa:artDerausreisefoerderungReintegrationsfoerderungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:artDer ;
     rdfs:label "Art der Ausreiseförderung, Art der Reintegrationsförderung" ;
-    dsa:blattnummer "025.01" ;
-    dsa:pdfPage 155 ;
+    dsa:blatt "025.01" ;
     sh:datatype xsd:string ;
     sh:minCount 1 ;
     sh:maxCount 1 ;
@@ -2322,8 +2260,7 @@ dsa:entschiedenAmausreisefoerderungReintegrationsfoerderungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:entschiedenAm ;
     rdfs:label "Entschieden am" ;
-    dsa:blattnummer "025.02" ;
-    dsa:pdfPage 156 ;
+    dsa:blatt "025.02" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -2336,8 +2273,7 @@ dsa:entschiedenDurchausreisefoerderungReintegrationsfoerderungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:entschiedenDurch ;
     rdfs:label "Entschieden durch" ;
-    dsa:blattnummer "025.03" ;
-    dsa:pdfPage 157 ;
+    dsa:blatt "025.03" ;
     sh:datatype xsd:string ;
     sh:maxLength 6 ;
     sh:minCount 0 ;
@@ -2351,8 +2287,7 @@ dsa:entschiedenDurchausreisefoerderungReintegrationsfoerderungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:entschiedenDurch ;
     rdfs:label "Entschieden durch (Freitext)" ;
-    dsa:blattnummer "025.04" ;
-    dsa:pdfPage 158 ;
+    dsa:blatt "025.04" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -2365,8 +2300,7 @@ dsa:loeschdatum025ausreisefoerderungReintegrationsfoerderungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:loeschdatum025 ;
     rdfs:label "Löschdatum" ;
-    dsa:blattnummer "025.05" ;
-    dsa:pdfPage 159 ;
+    dsa:blatt "025.05" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -2379,8 +2313,7 @@ dsa:aktenzeichenMeldendeausreisefoerderungReintegrationsfoerderungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:aktenzeichenMeldende ;
     rdfs:label "Aktenzeichen meldende Behörde" ;
-    dsa:blattnummer "025.06" ;
-    dsa:pdfPage 160 ;
+    dsa:blatt "025.06" ;
     sh:datatype xsd:string ;
     sh:maxLength 25 ;
     sh:minCount 0 ;
@@ -2394,8 +2327,7 @@ dsa:zielstaat025ausreisefoerderungReintegrationsfoerderungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:zielstaat025 ;
     rdfs:label "Zielstaat" ;
-    dsa:blattnummer "025.07" ;
-    dsa:pdfPage 161 ;
+    dsa:blatt "025.07" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -2408,8 +2340,7 @@ dsa:ausreisedatum025ausreisefoerderungReintegrationsfoerderungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:ausreisedatum025 ;
     rdfs:label "Ausreisedatum" ;
-    dsa:blattnummer "025.08" ;
-    dsa:pdfPage 162 ;
+    dsa:blatt "025.08" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -2424,8 +2355,7 @@ dsa:artDesausreisenachweisPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:artDes ;
     rdfs:label "Art des Ausreisenachweis" ;
-    dsa:blattnummer "026.01" ;
-    dsa:pdfPage 164 ;
+    dsa:blatt "026.01" ;
     sh:nodeKind sh:IRI ;
     sh:class skos:Concept ;
     dsa:codelist <urn:de:xauslaender:codelist:azr:artdesausreisenachweis> ;
@@ -2440,8 +2370,7 @@ dsa:ereignisdatum026ausreisenachweisPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:ereignisdatum026 ;
     rdfs:label "Ereignisdatum" ;
-    dsa:blattnummer "026.02" ;
-    dsa:pdfPage 165 ;
+    dsa:blatt "026.02" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -2454,8 +2383,7 @@ dsa:ausreisestaat026ausreisenachweisPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:ausreisestaat026 ;
     rdfs:label "Ausreisestaat" ;
-    dsa:blattnummer "026.03" ;
-    dsa:pdfPage 166 ;
+    dsa:blatt "026.03" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -2468,8 +2396,7 @@ dsa:loeschdatum026ausreisenachweisPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:loeschdatum026 ;
     rdfs:label "Löschdatum" ;
-    dsa:blattnummer "026.04" ;
-    dsa:pdfPage 167 ;
+    dsa:blatt "026.04" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -2482,8 +2409,7 @@ dsa:zielstaat026ausreisenachweisPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:zielstaat026 ;
     rdfs:label "Zielstaat" ;
-    dsa:blattnummer "026.05" ;
-    dsa:pdfPage 168 ;
+    dsa:blatt "026.05" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -2498,8 +2424,7 @@ dsa:standDesasylstatusPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:standDes ;
     rdfs:label "Stand des Asylverfahrens" ;
-    dsa:blattnummer "028.01" ;
-    dsa:pdfPage 170 ;
+    dsa:blatt "028.01" ;
     sh:nodeKind sh:IRI ;
     sh:class skos:Concept ;
     dsa:codelist <urn:de:xauslaender:codelist:azr:asylstatus> ;
@@ -2514,8 +2439,7 @@ dsa:ereignisdatum028asylstatusPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:ereignisdatum028 ;
     rdfs:label "Ereignisdatum" ;
-    dsa:blattnummer "028.02" ;
-    dsa:pdfPage 171 ;
+    dsa:blatt "028.02" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -2528,8 +2452,7 @@ dsa:einreisestaat028asylstatusPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:einreisestaat028 ;
     rdfs:label "Einreisestaat" ;
-    dsa:blattnummer "028.03" ;
-    dsa:pdfPage 172 ;
+    dsa:blatt "028.03" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -2542,8 +2465,7 @@ dsa:geschaeftszeichen028asylstatusPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:geschaeftszeichen028 ;
     rdfs:label "Geschäftszeichen" ;
-    dsa:blattnummer "028.04" ;
-    dsa:pdfPage 173 ;
+    dsa:blatt "028.04" ;
     sh:datatype xsd:string ;
     sh:maxLength 25 ;
     sh:minCount 0 ;
@@ -2556,8 +2478,7 @@ dsa:freizueggasylstatusPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:freizuegg ;
     rdfs:label "None" ;
-    dsa:blattnummer "028.05" ;
-    dsa:pdfPage 481 ;
+    dsa:blatt "028.05" ;
     sh:datatype xsd:string .
 
 # 028.06 - Bestandskraft
@@ -2567,8 +2488,7 @@ dsa:bestandskraft028asylstatusPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:bestandskraft028 ;
     rdfs:label "Bestandskraft" ;
-    dsa:blattnummer "028.06" ;
-    dsa:pdfPage 175 ;
+    dsa:blatt "028.06" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -2581,8 +2501,7 @@ dsa:zustellungsdatum028asylstatusPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:zustellungsdatum028 ;
     rdfs:label "Zustellungsdatum" ;
-    dsa:blattnummer "028.07" ;
-    dsa:pdfPage 176 ;
+    dsa:blatt "028.07" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -2597,8 +2516,7 @@ dsa:artDerabschiebungsverbotePropertyShape
     a sh:PropertyShape ;
     sh:path dsa:artDer ;
     rdfs:label "Art der Abschiebungsverbote" ;
-    dsa:blattnummer "029.01" ;
-    dsa:pdfPage 178 ;
+    dsa:blatt "029.01" ;
     sh:nodeKind sh:IRI ;
     sh:class skos:Concept ;
     dsa:codelist <urn:de:xauslaender:codelist:azr:artdesabschiebungsverbots> ;
@@ -2613,8 +2531,7 @@ dsa:ereignisdatum029abschiebungsverbotePropertyShape
     a sh:PropertyShape ;
     sh:path dsa:ereignisdatum029 ;
     rdfs:label "Ereignisdatum" ;
-    dsa:blattnummer "029.02" ;
-    dsa:pdfPage 179 ;
+    dsa:blatt "029.02" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -2627,8 +2544,7 @@ dsa:zielstaat029abschiebungsverbotePropertyShape
     a sh:PropertyShape ;
     sh:path dsa:zielstaat029 ;
     rdfs:label "Zielstaat" ;
-    dsa:blattnummer "029.03" ;
-    dsa:pdfPage 180 ;
+    dsa:blatt "029.03" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -2641,8 +2557,7 @@ dsa:bestandskraft029abschiebungsverbotePropertyShape
     a sh:PropertyShape ;
     sh:path dsa:bestandskraft029 ;
     rdfs:label "Bestandskraft" ;
-    dsa:blattnummer "029.04" ;
-    dsa:pdfPage 181 ;
+    dsa:blatt "029.04" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -2655,8 +2570,7 @@ dsa:aktenzeichenMeldendeabschiebungsverbotePropertyShape
     a sh:PropertyShape ;
     sh:path dsa:aktenzeichenMeldende ;
     rdfs:label "Aktenzeichen meldende Behörde" ;
-    dsa:blattnummer "029.05" ;
-    dsa:pdfPage 182 ;
+    dsa:blatt "029.05" ;
     sh:datatype xsd:string ;
     sh:maxLength 25 ;
     sh:minCount 0 ;
@@ -2670,8 +2584,7 @@ dsa:zustellungsdatum029abschiebungsverbotePropertyShape
     a sh:PropertyShape ;
     sh:path dsa:zustellungsdatum029 ;
     rdfs:label "Zustellungsdatum" ;
-    dsa:blattnummer "029.06" ;
-    dsa:pdfPage 183 ;
+    dsa:blatt "029.06" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -2686,8 +2599,7 @@ dsa:artDeraufenthaltsgestattungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:artDer ;
     rdfs:label "Art der Aufenthaltsgestattung" ;
-    dsa:blattnummer "030.01" ;
-    dsa:pdfPage 185 ;
+    dsa:blatt "030.01" ;
     sh:nodeKind sh:IRI ;
     sh:class skos:Concept ;
     dsa:codelist <urn:de:xauslaender:codelist:azr:aufenthaltsgestattung> ;
@@ -2702,8 +2614,7 @@ dsa:ereignisdatum030aufenthaltsgestattungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:ereignisdatum030 ;
     rdfs:label "Ereignisdatum" ;
-    dsa:blattnummer "030.02" ;
-    dsa:pdfPage 186 ;
+    dsa:blatt "030.02" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -2716,8 +2627,7 @@ dsa:nummerDeraufenthaltsgestattungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:nummerDer ;
     rdfs:label "Nummer der Aufenthaltsgestattung" ;
-    dsa:blattnummer "030.03" ;
-    dsa:pdfPage 187 ;
+    dsa:blatt "030.03" ;
     sh:datatype xsd:string ;
     sh:maxLength 9 ;
     sh:minCount 0 ;
@@ -2731,8 +2641,7 @@ dsa:nummerTraegervordruckaufenthaltsgestattungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:nummerTraegervordruck ;
     rdfs:label "Nummer Trägervordruck" ;
-    dsa:blattnummer "030.04" ;
-    dsa:pdfPage 188 ;
+    dsa:blatt "030.04" ;
     sh:datatype xsd:string ;
     sh:maxLength 8 ;
     sh:minCount 0 ;
@@ -2748,8 +2657,7 @@ dsa:artDerwohnsitzauflageRaeumlicheBeschraenkungWohnsitzregelungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:artDer ;
     rdfs:label "Art der Wohnsitzauflage, räumlichen Beschränkung, Wohnsitzregelung oder Wohnsitzverpflichtung" ;
-    dsa:blattnummer "031.01" ;
-    dsa:pdfPage 190 ;
+    dsa:blatt "031.01" ;
     sh:nodeKind sh:IRI ;
     sh:class skos:Concept ;
     dsa:codelist <urn:de:xauslaender:codelist:azr:wohnsitzauflage> ;
@@ -2764,8 +2672,7 @@ dsa:ereignisdatum031wohnsitzauflageRaeumlicheBeschraenkungWohnsitzregelungProper
     a sh:PropertyShape ;
     sh:path dsa:ereignisdatum031 ;
     rdfs:label "Ereignisdatum" ;
-    dsa:blattnummer "031.02" ;
-    dsa:pdfPage 191 ;
+    dsa:blatt "031.02" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -2778,8 +2685,7 @@ dsa:befristungsdatum031wohnsitzauflageRaeumlicheBeschraenkungWohnsitzregelungPro
     a sh:PropertyShape ;
     sh:path dsa:befristungsdatum031 ;
     rdfs:label "Befristungsdatum" ;
-    dsa:blattnummer "031.03" ;
-    dsa:pdfPage 192 ;
+    dsa:blatt "031.03" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -2792,8 +2698,7 @@ dsa:bundesland031wohnsitzauflageRaeumlicheBeschraenkungWohnsitzregelungPropertyS
     a sh:PropertyShape ;
     sh:path dsa:bundesland031 ;
     rdfs:label "Bundesland" ;
-    dsa:blattnummer "031.04" ;
-    dsa:pdfPage 193 ;
+    dsa:blatt "031.04" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -2806,8 +2711,7 @@ dsa:bezirkDerwohnsitzauflageRaeumlicheBeschraenkungWohnsitzregelungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:bezirkDer ;
     rdfs:label "Bezirk der Ausländerbehörde" ;
-    dsa:blattnummer "031.05" ;
-    dsa:pdfPage 194 ;
+    dsa:blatt "031.05" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -2820,8 +2724,7 @@ dsa:bezirkDerwohnsitzauflageRaeumlicheBeschraenkungWohnsitzregelungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:bezirkDer ;
     rdfs:label "Bezirk der Ausländerbehörde (Freitext)" ;
-    dsa:blattnummer "031.06" ;
-    dsa:pdfPage 195 ;
+    dsa:blatt "031.06" ;
     sh:datatype xsd:string ;
     sh:maxLength 50 ;
     sh:minCount 0 ;
@@ -2835,8 +2738,7 @@ dsa:ort031wohnsitzauflageRaeumlicheBeschraenkungWohnsitzregelungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:ort031 ;
     rdfs:label "Ort" ;
-    dsa:blattnummer "031.07" ;
-    dsa:pdfPage 196 ;
+    dsa:blatt "031.07" ;
     sh:datatype xsd:string ;
     sh:maxLength 50 ;
     sh:minCount 0 ;
@@ -2850,8 +2752,7 @@ dsa:aktenzeichenMeldendewohnsitzauflageRaeumlicheBeschraenkungWohnsitzregelungPr
     a sh:PropertyShape ;
     sh:path dsa:aktenzeichenMeldende ;
     rdfs:label "Aktenzeichen meldende Behörde" ;
-    dsa:blattnummer "031.08" ;
-    dsa:pdfPage 197 ;
+    dsa:blatt "031.08" ;
     sh:datatype xsd:string ;
     sh:maxLength 25 ;
     sh:minCount 0 ;
@@ -2865,8 +2766,7 @@ dsa:amtlicherGemeindeschluesselwohnsitzauflageRaeumlicheBeschraenkungWohnsitzreg
     a sh:PropertyShape ;
     sh:path dsa:amtlicherGemeindeschluessel ;
     rdfs:label "Amtlicher Gemeindeschlüssel (AGS)" ;
-    dsa:blattnummer "031.09" ;
-    dsa:pdfPage 198 ;
+    dsa:blatt "031.09" ;
     sh:datatype xsd:string ;
     sh:maxLength 8 ;
     sh:minCount 0 ;
@@ -2880,8 +2780,7 @@ dsa:aenderungsdatum031wohnsitzauflageRaeumlicheBeschraenkungWohnsitzregelungProp
     a sh:PropertyShape ;
     sh:path dsa:aenderungsdatum031 ;
     rdfs:label "Änderungsdatum" ;
-    dsa:blattnummer "031.10" ;
-    dsa:pdfPage 199 ;
+    dsa:blatt "031.10" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -2896,8 +2795,7 @@ dsa:ausstellungsdatum032ankunftsnachweisPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:ausstellungsdatum032 ;
     rdfs:label "Ausstellungsdatum" ;
-    dsa:blattnummer "032.01" ;
-    dsa:pdfPage 201 ;
+    dsa:blatt "032.01" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -2910,8 +2808,7 @@ dsa:gueltigBisankunftsnachweisPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:gueltigBis ;
     rdfs:label "Gültig bis" ;
-    dsa:blattnummer "032.02" ;
-    dsa:pdfPage 202 ;
+    dsa:blatt "032.02" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -2924,8 +2821,7 @@ dsa:loeschdatum032ankunftsnachweisPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:loeschdatum032 ;
     rdfs:label "Löschdatum" ;
-    dsa:blattnummer "032.03" ;
-    dsa:pdfPage 203 ;
+    dsa:blatt "032.03" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -2940,8 +2836,7 @@ dsa:artDerunerlaubteEinreiseUndAufenthaltPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:artDer ;
     rdfs:label "Art der Unerlaubte Einreise und Aufenthalt" ;
-    dsa:blattnummer "033.01" ;
-    dsa:pdfPage 205 ;
+    dsa:blatt "033.01" ;
     sh:nodeKind sh:IRI ;
     sh:class skos:Concept ;
     dsa:codelist <urn:de:xauslaender:codelist:azr:unerlaubteeinreiseundaufenthaltart> ;
@@ -2956,8 +2851,7 @@ dsa:ereignisdatum033unerlaubteEinreiseUndAufenthaltPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:ereignisdatum033 ;
     rdfs:label "Ereignisdatum" ;
-    dsa:blattnummer "033.02" ;
-    dsa:pdfPage 206 ;
+    dsa:blatt "033.02" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -2970,8 +2864,7 @@ dsa:loeschdatum033unerlaubteEinreiseUndAufenthaltPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:loeschdatum033 ;
     rdfs:label "Löschdatum" ;
-    dsa:blattnummer "033.03" ;
-    dsa:pdfPage 207 ;
+    dsa:blatt "033.03" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -2984,8 +2877,7 @@ dsa:einreisestaat033unerlaubteEinreiseUndAufenthaltPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:einreisestaat033 ;
     rdfs:label "Einreisestaat" ;
-    dsa:blattnummer "033.04" ;
-    dsa:pdfPage 208 ;
+    dsa:blatt "033.04" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -2998,8 +2890,7 @@ dsa:aktenzeichenMeldendeunerlaubteEinreiseUndAufenthaltPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:aktenzeichenMeldende ;
     rdfs:label "Aktenzeichen meldende Behörde" ;
-    dsa:blattnummer "033.05" ;
-    dsa:pdfPage 209 ;
+    dsa:blatt "033.05" ;
     sh:datatype xsd:string ;
     sh:maxLength 25 ;
     sh:minCount 0 ;
@@ -3015,8 +2906,7 @@ dsa:artDesweitereAufenthaltsstatusPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:artDes ;
     rdfs:label "Art des Aufenthaltsstatus" ;
-    dsa:blattnummer "034.01" ;
-    dsa:pdfPage 211 ;
+    dsa:blatt "034.01" ;
     sh:nodeKind sh:IRI ;
     sh:class skos:Concept ;
     dsa:codelist <urn:de:xauslaender:codelist:azr:aufenthaltsstatus> ;
@@ -3031,8 +2921,7 @@ dsa:ereignisdatum034weitereAufenthaltsstatusPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:ereignisdatum034 ;
     rdfs:label "Ereignisdatum" ;
-    dsa:blattnummer "034.02" ;
-    dsa:pdfPage 212 ;
+    dsa:blatt "034.02" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -3045,8 +2934,7 @@ dsa:nummerDesweitereAufenthaltsstatusPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:nummerDes ;
     rdfs:label "Nummer des Aufenthaltsdokuments" ;
-    dsa:blattnummer "034.03" ;
-    dsa:pdfPage 213 ;
+    dsa:blatt "034.03" ;
     sh:datatype xsd:string ;
     sh:maxLength 9 ;
     sh:minCount 0 ;
@@ -3060,8 +2948,7 @@ dsa:nummerTraegervordruckweitereAufenthaltsstatusPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:nummerTraegervordruck ;
     rdfs:label "Nummer Trägervordruck" ;
-    dsa:blattnummer "034.04" ;
-    dsa:pdfPage 214 ;
+    dsa:blatt "034.04" ;
     sh:datatype xsd:string ;
     sh:maxLength 9 ;
     sh:minCount 0 ;
@@ -3075,8 +2962,7 @@ dsa:befristungsdatum034weitereAufenthaltsstatusPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:befristungsdatum034 ;
     rdfs:label "Befristungsdatum" ;
-    dsa:blattnummer "034.05" ;
-    dsa:pdfPage 215 ;
+    dsa:blatt "034.05" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -3089,8 +2975,7 @@ dsa:unanfechtbarkeitsdatum034weitereAufenthaltsstatusPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:unanfechtbarkeitsdatum034 ;
     rdfs:label "Unanfechtbarkeitsdatum" ;
-    dsa:blattnummer "034.06" ;
-    dsa:pdfPage 216 ;
+    dsa:blatt "034.06" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -3103,8 +2988,7 @@ dsa:zustellungsdatum034weitereAufenthaltsstatusPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:zustellungsdatum034 ;
     rdfs:label "Zustellungsdatum" ;
-    dsa:blattnummer "034.07" ;
-    dsa:pdfPage 217 ;
+    dsa:blatt "034.07" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -3119,8 +3003,7 @@ dsa:artDerentscheidungDerBundesagenturFuerArbeitPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:artDer ;
     rdfs:label "Art der Entscheidung zur Erwerbstätigkeit" ;
-    dsa:blattnummer "035.01" ;
-    dsa:pdfPage 219 ;
+    dsa:blatt "035.01" ;
     sh:nodeKind sh:IRI ;
     sh:class skos:Concept ;
     dsa:codelist <urn:de:xauslaender:codelist:azr:entscheidungba> ;
@@ -3135,8 +3018,7 @@ dsa:ereignisdatum035entscheidungDerBundesagenturFuerArbeitPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:ereignisdatum035 ;
     rdfs:label "Ereignisdatum" ;
-    dsa:blattnummer "035.02" ;
-    dsa:pdfPage 220 ;
+    dsa:blatt "035.02" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -3149,8 +3031,7 @@ dsa:befristungsdatum035entscheidungDerBundesagenturFuerArbeitPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:befristungsdatum035 ;
     rdfs:label "Befristungsdatum" ;
-    dsa:blattnummer "035.03" ;
-    dsa:pdfPage 221 ;
+    dsa:blatt "035.03" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -3163,8 +3044,7 @@ dsa:raeumlicheBeschraenkungentscheidungDerBundesagenturFuerArbeitPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:raeumlicheBeschraenkung ;
     rdfs:label "Räumliche Beschränkung" ;
-    dsa:blattnummer "035.04" ;
-    dsa:pdfPage 222 ;
+    dsa:blatt "035.04" ;
     sh:datatype xsd:string ;
     sh:maxLength 45 ;
     sh:minCount 0 ;
@@ -3178,8 +3058,7 @@ dsa:arbeitgeberbindung035entscheidungDerBundesagenturFuerArbeitPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:arbeitgeberbindung035 ;
     rdfs:label "Arbeitgeberbindung" ;
-    dsa:blattnummer "035.05" ;
-    dsa:pdfPage 223 ;
+    dsa:blatt "035.05" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -3192,8 +3071,7 @@ dsa:weitereNebenbestimmungenentscheidungDerBundesagenturFuerArbeitPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:weitereNebenbestimmungen ;
     rdfs:label "Weitere Nebenbestimmungen" ;
-    dsa:blattnummer "035.06" ;
-    dsa:pdfPage 224 ;
+    dsa:blatt "035.06" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -3206,8 +3084,7 @@ dsa:loeschdatum035entscheidungDerBundesagenturFuerArbeitPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:loeschdatum035 ;
     rdfs:label "Löschdatum" ;
-    dsa:blattnummer "035.07" ;
-    dsa:pdfPage 225 ;
+    dsa:blatt "035.07" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -3222,8 +3099,7 @@ dsa:artDernebenbestimmungenZurErwerbstaetigkeitPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:artDer ;
     rdfs:label "Art der Nebenbestimmungen zur Erwerbstätigkeit" ;
-    dsa:blattnummer "036.01" ;
-    dsa:pdfPage 227 ;
+    dsa:blatt "036.01" ;
     sh:nodeKind sh:IRI ;
     sh:class skos:Concept ;
     dsa:codelist <urn:de:xauslaender:codelist:azr:nebenbestimmungerwerbstaetigkeit> ;
@@ -3238,8 +3114,7 @@ dsa:ereignisdatum036nebenbestimmungenZurErwerbstaetigkeitPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:ereignisdatum036 ;
     rdfs:label "Ereignisdatum" ;
-    dsa:blattnummer "036.02" ;
-    dsa:pdfPage 228 ;
+    dsa:blatt "036.02" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -3252,8 +3127,7 @@ dsa:befristungsdatum036nebenbestimmungenZurErwerbstaetigkeitPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:befristungsdatum036 ;
     rdfs:label "Befristungsdatum" ;
-    dsa:blattnummer "036.03" ;
-    dsa:pdfPage 229 ;
+    dsa:blatt "036.03" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -3266,8 +3140,7 @@ dsa:raeumlicheBeschraenkungnebenbestimmungenZurErwerbstaetigkeitPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:raeumlicheBeschraenkung ;
     rdfs:label "Räumliche Beschränkung" ;
-    dsa:blattnummer "036.04" ;
-    dsa:pdfPage 230 ;
+    dsa:blatt "036.04" ;
     sh:datatype xsd:string ;
     sh:maxLength 45 ;
     sh:minCount 0 ;
@@ -3281,8 +3154,7 @@ dsa:arbeitgeberbindung036nebenbestimmungenZurErwerbstaetigkeitPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:arbeitgeberbindung036 ;
     rdfs:label "Arbeitgeberbindung" ;
-    dsa:blattnummer "036.05" ;
-    dsa:pdfPage 231 ;
+    dsa:blatt "036.05" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -3295,8 +3167,7 @@ dsa:weitereNebenbestimmungennebenbestimmungenZurErwerbstaetigkeitPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:weitereNebenbestimmungen ;
     rdfs:label "Weitere Nebenbestimmungen" ;
-    dsa:blattnummer "036.06" ;
-    dsa:pdfPage 232 ;
+    dsa:blatt "036.06" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -3311,8 +3182,7 @@ dsa:artDerzustimmungsfreieBeschaeftigungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:artDer ;
     rdfs:label "Art der zustimmungsfreien Beschäftigung" ;
-    dsa:blattnummer "037.01" ;
-    dsa:pdfPage 234 ;
+    dsa:blatt "037.01" ;
     sh:nodeKind sh:IRI ;
     sh:class skos:Concept ;
     dsa:codelist <urn:de:xauslaender:codelist:azr:zustimmungsfreiebeschaeftigung> ;
@@ -3327,8 +3197,7 @@ dsa:ereignisdatum037zustimmungsfreieBeschaeftigungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:ereignisdatum037 ;
     rdfs:label "Ereignisdatum" ;
-    dsa:blattnummer "037.02" ;
-    dsa:pdfPage 235 ;
+    dsa:blatt "037.02" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -3341,8 +3210,7 @@ dsa:befristungsdatum037zustimmungsfreieBeschaeftigungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:befristungsdatum037 ;
     rdfs:label "Befristungsdatum" ;
-    dsa:blattnummer "037.03" ;
-    dsa:pdfPage 236 ;
+    dsa:blatt "037.03" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -3355,8 +3223,7 @@ dsa:loeschdatum037zustimmungsfreieBeschaeftigungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:loeschdatum037 ;
     rdfs:label "Löschdatum" ;
-    dsa:blattnummer "037.04" ;
-    dsa:pdfPage 237 ;
+    dsa:blatt "037.04" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -3371,8 +3238,7 @@ dsa:artDeraufenthaltserlaubnisPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:artDer ;
     rdfs:label "Art der Aufenthaltserlaubnis" ;
-    dsa:blattnummer "038.01" ;
-    dsa:pdfPage 239 ;
+    dsa:blatt "038.01" ;
     sh:nodeKind sh:IRI ;
     sh:class skos:Concept ;
     dsa:codelist <urn:de:xauslaender:codelist:azr:aufenthaltserlaubnis> ;
@@ -3387,8 +3253,7 @@ dsa:ereignisdatum038aufenthaltserlaubnisPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:ereignisdatum038 ;
     rdfs:label "Ereignisdatum" ;
-    dsa:blattnummer "038.02" ;
-    dsa:pdfPage 240 ;
+    dsa:blatt "038.02" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -3401,8 +3266,7 @@ dsa:befristungsdatum038aufenthaltserlaubnisPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:befristungsdatum038 ;
     rdfs:label "Befristungsdatum" ;
-    dsa:blattnummer "038.03" ;
-    dsa:pdfPage 241 ;
+    dsa:blatt "038.03" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -3415,8 +3279,7 @@ dsa:nummerDeraufenthaltserlaubnisPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:nummerDer ;
     rdfs:label "Nummer der Aufenthaltserlaubnis" ;
-    dsa:blattnummer "038.04" ;
-    dsa:pdfPage 242 ;
+    dsa:blatt "038.04" ;
     sh:datatype xsd:string ;
     sh:maxLength 9 ;
     sh:minCount 0 ;
@@ -3430,8 +3293,7 @@ dsa:staat038aufenthaltserlaubnisPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:staat038 ;
     rdfs:label "Staat" ;
-    dsa:blattnummer "038.05" ;
-    dsa:pdfPage 243 ;
+    dsa:blatt "038.05" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -3444,8 +3306,7 @@ dsa:aktenzeichenMeldendeaufenthaltserlaubnisPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:aktenzeichenMeldende ;
     rdfs:label "Aktenzeichen meldende Behörde" ;
-    dsa:blattnummer "038.06" ;
-    dsa:pdfPage 244 ;
+    dsa:blatt "038.06" ;
     sh:datatype xsd:string ;
     sh:maxLength 25 ;
     sh:minCount 0 ;
@@ -3461,8 +3322,7 @@ dsa:artDerintegrationskursPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:artDer ;
     rdfs:label "Art der Berechtigung oder Verpflichtung" ;
-    dsa:blattnummer "039.01" ;
-    dsa:pdfPage 246 ;
+    dsa:blatt "039.01" ;
     sh:datatype xsd:string ;
     sh:minCount 1 ;
     sh:maxCount 1 ;
@@ -3475,8 +3335,7 @@ dsa:erstellungszeitpunkt039integrationskursPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:erstellungszeitpunkt039 ;
     rdfs:label "Erstellungszeitpunkt" ;
-    dsa:blattnummer "039.02" ;
-    dsa:pdfPage 247 ;
+    dsa:blatt "039.02" ;
     sh:datatype xsd:string ;
     sh:minCount 1 ;
     sh:maxCount 1 ;
@@ -3489,8 +3348,7 @@ dsa:erteilendeStelleintegrationskursPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:erteilendeStelle ;
     rdfs:label "Erteilende Stelle" ;
-    dsa:blattnummer "039.03" ;
-    dsa:pdfPage 248 ;
+    dsa:blatt "039.03" ;
     sh:datatype xsd:string ;
     sh:maxLength 6 ;
     sh:minCount 0 ;
@@ -3504,8 +3362,7 @@ dsa:erteilendeStelleintegrationskursPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:erteilendeStelle ;
     rdfs:label "Erteilende Stelle (Freitext)" ;
-    dsa:blattnummer "039.04" ;
-    dsa:pdfPage 249 ;
+    dsa:blatt "039.04" ;
     sh:datatype xsd:string ;
     sh:maxLength 255 ;
     sh:minCount 0 ;
@@ -3519,8 +3376,7 @@ dsa:artDesintegrationskursPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:artDes ;
     rdfs:label "Art des Integrationskurses" ;
-    dsa:blattnummer "039.05" ;
-    dsa:pdfPage 250 ;
+    dsa:blatt "039.05" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -3533,8 +3389,7 @@ dsa:integrationskursbeginn039integrationskursPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:integrationskursbeginn039 ;
     rdfs:label "Integrationskursbeginn" ;
-    dsa:blattnummer "039.06" ;
-    dsa:pdfPage 251 ;
+    dsa:blatt "039.06" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -3547,8 +3402,7 @@ dsa:artDesintegrationskursPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:artDes ;
     rdfs:label "Art des Kursabschlusses" ;
-    dsa:blattnummer "039.07" ;
-    dsa:pdfPage 252 ;
+    dsa:blatt "039.07" ;
     sh:nodeKind sh:IRI ;
     sh:class skos:Concept ;
     dsa:codelist <urn:de:xauslaender:codelist:azr:artdeskursabschlusses> ;
@@ -3563,8 +3417,7 @@ dsa:konsequenzenNichtteilnahmeintegrationskursPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:konsequenzenNichtteilnahme ;
     rdfs:label "Konsequenzen Nichtteilnahme" ;
-    dsa:blattnummer "039.08" ;
-    dsa:pdfPage 253 ;
+    dsa:blatt "039.08" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -3577,8 +3430,7 @@ dsa:gemeldeteFehlzeitenintegrationskursPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:gemeldeteFehlzeiten ;
     rdfs:label "Gemeldete Fehlzeiten" ;
-    dsa:blattnummer "039.09" ;
-    dsa:pdfPage 254 ;
+    dsa:blatt "039.09" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -3591,8 +3443,7 @@ dsa:loeschdatum039integrationskursPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:loeschdatum039 ;
     rdfs:label "Löschdatum" ;
-    dsa:blattnummer "039.10" ;
-    dsa:pdfPage 255 ;
+    dsa:blatt "039.10" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -3605,8 +3456,7 @@ dsa:originaerSpeicherndeintegrationskursPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:originaerSpeichernde ;
     rdfs:label "Originär speichernde Behörde" ;
-    dsa:blattnummer "039.11" ;
-    dsa:pdfPage 256 ;
+    dsa:blatt "039.11" ;
     sh:datatype xsd:string ;
     sh:maxLength 6 ;
     sh:minCount 0 ;
@@ -3622,8 +3472,7 @@ dsa:artDerniederlassungserlaubnisPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:artDer ;
     rdfs:label "Art der Niederlassungserlaubnis / des unbefristeten Aufenthaltstitels" ;
-    dsa:blattnummer "040.01" ;
-    dsa:pdfPage 258 ;
+    dsa:blatt "040.01" ;
     sh:nodeKind sh:IRI ;
     sh:class skos:Concept ;
     dsa:codelist <urn:de:xauslaender:codelist:azr:niederlassungserlaubnis> ;
@@ -3638,8 +3487,7 @@ dsa:ereignisdatum040niederlassungserlaubnisPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:ereignisdatum040 ;
     rdfs:label "Ereignisdatum" ;
-    dsa:blattnummer "040.02" ;
-    dsa:pdfPage 259 ;
+    dsa:blatt "040.02" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -3652,8 +3500,7 @@ dsa:nummerDesniederlassungserlaubnisPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:nummerDes ;
     rdfs:label "Nummer des Aufenthaltstitels" ;
-    dsa:blattnummer "040.03" ;
-    dsa:pdfPage 260 ;
+    dsa:blatt "040.03" ;
     sh:datatype xsd:string ;
     sh:maxLength 9 ;
     sh:minCount 0 ;
@@ -3669,8 +3516,7 @@ dsa:artDesaufenthaltsrechtEuPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:artDes ;
     rdfs:label "Art des Aufenthaltsrechts EU" ;
-    dsa:blattnummer "041.01" ;
-    dsa:pdfPage 262 ;
+    dsa:blatt "041.01" ;
     sh:nodeKind sh:IRI ;
     sh:class skos:Concept ;
     dsa:codelist <urn:de:xauslaender:codelist:azr:euaufenthaltsrecht> ;
@@ -3685,8 +3531,7 @@ dsa:ereignisdatum041aufenthaltsrechtEuPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:ereignisdatum041 ;
     rdfs:label "Ereignisdatum" ;
-    dsa:blattnummer "041.02" ;
-    dsa:pdfPage 263 ;
+    dsa:blatt "041.02" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -3699,8 +3544,7 @@ dsa:befristungsdatum041aufenthaltsrechtEuPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:befristungsdatum041 ;
     rdfs:label "Befristungsdatum" ;
-    dsa:blattnummer "041.03" ;
-    dsa:pdfPage 264 ;
+    dsa:blatt "041.03" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -3713,8 +3557,7 @@ dsa:nummerDesaufenthaltsrechtEuPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:nummerDes ;
     rdfs:label "Nummer des Aufenthaltstitels" ;
-    dsa:blattnummer "041.04" ;
-    dsa:pdfPage 265 ;
+    dsa:blatt "041.04" ;
     sh:datatype xsd:string ;
     sh:maxLength 9 ;
     sh:minCount 0 ;
@@ -3730,8 +3573,7 @@ dsa:artDerausweisungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:artDer ;
     rdfs:label "Art der Ausweisung" ;
-    dsa:blattnummer "042.01" ;
-    dsa:pdfPage 267 ;
+    dsa:blatt "042.01" ;
     sh:nodeKind sh:IRI ;
     sh:class skos:Concept ;
     dsa:codelist <urn:de:xauslaender:codelist:azr:artderausweisung> ;
@@ -3746,8 +3588,7 @@ dsa:ereignisdatum042ausweisungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:ereignisdatum042 ;
     rdfs:label "Ereignisdatum" ;
-    dsa:blattnummer "042.02" ;
-    dsa:pdfPage 268 ;
+    dsa:blatt "042.02" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -3760,8 +3601,7 @@ dsa:befristungsdatum042ausweisungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:befristungsdatum042 ;
     rdfs:label "Befristungsdatum" ;
-    dsa:blattnummer "042.03" ;
-    dsa:pdfPage 269 ;
+    dsa:blatt "042.03" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 .
@@ -3773,8 +3613,7 @@ dsa:dauer042ausweisungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:dauer042 ;
     rdfs:label "Dauer" ;
-    dsa:blattnummer "042.04" ;
-    dsa:pdfPage 271 ;
+    dsa:blatt "042.04" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -3787,8 +3626,7 @@ dsa:rechtskraftdatum042ausweisungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:rechtskraftdatum042 ;
     rdfs:label "Rechtskraftdatum" ;
-    dsa:blattnummer "042.05" ;
-    dsa:pdfPage 272 ;
+    dsa:blatt "042.05" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -3801,8 +3639,7 @@ dsa:ermittelndeBehoerdeausweisungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:ermittelndeBehoerde ;
     rdfs:label "Ermittelnde Behörde" ;
-    dsa:blattnummer "042.06" ;
-    dsa:pdfPage 273 ;
+    dsa:blatt "042.06" ;
     sh:datatype xsd:string ;
     sh:maxLength 6 ;
     sh:minCount 0 ;
@@ -3816,8 +3653,7 @@ dsa:loeschdatum042ausweisungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:loeschdatum042 ;
     rdfs:label "Löschdatum" ;
-    dsa:blattnummer "042.07" ;
-    dsa:pdfPage 274 ;
+    dsa:blatt "042.07" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -3830,8 +3666,7 @@ dsa:hinweisAufausweisungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:hinweisAuf ;
     rdfs:label "Hinweis auf Begründungstext" ;
-    dsa:blattnummer "042.08" ;
-    dsa:pdfPage 275 ;
+    dsa:blatt "042.08" ;
     sh:nodeKind sh:IRI ;
     sh:class skos:Concept ;
     dsa:codelist <urn:de:xauslaender:codelist:azr:verfuegungstextstatus> ;
@@ -3846,8 +3681,7 @@ dsa:aktenzeichenMeldendeausweisungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:aktenzeichenMeldende ;
     rdfs:label "Aktenzeichen meldende Behörde" ;
-    dsa:blattnummer "042.09" ;
-    dsa:pdfPage 276 ;
+    dsa:blatt "042.09" ;
     sh:datatype xsd:string ;
     sh:maxLength 25 ;
     sh:minCount 0 ;
@@ -3861,8 +3695,7 @@ dsa:externeNotizausweisungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:externeNotiz ;
     rdfs:label "Externe Notiz (zu Metadaten Verfügungstext)" ;
-    dsa:blattnummer "042.10" ;
-    dsa:pdfPage 277 ;
+    dsa:blatt "042.10" ;
     sh:datatype xsd:string ;
     sh:maxLength 1024 ;
     sh:minCount 0 ;
@@ -3876,8 +3709,7 @@ dsa:zustellungsdatum042ausweisungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:zustellungsdatum042 ;
     rdfs:label "Zustellungsdatum" ;
-    dsa:blattnummer "042.11" ;
-    dsa:pdfPage 278 ;
+    dsa:blatt "042.11" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -3892,8 +3724,7 @@ dsa:artDerabschiebungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:artDer ;
     rdfs:label "Art der Abschiebung und Hinweis auf Begründungstext - aktuell" ;
-    dsa:blattnummer "043.01" ;
-    dsa:pdfPage 280 ;
+    dsa:blatt "043.01" ;
     sh:nodeKind sh:IRI ;
     sh:class skos:Concept ;
     dsa:codelist <urn:de:xauslaender:codelist:azr:artderabschiebung> ;
@@ -3908,8 +3739,7 @@ dsa:ereignisdatum043abschiebungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:ereignisdatum043 ;
     rdfs:label "Ereignisdatum" ;
-    dsa:blattnummer "043.02" ;
-    dsa:pdfPage 281 ;
+    dsa:blatt "043.02" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -3922,8 +3752,7 @@ dsa:befristungsdatum043abschiebungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:befristungsdatum043 ;
     rdfs:label "Befristungsdatum" ;
-    dsa:blattnummer "043.03" ;
-    dsa:pdfPage 282 ;
+    dsa:blatt "043.03" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -3936,8 +3765,7 @@ dsa:zustellungsdatum043abschiebungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:zustellungsdatum043 ;
     rdfs:label "Zustellungsdatum" ;
-    dsa:blattnummer "043.05" ;
-    dsa:pdfPage 283 ;
+    dsa:blatt "043.05" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -3950,8 +3778,7 @@ dsa:loeschdatum043abschiebungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:loeschdatum043 ;
     rdfs:label "Löschdatum" ;
-    dsa:blattnummer "043.06" ;
-    dsa:pdfPage 284 ;
+    dsa:blatt "043.06" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -3964,8 +3791,7 @@ dsa:aktenzeichenMeldendeabschiebungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:aktenzeichenMeldende ;
     rdfs:label "Aktenzeichen meldende Behörde" ;
-    dsa:blattnummer "043.07" ;
-    dsa:pdfPage 285 ;
+    dsa:blatt "043.07" ;
     sh:datatype xsd:string ;
     sh:maxLength 25 ;
     sh:minCount 0 ;
@@ -3979,8 +3805,7 @@ dsa:erlassendeBehoerdeabschiebungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:erlassendeBehoerde ;
     rdfs:label "Erlassende Behörde" ;
-    dsa:blattnummer "043.08" ;
-    dsa:pdfPage 286 ;
+    dsa:blatt "043.08" ;
     sh:datatype xsd:string ;
     sh:maxLength 6 ;
     sh:minCount 0 ;
@@ -3994,8 +3819,7 @@ dsa:externeNotizabschiebungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:externeNotiz ;
     rdfs:label "Externe Notiz (zu Metadaten Verfügungstext)" ;
-    dsa:blattnummer "043.09" ;
-    dsa:pdfPage 287 ;
+    dsa:blatt "043.09" ;
     sh:datatype xsd:string ;
     sh:maxLength 1024 ;
     sh:minCount 0 ;
@@ -4009,8 +3833,7 @@ dsa:hinweisAufabschiebungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:hinweisAuf ;
     rdfs:label "Hinweis auf Begründungstext" ;
-    dsa:blattnummer "043.10" ;
-    dsa:pdfPage 288 ;
+    dsa:blatt "043.10" ;
     sh:nodeKind sh:IRI ;
     sh:class skos:Concept ;
     dsa:codelist <urn:de:xauslaender:codelist:azr:verfuegungstextstatus> ;
@@ -4025,8 +3848,7 @@ dsa:rechtskraftdatum043abschiebungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:rechtskraftdatum043 ;
     rdfs:label "Rechtskraftdatum" ;
-    dsa:blattnummer "043.11" ;
-    dsa:pdfPage 289 ;
+    dsa:blatt "043.11" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -4041,8 +3863,7 @@ dsa:artDeseinreiseUndAufenthaltsverbotPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:artDes ;
     rdfs:label "Art des Einreise- und Aufenthaltsverbots" ;
-    dsa:blattnummer "044.01" ;
-    dsa:pdfPage 291 ;
+    dsa:blatt "044.01" ;
     sh:nodeKind sh:IRI ;
     sh:class skos:Concept ;
     dsa:codelist <urn:de:xauslaender:codelist:azr:artdeseinreiseaufenthaltsverbots> ;
@@ -4057,8 +3878,7 @@ dsa:ereignisdatum044einreiseUndAufenthaltsverbotPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:ereignisdatum044 ;
     rdfs:label "Ereignisdatum" ;
-    dsa:blattnummer "044.02" ;
-    dsa:pdfPage 292 ;
+    dsa:blatt "044.02" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -4071,8 +3891,7 @@ dsa:befristungsdatum044einreiseUndAufenthaltsverbotPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:befristungsdatum044 ;
     rdfs:label "Befristungsdatum" ;
-    dsa:blattnummer "044.03" ;
-    dsa:pdfPage 293 ;
+    dsa:blatt "044.03" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -4085,8 +3904,7 @@ dsa:dauer044einreiseUndAufenthaltsverbotPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:dauer044 ;
     rdfs:label "Dauer" ;
-    dsa:blattnummer "044.04" ;
-    dsa:pdfPage 294 ;
+    dsa:blatt "044.04" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -4099,8 +3917,7 @@ dsa:hinweisAufeinreiseUndAufenthaltsverbotPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:hinweisAuf ;
     rdfs:label "Hinweis auf Begründungstext" ;
-    dsa:blattnummer "044.05" ;
-    dsa:pdfPage 295 ;
+    dsa:blatt "044.05" ;
     sh:nodeKind sh:IRI ;
     sh:class skos:Concept ;
     dsa:codelist <urn:de:xauslaender:codelist:azr:verfuegungstextstatus> ;
@@ -4115,8 +3932,7 @@ dsa:aktenzeichenMeldendeeinreiseUndAufenthaltsverbotPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:aktenzeichenMeldende ;
     rdfs:label "Aktenzeichen meldende Behörde" ;
-    dsa:blattnummer "044.06" ;
-    dsa:pdfPage 296 ;
+    dsa:blatt "044.06" ;
     sh:datatype xsd:string ;
     sh:maxLength 25 ;
     sh:minCount 0 ;
@@ -4130,8 +3946,7 @@ dsa:externeNotizeinreiseUndAufenthaltsverbotPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:externeNotiz ;
     rdfs:label "Externe Notiz (zu Metadaten Verfügungstext)" ;
-    dsa:blattnummer "044.07" ;
-    dsa:pdfPage 297 ;
+    dsa:blatt "044.07" ;
     sh:datatype xsd:string ;
     sh:maxLength 1024 ;
     sh:minCount 0 ;
@@ -4145,8 +3960,7 @@ dsa:zustellungsdatum044einreiseUndAufenthaltsverbotPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:zustellungsdatum044 ;
     rdfs:label "Zustellungsdatum" ;
-    dsa:blattnummer "044.08" ;
-    dsa:pdfPage 298 ;
+    dsa:blatt "044.08" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -4159,8 +3973,7 @@ dsa:unanfechtbarkeitsdatum044einreiseUndAufenthaltsverbotPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:unanfechtbarkeitsdatum044 ;
     rdfs:label "Unanfechtbarkeitsdatum" ;
-    dsa:blattnummer "044.09" ;
-    dsa:pdfPage 299 ;
+    dsa:blatt "044.09" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -4175,8 +3988,7 @@ dsa:artDereinschraenkungUntersagungDerPolitischenBetaetigungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:artDer ;
     rdfs:label "Art der Einschränkung/Untersagung der politischen Betätigung" ;
-    dsa:blattnummer "045.01" ;
-    dsa:pdfPage 301 ;
+    dsa:blatt "045.01" ;
     sh:nodeKind sh:IRI ;
     sh:class skos:Concept ;
     dsa:codelist <urn:de:xauslaender:codelist:azr:arteinschraenkungpolitischebetaetigung> ;
@@ -4191,8 +4003,7 @@ dsa:ereignisdatum045einschraenkungUntersagungDerPolitischenBetaetigungPropertySh
     a sh:PropertyShape ;
     sh:path dsa:ereignisdatum045 ;
     rdfs:label "Ereignisdatum" ;
-    dsa:blattnummer "045.02" ;
-    dsa:pdfPage 302 ;
+    dsa:blatt "045.02" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -4205,8 +4016,7 @@ dsa:befristungsdatum045einschraenkungUntersagungDerPolitischenBetaetigungPropert
     a sh:PropertyShape ;
     sh:path dsa:befristungsdatum045 ;
     rdfs:label "Befristungsdatum" ;
-    dsa:blattnummer "045.03" ;
-    dsa:pdfPage 303 ;
+    dsa:blatt "045.03" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -4219,8 +4029,7 @@ dsa:externeNotizeinschraenkungUntersagungDerPolitischenBetaetigungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:externeNotiz ;
     rdfs:label "Externe Notiz (zu Metadaten Verfügungstext)" ;
-    dsa:blattnummer "045.04" ;
-    dsa:pdfPage 304 ;
+    dsa:blatt "045.04" ;
     sh:datatype xsd:string ;
     sh:maxLength 1024 ;
     sh:minCount 0 ;
@@ -4234,8 +4043,7 @@ dsa:hinweisAufeinschraenkungUntersagungDerPolitischenBetaetigungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:hinweisAuf ;
     rdfs:label "Hinweis auf Begründungstext" ;
-    dsa:blattnummer "045.05" ;
-    dsa:pdfPage 305 ;
+    dsa:blatt "045.05" ;
     sh:nodeKind sh:IRI ;
     sh:class skos:Concept ;
     dsa:codelist <urn:de:xauslaender:codelist:azr:verfuegungstextstatus> ;
@@ -4252,8 +4060,7 @@ dsa:artDerduldungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:artDer ;
     rdfs:label "Art der Angaben zum Duldungsgrund" ;
-    dsa:blattnummer "047.01" ;
-    dsa:pdfPage 315 ;
+    dsa:blatt "047.01" ;
     sh:nodeKind sh:IRI ;
     sh:class skos:Concept ;
     dsa:codelist <urn:de:xauslaender:codelist:azr:artderduldung> ;
@@ -4268,8 +4075,7 @@ dsa:ereignisdatum047duldungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:ereignisdatum047 ;
     rdfs:label "Ereignisdatum" ;
-    dsa:blattnummer "047.02" ;
-    dsa:pdfPage 316 ;
+    dsa:blatt "047.02" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -4282,8 +4088,7 @@ dsa:befristungsdatum047duldungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:befristungsdatum047 ;
     rdfs:label "Befristungsdatum" ;
-    dsa:blattnummer "047.03" ;
-    dsa:pdfPage 317 ;
+    dsa:blatt "047.03" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -4296,8 +4101,7 @@ dsa:bescheinigungsnummer047duldungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:bescheinigungsnummer047 ;
     rdfs:label "Bescheinigungsnummer" ;
-    dsa:blattnummer "047.04" ;
-    dsa:pdfPage 318 ;
+    dsa:blatt "047.04" ;
     sh:datatype xsd:string ;
     sh:maxLength 9 ;
     sh:minCount 0 ;
@@ -4311,8 +4115,7 @@ dsa:nummerTraegervordruckduldungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:nummerTraegervordruck ;
     rdfs:label "Nummer Trägervordruck" ;
-    dsa:blattnummer "047.05" ;
-    dsa:pdfPage 319 ;
+    dsa:blatt "047.05" ;
     sh:datatype xsd:string ;
     sh:maxLength 8 ;
     sh:minCount 0 ;
@@ -4326,8 +4129,7 @@ dsa:loeschdatum047duldungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:loeschdatum047 ;
     rdfs:label "Löschdatum" ;
-    dsa:blattnummer "047.06" ;
-    dsa:pdfPage 320 ;
+    dsa:blatt "047.06" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -4342,8 +4144,7 @@ dsa:artDesausreiseverbotPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:artDes ;
     rdfs:label "Art des Ausreiseverbots" ;
-    dsa:blattnummer "048.01" ;
-    dsa:pdfPage 322 ;
+    dsa:blatt "048.01" ;
     sh:nodeKind sh:IRI ;
     sh:class skos:Concept ;
     dsa:codelist <urn:de:xauslaender:codelist:azr:artdesausreiseverbots> ;
@@ -4358,8 +4159,7 @@ dsa:ereignisdatum048ausreiseverbotPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:ereignisdatum048 ;
     rdfs:label "Ereignisdatum" ;
-    dsa:blattnummer "048.02" ;
-    dsa:pdfPage 323 ;
+    dsa:blatt "048.02" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -4372,8 +4172,7 @@ dsa:befristungsdatum048ausreiseverbotPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:befristungsdatum048 ;
     rdfs:label "Befristungsdatum" ;
-    dsa:blattnummer "048.03" ;
-    dsa:pdfPage 324 ;
+    dsa:blatt "048.03" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -4386,8 +4185,7 @@ dsa:loeschdatum048ausreiseverbotPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:loeschdatum048 ;
     rdfs:label "Löschdatum" ;
-    dsa:blattnummer "048.04" ;
-    dsa:pdfPage 325 ;
+    dsa:blatt "048.04" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -4402,8 +4200,7 @@ dsa:artDerpassrechtlicheMassnahmenPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:artDer ;
     rdfs:label "Art der passrechtlichen Massnahmen" ;
-    dsa:blattnummer "049.01" ;
-    dsa:pdfPage 327 ;
+    dsa:blatt "049.01" ;
     sh:nodeKind sh:IRI ;
     sh:class skos:Concept ;
     dsa:codelist <urn:de:xauslaender:codelist:azr:artpassrechtlichemassnahmen> ;
@@ -4418,8 +4215,7 @@ dsa:ereignisdatum049passrechtlicheMassnahmenPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:ereignisdatum049 ;
     rdfs:label "Ereignisdatum" ;
-    dsa:blattnummer "049.02" ;
-    dsa:pdfPage 328 ;
+    dsa:blatt "049.02" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -4432,8 +4228,7 @@ dsa:befristungsdatum049passrechtlicheMassnahmenPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:befristungsdatum049 ;
     rdfs:label "Befristungsdatum" ;
-    dsa:blattnummer "049.03" ;
-    dsa:pdfPage 329 ;
+    dsa:blatt "049.03" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -4446,8 +4241,7 @@ dsa:loeschdatum049passrechtlicheMassnahmenPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:loeschdatum049 ;
     rdfs:label "Löschdatum" ;
-    dsa:blattnummer "049.04" ;
-    dsa:pdfPage 330 ;
+    dsa:blatt "049.04" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -4460,8 +4254,7 @@ dsa:dokumentnummer049passrechtlicheMassnahmenPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:dokumentnummer049 ;
     rdfs:label "Dokumentnummer" ;
-    dsa:blattnummer "049.05" ;
-    dsa:pdfPage 331 ;
+    dsa:blatt "049.05" ;
     sh:datatype xsd:string ;
     sh:maxLength 25 ;
     sh:minCount 0 ;
@@ -4477,8 +4270,7 @@ dsa:artDerzurueckweisungZurueckschiebungUndAbschiebungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:artDer ;
     rdfs:label "Art der Zurückweisung, Zurückschiebung und Abschiebung" ;
-    dsa:blattnummer "050.01" ;
-    dsa:pdfPage 333 ;
+    dsa:blatt "050.01" ;
     sh:nodeKind sh:IRI ;
     sh:class skos:Concept ;
     dsa:codelist <urn:de:xauslaender:codelist:azr:artzurueckweisungzurueckschiebung> ;
@@ -4493,8 +4285,7 @@ dsa:ereignisdatum050zurueckweisungZurueckschiebungUndAbschiebungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:ereignisdatum050 ;
     rdfs:label "Ereignisdatum" ;
-    dsa:blattnummer "050.02" ;
-    dsa:pdfPage 334 ;
+    dsa:blatt "050.02" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -4507,8 +4298,7 @@ dsa:befristungsdatum050zurueckweisungZurueckschiebungUndAbschiebungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:befristungsdatum050 ;
     rdfs:label "Befristungsdatum" ;
-    dsa:blattnummer "050.03" ;
-    dsa:pdfPage 335 ;
+    dsa:blatt "050.03" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -4521,8 +4311,7 @@ dsa:unanfechtbarkeitsdatum050zurueckweisungZurueckschiebungUndAbschiebungPropert
     a sh:PropertyShape ;
     sh:path dsa:unanfechtbarkeitsdatum050 ;
     rdfs:label "Unanfechtbarkeitsdatum" ;
-    dsa:blattnummer "050.04" ;
-    dsa:pdfPage 336 ;
+    dsa:blatt "050.04" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -4535,8 +4324,7 @@ dsa:loeschdatum050zurueckweisungZurueckschiebungUndAbschiebungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:loeschdatum050 ;
     rdfs:label "Löschdatum" ;
-    dsa:blattnummer "050.05" ;
-    dsa:pdfPage 337 ;
+    dsa:blatt "050.05" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -4549,8 +4337,7 @@ dsa:hinweisAufzurueckweisungZurueckschiebungUndAbschiebungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:hinweisAuf ;
     rdfs:label "Hinweis auf Begründungstext" ;
-    dsa:blattnummer "050.06" ;
-    dsa:pdfPage 338 ;
+    dsa:blatt "050.06" ;
     sh:nodeKind sh:IRI ;
     sh:class skos:Concept ;
     dsa:codelist <urn:de:xauslaender:codelist:azr:verfuegungstextstatus> ;
@@ -4565,8 +4352,7 @@ dsa:aktenzeichenMeldendezurueckweisungZurueckschiebungUndAbschiebungPropertyShap
     a sh:PropertyShape ;
     sh:path dsa:aktenzeichenMeldende ;
     rdfs:label "Aktenzeichen meldende Behörde" ;
-    dsa:blattnummer "050.07" ;
-    dsa:pdfPage 339 ;
+    dsa:blatt "050.07" ;
     sh:datatype xsd:string ;
     sh:maxLength 25 ;
     sh:minCount 0 ;
@@ -4580,8 +4366,7 @@ dsa:externeNotizzurueckweisungZurueckschiebungUndAbschiebungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:externeNotiz ;
     rdfs:label "Externe Notiz (zu Metadaten Verfügungstext)" ;
-    dsa:blattnummer "050.08" ;
-    dsa:pdfPage 340 ;
+    dsa:blatt "050.08" ;
     sh:datatype xsd:string ;
     sh:maxLength 1024 ;
     sh:minCount 0 ;
@@ -4595,8 +4380,7 @@ dsa:zustellungsdatum050zurueckweisungZurueckschiebungUndAbschiebungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:zustellungsdatum050 ;
     rdfs:label "Zustellungsdatum" ;
-    dsa:blattnummer "050.10" ;
-    dsa:pdfPage 341 ;
+    dsa:blatt "050.10" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -4611,8 +4395,7 @@ dsa:artDereinreisebedenkenPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:artDer ;
     rdfs:label "Art der Einreisbedenken" ;
-    dsa:blattnummer "051.01" ;
-    dsa:pdfPage 343 ;
+    dsa:blatt "051.01" ;
     sh:nodeKind sh:IRI ;
     sh:class skos:Concept ;
     dsa:codelist <urn:de:xauslaender:codelist:azr:artdereinreisebedenken> ;
@@ -4627,8 +4410,7 @@ dsa:ereignisdatum051einreisebedenkenPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:ereignisdatum051 ;
     rdfs:label "Ereignisdatum" ;
-    dsa:blattnummer "051.02" ;
-    dsa:pdfPage 344 ;
+    dsa:blatt "051.02" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -4641,8 +4423,7 @@ dsa:befristungsdatum051einreisebedenkenPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:befristungsdatum051 ;
     rdfs:label "Befristungsdatum" ;
-    dsa:blattnummer "051.03" ;
-    dsa:pdfPage 345 ;
+    dsa:blatt "051.03" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -4655,8 +4436,7 @@ dsa:hinweisAufeinreisebedenkenPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:hinweisAuf ;
     rdfs:label "Hinweis auf Begründungstext" ;
-    dsa:blattnummer "051.04" ;
-    dsa:pdfPage 346 ;
+    dsa:blatt "051.04" ;
     sh:nodeKind sh:IRI ;
     sh:class skos:Concept ;
     dsa:codelist <urn:de:xauslaender:codelist:azr:verfuegungstextstatus> ;
@@ -4671,8 +4451,7 @@ dsa:aktenzeichenMeldendeeinreisebedenkenPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:aktenzeichenMeldende ;
     rdfs:label "Aktenzeichen meldende Behörde" ;
-    dsa:blattnummer "051.05" ;
-    dsa:pdfPage 347 ;
+    dsa:blatt "051.05" ;
     sh:datatype xsd:string ;
     sh:maxLength 25 ;
     sh:minCount 0 ;
@@ -4686,8 +4465,7 @@ dsa:externeNotizeinreisebedenkenPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:externeNotiz ;
     rdfs:label "Externe Notiz (zu Metadaten Verfügungstext)" ;
-    dsa:blattnummer "051.06" ;
-    dsa:pdfPage 348 ;
+    dsa:blatt "051.06" ;
     sh:datatype xsd:string ;
     sh:maxLength 1024 ;
     sh:minCount 0 ;
@@ -4703,8 +4481,7 @@ dsa:artDerausschreibungZurFahndungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:artDer ;
     rdfs:label "Art der Ausschreibung" ;
-    dsa:blattnummer "052.01" ;
-    dsa:pdfPage 350 ;
+    dsa:blatt "052.01" ;
     sh:nodeKind sh:IRI ;
     sh:class skos:Concept ;
     dsa:codelist <urn:de:xauslaender:codelist:azr:artderausschreibung> ;
@@ -4719,8 +4496,7 @@ dsa:ppkausschreibungZurFahndungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:ppk ;
     rdfs:label "PPK-Nummer" ;
-    dsa:blattnummer "052.02" ;
-    dsa:pdfPage 351 ;
+    dsa:blatt "052.02" ;
     sh:datatype xsd:string ;
     sh:maxLength 13 ;
     sh:minCount 1 ;
@@ -4734,8 +4510,7 @@ dsa:fahndungsnummer052ausschreibungZurFahndungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:fahndungsnummer052 ;
     rdfs:label "Fahndungsnummer" ;
-    dsa:blattnummer "052.03" ;
-    dsa:pdfPage 352 ;
+    dsa:blatt "052.03" ;
     sh:datatype xsd:string ;
     sh:maxLength 13 ;
     sh:minCount 0 ;
@@ -4749,8 +4524,7 @@ dsa:ausschreibendeBehoerdeausschreibungZurFahndungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:ausschreibendeBehoerde ;
     rdfs:label "Ausschreibende Behörde" ;
-    dsa:blattnummer "052.04" ;
-    dsa:pdfPage 353 ;
+    dsa:blatt "052.04" ;
     sh:datatype xsd:string ;
     sh:maxLength 6 ;
     sh:minCount 0 ;
@@ -4764,8 +4538,7 @@ dsa:ausschreibendeBehoerdeausschreibungZurFahndungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:ausschreibendeBehoerde ;
     rdfs:label "Ausschreibende Behörde Freitext" ;
-    dsa:blattnummer "052.05" ;
-    dsa:pdfPage 354 ;
+    dsa:blatt "052.05" ;
     sh:datatype xsd:string ;
     sh:maxLength 38 ;
     sh:minCount 0 ;
@@ -4779,8 +4552,7 @@ dsa:ausschreibendeBehoerdeausschreibungZurFahndungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:ausschreibendeBehoerde ;
     rdfs:label "Ausschreibende Behörde Aktenzeichen" ;
-    dsa:blattnummer "052.06" ;
-    dsa:pdfPage 355 ;
+    dsa:blatt "052.06" ;
     sh:datatype xsd:string ;
     sh:maxLength 25 ;
     sh:minCount 0 ;
@@ -4794,8 +4566,7 @@ dsa:loeschdatum052ausschreibungZurFahndungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:loeschdatum052 ;
     rdfs:label "Löschdatum" ;
-    dsa:blattnummer "052.07" ;
-    dsa:pdfPage 356 ;
+    dsa:blatt "052.07" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -4808,8 +4579,7 @@ dsa:ausschreibungAnlassausschreibungZurFahndungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:ausschreibungAnlass ;
     rdfs:label "Ausschreibung Anlass" ;
-    dsa:blattnummer "052.08" ;
-    dsa:pdfPage 357 ;
+    dsa:blatt "052.08" ;
     sh:nodeKind sh:IRI ;
     sh:class skos:Concept ;
     dsa:codelist <urn:de:xauslaender:codelist:azr:artdesanlassesderausschreibung> ;
@@ -4826,8 +4596,7 @@ dsa:artDesverdachtAufStraftatenPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:artDes ;
     rdfs:label "Art des Straftatverdachts" ;
-    dsa:blattnummer "053.01" ;
-    dsa:pdfPage 359 ;
+    dsa:blatt "053.01" ;
     sh:nodeKind sh:IRI ;
     sh:class skos:Concept ;
     dsa:codelist <urn:de:xauslaender:codelist:azr:artdesstraftatverdachts> ;
@@ -4842,8 +4611,7 @@ dsa:loeschdatum053verdachtAufStraftatenPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:loeschdatum053 ;
     rdfs:label "Löschdatum" ;
-    dsa:blattnummer "053.02" ;
-    dsa:pdfPage 360 ;
+    dsa:blatt "053.02" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -4856,8 +4624,7 @@ dsa:aktenzeichenMeldendeverdachtAufStraftatenPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:aktenzeichenMeldende ;
     rdfs:label "Aktenzeichen meldende Behörde" ;
-    dsa:blattnummer "053.03" ;
-    dsa:pdfPage 361 ;
+    dsa:blatt "053.03" ;
     sh:datatype xsd:string ;
     sh:maxLength 25 ;
     sh:minCount 0 ;
@@ -4873,8 +4640,7 @@ dsa:artDerausUndDurchlieferungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:artDer ;
     rdfs:label "Art der Aus- und Durchlieferung" ;
-    dsa:blattnummer "054.01" ;
-    dsa:pdfPage 363 ;
+    dsa:blatt "054.01" ;
     sh:nodeKind sh:IRI ;
     sh:class skos:Concept ;
     dsa:codelist <urn:de:xauslaender:codelist:azr:artderauslieferungdurchlieferung> ;
@@ -4889,8 +4655,7 @@ dsa:ereignisdatum054ausUndDurchlieferungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:ereignisdatum054 ;
     rdfs:label "Ereignisdatum" ;
-    dsa:blattnummer "054.02" ;
-    dsa:pdfPage 364 ;
+    dsa:blatt "054.02" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -4903,8 +4668,7 @@ dsa:zielstaat054ausUndDurchlieferungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:zielstaat054 ;
     rdfs:label "Zielstaat" ;
-    dsa:blattnummer "054.03" ;
-    dsa:pdfPage 365 ;
+    dsa:blatt "054.03" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -4917,8 +4681,7 @@ dsa:loeschdatum054ausUndDurchlieferungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:loeschdatum054 ;
     rdfs:label "Löschdatum" ;
-    dsa:blattnummer "054.04" ;
-    dsa:pdfPage 366 ;
+    dsa:blatt "054.04" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -4931,8 +4694,7 @@ dsa:aktenzeichenMeldendeausUndDurchlieferungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:aktenzeichenMeldende ;
     rdfs:label "Aktenzeichen meldende Behörde" ;
-    dsa:blattnummer "054.05" ;
-    dsa:pdfPage 367 ;
+    dsa:blatt "054.05" ;
     sh:datatype xsd:string ;
     sh:maxLength 25 ;
     sh:minCount 0 ;
@@ -4948,8 +4710,7 @@ dsa:artDerablehnungDerFeststellungDerDeutschenStaatsangehoerigkeitPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:artDer ;
     rdfs:label "Art der Ablehnung der Feststellung der deutschen Staatsangehörigkeit" ;
-    dsa:blattnummer "055.01" ;
-    dsa:pdfPage 369 ;
+    dsa:blatt "055.01" ;
     sh:nodeKind sh:IRI ;
     sh:class skos:Concept ;
     dsa:codelist <urn:de:xauslaender:codelist:azr:artablehnungfeststellungdtstaatsangehoerigkeit> ;
@@ -4964,8 +4725,7 @@ dsa:ereignisdatum055ablehnungDerFeststellungDerDeutschenStaatsangehoerigkeitProp
     a sh:PropertyShape ;
     sh:path dsa:ereignisdatum055 ;
     rdfs:label "Ereignisdatum" ;
-    dsa:blattnummer "055.02" ;
-    dsa:pdfPage 370 ;
+    dsa:blatt "055.02" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -4978,8 +4738,7 @@ dsa:loeschdatum055ablehnungDerFeststellungDerDeutschenStaatsangehoerigkeitProper
     a sh:PropertyShape ;
     sh:path dsa:loeschdatum055 ;
     rdfs:label "Löschdatum" ;
-    dsa:blattnummer "055.03" ;
-    dsa:pdfPage 371 ;
+    dsa:blatt "055.03" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -4992,8 +4751,7 @@ dsa:aktenzeichenMeldendeablehnungDerFeststellungDerDeutschenStaatsangehoerigkeit
     a sh:PropertyShape ;
     sh:path dsa:aktenzeichenMeldende ;
     rdfs:label "Aktenzeichen meldende Behörde" ;
-    dsa:blattnummer "055.04" ;
-    dsa:pdfPage 372 ;
+    dsa:blatt "055.04" ;
     sh:datatype xsd:string ;
     sh:maxLength 25 ;
     sh:minCount 0 ;
@@ -5009,8 +4767,7 @@ dsa:artDeraussiedlerangelegenheitenPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:artDer ;
     rdfs:label "Art der Aussiedlerangelegenheiten" ;
-    dsa:blattnummer "056.01" ;
-    dsa:pdfPage 374 ;
+    dsa:blatt "056.01" ;
     sh:nodeKind sh:IRI ;
     sh:class skos:Concept ;
     dsa:codelist <urn:de:xauslaender:codelist:azr:artderaussiedlereigenschaft> ;
@@ -5025,8 +4782,7 @@ dsa:ereignisdatum056aussiedlerangelegenheitenPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:ereignisdatum056 ;
     rdfs:label "Ereignisdatum" ;
-    dsa:blattnummer "056.02" ;
-    dsa:pdfPage 375 ;
+    dsa:blatt "056.02" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -5039,8 +4795,7 @@ dsa:loeschdatum056aussiedlerangelegenheitenPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:loeschdatum056 ;
     rdfs:label "Löschdatum" ;
-    dsa:blattnummer "056.03" ;
-    dsa:pdfPage 376 ;
+    dsa:blatt "056.03" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -5053,8 +4808,7 @@ dsa:aktenzeichenMeldendeaussiedlerangelegenheitenPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:aktenzeichenMeldende ;
     rdfs:label "Aktenzeichen meldende Behörde" ;
-    dsa:blattnummer "056.04" ;
-    dsa:pdfPage 377 ;
+    dsa:blatt "056.04" ;
     sh:datatype xsd:string ;
     sh:maxLength 25 ;
     sh:minCount 0 ;
@@ -5070,8 +4824,7 @@ dsa:artDerverurteilungWegenStraftatenPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:artDer ;
     rdfs:label "Art der Verurteilung wegen Straftaten" ;
-    dsa:blattnummer "057.01" ;
-    dsa:pdfPage 379 ;
+    dsa:blatt "057.01" ;
     sh:nodeKind sh:IRI ;
     sh:class skos:Concept ;
     dsa:codelist <urn:de:xauslaender:codelist:azr:artderverurteilung> ;
@@ -5086,8 +4839,7 @@ dsa:loeschdatum057verurteilungWegenStraftatenPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:loeschdatum057 ;
     rdfs:label "Löschdatum" ;
-    dsa:blattnummer "057.02" ;
-    dsa:pdfPage 380 ;
+    dsa:blatt "057.02" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -5102,8 +4854,7 @@ dsa:artDersicherheitsrechtlicheBefragungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:artDer ;
     rdfs:label "Art der sicherheitsrechtlichen Befragung" ;
-    dsa:blattnummer "058.01" ;
-    dsa:pdfPage 382 ;
+    dsa:blatt "058.01" ;
     sh:nodeKind sh:IRI ;
     sh:class skos:Concept ;
     dsa:codelist <urn:de:xauslaender:codelist:azr:sicherheitsrechtlichebefragung> ;
@@ -5118,8 +4869,7 @@ dsa:ereignisdatum058sicherheitsrechtlicheBefragungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:ereignisdatum058 ;
     rdfs:label "Ereignisdatum" ;
-    dsa:blattnummer "058.02" ;
-    dsa:pdfPage 383 ;
+    dsa:blatt "058.02" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -5132,8 +4882,7 @@ dsa:befragendeBehoerdesicherheitsrechtlicheBefragungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:befragendeBehoerde ;
     rdfs:label "Befragende Behörde" ;
-    dsa:blattnummer "058.03" ;
-    dsa:pdfPage 384 ;
+    dsa:blatt "058.03" ;
     sh:datatype xsd:string ;
     sh:maxLength 6 ;
     sh:minCount 0 ;
@@ -5147,8 +4896,7 @@ dsa:loeschdatum058sicherheitsrechtlicheBefragungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:loeschdatum058 ;
     rdfs:label "Löschdatum" ;
-    dsa:blattnummer "058.04" ;
-    dsa:pdfPage 385 ;
+    dsa:blatt "058.04" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -5163,8 +4911,7 @@ dsa:artDersicherheitsleistungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:artDer ;
     rdfs:label "Art der Sicherheitsleistung" ;
-    dsa:blattnummer "059.01" ;
-    dsa:pdfPage 387 ;
+    dsa:blatt "059.01" ;
     sh:nodeKind sh:IRI ;
     sh:class skos:Concept ;
     dsa:codelist <urn:de:xauslaender:codelist:azr:sicherheitsleistung> ;
@@ -5179,8 +4926,7 @@ dsa:ereignisdatum059sicherheitsleistungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:ereignisdatum059 ;
     rdfs:label "Ereignisdatum" ;
-    dsa:blattnummer "059.02" ;
-    dsa:pdfPage 388 ;
+    dsa:blatt "059.02" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -5193,8 +4939,7 @@ dsa:loeschdatum059sicherheitsleistungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:loeschdatum059 ;
     rdfs:label "Löschdatum" ;
-    dsa:blattnummer "059.03" ;
-    dsa:pdfPage 389 ;
+    dsa:blatt "059.03" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -5207,8 +4952,7 @@ dsa:vorhaltendeBehoerdesicherheitsleistungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:vorhaltendeBehoerde ;
     rdfs:label "Vorhaltende Behörde" ;
-    dsa:blattnummer "059.04" ;
-    dsa:pdfPage 390 ;
+    dsa:blatt "059.04" ;
     sh:datatype xsd:string ;
     sh:maxLength 6 ;
     sh:minCount 0 ;
@@ -5222,8 +4966,7 @@ dsa:aktenzeichenMeldendesicherheitsleistungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:aktenzeichenMeldende ;
     rdfs:label "Aktenzeichen meldende Behörde" ;
-    dsa:blattnummer "059.05" ;
-    dsa:pdfPage 391 ;
+    dsa:blatt "059.05" ;
     sh:datatype xsd:string ;
     sh:maxLength 25 ;
     sh:minCount 0 ;
@@ -5239,8 +4982,7 @@ dsa:artDerverpflichtungserklaerungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:artDer ;
     rdfs:label "Art der Verpflichtungserklärung" ;
-    dsa:blattnummer "060.01" ;
-    dsa:pdfPage 393 ;
+    dsa:blatt "060.01" ;
     sh:nodeKind sh:IRI ;
     sh:class skos:Concept ;
     dsa:codelist <urn:de:xauslaender:codelist:azr:verpflichtungserklaerung> ;
@@ -5255,8 +4997,7 @@ dsa:ereignisdatum060verpflichtungserklaerungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:ereignisdatum060 ;
     rdfs:label "Ereignisdatum" ;
-    dsa:blattnummer "060.02" ;
-    dsa:pdfPage 394 ;
+    dsa:blatt "060.02" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -5269,8 +5010,7 @@ dsa:loeschdatum060verpflichtungserklaerungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:loeschdatum060 ;
     rdfs:label "Löschdatum" ;
-    dsa:blattnummer "060.03" ;
-    dsa:pdfPage 395 ;
+    dsa:blatt "060.03" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -5283,8 +5023,7 @@ dsa:vorhaltendeBehoerdeverpflichtungserklaerungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:vorhaltendeBehoerde ;
     rdfs:label "Vorhaltende Behörde" ;
-    dsa:blattnummer "060.04" ;
-    dsa:pdfPage 396 ;
+    dsa:blatt "060.04" ;
     sh:datatype xsd:string ;
     sh:maxLength 6 ;
     sh:minCount 0 ;
@@ -5298,8 +5037,7 @@ dsa:aktenzeichenMeldendeverpflichtungserklaerungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:aktenzeichenMeldende ;
     rdfs:label "Aktenzeichen meldende Behörde" ;
-    dsa:blattnummer "060.05" ;
-    dsa:pdfPage 397 ;
+    dsa:blatt "060.05" ;
     sh:datatype xsd:string ;
     sh:maxLength 25 ;
     sh:minCount 0 ;
@@ -5315,8 +5053,7 @@ dsa:artDessuchvermerkPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:artDes ;
     rdfs:label "Art des Suchvermerks" ;
-    dsa:blattnummer "062.01" ;
-    dsa:pdfPage 401 ;
+    dsa:blatt "062.01" ;
     sh:nodeKind sh:IRI ;
     sh:class skos:Concept ;
     dsa:codelist <urn:de:xauslaender:codelist:azr:suchvermerk> ;
@@ -5331,8 +5068,7 @@ dsa:sichtbarkeitDessuchvermerkPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:sichtbarkeitDes ;
     rdfs:label "Sichtbarkeit des Suchvermerks" ;
-    dsa:blattnummer "062.02" ;
-    dsa:pdfPage 402 ;
+    dsa:blatt "062.02" ;
     sh:nodeKind sh:IRI ;
     sh:class skos:Concept ;
     dsa:codelist <urn:de:xauslaender:codelist:azr:sichtbarkeitdessuchvermerks> ;
@@ -5347,8 +5083,7 @@ dsa:befristungsdatum062suchvermerkPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:befristungsdatum062 ;
     rdfs:label "Befristungsdatum" ;
-    dsa:blattnummer "062.03" ;
-    dsa:pdfPage 403 ;
+    dsa:blatt "062.03" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -5361,8 +5096,7 @@ dsa:aktenzeichenMeldendesuchvermerkPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:aktenzeichenMeldende ;
     rdfs:label "Aktenzeichen meldende Behörde" ;
-    dsa:blattnummer "062.04" ;
-    dsa:pdfPage 404 ;
+    dsa:blatt "062.04" ;
     sh:datatype xsd:string ;
     sh:maxLength 45 ;
     sh:minCount 0 ;
@@ -5378,8 +5112,7 @@ dsa:artDeranlaufbescheinigungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:artDer ;
     rdfs:label "Art der Anlaufbescheinigung" ;
-    dsa:blattnummer "063.01" ;
-    dsa:pdfPage 406 ;
+    dsa:blatt "063.01" ;
     sh:datatype xsd:string ;
     sh:minCount 1 ;
     sh:maxCount 1 ;
@@ -5392,8 +5125,7 @@ dsa:ausgestelltAmanlaufbescheinigungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:ausgestelltAm ;
     rdfs:label "Ausgestellt am" ;
-    dsa:blattnummer "063.02" ;
-    dsa:pdfPage 407 ;
+    dsa:blatt "063.02" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -5406,8 +5138,7 @@ dsa:gueltigBisanlaufbescheinigungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:gueltigBis ;
     rdfs:label "Gültig bis" ;
-    dsa:blattnummer "063.03" ;
-    dsa:pdfPage 408 ;
+    dsa:blatt "063.03" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -5420,8 +5151,7 @@ dsa:ausstellendeBehoerdeanlaufbescheinigungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:ausstellendeBehoerde ;
     rdfs:label "Ausstellende Behörde" ;
-    dsa:blattnummer "063.04" ;
-    dsa:pdfPage 409 ;
+    dsa:blatt "063.04" ;
     sh:datatype xsd:string ;
     sh:maxLength 6 ;
     sh:minCount 0 ;
@@ -5437,8 +5167,7 @@ dsa:artDerbetretenserlaubnisPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:artDer ;
     rdfs:label "Art der Betretenserlaubnis" ;
-    dsa:blattnummer "064.01" ;
-    dsa:pdfPage 411 ;
+    dsa:blatt "064.01" ;
     sh:datatype xsd:string ;
     sh:minCount 1 ;
     sh:maxCount 1 ;
@@ -5451,8 +5180,7 @@ dsa:erteiltAmbetretenserlaubnisPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:erteiltAm ;
     rdfs:label "Erteilt am" ;
-    dsa:blattnummer "064.02" ;
-    dsa:pdfPage 412 ;
+    dsa:blatt "064.02" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -5465,8 +5193,7 @@ dsa:gueltigAbbetretenserlaubnisPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:gueltigAb ;
     rdfs:label "Gültig ab" ;
-    dsa:blattnummer "064.03" ;
-    dsa:pdfPage 413 ;
+    dsa:blatt "064.03" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -5479,8 +5206,7 @@ dsa:gueltigBisbetretenserlaubnisPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:gueltigBis ;
     rdfs:label "Gültig bis" ;
-    dsa:blattnummer "064.04" ;
-    dsa:pdfPage 414 ;
+    dsa:blatt "064.04" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -5495,8 +5221,7 @@ dsa:artDervorabzustimmungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:artDer ;
     rdfs:label "Art der Vorabzustimmung" ;
-    dsa:blattnummer "066.01" ;
-    dsa:pdfPage 416 ;
+    dsa:blatt "066.01" ;
     sh:nodeKind sh:IRI ;
     sh:class skos:Concept ;
     dsa:codelist <urn:de:xauslaender:codelist:azr:artdervorabzustimmung> ;
@@ -5511,8 +5236,7 @@ dsa:ereignisdatum066vorabzustimmungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:ereignisdatum066 ;
     rdfs:label "Ereignisdatum" ;
-    dsa:blattnummer "066.02" ;
-    dsa:pdfPage 417 ;
+    dsa:blatt "066.02" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -5525,8 +5249,7 @@ dsa:befristungsdatum066vorabzustimmungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:befristungsdatum066 ;
     rdfs:label "Befristungsdatum" ;
-    dsa:blattnummer "066.03" ;
-    dsa:pdfPage 418 ;
+    dsa:blatt "066.03" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -5539,8 +5262,7 @@ dsa:loeschdatum066vorabzustimmungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:loeschdatum066 ;
     rdfs:label "Löschdatum" ;
-    dsa:blattnummer "066.04" ;
-    dsa:pdfPage 419 ;
+    dsa:blatt "066.04" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -5553,8 +5275,7 @@ dsa:zustaendigeAuslandsvertretungvorabzustimmungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:zustaendigeAuslandsvertretung ;
     rdfs:label "Zuständige Auslandsvertretung" ;
-    dsa:blattnummer "066.05" ;
-    dsa:pdfPage 420 ;
+    dsa:blatt "066.05" ;
     sh:datatype xsd:string ;
     sh:maxLength 6 ;
     sh:minCount 0 ;
@@ -5568,8 +5289,7 @@ dsa:aktenzeichenMeldendevorabzustimmungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:aktenzeichenMeldende ;
     rdfs:label "Aktenzeichen meldende Behörde" ;
-    dsa:blattnummer "066.06" ;
-    dsa:pdfPage 421 ;
+    dsa:blatt "066.06" ;
     sh:datatype xsd:string ;
     sh:maxLength 25 ;
     sh:minCount 0 ;
@@ -5585,8 +5305,7 @@ dsa:artDerdeutschsprachfoerderungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:artDer ;
     rdfs:label "Art der Deutschsprachförderung" ;
-    dsa:blattnummer "067.01" ;
-    dsa:pdfPage 423 ;
+    dsa:blatt "067.01" ;
     sh:datatype xsd:string ;
     sh:minCount 1 ;
     sh:maxCount 1 ;
@@ -5599,8 +5318,7 @@ dsa:beginn067deutschsprachfoerderungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:beginn067 ;
     rdfs:label "Beginn" ;
-    dsa:blattnummer "067.02" ;
-    dsa:pdfPage 424 ;
+    dsa:blatt "067.02" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -5613,8 +5331,7 @@ dsa:ende067deutschsprachfoerderungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:ende067 ;
     rdfs:label "Ende" ;
-    dsa:blattnummer "067.03" ;
-    dsa:pdfPage 425 ;
+    dsa:blatt "067.03" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -5627,8 +5344,7 @@ dsa:loeschdatum067deutschsprachfoerderungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:loeschdatum067 ;
     rdfs:label "Löschdatum" ;
-    dsa:blattnummer "067.04" ;
-    dsa:pdfPage 426 ;
+    dsa:blatt "067.04" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -5643,8 +5359,7 @@ dsa:artDergrenzuebertrittsbescheinigungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:artDer ;
     rdfs:label "Art der Grenzübertrittsbescheinigung" ;
-    dsa:blattnummer "068.01" ;
-    dsa:pdfPage 428 ;
+    dsa:blatt "068.01" ;
     sh:datatype xsd:string ;
     sh:minCount 1 ;
     sh:maxCount 1 ;
@@ -5657,8 +5372,7 @@ dsa:ausgestelltAmgrenzuebertrittsbescheinigungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:ausgestelltAm ;
     rdfs:label "Ausgestellt am" ;
-    dsa:blattnummer "068.02" ;
-    dsa:pdfPage 429 ;
+    dsa:blatt "068.02" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -5671,8 +5385,7 @@ dsa:befristungsdatum068grenzuebertrittsbescheinigungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:befristungsdatum068 ;
     rdfs:label "Befristungsdatum" ;
-    dsa:blattnummer "068.03" ;
-    dsa:pdfPage 430 ;
+    dsa:blatt "068.03" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -5685,8 +5398,7 @@ dsa:ausstellendeBehoerdegrenzuebertrittsbescheinigungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:ausstellendeBehoerde ;
     rdfs:label "Ausstellende Behörde" ;
-    dsa:blattnummer "068.04" ;
-    dsa:pdfPage 431 ;
+    dsa:blatt "068.04" ;
     sh:datatype xsd:string ;
     sh:maxLength 6 ;
     sh:minCount 0 ;
@@ -5702,8 +5414,7 @@ dsa:groesse069personenbeschreibungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:groesse069 ;
     rdfs:label "Größe" ;
-    dsa:blattnummer "069.01" ;
-    dsa:pdfPage 433 ;
+    dsa:blatt "069.01" ;
     sh:datatype xsd:integer ;
     sh:maxLength 3 ;
     sh:pattern "^0-9{1,3}$" ;
@@ -5718,8 +5429,7 @@ dsa:augenfarbe069personenbeschreibungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:augenfarbe069 ;
     rdfs:label "Augenfarbe" ;
-    dsa:blattnummer "069.02" ;
-    dsa:pdfPage 434 ;
+    dsa:blatt "069.02" ;
     sh:nodeKind sh:IRI ;
     sh:class skos:Concept ;
     dsa:codelist <urn:de:xauslaender:codelist:azr:artderaugenfarbe> ;
@@ -5736,8 +5446,7 @@ dsa:idauslaendischePersonenidentitaetsnummerPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:id ;
     rdfs:label "ID-Nummer" ;
-    dsa:blattnummer "071.01" ;
-    dsa:pdfPage 441 ;
+    dsa:blatt "071.01" ;
     sh:datatype xsd:string ;
     sh:maxLength 100 ;
     sh:minCount 0 ;
@@ -5751,8 +5460,7 @@ dsa:staat071auslaendischePersonenidentitaetsnummerPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:staat071 ;
     rdfs:label "Staat" ;
-    dsa:blattnummer "071.02" ;
-    dsa:pdfPage 442 ;
+    dsa:blatt "071.02" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -5767,8 +5475,7 @@ dsa:artDerdatenZumZweckeDerArbeitsUndAusbildungsvermittlungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:artDer ;
     rdfs:label "Art der Daten zur Arbeits- und Ausbildungsvermittlung" ;
-    dsa:blattnummer "072.01" ;
-    dsa:pdfPage 444 ;
+    dsa:blatt "072.01" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -5781,8 +5488,7 @@ dsa:anerkennung072datenZumZweckeDerArbeitsUndAusbildungsvermittlungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:anerkennung072 ;
     rdfs:label "Anerkennung" ;
-    dsa:blattnummer "072.02" ;
-    dsa:pdfPage 445 ;
+    dsa:blatt "072.02" ;
     sh:nodeKind sh:IRI ;
     sh:class skos:Concept ;
     dsa:codelist <urn:de:xauslaender:codelist:azr:artderanerkennung> ;
@@ -5797,8 +5503,7 @@ dsa:beginn072datenZumZweckeDerArbeitsUndAusbildungsvermittlungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:beginn072 ;
     rdfs:label "Beginn" ;
-    dsa:blattnummer "072.03" ;
-    dsa:pdfPage 446 ;
+    dsa:blatt "072.03" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -5811,8 +5516,7 @@ dsa:ende072datenZumZweckeDerArbeitsUndAusbildungsvermittlungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:ende072 ;
     rdfs:label "Ende" ;
-    dsa:blattnummer "072.04" ;
-    dsa:pdfPage 447 ;
+    dsa:blatt "072.04" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -5825,8 +5529,7 @@ dsa:dauer072datenZumZweckeDerArbeitsUndAusbildungsvermittlungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:dauer072 ;
     rdfs:label "Dauer" ;
-    dsa:blattnummer "072.05" ;
-    dsa:pdfPage 448 ;
+    dsa:blatt "072.05" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -5839,8 +5542,7 @@ dsa:beruf072datenZumZweckeDerArbeitsUndAusbildungsvermittlungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:beruf072 ;
     rdfs:label "Beruf" ;
-    dsa:blattnummer "072.06" ;
-    dsa:pdfPage 449 ;
+    dsa:blatt "072.06" ;
     sh:nodeKind sh:IRI ;
     sh:class skos:Concept ;
     dsa:codelist <urn:de:xauslaender:codelist:azr:artdesberufs> ;
@@ -5855,8 +5557,7 @@ dsa:schulart072datenZumZweckeDerArbeitsUndAusbildungsvermittlungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:schulart072 ;
     rdfs:label "Schulart" ;
-    dsa:blattnummer "072.07" ;
-    dsa:pdfPage 450 ;
+    dsa:blatt "072.07" ;
     sh:nodeKind sh:IRI ;
     sh:class skos:Concept ;
     dsa:codelist <urn:de:xauslaender:codelist:azr:artderschule> ;
@@ -5871,8 +5572,7 @@ dsa:schulabschluss072datenZumZweckeDerArbeitsUndAusbildungsvermittlungPropertySh
     a sh:PropertyShape ;
     sh:path dsa:schulabschluss072 ;
     rdfs:label "Schulabschluss" ;
-    dsa:blattnummer "072.08" ;
-    dsa:pdfPage 451 ;
+    dsa:blatt "072.08" ;
     sh:nodeKind sh:IRI ;
     sh:class skos:Concept ;
     dsa:codelist <urn:de:xauslaender:codelist:azr:artdesschulabschlusses> ;
@@ -5887,8 +5587,7 @@ dsa:sprache072datenZumZweckeDerArbeitsUndAusbildungsvermittlungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:sprache072 ;
     rdfs:label "Sprache" ;
-    dsa:blattnummer "072.09" ;
-    dsa:pdfPage 452 ;
+    dsa:blatt "072.09" ;
     sh:nodeKind sh:IRI ;
     sh:class skos:Concept ;
     dsa:codelist <urn:de:xauslaender:codelist:azr:artdersprache> ;
@@ -5903,8 +5602,7 @@ dsa:gradDerdatenZumZweckeDerArbeitsUndAusbildungsvermittlungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:gradDer ;
     rdfs:label "Grad der Sprachkenntnis" ;
-    dsa:blattnummer "072.10" ;
-    dsa:pdfPage 453 ;
+    dsa:blatt "072.10" ;
     sh:nodeKind sh:IRI ;
     sh:class skos:Concept ;
     dsa:codelist <urn:de:xauslaender:codelist:azr:graddersprachkenntnis> ;
@@ -5919,8 +5617,7 @@ dsa:staat072datenZumZweckeDerArbeitsUndAusbildungsvermittlungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:staat072 ;
     rdfs:label "Staat" ;
-    dsa:blattnummer "072.11" ;
-    dsa:pdfPage 454 ;
+    dsa:blatt "072.11" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -5933,8 +5630,7 @@ dsa:loeschdatum072datenZumZweckeDerArbeitsUndAusbildungsvermittlungPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:loeschdatum072 ;
     rdfs:label "Löschdatum" ;
-    dsa:blattnummer "072.12" ;
-    dsa:pdfPage 455 ;
+    dsa:blatt "072.12" ;
     sh:datatype xsd:string ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
@@ -5949,8 +5645,7 @@ dsa:schengensisausschreibungshintergrundPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:schengen ;
     rdfs:label "Schengen-Identifikationsnummer (Schengen-ID)" ;
-    dsa:blattnummer "073.01" ;
-    dsa:pdfPage 457 ;
+    dsa:blatt "073.01" ;
     sh:datatype xsd:string ;
     sh:maxLength 31 ;
     sh:minCount 1 ;
@@ -5964,8 +5659,7 @@ dsa:referenzAufsisausschreibungshintergrundPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:referenzAuf ;
     rdfs:label "Referenz auf Sachverhalt" ;
-    dsa:blattnummer "073.02" ;
-    dsa:pdfPage 458 ;
+    dsa:blatt "073.02" ;
     sh:datatype xsd:string ;
     sh:minCount 1 ;
     sh:maxCount 1 ;
@@ -5978,8 +5672,7 @@ dsa:referenzAufsisausschreibungshintergrundPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:referenzAuf ;
     rdfs:label "Referenz auf Straftat" ;
-    dsa:blattnummer "073.03" ;
-    dsa:pdfPage 459 ;
+    dsa:blatt "073.03" ;
     sh:datatype xsd:string ;
     dsa:bestandteilDerGruppe "073 - SIS-Ausschreibungshintergrund" .
 
@@ -5992,8 +5685,7 @@ dsa:artDerstraftatPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:artDer ;
     rdfs:label "Art der Strafe, die der Ausschreibung zugrunde liegt" ;
-    dsa:blattnummer "074.01" ;
-    dsa:pdfPage 461 ;
+    dsa:blatt "074.01" ;
     sh:datatype xsd:string ;
     sh:minCount 1 ;
     sh:maxCount 1 ;
@@ -6006,8 +5698,7 @@ dsa:rechtlicheBezeichnungstraftatPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:rechtlicheBezeichnung ;
     rdfs:label "Rechtliche Bezeichnung der Tat" ;
-    dsa:blattnummer "074.02" ;
-    dsa:pdfPage 462 ;
+    dsa:blatt "074.02" ;
     sh:datatype xsd:string ;
     sh:maxLength 250 ;
     sh:minCount 1 ;
@@ -6021,8 +5712,7 @@ dsa:strafvorschriftstraftatPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:strafvorschrift ;
     rdfs:label "Strafvorschrift (Freitext)" ;
-    dsa:blattnummer "074.03" ;
-    dsa:pdfPage 463 ;
+    dsa:blatt "074.03" ;
     sh:datatype xsd:string ;
     sh:maxLength 250 ;
     sh:minCount 1 ;
@@ -6036,8 +5726,7 @@ dsa:hoeheDerstraftatPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:hoeheDer ;
     rdfs:label "Höhe der Strafe (Jahre)" ;
-    dsa:blattnummer "074.04" ;
-    dsa:pdfPage 464 ;
+    dsa:blatt "074.04" ;
     sh:datatype xsd:string ;
     sh:maxLength 2 ;
     sh:minCount 0 ;
@@ -6051,8 +5740,7 @@ dsa:hoeheDerstraftatPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:hoeheDer ;
     rdfs:label "Höhe der Strafe (Monate)" ;
-    dsa:blattnummer "074.05" ;
-    dsa:pdfPage 465 ;
+    dsa:blatt "074.05" ;
     sh:datatype xsd:string ;
     sh:maxLength 2 ;
     sh:minCount 0 ;
@@ -6066,8 +5754,7 @@ dsa:hoeheDerstraftatPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:hoeheDer ;
     rdfs:label "Höhe der Strafe (Wochen)" ;
-    dsa:blattnummer "074.06" ;
-    dsa:pdfPage 466 ;
+    dsa:blatt "074.06" ;
     sh:datatype xsd:string ;
     sh:maxLength 2 ;
     sh:minCount 0 ;
@@ -6081,8 +5768,7 @@ dsa:hoeheDerstraftatPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:hoeheDer ;
     rdfs:label "Höhe der Strafe (Tage)" ;
-    dsa:blattnummer "074.07" ;
-    dsa:pdfPage 467 ;
+    dsa:blatt "074.07" ;
     sh:datatype xsd:string ;
     sh:maxLength 2 ;
     sh:minCount 0 ;
@@ -6096,8 +5782,7 @@ dsa:hoeheDerstraftatPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:hoeheDer ;
     rdfs:label "Höhe der Strafe (Anzahl Tagessätze)" ;
-    dsa:blattnummer "074.08" ;
-    dsa:pdfPage 468 ;
+    dsa:blatt "074.08" ;
     sh:datatype xsd:string ;
     sh:maxLength 4 ;
     sh:minCount 0 ;
@@ -6111,8 +5796,7 @@ dsa:hoeheDerstraftatPropertyShape
     a sh:PropertyShape ;
     sh:path dsa:hoeheDer ;
     rdfs:label "Höhe der Strafe (Höhe Tagessatz)" ;
-    dsa:blattnummer "074.09" ;
-    dsa:pdfPage 469 ;
+    dsa:blatt "074.09" ;
     sh:datatype xsd:string ;
     sh:maxLength 6 ;
     sh:minCount 0 ;
@@ -6125,3 +5809,114 @@ dsa:hoeheDerstraftatPropertyShape
 # Diese Felder bilden laut PDF keine Gruppe:
 # 001, 002, 003, 008, 009, 016, 018, 019, 021, 027, 065
 # ============================================================================
+
+# PropertyShape für Feld 008: Telefonnummern
+dsa:telefonnummernPropertyShape
+    a sh:PropertyShape ;
+    sh:path dsa:telefonnummern ;
+    sh:name "Telefonnummern" ;
+    sh:datatype xsd:string ;
+    sh:minCount 0 ;
+    dsa:blatt "008" ;
+    dsa:feldnummer "008" ;
+    dsa:haeufigkeit "n" ;
+    rdfs:comment "Telefonnummern der ausländischen Person (mehrfach möglich)" .
+
+# PropertyShape für Feld 009: E-Mail Adressen
+dsa:eMailAdressenPropertyShape
+    a sh:PropertyShape ;
+    sh:path dsa:e-mailAdressen ;
+    sh:name "E-Mail Adressen" ;
+    sh:datatype xsd:string ;
+    sh:minCount 0 ;
+    dsa:blatt "009" ;
+    dsa:feldnummer "009" ;
+    dsa:haeufigkeit "n" ;
+    rdfs:comment "E-Mail-Adressen der ausländischen Person (mehrfach möglich)" .
+
+# PropertyShape für Feld 016: Familienstand
+dsa:familienstandPropertyShape
+    a sh:PropertyShape ;
+    sh:path dsa:familienstand ;
+    sh:name "Familienstand" ;
+    sh:datatype xsd:string ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    dsa:blatt "016" ;
+    dsa:feldnummer "016" ;
+    dsa:haeufigkeit "1" ;
+    dsa:vorgaben "code" ;
+    dsa:darstellungsform "urn:de:xauslaender:codelist:familienstand" ;
+    rdfs:seeAlso <https://bamf.bund.de/vocab/familienstand> ;
+    rdfs:comment "Der Familienstand der ausländischen Person" .
+
+# PropertyShape für Feld 018: Letzter Wohnort im Herkunftsland
+dsa:letzterWohnortImHerkunftslandPropertyShape
+    a sh:PropertyShape ;
+    sh:path dsa:letzterWohnortImHerkunftsland ;
+    sh:name "Letzter Wohnort im Herkunftsland" ;
+    sh:datatype xsd:string ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    dsa:blatt "018" ;
+    dsa:feldnummer "018" ;
+    dsa:haeufigkeit "1" ;
+    rdfs:comment "Der letzte Wohnort im Herkunftsland vor der Ausreise" .
+
+# PropertyShape für Feld 019: Staat Herkunftsland
+dsa:staatHerkunftslandPropertyShape
+    a sh:PropertyShape ;
+    sh:path dsa:staatHerkunftsland ;
+    sh:name "Staat Herkunftsland" ;
+    sh:datatype xsd:string ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    dsa:blatt "019" ;
+    dsa:feldnummer "019" ;
+    dsa:haeufigkeit "1" ;
+    dsa:vorgaben "code" ;
+    dsa:darstellungsform "urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:staatsangehoerigkeit" ;
+    rdfs:seeAlso <https://bamf.bund.de/vocab/staatsangehoerigkeit> ;
+    rdfs:comment "Der Staat des Herkunftslandes (ISO 3166-1 Alpha-3 Code)" .
+
+# PropertyShape für Feld 021: Staatsangehörigkeiten des Ehegatten oder Lebenspartners
+dsa:staatsangehoerigkeitenDesEhegattenOderDesLebenspartnersPropertyShape
+    a sh:PropertyShape ;
+    sh:path dsa:staatsangehoerigkeitenDesEhegattenOderDesLebenspartners ;
+    sh:name "Staatsangehörigkeiten des Ehegatten oder des Lebenspartners" ;
+    sh:datatype xsd:string ;
+    sh:minCount 0 ;
+    dsa:blatt "021" ;
+    dsa:feldnummer "021" ;
+    dsa:haeufigkeit "n" ;
+    dsa:vorgaben "code" ;
+    dsa:darstellungsform "urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:staatsangehoerigkeit" ;
+    rdfs:seeAlso <https://bamf.bund.de/vocab/staatsangehoerigkeit> ;
+    rdfs:comment "Staatsangehörigkeit(en) des Ehegatten/Lebenspartners (mehrfach möglich)" .
+
+# PropertyShape für Feld 027: Art der Rechtsstellung
+dsa:artDerRechtsstellungPropertyShape
+    a sh:PropertyShape ;
+    sh:path dsa:artDerRechtsstellung ;
+    sh:name "Art der Rechtsstellung" ;
+    sh:datatype xsd:string ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    dsa:blatt "027" ;
+    dsa:feldnummer "027" ;
+    dsa:haeufigkeit "1" ;
+    dsa:vorgaben "code" ;
+    rdfs:comment "Art der ausländerrechtlichen Rechtsstellung" .
+
+# PropertyShape für Feld 065: Identifikationsnummer
+dsa:identifikationsnummerPropertyShape
+    a sh:PropertyShape ;
+    sh:path dsa:identifikationsnummer ;
+    sh:name "Identifikationsnummer" ;
+    sh:datatype xsd:string ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    dsa:blatt "065" ;
+    dsa:feldnummer "065" ;
+    dsa:haeufigkeit "1" ;
+    rdfs:comment "Eindeutige Identifikationsnummer zur Identifizierung der ausländischen Person" .

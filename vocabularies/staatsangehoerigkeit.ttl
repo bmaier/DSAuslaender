@@ -1,41 +1,40 @@
-@prefix : <http://bamf.de/vocabulary/staatsangehoerigkeit#> .
+@prefix : <https://bamf.bund.de/vocab/staatsangehoerigkeit#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix dct: <http://purl.org/dc/terms/> .
+@prefix base: <https://bamf.bund.de/vocab/base#> .
 
 # ============================================================================
 # STAATSANGEHÖRIGKEIT SKOS-VOKABULAR
+#
+# Dieses Vokabular verwendet das SKOS-Modell für Staatsangehörigkeiten basierend
+# auf der offiziellen DESTATIS-Codeliste (Statistisches Bundesamt).
+# Die DESTATIS-Schlüssel sind numerische Codes, die in deutschen Behörden verwendet werden.
 # ============================================================================
 
-<http://bamf.de/vocabulary/staatsangehoerigkeit> a owl:Ontology , skos:ConceptScheme ;
+<https://bamf.bund.de/vocab/staatsangehoerigkeit> a owl:Ontology , skos:ConceptScheme ;
+    owl:imports <https://bamf.bund.de/vocab/base> ;
     dct:title "Staatsangehörigkeit Vokabular"@de ,
               "Citizenship Vocabulary"@en ;
-    dct:description "Kontrolliertes Vokabular für Staatsangehörigkeiten basierend auf ISO 3166-1 und XRepository"@de ,
-                    "Controlled vocabulary for citizenships based on ISO 3166-1 and XRepository"@en ;
+    dct:description "Kontrolliertes Vokabular für Staatsangehörigkeiten basierend auf DESTATIS-Codeliste und ISO 3166-1"@de ,
+                    "Controlled vocabulary for citizenships based on DESTATIS codelist and ISO 3166-1"@en ;
     dct:created "2025-01-19"^^xsd:date ;
-    dct:modified "2025-01-19"^^xsd:date ;
+    dct:modified "2026-01-29"^^xsd:date ;
     dct:creator "BAMF" ;
+    dct:publisher "DESTATIS" ;
     dct:license <https://creativecommons.org/licenses/by/4.0/> ;
-    owl:versionInfo "1.0.0" ;
-    # XRepository-Referenz (XÖV-Kernkomponente)
-    :xRepositoryURN <https://www.xrepository.de/api/xrepository/urn:xoev-de:kosit:xoev:kernkomponente:staatsangehoerigkeit> ;
-    dct:source <https://www.xrepository.de/details/urn:xoev-de:kosit:xoev:kernkomponente:staatsangehoerigkeit> ;
+    owl:versionInfo "2.0.1" ;
+    # XRepository-Referenz (DESTATIS)
+    base:xRepositoryURN "urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:staatsangehoerigkeit"^^xsd:anyURI ;
+    base:xRepositoryVersion "2024-08-01" ;
+    dct:source <https://www.xrepository.de/details/urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:staatsangehoerigkeit> ;
     dct:conformsTo <https://www.iso.org/iso-3166-country-codes.html> ;
-    rdfs:comment "Basiert auf der XÖV-Kernkomponente Staatsangehörigkeit (Code.Staatsangehoerigkeit). Verwendet ISO 3166-1 Alpha-3 Ländercodes als Notation."@de ;
+    rdfs:comment "Basiert auf der DESTATIS-Codeliste Staatsangehörigkeit (Version 2024-08-01). Verwendet ISO 3166-1 Alpha-3 Ländercodes als Notation und DESTATIS-numerische Schlüssel."@de ;
     rdfs:label "Staatsangehörigkeit Konzeptschema"@de ,
                "Citizenship Concept Scheme"@en .
-
-# Property-Definitionen für XRepository
-:xRepositoryURN a owl:AnnotationProperty ;
-    rdfs:label "XRepository URN"@de ;
-    rdfs:range xsd:anyURI .
-
-:xRepositoryID a owl:DatatypeProperty ;
-    rdfs:label "XRepository ID"@de ;
-    rdfs:range xsd:string .
 
 # ============================================================================
 # STAATSANGEHÖRIGKEITS-KONZEPTE
@@ -43,284 +42,343 @@
 # ============================================================================
 
 :DEU a skos:Concept ;
-    skos:inScheme <http://bamf.de/vocabulary/staatsangehoerigkeit> ;
+    skos:inScheme <https://bamf.bund.de/vocab/staatsangehoerigkeit> ;
     skos:prefLabel "Deutschland"@de ,
                    "Germany"@en ;
     skos:notation "DEU" ;
     dct:identifier "DEU" ;
     skos:definition "Bundesrepublik Deutschland"@de ;
-    :xRepositoryID "TODO_ID" ;
-    rdfs:comment "XRepository-ID muss aus Codeliste ergänzt werden (Destatis-Code)"@de ;
-    skos:topConceptOf <http://bamf.de/vocabulary/staatsangehoerigkeit> .
+    base:xRepositoryID "000" ;
+    skos:exactMatch <urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:staatsangehoerigkeit:000> ;
+    skos:topConceptOf <https://bamf.bund.de/vocab/staatsangehoerigkeit> .
 
 :AFG a skos:Concept ;
-    skos:inScheme <http://bamf.de/vocabulary/staatsangehoerigkeit> ;
+    skos:inScheme <https://bamf.bund.de/vocab/staatsangehoerigkeit> ;
     skos:prefLabel "Afghanistan"@de ,
                    "Afghanistan"@en ;
     skos:notation "AFG" ;
     dct:identifier "AFG" ;
-    :xRepositoryID "TODO_ID" ;
-    skos:topConceptOf <http://bamf.de/vocabulary/staatsangehoerigkeit> .
+    skos:definition "die Islamische Republik Afghanistan"@de ;
+    base:xRepositoryID "423" ;
+    skos:exactMatch <urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:staatsangehoerigkeit:423> ;
+    skos:topConceptOf <https://bamf.bund.de/vocab/staatsangehoerigkeit> .
 
 :ALB a skos:Concept ;
-    skos:inScheme <http://bamf.de/vocabulary/staatsangehoerigkeit> ;
+    skos:inScheme <https://bamf.bund.de/vocab/staatsangehoerigkeit> ;
     skos:prefLabel "Albanien"@de ,
                    "Albania"@en ;
     skos:notation "ALB" ;
     dct:identifier "ALB" ;
-    :xRepositoryID "TODO_ID" ;
-    skos:topConceptOf <http://bamf.de/vocabulary/staatsangehoerigkeit> .
+    skos:definition "die Republik Albanien"@de ;
+    base:xRepositoryID "121" ;
+    skos:exactMatch <urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:staatsangehoerigkeit:121> ;
+    skos:topConceptOf <https://bamf.bund.de/vocab/staatsangehoerigkeit> .
 
 :DZA a skos:Concept ;
-    skos:inScheme <http://bamf.de/vocabulary/staatsangehoerigkeit> ;
+    skos:inScheme <https://bamf.bund.de/vocab/staatsangehoerigkeit> ;
     skos:prefLabel "Algerien"@de ,
                    "Algeria"@en ;
     skos:notation "DZA" ;
     dct:identifier "DZA" ;
-    :xRepositoryID "TODO_ID" .
+    skos:definition "die Demokratische Volksrepublik Algerien"@de ;
+    base:xRepositoryID "221" ;
+    skos:exactMatch <urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:staatsangehoerigkeit:221> .
 
 :BGR a skos:Concept ;
-    skos:inScheme <http://bamf.de/vocabulary/staatsangehoerigkeit> ;
+    skos:inScheme <https://bamf.bund.de/vocab/staatsangehoerigkeit> ;
     skos:prefLabel "Bulgarien"@de ,
                    "Bulgaria"@en ;
     skos:notation "BGR" ;
     dct:identifier "BGR" ;
-    :xRepositoryID "TODO_ID" .
+    skos:definition "die Republik Bulgarien"@de ;
+    base:xRepositoryID "125" ;
+    skos:exactMatch <urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:staatsangehoerigkeit:125> .
 
 :CHN a skos:Concept ;
-    skos:inScheme <http://bamf.de/vocabulary/staatsangehoerigkeit> ;
+    skos:inScheme <https://bamf.bund.de/vocab/staatsangehoerigkeit> ;
     skos:prefLabel "China"@de ,
                    "China"@en ;
     skos:notation "CHN" ;
     dct:identifier "CHN" ;
-    :xRepositoryID "TODO_ID" .
+    skos:definition "die Volksrepublik China"@de ;
+    base:xRepositoryID "479" ;
+    skos:exactMatch <urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:staatsangehoerigkeit:479> .
 
 :EGY a skos:Concept ;
-    skos:inScheme <http://bamf.de/vocabulary/staatsangehoerigkeit> ;
+    skos:inScheme <https://bamf.bund.de/vocab/staatsangehoerigkeit> ;
     skos:prefLabel "Ägypten"@de ,
                    "Egypt"@en ;
     skos:notation "EGY" ;
     dct:identifier "EGY" ;
-    :xRepositoryID "TODO_ID" .
+    skos:definition "die Arabische Republik Ägypten"@de ;
+    base:xRepositoryID "287" ;
+    skos:exactMatch <urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:staatsangehoerigkeit:287> .
 
 :ERI a skos:Concept ;
-    skos:inScheme <http://bamf.de/vocabulary/staatsangehoerigkeit> ;
+    skos:inScheme <https://bamf.bund.de/vocab/staatsangehoerigkeit> ;
     skos:prefLabel "Eritrea"@de ,
                    "Eritrea"@en ;
     skos:notation "ERI" ;
     dct:identifier "ERI" ;
-    :xRepositoryID "TODO_ID" .
+    skos:definition "der Staat Eritrea"@de ;
+    base:xRepositoryID "224" ;
+    skos:exactMatch <urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:staatsangehoerigkeit:224> .
 
 :GRC a skos:Concept ;
-    skos:inScheme <http://bamf.de/vocabulary/staatsangehoerigkeit> ;
+    skos:inScheme <https://bamf.bund.de/vocab/staatsangehoerigkeit> ;
     skos:prefLabel "Griechenland"@de ,
                    "Greece"@en ;
     skos:notation "GRC" ;
     dct:identifier "GRC" ;
-    :xRepositoryID "TODO_ID" .
+    skos:definition "die Hellenische Republik"@de ;
+    base:xRepositoryID "134" ;
+    skos:exactMatch <urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:staatsangehoerigkeit:134> .
 
 :IND a skos:Concept ;
-    skos:inScheme <http://bamf.de/vocabulary/staatsangehoerigkeit> ;
+    skos:inScheme <https://bamf.bund.de/vocab/staatsangehoerigkeit> ;
     skos:prefLabel "Indien"@de ,
                    "India"@en ;
     skos:notation "IND" ;
     dct:identifier "IND" ;
-    :xRepositoryID "TODO_ID" .
+    skos:definition "die Republik Indien"@de ;
+    base:xRepositoryID "436" ;
+    skos:exactMatch <urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:staatsangehoerigkeit:436> .
 
 :IRN a skos:Concept ;
-    skos:inScheme <http://bamf.de/vocabulary/staatsangehoerigkeit> ;
+    skos:inScheme <https://bamf.bund.de/vocab/staatsangehoerigkeit> ;
     skos:prefLabel "Iran, Islamische Republik"@de ,
                    "Iran, Islamic Republic of"@en ;
     skos:notation "IRN" ;
     dct:identifier "IRN" ;
-    :xRepositoryID "TODO_ID" .
+    skos:definition "die Islamische Republik Iran"@de ;
+    base:xRepositoryID "439" ;
+    skos:exactMatch <urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:staatsangehoerigkeit:439> .
 
 :IRQ a skos:Concept ;
-    skos:inScheme <http://bamf.de/vocabulary/staatsangehoerigkeit> ;
+    skos:inScheme <https://bamf.bund.de/vocab/staatsangehoerigkeit> ;
     skos:prefLabel "Irak"@de ,
                    "Iraq"@en ;
     skos:notation "IRQ" ;
     dct:identifier "IRQ" ;
-    :xRepositoryID "TODO_ID" ;
-    skos:topConceptOf <http://bamf.de/vocabulary/staatsangehoerigkeit> .
+    skos:definition "die Republik Irak"@de ;
+    base:xRepositoryID "438" ;
+    skos:exactMatch <urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:staatsangehoerigkeit:438> ;
+    skos:topConceptOf <https://bamf.bund.de/vocab/staatsangehoerigkeit> .
 
 :ITA a skos:Concept ;
-    skos:inScheme <http://bamf.de/vocabulary/staatsangehoerigkeit> ;
+    skos:inScheme <https://bamf.bund.de/vocab/staatsangehoerigkeit> ;
     skos:prefLabel "Italien"@de ,
                    "Italy"@en ;
     skos:notation "ITA" ;
     dct:identifier "ITA" ;
-    :xRepositoryID "TODO_ID" .
+    skos:definition "die Italienische Republik"@de ;
+    base:xRepositoryID "137" ;
+    skos:exactMatch <urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:staatsangehoerigkeit:137> .
 
 :KOS a skos:Concept ;
-    skos:inScheme <http://bamf.de/vocabulary/staatsangehoerigkeit> ;
+    skos:inScheme <https://bamf.bund.de/vocab/staatsangehoerigkeit> ;
     skos:prefLabel "Kosovo"@de ,
                    "Kosovo"@en ;
-    skos:notation "KOS" ;
-    dct:identifier "KOS" ;
-    :xRepositoryID "TODO_ID" ;
-    rdfs:comment "Provisorischer Code, nicht in ISO 3166-1 enthalten"@de .
+    skos:notation "XXK" ;
+    dct:identifier "XXK" ;
+    skos:definition "die Republik Kosovo"@de ;
+    base:xRepositoryID "150" ;
+    skos:exactMatch <urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:staatsangehoerigkeit:150> ;
+    rdfs:comment "Provisorischer Code XXK, nicht in ISO 3166-1 enthalten"@de .
 
 :HRV a skos:Concept ;
-    skos:inScheme <http://bamf.de/vocabulary/staatsangehoerigkeit> ;
+    skos:inScheme <https://bamf.bund.de/vocab/staatsangehoerigkeit> ;
     skos:prefLabel "Kroatien"@de ,
                    "Croatia"@en ;
     skos:notation "HRV" ;
     dct:identifier "HRV" ;
-    :xRepositoryID "TODO_ID" .
+    skos:definition "die Republik Kroatien"@de ;
+    base:xRepositoryID "130" ;
+    skos:exactMatch <urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:staatsangehoerigkeit:130> .
 
 :MAR a skos:Concept ;
-    skos:inScheme <http://bamf.de/vocabulary/staatsangehoerigkeit> ;
+    skos:inScheme <https://bamf.bund.de/vocab/staatsangehoerigkeit> ;
     skos:prefLabel "Marokko"@de ,
                    "Morocco"@en ;
     skos:notation "MAR" ;
     dct:identifier "MAR" ;
-    :xRepositoryID "TODO_ID" .
+    skos:definition "das Königreich Marokko"@de ;
+    base:xRepositoryID "252" ;
+    skos:exactMatch <urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:staatsangehoerigkeit:252> .
 
 :MKD a skos:Concept ;
-    skos:inScheme <http://bamf.de/vocabulary/staatsangehoerigkeit> ;
+    skos:inScheme <https://bamf.bund.de/vocab/staatsangehoerigkeit> ;
     skos:prefLabel "Nordmazedonien"@de ,
                    "North Macedonia"@en ;
     skos:altLabel "Mazedonien"@de ;
     skos:notation "MKD" ;
     dct:identifier "MKD" ;
-    :xRepositoryID "TODO_ID" .
+    skos:definition "die Republik Nordmazedonien"@de ;
+    base:xRepositoryID "144" ;
+    skos:exactMatch <urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:staatsangehoerigkeit:144> .
 
 :NGA a skos:Concept ;
-    skos:inScheme <http://bamf.de/vocabulary/staatsangehoerigkeit> ;
+    skos:inScheme <https://bamf.bund.de/vocab/staatsangehoerigkeit> ;
     skos:prefLabel "Nigeria"@de ,
                    "Nigeria"@en ;
     skos:notation "NGA" ;
     dct:identifier "NGA" ;
-    :xRepositoryID "TODO_ID" .
+    skos:definition "die Bundesrepublik Nigeria"@de ;
+    base:xRepositoryID "232" ;
+    skos:exactMatch <urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:staatsangehoerigkeit:232> .
 
 :PAK a skos:Concept ;
-    skos:inScheme <http://bamf.de/vocabulary/staatsangehoerigkeit> ;
+    skos:inScheme <https://bamf.bund.de/vocab/staatsangehoerigkeit> ;
     skos:prefLabel "Pakistan"@de ,
                    "Pakistan"@en ;
     skos:notation "PAK" ;
     dct:identifier "PAK" ;
-    :xRepositoryID "TODO_ID" .
+    skos:definition "die Islamische Republik Pakistan"@de ;
+    base:xRepositoryID "461" ;
+    skos:exactMatch <urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:staatsangehoerigkeit:461> .
 
 :POL a skos:Concept ;
-    skos:inScheme <http://bamf.de/vocabulary/staatsangehoerigkeit> ;
+    skos:inScheme <https://bamf.bund.de/vocab/staatsangehoerigkeit> ;
     skos:prefLabel "Polen"@de ,
                    "Poland"@en ;
     skos:notation "POL" ;
     dct:identifier "POL" ;
-    :xRepositoryID "TODO_ID" .
+    skos:definition "die Republik Polen"@de ;
+    base:xRepositoryID "152" ;
+    skos:exactMatch <urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:staatsangehoerigkeit:152> .
 
 :ROU a skos:Concept ;
-    skos:inScheme <http://bamf.de/vocabulary/staatsangehoerigkeit> ;
+    skos:inScheme <https://bamf.bund.de/vocab/staatsangehoerigkeit> ;
     skos:prefLabel "Rumänien"@de ,
                    "Romania"@en ;
     skos:notation "ROU" ;
     dct:identifier "ROU" ;
-    :xRepositoryID "TODO_ID" .
+    skos:definition "Rumänien"@de ;
+    base:xRepositoryID "154" ;
+    skos:exactMatch <urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:staatsangehoerigkeit:154> .
 
 :RUS a skos:Concept ;
-    skos:inScheme <http://bamf.de/vocabulary/staatsangehoerigkeit> ;
+    skos:inScheme <https://bamf.bund.de/vocab/staatsangehoerigkeit> ;
     skos:prefLabel "Russische Föderation"@de ,
                    "Russian Federation"@en ;
     skos:notation "RUS" ;
     dct:identifier "RUS" ;
-    :xRepositoryID "TODO_ID" .
+    skos:definition "die Russische Föderation"@de ;
+    base:xRepositoryID "160" ;
+    skos:exactMatch <urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:staatsangehoerigkeit:160> .
 
 :SRB a skos:Concept ;
-    skos:inScheme <http://bamf.de/vocabulary/staatsangehoerigkeit> ;
+    skos:inScheme <https://bamf.bund.de/vocab/staatsangehoerigkeit> ;
     skos:prefLabel "Serbien"@de ,
                    "Serbia"@en ;
     skos:notation "SRB" ;
     dct:identifier "SRB" ;
-    :xRepositoryID "TODO_ID" .
+    skos:definition "die Republik Serbien"@de ;
+    base:xRepositoryID "170" ;
+    skos:exactMatch <urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:staatsangehoerigkeit:170> .
 
 :SOM a skos:Concept ;
-    skos:inScheme <http://bamf.de/vocabulary/staatsangehoerigkeit> ;
+    skos:inScheme <https://bamf.bund.de/vocab/staatsangehoerigkeit> ;
     skos:prefLabel "Somalia"@de ,
                    "Somalia"@en ;
     skos:notation "SOM" ;
     dct:identifier "SOM" ;
-    :xRepositoryID "TODO_ID" .
+    skos:definition "die Bundesrepublik Somalia"@de ;
+    base:xRepositoryID "273" ;
+    skos:exactMatch <urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:staatsangehoerigkeit:273> .
 
 :ESP a skos:Concept ;
-    skos:inScheme <http://bamf.de/vocabulary/staatsangehoerigkeit> ;
+    skos:inScheme <https://bamf.bund.de/vocab/staatsangehoerigkeit> ;
     skos:prefLabel "Spanien"@de ,
                    "Spain"@en ;
     skos:notation "ESP" ;
     dct:identifier "ESP" ;
-    :xRepositoryID "TODO_ID" .
+    skos:definition "das Königreich Spanien"@de ;
+    base:xRepositoryID "161" ;
+    skos:exactMatch <urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:staatsangehoerigkeit:161> .
 
 :SYR a skos:Concept ;
-    skos:inScheme <http://bamf.de/vocabulary/staatsangehoerigkeit> ;
+    skos:inScheme <https://bamf.bund.de/vocab/staatsangehoerigkeit> ;
     skos:prefLabel "Syrien, Arabische Republik"@de ,
                    "Syrian Arab Republic"@en ;
     skos:altLabel "Syrien"@de ,
                   "Syria"@en ;
     skos:notation "SYR" ;
     dct:identifier "SYR" ;
-    :xRepositoryID "TODO_ID" ;
-    skos:topConceptOf <http://bamf.de/vocabulary/staatsangehoerigkeit> .
+    skos:definition "die Arabische Republik Syrien"@de ;
+    base:xRepositoryID "475" ;
+    skos:exactMatch <urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:staatsangehoerigkeit:475> ;
+    skos:topConceptOf <https://bamf.bund.de/vocab/staatsangehoerigkeit> .
 
 :TUN a skos:Concept ;
-    skos:inScheme <http://bamf.de/vocabulary/staatsangehoerigkeit> ;
+    skos:inScheme <https://bamf.bund.de/vocab/staatsangehoerigkeit> ;
     skos:prefLabel "Tunesien"@de ,
                    "Tunisia"@en ;
     skos:notation "TUN" ;
     dct:identifier "TUN" ;
-    :xRepositoryID "TODO_ID" .
+    base:xRepositoryID "TODO_ID" .
 
 :TUR a skos:Concept ;
-    skos:inScheme <http://bamf.de/vocabulary/staatsangehoerigkeit> ;
+    skos:inScheme <https://bamf.bund.de/vocab/staatsangehoerigkeit> ;
     skos:prefLabel "Türkei"@de ,
                    "Turkey"@en ;
     skos:notation "TUR" ;
     dct:identifier "TUR" ;
-    :xRepositoryID "TODO_ID" ;
-    skos:topConceptOf <http://bamf.de/vocabulary/staatsangehoerigkeit> .
+    skos:definition "die Republik Türkei"@de ;
+    base:xRepositoryID "163" ;
+    skos:exactMatch <urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:staatsangehoerigkeit:163> ;
+    skos:topConceptOf <https://bamf.bund.de/vocab/staatsangehoerigkeit> .
 
 :UKR a skos:Concept ;
-    skos:inScheme <http://bamf.de/vocabulary/staatsangehoerigkeit> ;
+    skos:inScheme <https://bamf.bund.de/vocab/staatsangehoerigkeit> ;
     skos:prefLabel "Ukraine"@de ,
                    "Ukraine"@en ;
     skos:notation "UKR" ;
     dct:identifier "UKR" ;
-    :xRepositoryID "TODO_ID" ;
-    skos:topConceptOf <http://bamf.de/vocabulary/staatsangehoerigkeit> .
+    skos:definition "die Ukraine"@de ;
+    base:xRepositoryID "166" ;
+    skos:exactMatch <urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:staatsangehoerigkeit:166> ;
+    skos:topConceptOf <https://bamf.bund.de/vocab/staatsangehoerigkeit> .
 
 :VNM a skos:Concept ;
-    skos:inScheme <http://bamf.de/vocabulary/staatsangehoerigkeit> ;
+    skos:inScheme <https://bamf.bund.de/vocab/staatsangehoerigkeit> ;
     skos:prefLabel "Vietnam"@de ,
                    "Viet Nam"@en ;
     skos:notation "VNM" ;
     dct:identifier "VNM" ;
-    :xRepositoryID "TODO_ID" .
+    skos:definition "die Sozialistische Republik Vietnam"@de ;
+    base:xRepositoryID "432" ;
+    skos:exactMatch <urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:staatsangehoerigkeit:432> .
 
 # Sonderfälle
 :XXA a skos:Concept ;
-    skos:inScheme <http://bamf.de/vocabulary/staatsangehoerigkeit> ;
+    skos:inScheme <https://bamf.bund.de/vocab/staatsangehoerigkeit> ;
     skos:prefLabel "Staatenlos"@de ,
                    "Stateless"@en ;
     skos:notation "XXA" ;
     dct:identifier "XXA" ;
     skos:definition "Person ohne Staatsangehörigkeit gemäß Übereinkommen über die Rechtsstellung der Staatenlosen von 1954"@de ;
-    :xRepositoryID "TODO_ID" ;
-    skos:topConceptOf <http://bamf.de/vocabulary/staatsangehoerigkeit> .
+    base:xRepositoryID "997" ;
+    skos:exactMatch <urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:staatsangehoerigkeit:997> ;
+    skos:topConceptOf <https://bamf.bund.de/vocab/staatsangehoerigkeit> .
 
 :XXB a skos:Concept ;
-    skos:inScheme <http://bamf.de/vocabulary/staatsangehoerigkeit> ;
+    skos:inScheme <https://bamf.bund.de/vocab/staatsangehoerigkeit> ;
     skos:prefLabel "Ungeklärt"@de ,
                    "Undetermined"@en ;
     skos:notation "XXB" ;
     dct:identifier "XXB" ;
     skos:definition "Staatsangehörigkeit konnte nicht geklärt werden"@de ;
-    :xRepositoryID "TODO_ID" ;
-    skos:topConceptOf <http://bamf.de/vocabulary/staatsangehoerigkeit> .
+    base:xRepositoryID "998" ;
+    skos:exactMatch <urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:staatsangehoerigkeit:998> ;
+    skos:topConceptOf <https://bamf.bund.de/vocab/staatsangehoerigkeit> .
 
 :XXC a skos:Concept ;
-    skos:inScheme <http://bamf.de/vocabulary/staatsangehoerigkeit> ;
+    skos:inScheme <https://bamf.bund.de/vocab/staatsangehoerigkeit> ;
     skos:prefLabel "Ohne Angabe"@de ,
                    "Not specified"@en ;
     skos:notation "XXC" ;
     dct:identifier "XXC" ;
     skos:definition "Keine Angabe zur Staatsangehörigkeit"@de ;
-    :xRepositoryID "TODO_ID" .
+    base:xRepositoryID "999" ;
+    skos:exactMatch <urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:staatsangehoerigkeit:999> .

@@ -1,4 +1,4 @@
-@prefix : <http://bamf.de/vocabulary/> .
+@prefix : <https://bamf.bund.de/vocab/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -13,7 +13,7 @@
 # und dient als zentraler Einstiegspunkt für kontrollierte Wertelisten.
 # ============================================================================
 
-<http://bamf.de/vocabulary/dsauslaender-vocabularies> a owl:Ontology ;
+<https://bamf.bund.de/vocab/dsauslaender-vocabularies> a owl:Ontology ;
     dct:title "DSAusländer Vokabular-Sammlung"@de ,
               "DSAusländer Vocabulary Collection"@en ;
     dct:description """Sammlung aller kontrollierten Vokabulare (SKOS) für die 
@@ -25,29 +25,28 @@
                        vocabularies and provides a central entry point for value 
                        lists."""@en ;
     dct:created "2025-01-19"^^xsd:date ;
-    dct:modified "2025-01-19"^^xsd:date ;
+    dct:modified "2026-01-29"^^xsd:date ;
     dct:creator "BAMF" ;
     dct:license <https://creativecommons.org/licenses/by/4.0/> ;
-    owl:versionInfo "1.0.0" ;
+    owl:versionInfo "1.1.0" ;
     rdfs:comment """Diese Ontologie dient als Container und importiert folgende Vokabulare:
                     - Geschlecht (Gender)
                     - Staatsangehörigkeit (Citizenship)
                     - Familienstand (Marital Status)
                     - Aufenthaltstitel (Residence Permit Types)
-                    - Aufenthaltszweck (Purpose of Residence)
                     - Asylentscheidung (Asylum Decision)
-                    - Sensitivität (Sensitivity Levels)
-                    - Feldlängentyp (Field Length Types)"""@de ;
+                    
+                    Archiviert (nicht im PDF oder nicht verwendet):
+                    - Aufenthaltszweck (nicht im PDF)
+                    - Sensitivität (interne Vocabulary, nicht verwendet)
+                    - Feldlängentyp (interne Vocabulary, nicht verwendet)"""@de ;
     
-    # Importe aller Einzelvokabulare
-    owl:imports <http://bamf.de/vocabulary/geschlecht> ,
-                <http://bamf.de/vocabulary/staatsangehoerigkeit> ,
-                <http://bamf.de/vocabulary/familienstand> ,
-                <http://bamf.de/vocabulary/aufenthaltstitel> ,
-                <http://bamf.de/vocabulary/aufenthaltszweck> ,
-                <http://bamf.de/vocabulary/asylentscheidung> ,
-                <http://bamf.de/vocabulary/sensitivitaet> ,
-                <http://bamf.de/vocabulary/feldlaengentyp> ;
+    # Importe aller im PDF referenzierten Einzelvokabulare
+    owl:imports <https://bamf.bund.de/vocab/geschlecht> ,
+                <https://bamf.bund.de/vocab/staatsangehoerigkeit> ,
+                <https://bamf.bund.de/vocab/familienstand> ,
+                <https://bamf.bund.de/vocab/aufenthaltstitel> ,
+                <https://bamf.bund.de/vocab/asylentscheidung> ;
     
     # Referenzen zu externen Standards und Quellen
     rdfs:seeAlso <https://www.xrepository.de> ,
@@ -58,8 +57,8 @@
     dct:conformsTo <http://www.w3.org/2004/02/skos/core#> ;
     
     # Versionsverwaltung
-    owl:versionIRI <http://bamf.de/vocabulary/dsauslaender-vocabularies/1.0.0> ;
-    owl:priorVersion <http://bamf.de/vocabulary/dsauslaender-vocabularies/0.9.0> .
+    owl:versionIRI <https://bamf.bund.de/vocab/dsauslaender-vocabularies/1.0.0> ;
+    owl:priorVersion <https://bamf.bund.de/vocab/dsauslaender-vocabularies/0.9.0> .
 
 # ============================================================================
 # DOKUMENTATION DER VOKABULARE
@@ -87,13 +86,21 @@
 
 :aufenthaltszweck a owl:NamedIndividual , owl:Ontology ;
     rdfs:label "Aufenthaltszweck Vokabular"@de , "Purpose of Residence Vocabulary"@en ;
-    rdfs:comment "Kontrollierte Werteliste für Zwecke des Aufenthalts (Erwerbstätigkeit, Studium, Asyl, etc.)"@de ;
+    rdfs:comment "ARCHIVIERT: Nicht im PDF enthalten - verschoben nach archive/unused-vocabularies/"@de ;
     dct:source <https://www.gesetze-im-internet.de/aufenthg_2004/> .
 
 :asylentscheidung a owl:NamedIndividual , owl:Ontology ;
     rdfs:label "Asylentscheidung Vokabular"@de , "Asylum Decision Vocabulary"@en ;
     rdfs:comment "Kontrollierte Werteliste für Arten von Asylentscheidungen nach deutschem Asylgesetz"@de ;
     dct:source <https://www.gesetze-im-internet.de/asylvfg_1992/> .
+
+# ============================================================================
+# ARCHIVIERTE VOKABULARE (NICHT IM PDF ODER NICHT VERWENDET)
+# ============================================================================
+# Die folgenden Vokabulare wurden nach archive/unused-vocabularies/ verschoben:
+# - aufenthaltszweck.ttl (nicht im PDF enthalten)
+# - sensitivitaet.ttl (interne Vocabulary, nicht verwendet)
+# - feldlaengentyp.ttl (interne Vocabulary, nicht verwendet)
 
 # ============================================================================
 # NUTZUNGSHINWEISE
@@ -103,10 +110,10 @@
 NUTZUNGSHINWEISE / USAGE NOTES:
 
 1. IMPORT: Um alle Vokabulare zu verwenden, importieren Sie nur diese Datei:
-   owl:imports <http://bamf.de/vocabulary/dsauslaender-vocabularies>
+   owl:imports <https://bamf.bund.de/vocab/dsauslaender-vocabularies>
 
 2. EINZELIMPORT: Um nur einzelne Vokabulare zu verwenden, importieren Sie direkt:
-   owl:imports <http://bamf.de/vocabulary/geschlecht>
+   owl:imports <https://bamf.bund.de/vocab/geschlecht>
 
 3. XREPOSITORY IDs: Die Platzhalter TODO_ID müssen durch die tatsächlichen 
    XRepository-Werte ersetzt werden. Diese können über die XRepository-API 
@@ -126,10 +133,10 @@ NUTZUNGSHINWEISE / USAGE NOTES:
 USAGE NOTES:
 
 1. IMPORT: To use all vocabularies, import only this file:
-   owl:imports <http://bamf.de/vocabulary/dsauslaender-vocabularies>
+   owl:imports <https://bamf.bund.de/vocab/dsauslaender-vocabularies>
 
 2. SELECTIVE IMPORT: To use only individual vocabularies, import directly:
-   owl:imports <http://bamf.de/vocabulary/geschlecht>
+   owl:imports <https://bamf.bund.de/vocab/geschlecht>
 
 3. XREPOSITORY IDs: The TODO_ID placeholders must be replaced with actual 
    XRepository values. These can be retrieved via the XRepository API.

@@ -1,41 +1,37 @@
-@prefix : <http://bamf.de/vocabulary/aufenthaltstitel#> .
+@prefix : <https://bamf.bund.de/vocab/aufenthaltstitel#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix dct: <http://purl.org/dc/terms/> .
+@prefix base: <https://bamf.bund.de/vocab/base#> .
 
 # ============================================================================
 # AUFENTHALTSTITEL-ARTEN SKOS-VOKABULAR
 # ============================================================================
 
-<http://bamf.de/vocabulary/aufenthaltstitel> a owl:Ontology , skos:ConceptScheme ;
+<https://bamf.bund.de/vocab/aufenthaltstitel> a owl:Ontology , skos:ConceptScheme ;
+    owl:imports <https://bamf.bund.de/vocab/base> ;
     dct:title "Aufenthaltstitel-Arten Vokabular"@de ,
               "Residence Permit Types Vocabulary"@en ;
     dct:description "Kontrolliertes Vokabular für Arten von Aufenthaltstiteln nach deutschem Aufenthaltsgesetz"@de ,
                     "Controlled vocabulary for types of residence permits according to German Residence Act"@en ;
     dct:created "2025-01-19"^^xsd:date ;
-    dct:modified "2025-01-19"^^xsd:date ;
+    dct:modified "2026-01-29"^^xsd:date ;
     dct:creator "BAMF" ;
     dct:license <https://creativecommons.org/licenses/by/4.0/> ;
-    owl:versionInfo "1.0.0" ;
-    # XRepository-Referenz (XAusländer)
-    :xRepositoryURN <https://www.xrepository.de/api/xrepository/urn:xauslaender-de:xauslaender:codeliste:aufenthaltstitel> ;
+    dct:source <https://www.xrepository.de/details/urn:de:xauslaender:codelist:azr.niederlassungserlaubnis> ;
+    owl:versionInfo "1.0.2" ;
+    # XRepository-Referenz (XAusländer AZR)
+    base:xRepositoryURN "urn:de:xauslaender:codelist:azr:niederlassungserlaubnis"^^xsd:anyURI ;
+    base:xRepositoryVersion "1" ;
+    rdfs:comment "Basiert auf der XAusländer AZR-Codeliste Niederlassungserlaubnis (Version 1). Aufenthaltstitel gemäß Aufenthaltsgesetz (AufenthG). Herausgeber: Koordinierungsstelle für IT-Standards (KoSIT)"@de ;
     dct:source <https://www.xrepository.de/details/urn:xauslaender-de:xauslaender:codeliste:aufenthaltstitel> ,
                <https://www.gesetze-im-internet.de/aufenthg_2004/> ;
     rdfs:comment "Basiert auf dem XAusländer-Standard Aufenthaltstitel mit Verweisen auf spezifische Paragraphen des Aufenthaltsgesetzes (AufenthG)"@de ;
     rdfs:label "Aufenthaltstitel-Art Konzeptschema"@de ,
                "Residence Permit Type Concept Scheme"@en .
-
-# Property-Definitionen für XRepository
-:xRepositoryURN a owl:AnnotationProperty ;
-    rdfs:label "XRepository URN"@de ;
-    rdfs:range xsd:anyURI .
-
-:xRepositoryID a owl:DatatypeProperty ;
-    rdfs:label "XRepository ID"@de ;
-    rdfs:range xsd:string .
 
 # ============================================================================
 # AUFENTHALTSTITEL-KONZEPTE
@@ -43,7 +39,7 @@
 
 # Befristete Aufenthaltstitel
 :Aufenthaltserlaubnis a skos:Concept ;
-    skos:inScheme <http://bamf.de/vocabulary/aufenthaltstitel> ;
+    skos:inScheme <https://bamf.bund.de/vocab/aufenthaltstitel> ;
     skos:prefLabel "Aufenthaltserlaubnis"@de ,
                    "Temporary Residence Permit"@en ;
     # Die Eigenschaft skos:notation wird verwendet, um eine standardisierte Kurzbezeichnung oder einen Code für ein Konzept anzugeben.
@@ -54,26 +50,26 @@
     skos:definition "Befristeter Aufenthaltstitel nach § 7 AufenthG"@de ,
                     "Temporary residence permit according to § 7 AufenthG"@en ;
     dct:source <https://www.gesetze-im-internet.de/aufenthg_2004/__7.html> ;
-    :xRepositoryID "TODO_ID" ;
+    base:xRepositoryID "TODO_ID" ;
     rdfs:comment "Wird für verschiedene Aufenthaltszwecke erteilt (z.B. Erwerbstätigkeit, Studium, Familiennachzug)"@de ;
     # Diese Zeile kennzeichnet das aktuelle Konzept als Hauptkonzept (Top Concept) innerhalb des angegebenen SKOS-Konzeptschemas für Aufenthaltstitel.
-    skos:topConceptOf <http://bamf.de/vocabulary/aufenthaltstitel> .
+    skos:topConceptOf <https://bamf.bund.de/vocab/aufenthaltstitel> .
 
 # Unbefristete Aufenthaltstitel
 :Niederlassungserlaubnis a skos:Concept ;
-    skos:inScheme <http://bamf.de/vocabulary/aufenthaltstitel> ;
+    skos:inScheme <https://bamf.bund.de/vocab/aufenthaltstitel> ;
     skos:prefLabel "Niederlassungserlaubnis"@de ,
                    "Permanent Residence Permit"@en ;
     skos:notation "NE" ;
     skos:definition "Unbefristeter Aufenthaltstitel nach § 9 AufenthG"@de ,
                     "Permanent residence permit according to § 9 AufenthG"@en ;
     dct:source <https://www.gesetze-im-internet.de/aufenthg_2004/__9.html> ;
-    :xRepositoryID "TODO_ID" ;
+    base:xRepositoryID "TODO_ID" ;
     rdfs:comment "Berechtigt zur Ausübung einer Erwerbstätigkeit ohne Einschränkung"@de ;
-    skos:topConceptOf <http://bamf.de/vocabulary/aufenthaltstitel> .
+    skos:topConceptOf <https://bamf.bund.de/vocab/aufenthaltstitel> .
 
 :ErlaubnisDaueraufenthaltEU a skos:Concept ;
-    skos:inScheme <http://bamf.de/vocabulary/aufenthaltstitel> ;
+    skos:inScheme <https://bamf.bund.de/vocab/aufenthaltstitel> ;
     skos:prefLabel "Erlaubnis zum Daueraufenthalt-EU"@de ,
                    "EU Long-term Residence Permit"@en ;
     skos:altLabel "Daueraufenthalt-EU"@de ;
@@ -81,13 +77,13 @@
     skos:definition "Unbefristeter Aufenthaltstitel nach § 9a AufenthG mit EU-weiter Anerkennung"@de ,
                     "Permanent residence permit according to § 9a AufenthG with EU-wide recognition"@en ;
     dct:source <https://www.gesetze-im-internet.de/aufenthg_2004/__9a.html> ;
-    :xRepositoryID "TODO_ID" ;
+    base:xRepositoryID "TODO_ID" ;
     rdfs:comment "Entspricht der Richtlinie 2003/109/EG über langfristig aufenthaltsberechtigte Drittstaatsangehörige"@de ;
-    skos:topConceptOf <http://bamf.de/vocabulary/aufenthaltstitel> .
+    skos:topConceptOf <https://bamf.bund.de/vocab/aufenthaltstitel> .
 
 # Spezielle Aufenthaltstitel für Fachkräfte
 :BlauKarteEU a skos:Concept ;
-    skos:inScheme <http://bamf.de/vocabulary/aufenthaltstitel> ;
+    skos:inScheme <https://bamf.bund.de/vocab/aufenthaltstitel> ;
     skos:prefLabel "Blaue Karte EU"@de ,
                    "EU Blue Card"@en ;
     skos:altLabel "Blue Card"@en ;
@@ -95,12 +91,12 @@
     skos:definition "Aufenthaltstitel für hochqualifizierte Arbeitnehmer nach § 18b Abs. 2 AufenthG"@de ,
                     "Residence permit for highly qualified workers according to § 18b para. 2 AufenthG"@en ;
     dct:source <https://www.gesetze-im-internet.de/aufenthg_2004/__18b.html> ;
-    :xRepositoryID "TODO_ID" ;
+    base:xRepositoryID "TODO_ID" ;
     rdfs:comment "Setzt Hochschulabschluss und qualifizierte Beschäftigung mit Mindestgehalt voraus"@de ;
-    skos:topConceptOf <http://bamf.de/vocabulary/aufenthaltstitel> .
+    skos:topConceptOf <https://bamf.bund.de/vocab/aufenthaltstitel> .
 
 :ICTKarte a skos:Concept ;
-    skos:inScheme <http://bamf.de/vocabulary/aufenthaltstitel> ;
+    skos:inScheme <https://bamf.bund.de/vocab/aufenthaltstitel> ;
     skos:prefLabel "ICT-Karte"@de ,
                    "ICT Card"@en ;
     skos:altLabel "Intra-Corporate Transfer Karte"@de ;
@@ -108,60 +104,60 @@
     skos:definition "Aufenthaltstitel für unternehmensintern transferierte Arbeitnehmer nach § 19 AufenthG"@de ,
                     "Residence permit for intra-corporate transferees according to § 19 AufenthG"@en ;
     dct:source <https://www.gesetze-im-internet.de/aufenthg_2004/__19.html> ;
-    :xRepositoryID "TODO_ID" ;
+    base:xRepositoryID "TODO_ID" ;
     rdfs:comment "Für Arbeitnehmer, die vorübergehend in eine deutsche Niederlassung entsandt werden"@de .
 
 :MobilerICTKarte a skos:Concept ;
-    skos:inScheme <http://bamf.de/vocabulary/aufenthaltstitel> ;
+    skos:inScheme <https://bamf.bund.de/vocab/aufenthaltstitel> ;
     skos:prefLabel "Mobiler-ICT-Karte"@de ,
                    "Mobile ICT Card"@en ;
     skos:notation "MICT" ;
     skos:definition "Aufenthaltstitel für mobil ICT nach § 19b AufenthG"@de ,
                     "Residence permit for mobile ICT according to § 19b AufenthG"@en ;
     dct:source <https://www.gesetze-im-internet.de/aufenthg_2004/__19b.html> ;
-    :xRepositoryID "TODO_ID" ;
+    base:xRepositoryID "TODO_ID" ;
     rdfs:comment "Für Inhaber einer ICT-Karte eines anderen EU-Mitgliedstaats"@de .
 
 # Aufenthaltstitel für besondere Gruppen
-:AufenthaltserlaubnisHumani taereGruende a skos:Concept ;
-    skos:inScheme <http://bamf.de/vocabulary/aufenthaltstitel> ;
+:AufenthaltserlaubnisHumanitaereGruende a skos:Concept ;
+    skos:inScheme <https://bamf.bund.de/vocab/aufenthaltstitel> ;
     skos:prefLabel "Aufenthaltserlaubnis aus humanitären Gründen"@de ,
                    "Residence Permit for Humanitarian Reasons"@en ;
     skos:notation "AH" ;
     skos:definition "Aufenthaltserlaubnis nach Kapitel 2 Abschnitt 5 AufenthG (§§ 22-26)"@de ;
     dct:source <https://www.gesetze-im-internet.de/aufenthg_2004/__25.html> ;
-    :xRepositoryID "TODO_ID" ;
+    base:xRepositoryID "TODO_ID" ;
     rdfs:comment "Umfasst verschiedene humanitäre Aufenthaltsgründe, inkl. Asyl und Flüchtlingsschutz"@de .
 
 :Fiktionsbescheinigung a skos:Concept ;
-    skos:inScheme <http://bamf.de/vocabulary/aufenthaltstitel> ;
+    skos:inScheme <https://bamf.bund.de/vocab/aufenthaltstitel> ;
     skos:prefLabel "Fiktionsbescheinigung"@de ,
                    "Fictional Certificate"@en ;
     skos:notation "FB" ;
     skos:definition "Bescheinigung über die Fortgeltung der Wirkungen eines Aufenthaltstitels nach § 81 AufenthG"@de ,
                     "Certificate of continued effect of a residence permit according to § 81 AufenthG"@en ;
     dct:source <https://www.gesetze-im-internet.de/aufenthg_2004/__81.html> ;
-    :xRepositoryID "TODO_ID" ;
+    base:xRepositoryID "TODO_ID" ;
     rdfs:comment "Überbrückende Bescheinigung während der Bearbeitung eines Antrags"@de .
 
 :Aufenthaltsgestattung a skos:Concept ;
-    skos:inScheme <http://bamf.de/vocabulary/aufenthaltstitel> ;
+    skos:inScheme <https://bamf.bund.de/vocab/aufenthaltstitel> ;
     skos:prefLabel "Aufenthaltsgestattung"@de ,
                    "Temporary Residence Permit (Asylum Seeker)"@en ;
     skos:notation "AG" ;
     skos:definition "Bescheinigung über die Erlaubnis zum Aufenthalt während des Asylverfahrens nach § 55 AsylG"@de ,
                     "Certificate of permission to stay during asylum procedure according to § 55 AsylG"@en ;
     dct:source <https://www.gesetze-im-internet.de/asylvfg_1992/__55.html> ;
-    :xRepositoryID "TODO_ID" ;
+    base:xRepositoryID "TODO_ID" ;
     rdfs:comment "Kein Aufenthaltstitel im engeren Sinne, sondern vorübergehende Aufenthaltsberechtigung"@de .
 
 :Duldung a skos:Concept ;
-    skos:inScheme <http://bamf.de/vocabulary/aufenthaltstitel> ;
+    skos:inScheme <https://bamf.bund.de/vocab/aufenthaltstitel> ;
     skos:prefLabel "Duldung"@de ,
                    "Toleration"@en ;
     skos:notation "DU" ;
     skos:definition "Vorübergehende Aussetzung der Abschiebung nach § 60a AufenthG"@de ,
                     "Temporary suspension of deportation according to § 60a AufenthG"@en ;
     dct:source <https://www.gesetze-im-internet.de/aufenthg_2004/__60a.html> ;
-    :xRepositoryID "TODO_ID" ;
+    base:xRepositoryID "TODO_ID" ;
     rdfs:comment "Kein Aufenthaltstitel, sondern nur vorübergehende Aussetzung der Ausreisepflicht"@de .

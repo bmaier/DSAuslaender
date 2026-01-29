@@ -1,0 +1,54 @@
+@prefix : <https://bamf.bund.de/vocab/base#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+
+# ============================================================================
+# BAMF BASIS-ONTOLOGIE
+#
+# Zentrale Definition gemeinsamer Properties für alle BAMF-Vokabulare
+# ============================================================================
+
+<https://bamf.bund.de/vocab/base> a owl:Ontology ;
+    dct:title "BAMF Basis-Ontologie"@de ,
+              "BAMF Base Ontology"@en ;
+    dct:description "Gemeinsame Properties und Klassen für BAMF-Vokabulare und XRepository-Integration"@de ,
+                    "Common properties and classes for BAMF vocabularies and XRepository integration"@en ;
+    dct:created "2026-01-29"^^xsd:date ;
+    dct:modified "2026-01-29"^^xsd:date ;
+    dct:creator "BAMF" ;
+    dct:license <https://creativecommons.org/licenses/by/4.0/> ;
+    owl:versionInfo "1.0.0" ;
+    rdfs:comment "Diese Ontologie definiert wiederverwendbare Properties für die Integration mit XRepository (XÖV-Standards)"@de ;
+    rdfs:label "BAMF Basis-Ontologie"@de ,
+               "BAMF Base Ontology"@en .
+
+# ============================================================================
+# XREPOSITORY PROPERTIES
+# ============================================================================
+
+:xRepositoryURN a owl:AnnotationProperty ;
+    rdfs:label "XRepository URN"@de ,
+               "XRepository URN"@en ;
+    rdfs:comment "URN-Referenz auf eine XRepository-Codeliste. Wird verwendet, um Vokabulare mit offiziellen XÖV-Codelisten zu verknüpfen."@de ,
+                 "URN reference to an XRepository codelist. Used to link vocabularies with official XÖV codelists."@en ;
+    rdfs:range xsd:anyURI ;
+    rdfs:isDefinedBy <https://bamf.bund.de/vocab/base> .
+
+:xRepositoryID a owl:DatatypeProperty ;
+    rdfs:label "XRepository ID"@de ,
+               "XRepository ID"@en ;
+    rdfs:comment "Eindeutige ID eines Konzepts innerhalb einer XRepository-Codeliste (z.B. DESTATIS-Schlüssel)"@de ,
+                 "Unique ID of a concept within an XRepository codelist (e.g., DESTATIS key)"@en ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <https://bamf.bund.de/vocab/base> .
+
+:xRepositoryVersion a owl:DatatypeProperty ;
+    rdfs:label "XRepository Version"@de ,
+               "XRepository Version"@en ;
+    rdfs:comment "Versionsnummer der verwendeten XRepository-Codeliste"@de ,
+                 "Version number of the used XRepository codelist"@en ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <https://bamf.bund.de/vocab/base> .
